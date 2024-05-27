@@ -4,6 +4,7 @@ import tseslint from 'typescript-eslint';
 import { FlatCompat } from '@eslint/eslintrc';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import i18next from 'eslint-plugin-i18next';
 // mimic CommonJS variables -- not needed if using CommonJS
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -23,6 +24,9 @@ export default [
     ...tseslint.configs.recommended,
     ...compat.extends('airbnb'),
     {
+        plugins: {
+            i18next
+        },
         rules:
             {
                 'react/jsx-indent': [2, 4],
@@ -40,7 +44,8 @@ export default [
                 'import/extensions': 0,
                 'import/no-extraneous-dependencies': 0,
                 'no-underscore-dangle': 0,
-                '@typescript-eslint/ban-ts-comment': 1
+                '@typescript-eslint/ban-ts-comment': 1,
+                'i18next/no-literal-string': [2, { markupOnly: true }]
             },
     },
 ]
