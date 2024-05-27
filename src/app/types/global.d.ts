@@ -1,5 +1,3 @@
-import {FC, PropsWithChildren} from "react";
-
+import { FC, PropsWithChildren } from 'react';
 
 declare type ReactFCWithChildren = FC<PropsWithChildren>;
-
