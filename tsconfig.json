@@ -9,6 +9,14 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "types": [
+      "@testing-library/jest-dom"
+    ],
+    "lib": [
+      "es2017",
+      "es6",
+      "dom"
+    ],
     "baseUrl": ".",
     "paths": {
       "*": [
@@ -24,6 +32,12 @@
       "esModuleInterop": true
     }
   },
+  "include": [
+    "src",
+    "./config/jest/setupTests.ts",
+    "./src/app/types/global.d.ts",
+    "./src/app/types/typings.d.ts"
+  ],
   "exclude": [
     "node_modules"
   ]
