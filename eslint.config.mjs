@@ -18,7 +18,7 @@ export default [
             globals: {
                 __IS_DEV__: 'readonly',
                 ...globals.browser
-            }
+            },
         }
     },
     pluginJs.configs.recommended,
@@ -47,8 +47,21 @@ export default [
                 'import/no-extraneous-dependencies': 0,
                 'no-underscore-dangle': 0,
                 '@typescript-eslint/ban-ts-comment': 1,
-                'i18next/no-literal-string': [2, { markupOnly: true }],
-                'max-len': [1, 120]
+                'i18next/no-literal-string': [2,
+                    {
+                        markupOnly: true,
+                        ignoreAttribute: ['data-testid', 'to']
+                    }],
+                'max-len': [1, {
+                    code: 120,
+                    ignoreComments: true
+                }]
             },
     },
+    {
+        files: ['**/src/**/*.tsst.{ts,tsx}'],
+        rules: {
+            'i18next/no-literal-string': 0
+        }
+    }
 ]

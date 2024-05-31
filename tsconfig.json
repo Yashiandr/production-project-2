@@ -10,7 +10,8 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "types": [
-      "@testing-library/jest-dom"
+      "@testing-library/jest-dom",
+      "@types/node"
     ],
     "lib": [
       "es2017",
