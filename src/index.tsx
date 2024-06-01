@@ -10,10 +10,10 @@ const root = createRoot(container);
 
 root.render(
     <BrowserRouter>
-        <ErrorBoundary>
-            <ThemeProvider>
+        <ThemeProvider>
+            <ErrorBoundary>
                 <App />
-            </ThemeProvider>
-        </ErrorBoundary>
+            </ErrorBoundary>
+        </ThemeProvider>
     </BrowserRouter>,
 );

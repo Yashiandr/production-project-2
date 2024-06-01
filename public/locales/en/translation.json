@@ -1,8 +1,10 @@
 {
   "Язык": "English",
   "Главная страница": "Main page",
+  "О сайте": "About us",
   "Страница не найдена": "Page not found",
   "Произошла непредвиденная ошибка": "Unexpected error has occurred",
   "Обновить страницу": "Reload page",
-  "Главная": "Main"
+  "Главная": "Main",
+  "Короткий язык": "En"
 }
