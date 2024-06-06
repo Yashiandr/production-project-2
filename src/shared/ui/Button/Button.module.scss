@@ -4,11 +4,16 @@
     padding: .125rem .625rem;
 }
 
-.clear {
+.clear,
+.clearInverted {
     border: none;
     background: none;
     outline: none;
     padding: 0;
+}
+
+.clearInverted {
+    color: var(--inverted-primary-color)
 }
 
 .outline {

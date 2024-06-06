@@ -2,6 +2,7 @@ import globals from 'globals';
 import pluginJs from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import { FlatCompat } from '@eslint/eslintrc';
+import reactHooks from 'eslint-plugin-react-hooks';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import i18next from 'eslint-plugin-i18next';
@@ -27,7 +28,8 @@ export default [
     jest.configs['flat/style'],
     {
         plugins: {
-            i18next
+            i18next,
+            reactHooks
         },
         rules:
             {
@@ -55,13 +57,19 @@ export default [
                 'max-len': [1, {
                     code: 120,
                     ignoreComments: true
-                }]
+                }],
+                'jsx-a11y/no-static-element-interactions': 0,
+                'jsx-a11y/click-events-have-key-events': 0,
+                'reactHooks/rules-of-hooks': 2, // Checks rules of Hooks
+                'reactHooks/exhaustive-deps': 2 // Checks effect dependencies
             },
     },
     {
-        files: ['**/src/**/*.tsst.{ts,tsx}'],
+        files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
         rules: {
-            'i18next/no-literal-string': 0
+            'i18next/no-literal-string': 0,
+            'max-len': 0
         }
-    }
+    },
+
 ]
