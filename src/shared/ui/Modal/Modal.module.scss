@@ -28,6 +28,8 @@
     pointer-events: auto;
     opacity: 1;
     z-index: var(--modal-z-index);
+    transition: opacity .3s ease-out;
+
 
     .content {
         transform: scale(1);

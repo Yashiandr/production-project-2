@@ -10,9 +10,11 @@ interface ModalProps {
     children?: ReactNode;
     isOpen?: boolean;
     onClose?: () => void;
+    lazy?: boolean;
+    storybook?: boolean;
 }
 
-const ANIMATION_DELAY = 300;
+let ANIMATION_DELAY = 300;
 
 export const Modal = (props: ModalProps) => {
     const {
@@ -20,9 +22,18 @@ export const Modal = (props: ModalProps) => {
         children,
         isOpen,
         onClose,
+        storybook = false,
+        lazy = true,
     } = props;
+    let transformStory = {};
+
+    if (storybook) {
+        ANIMATION_DELAY = 0;
+        transformStory = { transform: 'scale(1)' };
+    }
 
     const [isClosing, setIsClosing] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
     const mods: Record<string, boolean> = {
@@ -40,6 +51,7 @@ export const Modal = (props: ModalProps) => {
             timerRef.current = setTimeout(() => {
                 onClose();
                 setIsClosing(false);
+                setIsMounted(false);
             }, ANIMATION_DELAY);
         }
     }, [onClose]);
@@ -60,11 +72,29 @@ export const Modal = (props: ModalProps) => {
         };
     }, [isOpen, onKeyDown]);
 
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true);
+            setIsClosing(true);
+            timerRef.current = setTimeout(() => {
+                setIsClosing(false);
+            }, ANIMATION_DELAY / 3);
+        }
+    }, [isOpen]);
+
+    if (lazy && !isMounted) {
+        return null;
+    }
+
     return (
         <Portal>
             <div className={classNames(cls.Modal, mods, [className])}>
                 <div className={cls.overlay} onClick={closeHandler}>
-                    <div className={cls.content} onClick={onContentClick}>
+                    <div
+                        className={cls.content}
+                        style={transformStory || {}}
+                        onClick={onContentClick}
+                    >
                         {children}
                     </div>
                 </div>
