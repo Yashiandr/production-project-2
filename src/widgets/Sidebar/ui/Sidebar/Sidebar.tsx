@@ -58,7 +58,6 @@ export function Sidebar({ className }: SidebarProps) {
                         {t('О сайте')}
                     </span>
                 </AppLink>
-
             </div>
             <div className={cls.switchers}>
                 <ThemeSwitcher />

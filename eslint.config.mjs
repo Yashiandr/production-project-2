@@ -61,7 +61,8 @@ export default [
                 'jsx-a11y/no-static-element-interactions': 0,
                 'jsx-a11y/click-events-have-key-events': 0,
                 'reactHooks/rules-of-hooks': 2, // Checks rules of Hooks
-                'reactHooks/exhaustive-deps': 2 // Checks effect dependencies
+                'reactHooks/exhaustive-deps': 2, // Checks effect dependencies,
+                'no-param-reassign': 0,
             },
     },
     {
