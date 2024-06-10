@@ -38,8 +38,8 @@
 }
 
 .square.size_m {
-    width: var(--font-line-m);
-    height: var(--font-line-m);
+    width: calc(var(--font-line-m) + 2px);
+    height: calc(var(--font-line-m) + 2px);
 }
 
 .square.size_l {

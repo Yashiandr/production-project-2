@@ -93,7 +93,7 @@ export const BackgroundDark: Story = {
 export const BackgroundInverted: Story = {
     args: {
         children: 'bgInverted',
-        theme: ButtonTheme.BACKGROUND,
+        theme: ButtonTheme.BACKGROUND_INVERTED,
     },
 };
 
@@ -107,8 +107,7 @@ export const BackgroundInvertedDark: Story = {
 export const Square: Story = {
     args: {
         square: true,
-        theme: ButtonTheme.BACKGROUND_INVERTED,
-        children: '[]',
+        children: '∎',
     },
 };
 
