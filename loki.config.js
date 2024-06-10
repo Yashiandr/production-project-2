@@ -1,5 +1,5 @@
 module.exports = {
-    chromeSelector: 'body > *, #root > *, #storybook-root > *',
+    chromeSelector: 'body > *, #root > *',
     configurations: {
         'chrome.laptop': {
             target: 'chrome.docker',

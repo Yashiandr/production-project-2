@@ -72,5 +72,10 @@ export default [
             'max-len': 0
         }
     },
-
+    {
+        files: ['**/*.js'],
+        rules: {
+            '@typescript-eslint/no-var-requires': 0,
+        }
+    }
 ]
