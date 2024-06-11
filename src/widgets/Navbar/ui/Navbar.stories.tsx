@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Navbar } from './Navbar';
 
@@ -8,6 +9,13 @@ const meta = {
     component: Navbar,
 
     tags: ['autodocs'],
+    decorators: [
+        StoreDecorator({
+            user: {
+                authData: undefined,
+            },
+        }),
+    ],
 
 } satisfies Meta<typeof Navbar>;
 

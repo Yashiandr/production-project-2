@@ -34,6 +34,13 @@ export const SizeXL = {
     },
 };
 
+export const Disabled = {
+    args: {
+        ...Primary.args,
+        disabled: true,
+    },
+};
+
 export const Clear: Story = {
     args: {
         children: 'Clear',

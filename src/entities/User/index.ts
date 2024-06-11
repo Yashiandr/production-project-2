@@ -6,3 +6,5 @@ export type {
     User,
     UserSchema,
 } from './model/types/user';
+
+export { selectUserAuthData } from './model/selectors/selectUserAuthData/selectUserAuthData';
