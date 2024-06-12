@@ -66,10 +66,11 @@ export default [
             },
     },
     {
-        files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
+        files: ['**/src/**/*.{test,stories}.{ts,tsx}', '**/tests/**/*.{ts,tsx}'],
         rules: {
             'i18next/no-literal-string': 0,
-            'max-len': 0
+            'max-len': 0,
+            '@typescript-eslint/no-explicit-any': 0
         }
     },
     {
