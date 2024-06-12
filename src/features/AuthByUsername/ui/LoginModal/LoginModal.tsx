@@ -27,7 +27,7 @@ export const LoginModal = (props: LoginModalProps) => {
             storybook={storybook}
         >
             <Suspense fallback={<Loader />}>
-                <LoginFormAsync />
+                <LoginFormAsync onSuccess={onClose} />
             </Suspense>
         </Modal>
     );

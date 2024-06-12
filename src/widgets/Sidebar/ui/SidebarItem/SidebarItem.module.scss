@@ -1,0 +1,26 @@
+.SidebarItem {
+    fill: var(--bg-color);
+    stroke: var(--inverted-bg-color);
+    display: flex;
+    align-items: center;
+    transition: stroke .2s ease, fill .2s ease;
+    gap: .5rem;
+    text-wrap: nowrap;
+
+    svg {
+        fill: var(--bg-color);
+        min-width: 2rem;
+        min-height: 2rem;
+    }
+}
+
+.linkText {
+    opacity: 1;
+    transition: opacity .2s ease;
+}
+
+.collapsed {
+    .linkText {
+        opacity: 0;
+    }
+}

@@ -35,7 +35,16 @@
       "password": "123"
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "profile": [
+    {
+      "first": "Никита",
+      "lastname": "Андряшин",
+      "age": 26,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Yanino-1",
+      "username": "yashiandr",
+      "avatar": "https://masterpiecer-images.s3.yandex.net/5c949703654e11eea2a6963c1ee369ba:upscaled"
+    }
+  ]
 }
