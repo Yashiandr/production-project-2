@@ -1,4 +1,3 @@
-import { selectUserAuthData, userActions } from 'entities/User';
 import { LoginModal } from 'features/AuthByUsername';
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -6,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/AppDispatch/AppDispatch';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { selectUserAuthData, userActions } from '../../../entities/User';
 import * as cls from './Navbar.module.scss';
 
 interface NavbarProps {

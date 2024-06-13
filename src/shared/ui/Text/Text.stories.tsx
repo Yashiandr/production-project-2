@@ -23,13 +23,13 @@ export const Primary: Story = {
 
 export const TitleOnly: Story = {
     args: {
-        title: Primary.args.title,
+        title: Primary!.args!.title,
     },
 };
 
 export const TextOnly: Story = {
     args: {
-        text: Primary.args.text,
+        text: Primary!.args!.text,
     },
 };
 
@@ -46,14 +46,14 @@ export const PrimaryDark: Story = {
 export const TitleOnlyDark: Story = {
     ...PrimaryDark,
     args: {
-        title: Primary.args.title,
+        title: Primary!.args!.title,
     },
 };
 
 export const TextOnlyDark: Story = {
     ...PrimaryDark,
     args: {
-        text: Primary.args.text,
+        text: Primary!.args!.text,
     },
 };
 

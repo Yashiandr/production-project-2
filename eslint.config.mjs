@@ -18,6 +18,7 @@ export default [
         languageOptions: {
             globals: {
                 __IS_DEV__: 'readonly',
+                __API__: true,
                 ...globals.browser
             },
         }
@@ -63,6 +64,16 @@ export default [
                 'reactHooks/rules-of-hooks': 2, // Checks rules of Hooks
                 'reactHooks/exhaustive-deps': 2, // Checks effect dependencies,
                 'no-param-reassign': 0,
+                'no-undef': 0,
+                'no-restricted-imports': 'off',
+                '@typescript-eslint/no-restricted-imports': [
+                    'warn',
+                    {
+                        'name': 'react-redux',
+                        'importNames': ['useSelector', 'useDispatch'],
+                        'message': 'Use typed hooks `useAppDispatch` and `useAppSelector` instead.'
+                    }
+                ],
             },
     },
     {

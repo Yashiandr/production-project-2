@@ -7,6 +7,10 @@ import LoginForm from './LoginForm';
 const meta = {
     title: 'features/LoginForm',
     component: LoginForm,
+    args: {
+        onSuccess: () => {
+        },
+    },
 
     tags: ['autodocs'],
 

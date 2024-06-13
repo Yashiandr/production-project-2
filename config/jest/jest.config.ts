@@ -36,9 +36,12 @@ const config: Config = {
     moduleNameMapper: {
         '\\.(css|scss)$': '<rootDir>/config/jest/identity-obj-proxy-esm.js',
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+        'entities/(.*)': '<rootDir>src/entities/$1',
     },
     globals: {
         __IS_DEV__: true,
+        __API__: '',
+        __STORYBOOK__: false,
     },
 
     // Indicates whether the coverage information should be collected while executing the test

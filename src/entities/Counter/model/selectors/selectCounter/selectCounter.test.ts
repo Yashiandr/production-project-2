@@ -1,5 +1,4 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { DeepPartial } from 'app/types/global';
 import { selectCounter } from './selectCounter';
 
 describe('selectCounter', () => {

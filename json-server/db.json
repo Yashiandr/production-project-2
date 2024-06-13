@@ -35,7 +35,7 @@
       "password": "123"
     }
   ],
-  "profile": [
+  "profile":
     {
       "first": "Никита",
       "lastname": "Андряшин",
@@ -43,8 +43,7 @@
       "currency": "RUB",
       "country": "Russia",
       "city": "Yanino-1",
-      "username": "yashiandr",
+      "username": "Yashiandr",
       "avatar": "https://masterpiecer-images.s3.yandex.net/5c949703654e11eea2a6963c1ee369ba:upscaled"
     }
-  ]
 }

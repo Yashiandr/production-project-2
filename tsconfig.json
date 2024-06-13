@@ -18,6 +18,7 @@
       "es6",
       "dom"
     ],
+    "strict": true,
     "baseUrl": ".",
     "paths": {
       "features/*": [

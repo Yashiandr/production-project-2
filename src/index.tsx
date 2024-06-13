@@ -8,16 +8,16 @@ import { ErrorBoundary } from './app/providers/ErrorBoundary';
 import 'app/styles/index.scss';
 
 const container = document.getElementById('root');
-const root = createRoot(container);
+const root = createRoot(container!);
 
 root.render(
-    <StoreProvider>
-        <BrowserRouter>
+    <BrowserRouter>
+        <StoreProvider>
             <ThemeProvider>
                 <ErrorBoundary>
                     <App />
                 </ErrorBoundary>
             </ThemeProvider>
-        </BrowserRouter>
-    </StoreProvider>,
+        </StoreProvider>
+    </BrowserRouter>,
 );

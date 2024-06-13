@@ -1,7 +1,7 @@
-import { selectCounterValue } from 'entities/Counter/model/selectors/selectCounterValue/selectCounterValue';
-import { counterActions } from 'entities/Counter/model/slice/counterSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from 'shared/ui/Button/Button';
+import { selectCounterValue } from '../model/selectors/selectCounterValue/selectCounterValue';
+import { counterActions } from '../model/slice/counterSlice';
 
 export const Counter = () => {
     const dispatch = useDispatch();

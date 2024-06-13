@@ -1,5 +1,4 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { DeepPartial } from 'app/types/global';
 import { selectLoginPassword } from './selectLoginPassword';
 
 describe('selectLoginPassword.test', () => {
