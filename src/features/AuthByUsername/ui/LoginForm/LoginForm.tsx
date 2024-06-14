@@ -1,9 +1,9 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/AppDispatch/AppDispatch';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useAppSelector } from 'shared/lib/hooks/useAppSelector/useAppSelector';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
@@ -31,10 +31,10 @@ const LoginForm = memo((props: LoginFormProps) => {
     } = props;
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
-    const username = useSelector(selectLoginUsername);
-    const password = useSelector(selectLoginPassword);
-    const isLoading = useSelector(selectLoginIsLoading);
-    const error = useSelector(selectLoginError);
+    const username = useAppSelector(selectLoginUsername);
+    const password = useAppSelector(selectLoginPassword);
+    const isLoading = useAppSelector(selectLoginIsLoading);
+    const error = useAppSelector(selectLoginError);
 
     const onChangeUsername = useCallback((value: string) => {
         dispatch(loginActions.setUsername(value));

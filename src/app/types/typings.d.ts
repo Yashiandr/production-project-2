@@ -14,6 +14,8 @@ declare module '*.scss' {
     export = cls;
 }
 
+declare module '*.jpg'
+
 declare const __IS_DEV__: boolean;
 declare const __API__: string;
 declare const __STORYBOOK__: boolean;

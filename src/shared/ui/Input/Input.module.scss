@@ -1,6 +1,7 @@
 .InputWrapper {
     display: flex;
     gap: .35rem;
+    transition: opacity .2s ease;
 }
 
 .placeholder {
@@ -29,6 +30,10 @@
     bottom: 0;
     left: 0;
     animation: blink .7s infinite;
+}
+
+.readonly {
+    opacity: .7;
 }
 
 @keyframes blink {

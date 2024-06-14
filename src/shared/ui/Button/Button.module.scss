@@ -16,10 +16,25 @@
     color: var(--inverted-primary-color)
 }
 
+.outline,
+.outline_red,
+.outline_green {
+    background: none;
+}
+
 .outline {
     border: .125rem solid var(--primary-color);
     color: var(--primary-color);
-    background: none;
+}
+
+.outline_red {
+    border: .125rem solid var(--red-light);
+    color: var(--red-light);
+}
+
+.outline_green {
+    border: .125rem solid var(--green-dark);
+    color: var(--green-dark);
 }
 
 .background {

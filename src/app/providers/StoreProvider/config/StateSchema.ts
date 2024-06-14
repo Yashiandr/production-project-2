@@ -15,7 +15,7 @@ import { CounterSchema } from '../../../../entities/Counter';
 import { ProfileSchema } from '../../../../entities/Profile';
 import { UserSchema } from '../../../../entities/User';
 
-import { AppDispatch, RootState } from './store';
+import { AppDispatch } from './store';
 
 export interface StateSchema {
     counter: CounterSchema;
@@ -47,6 +47,6 @@ export interface ThunkExtraArg {
 export interface ThunkConfig<T> {
     rejectValue: T;
     extra: ThunkExtraArg;
-    state: RootState;
+    state: StateSchema;
     dispatch: AppDispatch;
 }

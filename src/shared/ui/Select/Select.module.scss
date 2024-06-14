@@ -1,0 +1,27 @@
+.wrapper {
+    display: flex;
+    gap: .25rem;
+    align-items: center;
+}
+
+.label {
+    padding: 0;
+}
+
+.select {
+    background: none;
+    outline: none;
+    color: var(--primary-color);
+    padding: .125rem .5rem .125rem .125rem;
+    border: .0625rem solid var(--primary-color);
+    transition: opacity .2s ease;
+}
+
+.option {
+    color: var(--inverted-primary-color);
+    background: var(--inverted-bg-color);
+}
+
+.readonly {
+    opacity: .7;
+}

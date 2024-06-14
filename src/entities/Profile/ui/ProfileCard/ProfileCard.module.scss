@@ -3,11 +3,12 @@
     border: .125rem solid var(--inverted-bg-color);
     display: flex;
     flex-direction: column;
-    gap: 1.875rem
+    gap: 1.875rem;
+    transition: border .2s ease;
 }
 
-.header {
-    display: flex;
+.avatarWrapper {
+    align-self: center;
 }
 
 .data {
@@ -16,3 +17,14 @@
     gap: .625rem
 }
 
+.loading,
+.error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20rem;
+}
+
+.editing {
+    border: .125rem solid var(--primary-color);
+}
