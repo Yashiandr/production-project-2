@@ -27,6 +27,13 @@ export const Dark: Story = {
     ],
 };
 
+export const Orange: Story = {
+    ...Primary,
+    decorators: [
+        ThemeDecorator(Theme.ORANGE),
+    ],
+};
+
 export const WithPlaceholder = {
     args: {
         ...Primary.args,

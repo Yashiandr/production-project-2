@@ -55,6 +55,13 @@ export const ClearDark: Story = {
     ],
 };
 
+export const ClearOrange: Story = {
+    ...Clear,
+    decorators: [
+        ThemeDecorator(Theme.ORANGE),
+    ],
+};
+
 export const ClearInverted: Story = {
     args: {
         children: 'ClearInv',
@@ -69,6 +76,13 @@ export const ClearInvertedDark: Story = {
     ],
 };
 
+export const ClearInvertedOrange: Story = {
+    ...ClearInverted,
+    decorators: [
+        ThemeDecorator(Theme.ORANGE),
+    ],
+};
+
 export const Outline: Story = {
     args: {
         children: 'Outline',
@@ -80,6 +94,13 @@ export const OutlineDark: Story = {
     ...Outline,
     decorators: [
         ThemeDecorator(Theme.DARK),
+    ],
+};
+
+export const OutlineOrange: Story = {
+    ...Outline,
+    decorators: [
+        ThemeDecorator(Theme.ORANGE),
     ],
 };
 
@@ -111,6 +132,13 @@ export const BackgroundDark: Story = {
     ],
 };
 
+export const BackgroundOrange: Story = {
+    ...Background,
+    decorators: [
+        ThemeDecorator(Theme.ORANGE),
+    ],
+};
+
 export const BackgroundInverted: Story = {
     args: {
         children: 'bgInverted',
@@ -125,6 +153,13 @@ export const BackgroundInvertedDark: Story = {
     ],
 };
 
+export const BackgroundInvertedOrange: Story = {
+    ...BackgroundInverted,
+    decorators: [
+        ThemeDecorator(Theme.ORANGE),
+    ],
+};
+
 export const Square: Story = {
     args: {
         square: true,
@@ -136,6 +171,13 @@ export const SquareDark: Story = {
     ...Square,
     decorators: [
         ThemeDecorator(Theme.DARK),
+    ],
+};
+
+export const SquareOrange: Story = {
+    ...Square,
+    decorators: [
+        ThemeDecorator(Theme.ORANGE),
     ],
 };
 

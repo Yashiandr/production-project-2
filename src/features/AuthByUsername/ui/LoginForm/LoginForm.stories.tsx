@@ -46,6 +46,20 @@ export const Dark: Story = {
     ],
 };
 
+export const Orange: Story = {
+    args: {},
+    decorators: [
+        StoreDecorator({
+            login: {
+                username: '123',
+                password: '123',
+                isLoading: false,
+            },
+        }),
+        ThemeDecorator(Theme.ORANGE),
+    ],
+};
+
 export const WithError: Story = {
     args: {},
     decorators: [
@@ -57,21 +71,6 @@ export const WithError: Story = {
                 isLoading: false,
             },
         }),
-    ],
-};
-
-export const WithErrorDark: Story = {
-    args: {},
-    decorators: [
-        StoreDecorator({
-            login: {
-                username: '123',
-                password: '123',
-                isLoading: false,
-                error: 'ERROR',
-            },
-        }),
-        ThemeDecorator(Theme.DARK),
     ],
 };
 

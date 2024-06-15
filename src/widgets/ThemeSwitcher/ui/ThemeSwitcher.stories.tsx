@@ -24,3 +24,9 @@ export const Dark: Story = {
         ThemeDecorator(Theme.DARK),
     ],
 };
+export const Orange: Story = {
+    args: {},
+    decorators: [
+        ThemeDecorator(Theme.ORANGE),
+    ],
+};

@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
+import { ValidateProfileError } from 'entities/Profile/model/types/profile';
 import defaultAvatar from 'shared/assets/stockImage/defaule-woman-avatar.jpg';
 import { PageDecorator } from 'shared/config/storybook/PageDecorator/PageDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
@@ -49,4 +50,33 @@ export const Dark: Story = {
     ],
 };
 
-export const withErrors: Story = {};
+export const Orange: Story = {
+    args: {},
+    decorators: [
+        ThemeDecorator(Theme.ORANGE),
+    ],
+};
+
+export const withErrors: Story = {
+    args: {},
+    decorators: [
+        StoreDecorator({
+            profile: {
+                form: {
+                    first: '',
+                    lastname: '',
+                    age: undefined,
+                    country: undefined,
+                    currency: Currency.RUB,
+                    avatar: defaultAvatar,
+                    username: 'ErrorUser',
+                },
+                validateErrors: [
+                    ValidateProfileError.INCORRECT_USER_DATA,
+                    ValidateProfileError.INCORRECT_COUNTRY,
+                    ValidateProfileError.INCORRECT_AGE,
+                ],
+            },
+        }),
+    ],
+};

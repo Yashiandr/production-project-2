@@ -33,6 +33,13 @@ export const Dark: Story = {
     ],
 };
 
+export const Orange: Story = {
+    args: {},
+    decorators: [
+        ThemeDecorator(Theme.ORANGE),
+    ],
+};
+
 export const WithOutAuth: Story = {
     args: {},
     decorators: [

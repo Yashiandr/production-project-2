@@ -43,18 +43,14 @@ export const PrimaryDark: Story = {
     ],
 };
 
-export const TitleOnlyDark: Story = {
-    ...PrimaryDark,
+export const PrimaryOrange: Story = {
     args: {
-        title: Primary!.args!.title,
+        title: 'Title lorem ipsum',
+        text: 'Description Description Description Description',
     },
-};
-
-export const TextOnlyDark: Story = {
-    ...PrimaryDark,
-    args: {
-        text: Primary!.args!.text,
-    },
+    decorators: [
+        ThemeDecorator(Theme.ORANGE),
+    ],
 };
 
 export const Error: Story = {
@@ -69,6 +65,13 @@ export const ErrorDark: Story = {
     ...Error,
     decorators: [
         ThemeDecorator(Theme.DARK),
+    ],
+};
+
+export const ErrorOrange: Story = {
+    ...Error,
+    decorators: [
+        ThemeDecorator(Theme.ORANGE),
     ],
 };
 
