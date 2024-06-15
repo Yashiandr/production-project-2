@@ -1,5 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
+import { Country } from 'entities/Country';
+import { Currency } from 'entities/Currency';
+import defaultAvatar from 'shared/assets/stockImage/defaule-woman-avatar.jpg';
 import { PageDecorator } from 'shared/config/storybook/PageDecorator/PageDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
@@ -14,6 +17,16 @@ const meta = {
         PageDecorator,
         StoreDecorator({
             profile: {
+                form: {
+                    first: 'Test',
+                    lastname: 'Test Last',
+                    age: 18,
+                    country: Country.Russia,
+                    currency: Currency.RUB,
+                    city: 'Test City',
+                    avatar: defaultAvatar,
+                    username: 'Test Username',
+                },
                 readonly: true,
                 isLoading: false,
             },
@@ -35,3 +48,5 @@ export const Dark: Story = {
         ThemeDecorator(Theme.DARK),
     ],
 };
+
+export const withErrors: Story = {};

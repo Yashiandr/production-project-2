@@ -19,6 +19,7 @@ export default [
             globals: {
                 __IS_DEV__: 'readonly',
                 __API__: true,
+                __PROJECT__: true,
                 ...globals.browser
             },
         }
@@ -81,7 +82,8 @@ export default [
         rules: {
             'i18next/no-literal-string': 0,
             'max-len': 0,
-            '@typescript-eslint/no-explicit-any': 0
+            '@typescript-eslint/no-explicit-any': 0,
+            '@typescript-eslint/ban-ts-comment': 0
         }
     },
     {

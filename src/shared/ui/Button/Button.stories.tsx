@@ -83,6 +83,20 @@ export const OutlineDark: Story = {
     ],
 };
 
+export const OutlineRed: Story = {
+    args: {
+        children: 'Outline Red',
+        theme: ButtonTheme.OUTLINE_RED,
+    },
+};
+
+export const OutlineGreen: Story = {
+    args: {
+        children: 'Outline Green',
+        theme: ButtonTheme.OUTLINE_GREEN,
+    },
+};
+
 export const Background: Story = {
     args: {
         children: 'Background',

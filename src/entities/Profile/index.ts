@@ -18,3 +18,4 @@ export { selectProfileData } from './model/selectors/selectProfileData/selectPro
 export { selectProfileError } from './model/selectors/selectProfileError/selectProfileError';
 export { selectProfileIsLoading } from './model/selectors/selectProfileIsLoading/selectProfileIsLoading';
 export { selectProfileForm } from './model/selectors/selectProfileForm/selectProfileForm';
+export { selectProfileValidateErrors } from './model/selectors/selectProfileValidateErrors/selectProfileValidateErrors';

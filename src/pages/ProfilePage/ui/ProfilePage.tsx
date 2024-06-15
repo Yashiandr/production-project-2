@@ -9,12 +9,16 @@ import {
     selectProfileForm,
     selectProfileIsLoading,
     selectProfileReadonly,
+    selectProfileValidateErrors,
 } from 'entities/Profile';
+import { ValidateProfileError } from 'entities/Profile/model/types/profile';
 import { useCallback, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector/useAppSelector';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 interface ProfilePageProps {
@@ -29,14 +33,26 @@ const ProfilePage = (props: ProfilePageProps) => {
     const {
         className,
     } = props;
+    const { t } = useTranslation('profile');
+
     const dispatch = useAppDispatch();
     const formData = useAppSelector(selectProfileForm);
     const isLoading = useAppSelector(selectProfileIsLoading);
     const error = useAppSelector(selectProfileError);
     const readonly = useAppSelector(selectProfileReadonly);
+    const validateErrors = useAppSelector(selectProfileValidateErrors);
+
+    const validateErrorsTranslates = {
+        [ValidateProfileError.SERVER_ERROR]: t('Не удалось загрузить данные о пользователе'),
+        [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
+        [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректный регион'),
+        [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
+        [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
+
+    };
 
     useEffect(() => {
-        if (!__STORYBOOK__) {
+        if (__PROJECT__ !== 'storybook') {
             dispatch(fetchProfileData());
         }
     }, [dispatch]);
@@ -80,6 +96,9 @@ const ProfilePage = (props: ProfilePageProps) => {
         <DynamicModuleLoader reducers={reducers}>
             <div className={classNames('', {}, [className])}>
                 <ProfilePageHeader />
+                {validateErrors?.length && validateErrors.map((err) => (
+                    <Text theme={TextTheme.ERROR} text={validateErrorsTranslates[err]} key={err} />
+                ))}
                 <ProfileCard
                     data={formData}
                     isLoading={isLoading}

@@ -1,7 +1,9 @@
 import { Currency, CurrencySelect } from 'entities/Currency';
+import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { Button } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
@@ -42,6 +44,11 @@ export const ProfileCard = (props: ProfileCardProps) => {
         onChangeCountry,
     } = props;
     const { t } = useTranslation('profile');
+    const [isEditAvatar, setIsEditAvatar] = useState(true);
+
+    const toggleEditAvatar = useCallback(() => {
+        setIsEditAvatar(false);
+    }, []);
 
     if (isLoading) {
         return (
@@ -98,12 +105,23 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     readonly={readonly}
                     placeholder={t('Ваш город')}
                 />
-                <Input
-                    value={data?.avatar}
-                    onChange={onChangeAvatar}
-                    readonly={readonly}
-                    placeholder={t('Введите ссылку на аватар')}
-                />
+                {isEditAvatar
+                    ? (
+                        <Button
+                            onClick={toggleEditAvatar}
+                            className={cls.editAvatarBtn}
+                        >
+                            {t('Редактировать ссылку на аватар')}
+                        </Button>
+                    )
+                    : (
+                        <Input
+                            value={data?.avatar}
+                            onChange={onChangeAvatar}
+                            readonly={readonly}
+                            placeholder={t('Введите ссылку на аватар')}
+                        />
+                    )}
                 <Input
                     value={data?.username}
                     onChange={onChangeUsername}
