@@ -1,8 +1,10 @@
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+
 export function buildCssLoader(isDev: boolean) {
     return {
         test: /\.s[ac]ss$/i,
         use: [
-            'style-loader',
+            isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
             {
                 loader: 'css-loader',
                 options: {
@@ -17,5 +19,7 @@ export function buildCssLoader(isDev: boolean) {
             },
             'sass-loader',
         ],
+        sideEffects: true,
+        include: /src/,
     };
 }

@@ -8,3 +8,4 @@ export type {
 } from './model/types/user';
 
 export { selectUserAuthData } from './model/selectors/selectUserAuthData/selectUserAuthData';
+export { selectUserInited } from './model/selectors/selectUserInited/selectUserInited';
