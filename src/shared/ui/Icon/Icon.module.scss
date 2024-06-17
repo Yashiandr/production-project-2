@@ -1,0 +1,25 @@
+.Icon {
+    transition: fill .2s ease, stroke .2s ease;
+}
+
+.primary {
+    &.fill {
+        fill: var(--primary-color);
+    }
+
+    &.stroke {
+        stroke: var(--primary-color);
+        fill: transparent;
+    }
+}
+
+.secondary {
+    &.fill {
+        fill: var(--secondary-color);
+    }
+
+    &.stroke {
+        stroke: var(--secondary-color);
+        fill: transparent;
+    }
+}
