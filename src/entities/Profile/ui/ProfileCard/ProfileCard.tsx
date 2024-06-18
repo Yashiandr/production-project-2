@@ -110,6 +110,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                         <Button
                             onClick={toggleEditAvatar}
                             className={cls.editAvatarBtn}
+                            disabled={readonly}
                         >
                             {t('Редактировать ссылку на аватар')}
                         </Button>

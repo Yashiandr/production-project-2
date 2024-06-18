@@ -3,11 +3,22 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import { ValidateProfileError } from 'entities/Profile/model/types/profile';
-import defaultAvatar from 'shared/assets/stockImage/defaule-woman-avatar.jpg';
+import defaultAvatar from 'shared/assets/stockImage/default-woman-avatar.jpg';
 import { PageDecorator } from 'shared/config/storybook/PageDecorator/PageDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import ProfilePage from './ProfilePage';
+
+const data = {
+    first: 'Test',
+    lastname: 'Test Last',
+    age: 18,
+    country: Country.Russia,
+    currency: Currency.RUB,
+    city: 'Test City',
+    avatar: defaultAvatar,
+    username: 'Test Username',
+};
 
 const meta = {
     title: 'pages/ProfilePage',
@@ -18,16 +29,8 @@ const meta = {
         PageDecorator,
         StoreDecorator({
             profile: {
-                form: {
-                    first: 'Test',
-                    lastname: 'Test Last',
-                    age: 18,
-                    country: Country.Russia,
-                    currency: Currency.RUB,
-                    city: 'Test City',
-                    avatar: defaultAvatar,
-                    username: 'Test Username',
-                },
+                form: data,
+                data,
                 readonly: true,
                 isLoading: false,
             },

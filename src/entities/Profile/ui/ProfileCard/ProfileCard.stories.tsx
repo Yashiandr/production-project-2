@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import defaultAvatar from 'shared/assets/stockImage/defaule-woman-avatar.jpg';
+import defaultAvatar from 'shared/assets/stockImage/default-woman-avatar.jpg';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { ProfileCard } from './ProfileCard';
 

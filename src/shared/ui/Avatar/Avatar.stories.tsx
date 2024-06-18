@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import defaultAvatar from 'shared/assets/stockImage/defaule-woman-avatar.jpg';
+import defaultAvatar from '../../assets/stockImage/default-woman-avatar.jpg';
 import { Avatar } from './Avatar';
 
 const meta = {
