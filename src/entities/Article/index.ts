@@ -1,3 +1,5 @@
+export { selectArticleDetailsData } from './model/selectors/selectArticleDetailsData/selectArticleDetailsData';
+
 export {
     ArticleDetails,
 } from './ui/ArticleDetails/ArticleDetails';

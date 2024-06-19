@@ -12,12 +12,14 @@ import {
     selectProfileValidateErrors,
 } from 'entities/Profile';
 import { ValidateProfileError } from 'entities/Profile/model/types/profile';
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector/useAppSelector';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
@@ -41,6 +43,7 @@ const ProfilePage = (props: ProfilePageProps) => {
     const error = useAppSelector(selectProfileError);
     const readonly = useAppSelector(selectProfileReadonly);
     const validateErrors = useAppSelector(selectProfileValidateErrors);
+    const { id } = useParams<{ id: string }>();
 
     const validateErrorsTranslates = {
         [ValidateProfileError.SERVER_ERROR]: t('Не удалось загрузить данные о пользователе'),
@@ -51,11 +54,11 @@ const ProfilePage = (props: ProfilePageProps) => {
 
     };
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData());
+    useInitialEffect(() => {
+        if (id) {
+            dispatch(fetchProfileData(id));
         }
-    }, [dispatch]);
+    });
 
     const onChangeFirstname = useCallback((value?: string) => {
         dispatch(profileActions.updateProfile({ first: value || '' }));

@@ -38,7 +38,7 @@ const comments = [
 ];
 
 const meta = {
-    title: 'entities/CommentList',
+    title: 'entities/Comment/CommentList',
     component: CommentList,
 
     tags: ['autodocs'],

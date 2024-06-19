@@ -156,6 +156,48 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "send comment",
+      "id": "-hITMFq"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "send another comment",
+      "id": "3NGxYLh"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "Отправка коммента",
+      "id": "Hn-FHFi"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "новый коммент",
+      "id": "g3piNdp"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "Hello world",
+      "id": "WYc-N3V"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "check",
+      "id": "Dp24NMK"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "check",
+      "id": "jGSYZeV"
     }
   ],
   "users": [
@@ -174,14 +216,28 @@
       "avatar": "https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S.jpg"
     }
   ],
-  "profile": {
-    "first": "Никита",
-    "lastname": "Андряшин",
-    "age": 26,
-    "currency": "RUB",
-    "country": "Russia",
-    "city": "Yanino-1",
-    "username": "Yashiandr",
-    "avatar": "https://masterpiecer-images.s3.yandex.net/5c949703654e11eea2a6963c1ee369ba:upscaled"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Никита",
+      "lastname": "Андряшин",
+      "age": 26,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Yanino-1",
+      "username": "Yashiandr",
+      "avatar": "https://masterpiecer-images.s3.yandex.net/5c949703654e11eea2a6963c1ee369ba:upscaled"
+    },
+    {
+      "id": "2",
+      "first": "Default1",
+      "lastname": "User",
+      "age": 18,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Unknown",
+      "username": "DefaultUser",
+      "avatar": "https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S.jpg"
+    }
+  ]
 }

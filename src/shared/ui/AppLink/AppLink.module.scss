@@ -1,5 +1,4 @@
 .AppLink {
-  color: var(--primary-color);
   transition: opacity .1s ease;
 
   &:hover {
@@ -13,4 +12,8 @@
 
 .secondary {
   color: var(--inverted-secondary-color);
+}
+
+.non-invert {
+    color: var(--primary-color)
 }
