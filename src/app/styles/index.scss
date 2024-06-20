@@ -8,6 +8,9 @@
 
 @import "src/app/styles/themes/orange";
 
+html {
+    scroll-behavior: smooth
+}
 
 body {
     font: var(--font-m);
