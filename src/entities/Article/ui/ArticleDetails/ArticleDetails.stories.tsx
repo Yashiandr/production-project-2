@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import defaultManAvatar from 'shared/assets/stockImage/default-man-avatar.jpg';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ArticleBlockType, ArticleType } from '../../model/types/article';
 import { ArticleDetails } from './ArticleDetails';
@@ -12,6 +13,11 @@ const article = {
         views: 1024,
         createdAt: '16.06.2024',
         type: [ArticleType.IT],
+        user: {
+            id: '1',
+            username: 'username',
+            avatar: defaultManAvatar,
+        },
         blocks: [
             {
                 id: '1',
@@ -76,7 +82,7 @@ const article = {
 };
 
 const meta = {
-    title: 'entities/ArticleDetails',
+    title: 'entities/Article/ArticleDetails',
     component: ArticleDetails,
     decorators: [
         StoreDecorator(

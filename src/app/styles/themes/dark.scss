@@ -8,4 +8,7 @@
     --skeleton-shadow: #00000025;
     --skeleton-color: #fe6a3a;
     --code-bg: #111111A5;
+    --card-bg: #3e3b3b;
+    --article-date: #3e3b3bA0;
+    --article-list-big-text-blur-at-end: linear-gradient(var(--article-date), var(--article-date), var(--card-bg));
 }

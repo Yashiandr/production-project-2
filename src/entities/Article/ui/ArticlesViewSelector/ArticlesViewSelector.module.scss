@@ -1,0 +1,10 @@
+.ArticlesViewSelector {
+    display: flex;
+    gap: .5rem;
+}
+
+.selected {
+    background-color: var(--card-bg);
+    border-radius: .5rem;
+    transition: background-color 0.2s ease;
+}

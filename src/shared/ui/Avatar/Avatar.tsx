@@ -1,20 +1,21 @@
 import { CSSProperties, useMemo } from 'react';
+import defaultAvatar from 'shared/assets/stockImage/default-man-avatar.jpg';
 import { classNames } from 'shared/lib/classNames/classNames';
 import * as cls from './Avatar.module.scss';
 
 interface AvatarProps {
     className?: string;
-    src: string;
+    src?: string;
     size?: number;
-    alt: string;
+    alt?: string;
 }
 
 export const Avatar = (props: AvatarProps) => {
     const {
         className,
-        src,
+        src = defaultAvatar,
         size = 100,
-        alt,
+        alt = 'avatar',
     } = props;
 
     const styles = useMemo<CSSProperties>(() => ({

@@ -4,12 +4,14 @@ import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
 import { articleDetailsReducer } from 'entities/Article';
 import { profileReducer } from 'entities/Profile';
 import { loginReducer } from 'features/AuthByUsername';
+import { articlesPageReducer } from 'pages/ArticlesPage';
 
 const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
     login: loginReducer,
     profile: profileReducer,
     articleDetails: articleDetailsReducer,
     articleDetailsComments: articleDetailsReducer,
+    articlesPage: articlesPageReducer,
 };
 
 export const StoreDecorator = (
