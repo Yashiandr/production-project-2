@@ -23,25 +23,23 @@ export const ArticleList = memo((props: ArticleListProps) => {
     const renderArticle = (article: Article) => (
         <ArticleListItem article={article} view={view} key={article.id} />
     );
-
-    if (isLoading) {
-        return (
-            <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-                {new Array(view === ArticlesView.SMALL ? 12 : 3)
-                    .fill(0)
-                    .map((item, index) => (
-                        // eslint-disable-next-line react/no-array-index-key
-                        <ArticleListItemSkeleton view={view} key={index} />
-                    ))}
-            </div>
-        );
-    }
+    const getSkeletons = (view: ArticlesView) => (
+        <>
+            {new Array(view === ArticlesView.SMALL ? 12 : 3)
+                .fill(0)
+                .map((item, index) => (
+                    // eslint-disable-next-line react/no-array-index-key
+                    <ArticleListItemSkeleton view={view} key={index} />
+                ))}
+        </>
+    );
 
     return (
         <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
             {articles.length > 0
                 ? articles.map(renderArticle)
                 : null}
+            {isLoading && getSkeletons(view)}
         </div>
     );
 });

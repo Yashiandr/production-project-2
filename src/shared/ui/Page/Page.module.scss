@@ -1,0 +1,10 @@
+.Page {
+    flex-grow: 1;
+    padding: 1.25rem 1.25rem 1.25rem 2.5rem;
+    overflow-y: auto;
+    width: calc(100vw - var(--sidebar-width));
+}
+
+.storybook {
+    width: auto;
+}

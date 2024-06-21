@@ -87,7 +87,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     {types}
                     {views}
                 </div>
-                <Text text={article.title} />
+                <Text text={article.title} className={cls.title} />
             </Card>
         </div>
     );

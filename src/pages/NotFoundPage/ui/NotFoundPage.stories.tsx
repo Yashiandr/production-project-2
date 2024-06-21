@@ -25,6 +25,7 @@ export const Primary: Story = {
 export const Dark: Story = {
     args: {},
     decorators: [
+        PageDecorator,
         ThemeDecorator(Theme.DARK),
     ],
 };
@@ -32,6 +33,7 @@ export const Dark: Story = {
 export const Orange: Story = {
     args: {},
     decorators: [
+        PageDecorator,
         ThemeDecorator(Theme.ORANGE),
     ],
 };

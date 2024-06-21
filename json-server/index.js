@@ -22,6 +22,13 @@ server.all('*', (req, res, next) => {
     next();
 });
 
+server.use(async (req, res, next) => {
+    await new Promise((resolve) => {
+        setTimeout(resolve, 1000);
+    });
+    next();
+});
+
 server.post('/login', (req, res) => {
     try {
         console.log(req.body);

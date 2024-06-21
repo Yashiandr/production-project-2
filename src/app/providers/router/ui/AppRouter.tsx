@@ -5,11 +5,12 @@ import { PageLoader } from 'widgets/PageLoader';
 import { RequireAuth } from './RequireAuth';
 
 export const AppRouter = memo(() => {
-    const renderWithWrepper = useCallback((route: AppRouteProps) => {
+    const renderWithWrapper = useCallback((route: AppRouteProps) => {
         const element = (
-            <div className="page-wrapper">
+            // eslint-disable-next-line react/jsx-no-useless-fragment
+            <>
                 {route.element}
-            </div>
+            </>
         );
         return (
             <Route
@@ -23,7 +24,7 @@ export const AppRouter = memo(() => {
     return (
         <Suspense fallback={<PageLoader />}>
             <Routes>
-                {Object.values(routeConfig).map(renderWithWrepper)}
+                {Object.values(routeConfig).map(renderWithWrapper)}
             </Routes>
         </Suspense>
     );

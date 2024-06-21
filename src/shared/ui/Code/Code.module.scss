@@ -3,7 +3,7 @@
     padding: 1.25rem;
     position: relative;
     background-color: var(--code-bg);
-    transition: background-color .2s ease;
+    transition: var(--transition-theme-bg);
     overflow: auto;
 }
 

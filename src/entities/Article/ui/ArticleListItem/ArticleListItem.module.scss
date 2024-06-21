@@ -7,8 +7,15 @@
 
     .card,
     .date {
-        transition: background-color .2s ease;
+        transition: var(--transition-theme-bg);
     }
+}
+
+.title p,
+.types p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .BIG {
@@ -54,7 +61,7 @@
         height: 3.5rem;
         background-color: var(--card-bg);
         filter: blur(1rem);
-        transition: background-color .2s ease;
+        transition: var(--transition-theme-bg);
     }
 
     .textBlock::after {
@@ -66,7 +73,7 @@
         height: 2rem;
         background-color: var(--card-bg);
         filter: blur(.4rem);
-        transition: background-color .2s ease;
+        transition: var(--transition-theme-bg);
     }
 }
 
@@ -74,7 +81,7 @@
     width: 15rem;
     transform: scale(1);
     opacity: 1;
-    transition: transform .2s ease, opacity .2s ease;
+    transition: transform .2s ease, opacity .2s ease, height .2s ease;
     cursor: pointer;
 
     .date {
@@ -84,6 +91,11 @@
         background-color: var(--article-date);
         opacity: 0;
         transition: opacity .2s ease;
+    }
+
+    &:hover .title p {
+        overflow: auto;
+        white-space: wrap;
     }
 
     &:hover {
@@ -113,18 +125,20 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        overflow: hidden;
     }
 }
 
-
-.types p {
+.types {
     width: 7.5rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
+
 
 .viewersWrapper {
     display: flex;
     align-items: center;
+
+    svg {
+        min-width: 2rem;
+    }
 }

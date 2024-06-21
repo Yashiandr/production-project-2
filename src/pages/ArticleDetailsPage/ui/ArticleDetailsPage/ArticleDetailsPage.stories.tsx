@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
+import defaultImage from 'shared/assets/stockImage/default-image.jpg';
 import defaultManAvatar from 'shared/assets/stockImage/default-man-avatar.jpg';
 import defaultWomanAvatar from 'shared/assets/stockImage/default-woman-avatar.jpg';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
@@ -11,7 +12,7 @@ const article = {
         id: '1',
         title: 'Введение в Javascript',
         subtitle: 'Часть 1',
-        img: 'https://thumbs.dreamstime.com/b/%D0%BB%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF-%D0%B7%D0%BD%D0%B0%D1%87%D0%BA%D0%B0-javascript-%D1%87%D0%B0%D1%81%D1%82%D0%BE-%D1%81%D0%BE%D0%B1%D0%BB%D0%B0%D0%B7%D0%BD%D0%B8%D0%BB-%D0%BF%D0%BE-%D0%BC%D0%B5%D1%80%D0%B5-%D1%82%D0%BE%D0%B3%D0%BE-%D0%BA%D0%B0%D0%BA-js-%D1%8F%D0%B7%D1%8B%D0%BA-204759326.jpg',
+        img: defaultImage,
         views: 1024,
         createdAt: '16.06.2024',
         type: [ArticleType.IT],
@@ -49,7 +50,7 @@ const article = {
             {
                 id: '4',
                 type: ArticleBlockType.IMAGE,
-                src: 'https://habrastorage.org/getpro/habr/post_images/282/564/2d0/2825642d0e8b41dc4042b54d0898049a.png',
+                src: defaultImage,
                 title: 'Рисунок 1 - Первая программа в консоли браузера — вывод сообщения в консоль',
             },
             {
@@ -76,7 +77,7 @@ const article = {
             {
                 id: '8',
                 type: ArticleBlockType.IMAGE,
-                src: 'https://habrastorage.org/getpro/habr/post_images/757/2da/ce9/7572dace9bf67861dcdc2f9539c0810d.png',
+                src: defaultImage,
                 title: 'Рисунок 2 - Вывод сообщения в окне',
             },
         ],

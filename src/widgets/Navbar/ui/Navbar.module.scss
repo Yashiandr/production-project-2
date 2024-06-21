@@ -5,7 +5,7 @@
   align-items: center;
   background-color: var(--inverted-bg-color);
   padding: 20px;
-  transition: background-color .2s ease;
+    transition: var(--transition-theme-bg);
 }
 
 .links {

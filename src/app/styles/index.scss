@@ -20,18 +20,13 @@ body {
 
 .app {
     background-color: var(--bg-color);
-    min-height: 100vh;
-    transition: background-color .2s ease;
+    max-height: 100vh;
+    transition: var(--transition-theme-bg);
+
 }
 
 .content-page {
   display: flex;
+    height: calc(100vh - var(--navbar-height) - 2.4px);
 }
 
-.page-wrapper {
-    flex-grow: 1;
-    padding: 1.25rem 1.25rem 1.25rem 2.5rem;
-    height: calc(100vh - var(--navbar-height));
-    overflow-y: auto;
-    width: calc(100vh - var(--sidebar-width));
-}

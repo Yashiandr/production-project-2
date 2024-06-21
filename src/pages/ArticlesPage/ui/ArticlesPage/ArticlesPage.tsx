@@ -5,11 +5,15 @@ import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicM
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector/useAppSelector';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { Page } from 'shared/ui/Page/Page';
+import { PageError } from 'widgets/PageError';
+import { selectArticlesPageError } from '../../model/selectors/selectArticlesPageError/selectArticlesPageError';
 import {
     selectArticlesPageIsLoading,
 } from '../../model/selectors/selectArticlesPageIsLoading/selectArticlesPageIsLoading';
 import { selectArticlePageView } from '../../model/selectors/selectArticlesPageView/selectArticlePageView';
-import { fetchArticlesList } from '../../model/services/fetchArticlesList';
+import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
+import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../../model/slice/articlesPageSlice';
 import * as cls from './ArticlesPage.module.scss';
 
@@ -29,27 +33,37 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const articles = useAppSelector(getArticles.selectAll);
     const isLoading = useAppSelector(selectArticlesPageIsLoading);
     const view = useAppSelector(selectArticlePageView);
-    // const error = useAppSelector(selectArticlesPageError);
+    const error = useAppSelector(selectArticlesPageError);
 
     const onChangeView = useCallback((newView: ArticlesView) => {
         dispatch(articlesPageActions.setView(newView));
     }, [dispatch]);
 
+    const onLoadNextPart = useCallback(() => {
+        dispatch(fetchNextArticlesPage());
+    }, [dispatch]);
+
     useInitialEffect(() => {
-        dispatch(fetchArticlesList());
         dispatch(articlesPageActions.initState());
+        dispatch(fetchArticlesList({
+            page: 1,
+        }));
     });
+
+    if (error) {
+        return <PageError />;
+    }
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames(cls.ArticlesPage, {}, [className])}>
+            <Page onScrollEnd={onLoadNextPart} className={classNames(cls.ArticlesPage, {}, [className])}>
                 <ArticlesViewSelector view={view} onViewClick={onChangeView} />
                 <ArticleList
                     articles={articles}
                     view={view}
                     isLoading={isLoading}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };
