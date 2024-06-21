@@ -33,7 +33,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const {
         className,
     } = props;
-    const { t } = useTranslation(['articles', 'translations']);
+    const { t } = useTranslation(['articles', 'translation']);
     const { id } = useParams<{ id: string }>();
     const dispatch = useAppDispatch();
     const comments = useAppSelector(getArticleComments.selectAll);
@@ -64,7 +64,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
         <DynamicModuleLoader reducers={reducers}>
             <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
                 <Button className={cls.backBtn} onClick={onBackToList}>
-                    {t('Назад', { ns: 'translations' })}
+                    {t('Назад', { ns: 'translation' })}
                 </Button>
                 <ArticleDetails id={id!} />
                 <Text title={t('Комментарии')} />

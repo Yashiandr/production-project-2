@@ -91,5 +91,11 @@ export default [
         rules: {
             '@typescript-eslint/no-var-requires': 0,
         }
+    },
+    {
+        files: ['*.d.ts'],
+        rules: {
+            '@typescript-eslint/no-explicit-any': 0,
+        }
     }
 ]

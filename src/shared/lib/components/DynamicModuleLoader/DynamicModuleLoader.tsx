@@ -24,14 +24,17 @@ export const DynamicModuleLoader: FC<PropsWithChildren<DynamicModuleLoaderProps>
     const dispatch = useAppDispatch();
 
     useEffect(() => {
+        const mountedReducers = store.reducerManager.getReducerMap();
         Object.entries(reducers).forEach(([name, reducer]) => {
-            store!.reducerManager!.add(name as StateSchemaKey, reducer);
-            dispatch({ type: `@INIT ${name}` });
+            if (!mountedReducers[name as StateSchemaKey]) {
+                store.reducerManager.add(name as StateSchemaKey, reducer);
+                dispatch({ type: `@INIT ${name}` });
+            }
         });
         return () => {
             if (removeAfterUnmount) {
                 Object.entries(reducers).forEach(([name]) => {
-                    store!.reducerManager!.remove(name as StateSchemaKey);
+                    store.reducerManager.remove(name as StateSchemaKey);
                     dispatch({ type: `@DESTROY ${name}` });
                 });
             }

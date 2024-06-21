@@ -17,7 +17,6 @@ import { AddCommentFormSchema } from 'features/AddNewComment';
 import { LoginSchema } from 'features/AuthByUsername';
 import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
-import { NavigateOptions, To } from 'react-router-dom';
 
 import { AppDispatch } from './store';
 
@@ -49,7 +48,6 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema, Unknow
 
 export interface ThunkExtraArg {
     api: AxiosInstance,
-    navigate?: (to: To, options?: NavigateOptions) => void
 }
 
 export interface ThunkConfig<T> {
