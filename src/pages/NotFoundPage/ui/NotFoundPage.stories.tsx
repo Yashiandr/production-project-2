@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { PageDecorator } from 'shared/config/storybook/PageDecorator/PageDecorator';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { NotFoundPage } from './NotFoundPage';
 
@@ -11,6 +12,9 @@ const meta = {
     tags: ['autodocs'],
     decorators: [
         PageDecorator,
+        StoreDecorator({
+            scroll: { scrollSave: {} },
+        }),
     ],
 
 } satisfies Meta<typeof NotFoundPage>;
@@ -27,6 +31,9 @@ export const Dark: Story = {
     decorators: [
         PageDecorator,
         ThemeDecorator(Theme.DARK),
+        StoreDecorator({
+            scroll: { scrollSave: {} },
+        }),
     ],
 };
 
@@ -35,5 +42,8 @@ export const Orange: Story = {
     decorators: [
         PageDecorator,
         ThemeDecorator(Theme.ORANGE),
+        StoreDecorator({
+            scroll: { scrollSave: {} },
+        }),
     ],
 };

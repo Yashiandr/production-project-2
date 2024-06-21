@@ -11,8 +11,8 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector/useAppSelector';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Button } from 'shared/ui/Button/Button';
-import { Page } from 'shared/ui/Page/Page';
 import { Text } from 'shared/ui/Text/Text';
+import { Page } from 'widgets/Page';
 import {
     selectArticleDetailsCommentsIsLoading,
 } from '../../model/selectors/comments/selectArticleDetailsCommentsIsLoading/articleDetailsCommentsIsLoading';

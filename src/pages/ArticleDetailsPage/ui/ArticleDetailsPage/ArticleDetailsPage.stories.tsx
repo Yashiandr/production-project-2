@@ -138,6 +138,9 @@ export const Primary: Story = {
             {
                 articleDetails: article,
                 articleDetailsComments: comments,
+                scroll: {
+                    scrollSave: {},
+                },
             },
         ),
     ],

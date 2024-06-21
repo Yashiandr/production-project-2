@@ -64,6 +64,7 @@ export const withErrors: Story = {
     args: {},
     decorators: [
         StoreDecorator({
+            scroll: { scrollSave: {} },
             profile: {
                 form: {
                     first: '',

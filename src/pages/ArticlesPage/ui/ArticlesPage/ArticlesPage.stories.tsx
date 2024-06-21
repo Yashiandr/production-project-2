@@ -101,6 +101,9 @@ const meta = {
                 ids,
                 entities,
             },
+            scroll: {
+                scrollSave: {},
+            },
         }),
     ],
     tags: ['autodocs'],
@@ -122,6 +125,9 @@ export const Tile: Story = {
                 ids,
                 entities,
                 view: ArticlesView.SMALL,
+            },
+            scroll: {
+                scrollSave: {},
             },
         }),
     ],
