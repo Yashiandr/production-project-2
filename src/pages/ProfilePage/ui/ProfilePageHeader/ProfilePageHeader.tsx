@@ -6,7 +6,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector/useAppSelector';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Text } from 'shared/ui/Text/Text';
-import { selectCanEdit } from '../../model/selectors/selectCanEdit/selectCanEdit';
+import { selectCanEditProfile } from '../../model/selectors/selectCanEditProfile/selectCanEditProfile';
 import * as cls from './ProfilePageHeader.module.scss';
 
 interface ProfilePageHeaderProps {
@@ -20,7 +20,7 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
     const { t } = useTranslation(['profile', 'translation']);
     const dispatch = useAppDispatch();
     const readonly = useAppSelector(selectProfileReadonly);
-    const canEdit = useAppSelector(selectCanEdit);
+    const canEdit = useAppSelector(selectCanEditProfile);
 
     const onEdit = useCallback(() => {
         dispatch(profileActions.setReadonly(false));

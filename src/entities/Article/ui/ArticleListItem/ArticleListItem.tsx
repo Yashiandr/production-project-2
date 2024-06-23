@@ -63,7 +63,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     )}
                     <div className={cls.footer}>
                         <AppLink
-                            to={RoutePath.article_details + article.id}
+                            to={`${RoutePath.article_details}/${article.id}`}
                             target={target}
                         >
                             <Button>
@@ -80,7 +80,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
             <AppLink
                 target={target}
-                to={RoutePath.article_details + article.id}
+                to={`${RoutePath.article_details}/${article.id}`}
             >
                 <Card className={cls.card}>
                     <div className={cls.imageWrapper}>

@@ -3,13 +3,21 @@
   height: var(--navbar-height);
   display: flex;
   align-items: center;
+  justify-content: space-between;
   background-color: var(--inverted-bg-color);
-  padding: 1.25rem;
-    transition: var(--transition-theme-bg);
+  padding: 0 1.25rem;
+  transition: var(--transition-theme-bg);
+  z-index: 100;
+  overflow: hidden;
+
 }
 
 .links {
-  margin-left: auto;
   display: flex;
   gap: 1rem;
+}
+
+.logo {
+  font-weight: 600;
+  text-wrap: nowrap;
 }
