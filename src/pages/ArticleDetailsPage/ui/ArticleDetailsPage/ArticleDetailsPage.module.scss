@@ -1,9 +1,18 @@
 .ArticleDetailsPage {
     display: flex;
     flex-direction: column;
+    overflow: auto;
     gap: 1.5rem;
 }
 
 .backBtn {
     width: 5rem;
+}
+
+.recommendations {
+    min-height: 19.25rem;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    grid-template-columns: repeat(4, 15rem) !important;
+    justify-content: space-evenly;
 }

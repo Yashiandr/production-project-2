@@ -1,11 +1,13 @@
-import { Reducer } from '@reduxjs/toolkit';
-import { StateSchemaKey } from 'app/providers/StoreProvider';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { EntityState, Reducer } from '@reduxjs/toolkit';
+import { StateSchema, StateSchemaKey } from 'app/providers/StoreProvider';
 import { FC, PropsWithChildren, useEffect } from 'react';
 import { useAppDispatch } from '../../hooks/useAppDispatch/useAppDispatch';
 import { useAppStore } from '../../hooks/useAppStore/useAppStore';
 
 export type ReducerList = {
-    [name in StateSchemaKey]?: Reducer;
+    // eslint-disable-next-line max-len
+    [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>> | Reducer<NonNullable<EntityState<any, any> & StateSchema[name]>>;
 }
 
 interface DynamicModuleLoaderProps {

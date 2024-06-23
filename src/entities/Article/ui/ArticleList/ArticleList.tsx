@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Loader } from 'shared/ui/Loader/Loader';
@@ -12,6 +12,7 @@ interface ArticleListProps {
     articles: Article[];
     isLoading?: boolean;
     view?: ArticlesView;
+    target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleList = memo((props: ArticleListProps) => {
@@ -20,12 +21,13 @@ export const ArticleList = memo((props: ArticleListProps) => {
         articles,
         view = ArticlesView.SMALL,
         isLoading,
+        target,
     } = props;
 
     const { t } = useTranslation('articles');
 
     const renderArticle = (article: Article) => (
-        <ArticleListItem article={article} view={view} key={article.id} />
+        <ArticleListItem article={article} view={view} key={article.id} target={target} />
     );
 
     if (!isLoading && !articles.length) {

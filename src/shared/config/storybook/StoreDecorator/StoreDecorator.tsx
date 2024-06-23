@@ -5,14 +5,17 @@ import { articleDetailsReducer } from 'entities/Article';
 import { profileReducer } from 'entities/Profile';
 import { loginReducer } from 'features/AuthByUsername';
 import { scrollSaveReducer } from 'features/ScrollSave';
+import { articleDetailsCommentsReducer, articleDetailsPageRecommendationsReducer } from 'pages/ArticleDetailsPage';
 import { articlesPageReducer } from 'pages/ArticlesPage';
+import { ReducerList } from '../../../lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
-const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
+const defaultAsyncReducers: ReducerList = {
     login: loginReducer,
-    profile: profileReducer,
     scroll: scrollSaveReducer,
+    profile: profileReducer,
     articleDetails: articleDetailsReducer,
-    articleDetailsComments: articleDetailsReducer,
+    articleDetailsComments: articleDetailsCommentsReducer,
+    articleDetailsRecommendations: articleDetailsPageRecommendationsReducer,
     articlesPage: articlesPageReducer,
 };
 

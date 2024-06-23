@@ -51,11 +51,11 @@
 .collapsed {
     width: var(--sidebar-width-collapsed);
 
-    &.switchers {
+    .switchers {
         flex-direction: column;
     }
 
-    &.collapsBtn {
+    .collapsBtn {
         left: var(--sidebar-width-collapsed);
 
         &:hover {
