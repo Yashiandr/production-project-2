@@ -93,7 +93,7 @@ export default [
         }
     },
     {
-        files: ['*.d.ts'],
+        files: ['src/app/types/typings.d.ts'],
         rules: {
             '@typescript-eslint/no-explicit-any': 0,
         }

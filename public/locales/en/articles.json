@@ -3,5 +3,19 @@
   "Статья не найдена": "Article not found",
   "Комментарии": "Comments:",
   "Комментарии отсутствуют": "There are no comments",
-  "Читать далее": "Read..."
+  "Читать далее": "Read...",
+  "Сортировать по": "Sort by",
+  "Поиск": "Search",
+  "по": "by",
+  "возрастанию": "asc",
+  "убыванию": "desc",
+  "названию": "title",
+  "просмотрам": "views",
+  "дате создания": "created",
+  "ALL": "All",
+  "IT": "IT",
+  "SCIENCE": "Science",
+  "ECONOMICS": "Economics",
+  "Статьи не найдены": "Articles not found"
+
 }

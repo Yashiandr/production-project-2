@@ -1,10 +1,16 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
-import { Article } from 'entities/Article';
+import { Article, ArticleType } from 'entities/Article';
+import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams';
 import { selectArticlesPageLimit } from '../../selectors/selectArticlesPageLimit/selectArticlesPageLimit';
+import { selectArticlesPageNumPage } from '../../selectors/selectArticlesPageNumPage/selectArticlesPageNumPage';
+import { selectArticlesPageOrder } from '../../selectors/selectArticlesPageOrder/selectArticlesPageOrder';
+import { selectArticlesPageSearch } from '../../selectors/selectArticlesPageSearch/selectArticlesPageSearch';
+import { selectArticlesPageSort } from '../../selectors/selectArticlesPageSort/selectArticlesPageSort';
+import { selectArticlesPageType } from '../../selectors/selectArticlesPageType/selectArticlesPageType';
 
 interface FetchArticlesListProps {
-    page?: number;
+    replace?: boolean
 }
 
 export const fetchArticlesList = createAsyncThunk<
@@ -15,15 +21,26 @@ export const fetchArticlesList = createAsyncThunk<
     'article/fetchArticlesList',
     async (args, thunkApi) => {
         const { extra, rejectWithValue, getState } = thunkApi;
-        const { page = 1 } = args;
         const limit = selectArticlesPageLimit(getState());
+        const sort = selectArticlesPageSort(getState());
+        const order = selectArticlesPageOrder(getState());
+        const search = selectArticlesPageSearch(getState());
+        const page = selectArticlesPageNumPage(getState());
+        const type = selectArticlesPageType(getState());
 
         try {
+            addQueryParams({
+                sort, order, search, type,
+            });
             const response = await extra.api.get<Article[]>('/articles', {
                 params: {
                     _expand: 'user',
                     _limit: limit,
                     _page: page,
+                    _sort: sort,
+                    _order: order,
+                    type_like: type === ArticleType.ALL ? undefined : `\\b${type}\\b`,
+                    q: search,
                 },
             });
 

@@ -121,7 +121,7 @@ const comments = {
 };
 
 const meta = {
-    title: 'pages/ArticleDetailsPage',
+    title: 'pages/Article/ArticleDetailsPage',
     component: ArticleDetailsPage,
 
     tags: ['autodocs'],

@@ -1,5 +1,6 @@
-import { ArticleList, ArticlesView, ArticlesViewSelector } from 'entities/Article';
+import { ArticleList } from 'entities/Article';
 import { memo, useCallback } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -14,7 +15,8 @@ import {
 import { selectArticlePageView } from '../../model/selectors/selectArticlesPageView/selectArticlePageView';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
-import { articlesPageActions, articlesPageReducer, getArticles } from '../../model/slice/articlesPageSlice';
+import { articlesPageReducer, getArticles } from '../../model/slice/articlesPageSlice';
+import { ArticlesPageFilter } from '../ArticlesPageFilter/ArticlesPageFilter';
 import * as cls from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
@@ -34,17 +36,14 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const isLoading = useAppSelector(selectArticlesPageIsLoading);
     const view = useAppSelector(selectArticlePageView);
     const error = useAppSelector(selectArticlesPageError);
-
-    const onChangeView = useCallback((newView: ArticlesView) => {
-        dispatch(articlesPageActions.setView(newView));
-    }, [dispatch]);
+    const [searchParams] = useSearchParams();
 
     const onLoadNextPart = useCallback(() => {
         dispatch(fetchNextArticlesPage());
     }, [dispatch]);
 
     useInitialEffect(() => {
-        dispatch(initArticlesPage());
+        dispatch(initArticlesPage(searchParams));
     });
 
     if (error) {
@@ -54,7 +53,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page onScrollEnd={onLoadNextPart} className={classNames(cls.ArticlesPage, {}, [className])}>
-                <ArticlesViewSelector view={view} onViewClick={onChangeView} />
+                <ArticlesPageFilter />
                 <ArticleList
                     articles={articles}
                     view={view}

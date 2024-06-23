@@ -93,7 +93,7 @@ const ids = new Array(16).fill(0).map((item, index) => (index + 1));
 const entities = articles.reduce((a, v) => ({ ...a, [v.id]: v }), {});
 
 const meta = {
-    title: 'pages/ArticlesPage',
+    title: 'pages/Article/ArticlesPage',
     component: ArticlesPage,
     decorators: [
         StoreDecorator({

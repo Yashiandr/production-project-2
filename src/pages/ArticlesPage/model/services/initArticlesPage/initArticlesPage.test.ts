@@ -18,9 +18,9 @@ describe('initArticlesPage.test', () => {
             },
         });
 
-        await thunk.callThunk();
+        await thunk.callThunk(null);
 
-        expect(thunk.dispatch).toHaveBeenCalledTimes(4);
+        expect(thunk.dispatch).toHaveBeenCalledTimes(8);
         expect(fetchArticlesList).toHaveBeenCalled();
     });
 
@@ -37,7 +37,7 @@ describe('initArticlesPage.test', () => {
             },
         });
 
-        await thunk.callThunk();
+        await thunk.callThunk(null);
 
         expect(thunk.dispatch).toHaveBeenCalledTimes(2);
         expect(fetchArticlesList).not.toHaveBeenCalled();

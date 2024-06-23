@@ -1,11 +1,7 @@
 @import "reset";
-
 @import "src/app/styles/variables/global";
-
 @import "src/app/styles/themes/dark";
-
 @import "src/app/styles/themes/light";
-
 @import "src/app/styles/themes/orange";
 
 html {
@@ -27,6 +23,6 @@ body {
 
 .content-page {
   display: flex;
-    height: calc(100vh - var(--navbar-height) - 2.4px);
+    height: calc(100vh - var(--navbar-height) - 0.15rem);
 }
 

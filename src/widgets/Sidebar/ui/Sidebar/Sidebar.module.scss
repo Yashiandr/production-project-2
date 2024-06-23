@@ -1,12 +1,14 @@
 .Sidebar {
-    height: calc(100vh - var(--navbar-height) - 2.4px);
+    height: calc(100vh - var(--navbar-height) - 0.15rem);
     width: var(--sidebar-width);
     background-color: var(--inverted-bg-color);
-    position: relative;
+    position: sticky;
+    top: 0;
     transition: var(--transition-theme-bg), width .5s ease-out;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+
 
     * {
         overflow-x: hidden;
@@ -30,7 +32,7 @@
 
 .switchers {
     position: absolute;
-    bottom: 20px;
+    bottom: 0.2rem;
     display: flex;
     justify-content: center;
     width: 100%;
@@ -49,11 +51,11 @@
 .collapsed {
     width: var(--sidebar-width-collapsed);
 
-    .switchers {
+    &.switchers {
         flex-direction: column;
     }
 
-    .collapsBtn {
+    &.collapsBtn {
         left: var(--sidebar-width-collapsed);
 
         &:hover {

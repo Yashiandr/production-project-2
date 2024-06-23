@@ -58,8 +58,8 @@
 }
 
 .square.size_m {
-    width: calc(var(--font-line-m) + 2px);
-    height: calc(var(--font-line-m) + 2px);
+    width: calc(var(--font-line-m) + 0.125rem);
+    height: calc(var(--font-line-m) + 0.125rem);
 }
 
 .square.size_l {

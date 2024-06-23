@@ -3,6 +3,7 @@
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
         gap: 2rem .5rem;
+
     }
 
     &.BIG {
@@ -10,4 +11,13 @@
         flex-direction: column;
         gap: 3rem;
     }
+}
+
+
+.loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 7rem;
 }
