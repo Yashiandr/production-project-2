@@ -82,14 +82,14 @@ const article = {
     ],
 } as Article;
 
-const articles = new Array(16).fill(0).map((item, index) => (
+const articles = new Array(100).fill(0).map((item, index) => (
     {
         ...article,
         id: String(index + 1),
     }
 )) as Article[];
 
-const ids = new Array(16).fill(0).map((item, index) => (index + 1));
+const ids = new Array(100).fill(0).map((item, index) => (index + 1));
 const entities = articles.reduce((a, v) => ({ ...a, [v.id]: v }), {});
 
 const meta = {
@@ -111,7 +111,6 @@ const meta = {
             skip: true,
         },
     },
-    tags: ['autodocs'],
 
 } satisfies Meta<typeof ArticlesPage>;
 

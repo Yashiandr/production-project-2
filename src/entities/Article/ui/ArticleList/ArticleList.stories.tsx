@@ -101,8 +101,6 @@ const meta = {
         },
     },
 
-    tags: ['autodocs'],
-
 } satisfies Meta<typeof ArticleList>;
 
 export default meta;

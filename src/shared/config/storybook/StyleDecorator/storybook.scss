@@ -4,15 +4,10 @@
     color: var(--primary-color);
 }
 
-body {
-    padding: 0 !important;
-    background-color: var(--bg-color) !important;
-}
-
-.sbdocs-preview {
-    background-color: var(--bg-color) !important;
-}
-
 .page-wrapper {
     height: 100vh;
+}
+
+body {
+    padding: 0 !important;
 }

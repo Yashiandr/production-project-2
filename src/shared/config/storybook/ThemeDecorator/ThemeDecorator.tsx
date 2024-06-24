@@ -1,8 +1,8 @@
-import { StoryFn } from '@storybook/react';
-import { Theme, ThemeProvider } from 'app/providers/ThemeProvider';
+import { Decorator } from '@storybook/react';
+import { ThemeProvider } from 'app/providers/ThemeProvider';
 
-export const ThemeDecorator = (theme: Theme = Theme.LIGHT) => (StoryComponent: StoryFn) => {
-    document.body.classList.replace(theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT, theme);
+export const ThemeDecorator: Decorator = (StoryComponent, { globals }) => {
+    const { theme } = globals;
     return (
         <ThemeProvider initialTheme={theme}>
             <div className={`app ${theme}`}>

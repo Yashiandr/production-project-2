@@ -1,6 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Input } from './Input';
 
 const meta = {
@@ -18,20 +16,6 @@ export const Primary: Story = {
     args: {
         value: 'Текст',
     },
-};
-
-export const Dark: Story = {
-    ...Primary,
-    decorators: [
-        ThemeDecorator(Theme.DARK),
-    ],
-};
-
-export const Orange: Story = {
-    ...Primary,
-    decorators: [
-        ThemeDecorator(Theme.ORANGE),
-    ],
 };
 
 export const WithPlaceholder = {

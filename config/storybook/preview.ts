@@ -1,4 +1,5 @@
 import type { Preview } from '@storybook/react';
+import { Theme } from '../../src/app/providers/ThemeProvider';
 import i18n from '../../src/shared/config/i18n/i18n';
 import { RouteDecorator } from '../../src/shared/config/storybook/RouteDecorator/RouteDecorator';
 import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator/StyleDecorator';
@@ -14,11 +15,33 @@ const preview: Preview = {
             },
         },
     },
+    globalTypes: {
+        theme: {
+            description: 'Global theme component',
+            table: {
+                defaultValue: {
+                    summary: Theme.LIGHT,
+                },
+            },
+            toolbar: {
+                title: 'Theme',
+                icon: 'circle',
+                items: [
+                    { value: undefined, title: 'Without' },
+                    { value: Theme.LIGHT, title: 'Light' },
+                    { value: Theme.DARK, title: 'dark' },
+                    { value: Theme.ORANGE, title: 'orange' },
+                ],
+                dynamicTitle: true,
+            },
+        },
+    },
+
     decorators: [
         StyleDecorator,
         RouteDecorator,
         TranslationDecorator,
-        ThemeDecorator(),
+        ThemeDecorator,
     ],
 };
 

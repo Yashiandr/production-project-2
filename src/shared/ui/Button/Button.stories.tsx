@@ -1,6 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Button, ButtonSize, ButtonTheme } from './Button';
 
 const meta = {
@@ -48,20 +46,6 @@ export const Clear: Story = {
     },
 };
 
-export const ClearDark: Story = {
-    ...Clear,
-    decorators: [
-        ThemeDecorator(Theme.DARK),
-    ],
-};
-
-export const ClearOrange: Story = {
-    ...Clear,
-    decorators: [
-        ThemeDecorator(Theme.ORANGE),
-    ],
-};
-
 export const ClearInverted: Story = {
     args: {
         children: 'ClearInv',
@@ -69,39 +53,11 @@ export const ClearInverted: Story = {
     },
 };
 
-export const ClearInvertedDark: Story = {
-    ...ClearInverted,
-    decorators: [
-        ThemeDecorator(Theme.DARK),
-    ],
-};
-
-export const ClearInvertedOrange: Story = {
-    ...ClearInverted,
-    decorators: [
-        ThemeDecorator(Theme.ORANGE),
-    ],
-};
-
 export const Outline: Story = {
     args: {
         children: 'Outline',
         theme: ButtonTheme.OUTLINE,
     },
-};
-
-export const OutlineDark: Story = {
-    ...Outline,
-    decorators: [
-        ThemeDecorator(Theme.DARK),
-    ],
-};
-
-export const OutlineOrange: Story = {
-    ...Outline,
-    decorators: [
-        ThemeDecorator(Theme.ORANGE),
-    ],
 };
 
 export const OutlineRed: Story = {
@@ -125,20 +81,6 @@ export const Background: Story = {
     },
 };
 
-export const BackgroundDark: Story = {
-    ...Background,
-    decorators: [
-        ThemeDecorator(Theme.DARK),
-    ],
-};
-
-export const BackgroundOrange: Story = {
-    ...Background,
-    decorators: [
-        ThemeDecorator(Theme.ORANGE),
-    ],
-};
-
 export const BackgroundInverted: Story = {
     args: {
         children: 'bgInverted',
@@ -146,39 +88,11 @@ export const BackgroundInverted: Story = {
     },
 };
 
-export const BackgroundInvertedDark: Story = {
-    ...BackgroundInverted,
-    decorators: [
-        ThemeDecorator(Theme.DARK),
-    ],
-};
-
-export const BackgroundInvertedOrange: Story = {
-    ...BackgroundInverted,
-    decorators: [
-        ThemeDecorator(Theme.ORANGE),
-    ],
-};
-
 export const Square: Story = {
     args: {
         square: true,
         children: '∎',
     },
-};
-
-export const SquareDark: Story = {
-    ...Square,
-    decorators: [
-        ThemeDecorator(Theme.DARK),
-    ],
-};
-
-export const SquareOrange: Story = {
-    ...Square,
-    decorators: [
-        ThemeDecorator(Theme.ORANGE),
-    ],
 };
 
 export const SquareSizeL: Story = {

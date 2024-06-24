@@ -1,6 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
-import { ThemeDecorator } from '../../config/storybook/ThemeDecorator/ThemeDecorator';
 import {
     Text, TextAlign, TextSize, TextTheme,
 } from './Text';
@@ -35,26 +33,6 @@ export const TextOnly: Story = {
     },
 };
 
-export const PrimaryDark: Story = {
-    args: {
-        title: 'Title lorem ipsum',
-        text: 'Description Description Description Description',
-    },
-    decorators: [
-        ThemeDecorator(Theme.DARK),
-    ],
-};
-
-export const PrimaryOrange: Story = {
-    args: {
-        title: 'Title lorem ipsum',
-        text: 'Description Description Description Description',
-    },
-    decorators: [
-        ThemeDecorator(Theme.ORANGE),
-    ],
-};
-
 export const Error: Story = {
     args: {
         title: 'Error message',
@@ -62,21 +40,6 @@ export const Error: Story = {
         theme: TextTheme.ERROR,
     },
 };
-
-export const ErrorDark: Story = {
-    ...Error,
-    decorators: [
-        ThemeDecorator(Theme.DARK),
-    ],
-};
-
-export const ErrorOrange: Story = {
-    ...Error,
-    decorators: [
-        ThemeDecorator(Theme.ORANGE),
-    ],
-};
-
 export const AlignCenter: Story = {
     args: {
         ...Primary.args,
