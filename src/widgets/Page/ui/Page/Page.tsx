@@ -53,7 +53,7 @@ export const Page = memo((props: PageProps) => {
         <section
             onScroll={onScroll}
             ref={wrapperRef}
-            className={classNames(cls.Page, {}, [className, cls[__PROJECT__]])}
+            className={classNames(cls.Page, { [cls.virtuoso]: false }, [className, cls[__PROJECT__]])}
         >
             {children}
             {

@@ -21,3 +21,10 @@
     width: 100%;
     margin: 7rem 0;
 }
+
+.recommendations {
+    overflow-x: scroll;
+    grid-auto-flow: column;
+    grid-gap: 1rem;
+    overflow-y: hidden;
+}

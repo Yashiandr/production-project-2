@@ -9,7 +9,8 @@
   transition: var(--transition-theme-bg);
   z-index: 100;
   overflow: hidden;
-
+    position: sticky;
+    top: 0;
 }
 
 .links {

@@ -13,3 +13,8 @@
     height: 1.25rem;
     margin: 2.5rem;
 }
+
+.virtuoso {
+    max-height: calc(100vw - var(--navbar-height));
+    min-height: calc(100vh - var(--navbar-height));
+}

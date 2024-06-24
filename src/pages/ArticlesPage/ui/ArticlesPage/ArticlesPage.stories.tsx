@@ -106,6 +106,11 @@ const meta = {
             },
         }),
     ],
+    parameters: {
+        loki: {
+            skip: true,
+        },
+    },
     tags: ['autodocs'],
 
 } satisfies Meta<typeof ArticlesPage>;

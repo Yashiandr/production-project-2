@@ -43,7 +43,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const {
         className,
     } = props;
-    const { t } = useTranslation(['articles', 'translation']);
+    const { t } = useTranslation('articles');
     const { id } = useParams<{ id: string }>();
     const dispatch = useAppDispatch();
     const comments = useAppSelector(getArticleComments.selectAll);
@@ -78,7 +78,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                     articles={recommendations}
                     isLoading={recommendationsIsLoading}
                     view={ArticlesView.SMALL}
-                    className={cls.recommendations}
+                    recommendations
                     target="_blank"
                 />
                 <Text title={t('Комментарии')} />

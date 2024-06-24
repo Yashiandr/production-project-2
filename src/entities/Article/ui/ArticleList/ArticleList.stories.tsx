@@ -95,6 +95,11 @@ const meta = {
     decorators: [
         StoreDecorator({}),
     ],
+    parameters: {
+        loki: {
+            skip: true,
+        },
+    },
 
     tags: ['autodocs'],
 

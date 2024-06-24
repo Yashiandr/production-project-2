@@ -1,6 +1,7 @@
 .Sidebar {
-    padding-top: 2rem;
-    height: calc(100vh - var(--navbar-height));
+    padding-top: 4rem;
+    height: 100vh;
+    margin-top: calc(var(--navbar-height) * -1);
     width: var(--sidebar-width);
     background-color: var(--inverted-bg-color);
     position: sticky;

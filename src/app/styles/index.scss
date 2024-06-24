@@ -16,14 +16,13 @@ body {
 
 .app {
     background-color: var(--bg-color);
-    max-height: 100vh;
     transition: var(--transition-theme-bg);
 
 }
 
 .content-page {
-  display: flex;
-    height: calc(100vh - var(--navbar-height) - 0.15rem);
+    display: flex;
+    width: 100%;
 }
 
 *::-webkit-scrollbar {
