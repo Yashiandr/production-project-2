@@ -50,7 +50,7 @@ export const Page = memo((props: PageProps) => {
     }, 500);
 
     return (
-        <section
+        <main
             onScroll={onScroll}
             ref={wrapperRef}
             className={classNames(cls.Page, { [cls.virtuoso]: false }, [className, cls[__PROJECT__]])}
@@ -61,6 +61,6 @@ export const Page = memo((props: PageProps) => {
                     ? (<div className={cls.trigger} ref={triggerRef as LegacyRef<HTMLDivElement> | undefined} />)
                     : null
             }
-        </section>
+        </main>
     );
 });

@@ -54,6 +54,13 @@ export const AlignRight: Story = {
     },
 };
 
+export const SizeS: Story = {
+    args: {
+        ...Primary.args,
+        size: TextSize.S,
+    },
+};
+
 export const SizeL: Story = {
     args: {
         ...Primary.args,
