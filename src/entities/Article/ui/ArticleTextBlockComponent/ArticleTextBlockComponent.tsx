@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { VStack } from 'shared/ui/Stack';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import { ArticleTextBlock } from '../../model/types/article';
-import * as cls from './ArticleTextBlockComponent.module.scss';
 
 interface ArticleTextBlockComponentProps {
     className?: string;
@@ -16,13 +16,13 @@ export const ArticleTextBlockComponent = memo((props: ArticleTextBlockComponentP
     } = props;
 
     return (
-        <div className={classNames(cls.ArticleTextBlockComponent, {}, [className])}>
+        <VStack align="start" gap="16" className={classNames('', {}, [className])}>
             {block.title && (
-                <Text title={block.title} className={cls.title} size={TextSize.M} />
+                <Text title={block.title} size={TextSize.M} />
             )}
             {block.paragraphs.map((paragraph) => (
                 <Text key={paragraph} text={paragraph} />
             ))}
-        </div>
+        </VStack>
     );
 });

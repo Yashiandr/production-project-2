@@ -8,6 +8,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector/useAppSelector';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { HStack } from 'shared/ui/Stack';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import * as cls from './Navbar.module.scss';
 
@@ -37,8 +38,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
                 <Text className={cls.logo} title={t('Yashiandr App')} size={TextSize.L} />
-
-                <div className={cls.links}>
+                <HStack gap="8">
                     <AppLink to={RoutePath.article_create}>
                         {t('Создать статью')}
                     </AppLink>
@@ -48,7 +48,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     >
                         {t('Выйти')}
                     </Button>
-                </div>
+                </HStack>
             </header>
         );
     }

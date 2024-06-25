@@ -6,6 +6,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector/useAppSelector';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
+import { VStack } from 'shared/ui/Stack';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { selectLoginError } from '../../model/selectors/selectLoginError/selectLoginError';
 import { selectLoginIsLoading } from '../../model/selectors/selectLoginIsLoading/selectLoginIsLoading';
@@ -53,7 +54,7 @@ const LoginForm = memo((props: LoginFormProps) => {
 
     return (
         <DynamicModuleLoader reducers={initialReducer}>
-            <div className={classNames(cls.LoginForm, {}, [className])}>
+            <VStack gap="16" align="stretch" className={classNames(cls.LoginForm, {}, [className])}>
                 <Text title={t('Форма Авторизации')} />
                 {error && <Text text={error} theme={TextTheme.ERROR} />}
                 <Input
@@ -76,7 +77,7 @@ const LoginForm = memo((props: LoginFormProps) => {
                 >
                     {t('Войти')}
                 </Button>
-            </div>
+            </VStack>
         </DynamicModuleLoader>
 
     );

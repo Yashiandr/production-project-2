@@ -1,9 +1,7 @@
 .ProfileCard {
+    margin-top: 1rem;
     padding: .625rem;
     border: .125rem solid var(--inverted-bg-color);
-    display: flex;
-    flex-direction: column;
-    gap: 1.875rem;
     transition: border .2s ease;
 }
 
@@ -11,17 +9,9 @@
     align-self: center;
 }
 
-.data {
-    display: flex;
-    flex-direction: column;
-    gap: .625rem
-}
 
 .loading,
 .error {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     height: 20rem;
 }
 

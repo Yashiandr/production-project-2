@@ -10,6 +10,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Icon, IconColor, IconFill } from 'shared/ui/Icon/Icon';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { HStack, VStack } from 'shared/ui/Stack';
 import {
     Text, TextAlign, TextSize, TextTheme,
 } from 'shared/ui/Text/Text';
@@ -78,7 +79,9 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         );
     } else if (error) {
         content = (
-            <Text title={error} align={TextAlign.CENTER} theme={TextTheme.ERROR} />
+            <VStack justify="center" max>
+                <Text title={error} align={TextAlign.CENTER} theme={TextTheme.ERROR} />
+            </VStack>
         );
     } else if (!article) {
         content = (
@@ -89,24 +92,26 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
             <>
                 <Avatar size={200} src={article.img} alt={article.img} className={cls.avatar} />
                 <Text title={article.title} text={article.subtitle} size={TextSize.L} />
-                <div className={cls.articleInfo}>
+                <HStack gap="8">
                     <Icon Svg={ViewersIcon} color={IconColor.SECONDARY} />
                     <Text text={String(article.views)} />
-                </div>
-                <div className={cls.articleInfo}>
+                </HStack>
+                <HStack gap="8">
                     <Icon Svg={DateIcon} color={IconColor.SECONDARY} fill={IconFill.STROKE} />
                     <Text text={article.createdAt} />
-                </div>
-                {article.blocks.map(renderBlock)}
+                </HStack>
+                <VStack gap="16" max align="stretch">
+                    {article.blocks.map(renderBlock)}
+                </VStack>
             </>
         );
     }
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames(cls.ArticleDetails, {}, [className])}>
+            <VStack gap="16" align="start" className={classNames('', {}, [className])}>
                 {content}
-            </div>
+            </VStack>
         </DynamicModuleLoader>
 
     );

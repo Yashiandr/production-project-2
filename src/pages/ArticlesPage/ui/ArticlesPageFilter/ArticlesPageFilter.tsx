@@ -15,6 +15,7 @@ import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import { SortOrder } from 'shared/types';
 import { Card } from 'shared/ui/Card/Card';
 import { Input } from 'shared/ui/Input/Input';
+import { HStack, VStack } from 'shared/ui/Stack';
 import { TabItem } from 'shared/ui/Tabs/Tabs';
 import { selectArticlesPageOrder } from '../../model/selectors/selectArticlesPageOrder/selectArticlesPageOrder';
 import { selectArticlesPageSearch } from '../../model/selectors/selectArticlesPageSearch/selectArticlesPageSearch';
@@ -23,7 +24,6 @@ import { selectArticlesPageType } from '../../model/selectors/selectArticlesPage
 import { selectArticlePageView } from '../../model/selectors/selectArticlesPageView/selectArticlePageView';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { articlesPageActions } from '../../model/slice/articlesPageSlice';
-import * as cls from './ArticlesPageFilter.module.scss';
 
 interface ArticlesPageFilterProps {
     className?: string;
@@ -78,8 +78,8 @@ export const ArticlesPageFilter = memo((props: ArticlesPageFilterProps) => {
     }, [dispatch, fetchData]);
 
     return (
-        <div className={classNames(cls.ArticlesPageFilter, {}, [className])}>
-            <div className={cls.sortWrapper}>
+        <VStack align="stretch" gap="16" max className={classNames('', {}, [className])}>
+            <HStack justify="between">
                 <ArticlesSortSelector
                     sort={sort}
                     order={order}
@@ -87,11 +87,11 @@ export const ArticlesPageFilter = memo((props: ArticlesPageFilterProps) => {
                     onChangeSort={onChangeSort}
                 />
                 <ArticlesViewSelector view={view} onViewClick={onChangeView} />
-            </div>
+            </HStack>
             <Card>
                 <Input placeholder={t('Поиск')} onChange={onChangeSearch} value={search} />
             </Card>
             <ArticlesTypeTab onChangeType={onChangeType} type={type} />
-        </div>
+        </VStack>
     );
 });

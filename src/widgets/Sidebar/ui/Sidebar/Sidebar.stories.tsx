@@ -7,9 +7,7 @@ const meta = {
     component: Sidebar,
     decorators: [
         StoreDecorator({
-            user: {
-                authData: {},
-            },
+            user: { authData: {} },
         }),
     ],
 
@@ -22,4 +20,13 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
     args: {},
+};
+
+export const WithoutAuth: Story = {
+    args: {},
+    decorators: [
+        StoreDecorator({
+            user: { authData: undefined },
+        }),
+    ],
 };

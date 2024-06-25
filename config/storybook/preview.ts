@@ -14,6 +14,23 @@ const preview: Preview = {
                 date: /Date$/i,
             },
         },
+        backgrounds: {
+            default: 'Light',
+            values: [
+                {
+                    name: 'Light',
+                    value: '#CCCC99',
+                },
+                {
+                    name: 'Dark',
+                    value: '#222222',
+                },
+                {
+                    name: 'Orange',
+                    value: '#FFFFFF',
+                },
+            ],
+        },
     },
     globalTypes: {
         theme: {
@@ -29,8 +46,8 @@ const preview: Preview = {
                 items: [
                     { value: undefined, title: 'Without' },
                     { value: Theme.LIGHT, title: 'Light' },
-                    { value: Theme.DARK, title: 'dark' },
-                    { value: Theme.ORANGE, title: 'orange' },
+                    { value: Theme.DARK, title: 'Dark' },
+                    { value: Theme.ORANGE, title: 'Orange' },
                 ],
                 dynamicTitle: true,
             },

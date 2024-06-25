@@ -41,9 +41,6 @@
 }
 
 .items {
-    display: flex;
-    flex-direction: column;
-    gap: .75rem;
     margin-left: calc(var(--sidebar-width-collapsed) / 2 - 1rem);
 }
 

@@ -1,13 +1,12 @@
 import { profileActions, selectProfileReadonly, updateProfileData } from 'entities/Profile';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector/useAppSelector';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { HStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text/Text';
 import { selectCanEditProfile } from '../../model/selectors/selectCanEditProfile/selectCanEditProfile';
-import * as cls from './ProfilePageHeader.module.scss';
 
 interface ProfilePageHeaderProps {
     className?: string;
@@ -35,42 +34,35 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
     }, [dispatch]);
 
     return (
-        <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
+        <HStack justify="between" className={className}>
             <Text title={t('Профиль пользователя')} />
-            {canEdit
-                && (
-                    // eslint-disable-next-line react/jsx-no-useless-fragment
-                    <>
-                        {
-                            readonly
-                                ? (
-                                    <Button
-                                        onClick={onEdit}
-                                    >
-                                        {t('Редактировать')}
-                                    </Button>
-                                )
-                                : (
-                                    <div
-                                        className={cls.buttons}
-                                    >
-                                        <Button
-                                            onClick={onSave}
-                                            theme={ButtonTheme.OUTLINE_GREEN}
-                                        >
-                                            {t('Сохранить', { ns: 'translation' })}
-                                        </Button>
-                                        <Button
-                                            onClick={onCancelEdit}
-                                            theme={ButtonTheme.OUTLINE_RED}
-                                        >
-                                            {t('Отменить', { ns: 'translation' })}
-                                        </Button>
-                                    </div>
-                                )
-                        }
-                    </>
-                )}
-        </div>
+            {canEdit && (
+                // eslint-disable-next-line react/jsx-no-useless-fragment
+                <>
+                    {readonly
+                        ? (
+                            <Button onClick={onEdit}>
+                                {t('Редактировать')}
+                            </Button>
+                        )
+                        : (
+                            <HStack gap="4">
+                                <Button
+                                    onClick={onSave}
+                                    theme={ButtonTheme.OUTLINE_GREEN}
+                                >
+                                    {t('Сохранить', { ns: 'translation' })}
+                                </Button>
+                                <Button
+                                    onClick={onCancelEdit}
+                                    theme={ButtonTheme.OUTLINE_RED}
+                                >
+                                    {t('Отменить', { ns: 'translation' })}
+                                </Button>
+                            </HStack>
+                        )}
+                </>
+            )}
+        </HStack>
     );
 };

@@ -3,6 +3,7 @@ import { memo, useMemo, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector/useAppSelector';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
+import { VStack } from 'shared/ui/Stack';
 import { LangSwitcher } from 'widgets/LangSwitcher';
 import { selectSidebarItems } from '../../model/selectors/selectSidebarItems/selectSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
@@ -44,9 +45,9 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
             >
                 {collapsed ? '>' : '<'}
             </Button>
-            <div className={cls.items}>
+            <VStack gap="8" align="start" className={cls.items}>
                 {itemsList}
-            </div>
+            </VStack>
             <div className={cls.switchers}>
                 <ThemeSwitcher />
                 <LangSwitcher short={collapsed} />
