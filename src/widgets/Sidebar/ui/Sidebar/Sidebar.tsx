@@ -1,9 +1,9 @@
+import { ThemeSwitcher } from 'features/ThemeSwitcher';
 import { memo, useMemo, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector/useAppSelector';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { LangSwitcher } from 'widgets/LangSwitcher';
-import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { selectSidebarItems } from '../../model/selectors/selectSidebarItems/selectSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import * as cls from './Sidebar.module.scss';

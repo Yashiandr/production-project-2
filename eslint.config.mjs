@@ -7,6 +7,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import i18next from 'eslint-plugin-i18next';
 import jest from 'eslint-plugin-jest';
+import yashiandrAppPlugin from 'eslint-plugin-yashiandr-app-plugin';
 // mimic CommonJS variables -- not needed if using CommonJS
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -24,6 +25,7 @@ export default [
             },
         }
     },
+    ...yashiandrAppPlugin.config.recommended,
     pluginJs.configs.recommended,
     ...tseslint.configs.recommended,
     ...compat.extends('airbnb'),
@@ -31,7 +33,7 @@ export default [
     {
         plugins: {
             i18next,
-            reactHooks
+            reactHooks,
         },
         rules:
             {
