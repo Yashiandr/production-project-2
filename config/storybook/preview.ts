@@ -35,11 +35,6 @@ const preview: Preview = {
     globalTypes: {
         theme: {
             description: 'Global theme component',
-            table: {
-                defaultValue: {
-                    summary: Theme.LIGHT,
-                },
-            },
             toolbar: {
                 title: 'Theme',
                 icon: 'circle',

@@ -8,6 +8,9 @@ const meta = {
         to: '/',
         children: 'App Link',
     },
+    render(args) {
+        return <div style={{ backgroundColor: 'var(--inverted-bg-color)' }}><AppLink {...args} /></div>;
+    },
     tags: ['autodocs'],
 
 } satisfies Meta<typeof AppLink>;

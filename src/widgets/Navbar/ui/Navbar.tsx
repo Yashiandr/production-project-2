@@ -56,7 +56,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     return (
         <header className={classNames(cls.Navbar, {}, [className])}>
             <Text className={cls.logo} title={t('Yashiandr App')} size={TextSize.L} />
-            <div className={cls.links}>
+            <div>
                 <Button
                     theme={ButtonTheme.CLEAR_INVERTED}
                     onClick={onShowModal}

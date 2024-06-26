@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Flex } from './Flex';
 
 const meta = {
-    title: 'TODO/Flex',
+    title: 'shared/Flex',
     component: Flex,
     args: {
         children: (

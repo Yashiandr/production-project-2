@@ -20,7 +20,7 @@ function App() {
         <div className={classNames('app', {}, [])}>
             <Suspense fallback="">
                 <Navbar />
-                <HStack max className="content-page">
+                <HStack max align="stretch" className="content-page">
                     <Sidebar />
                     {inited && <AppRouter />}
                 </HStack>
