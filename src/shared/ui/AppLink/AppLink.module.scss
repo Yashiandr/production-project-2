@@ -4,6 +4,8 @@
   &:hover {
     opacity: .8;
   }
+
+
 }
 
 .primary {
@@ -17,3 +19,9 @@
 .non-invert {
     color: var(--primary-color)
 }
+
+.readonly:hover {
+  opacity: 1;
+  overflow: hidden;
+}
+

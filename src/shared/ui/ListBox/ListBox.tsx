@@ -6,6 +6,7 @@ import {
 } from '@headlessui/react';
 import { Fragment, ReactNode } from 'react';
 import { classNames, Mods } from '../../lib/classNames/classNames';
+import { DropdownDirection } from '../../types/ui';
 import { Button } from '../Button/Button';
 import * as cls from './ListBox.module.scss';
 
@@ -14,8 +15,6 @@ export interface ListBoxItem {
     content: ReactNode;
     disabled?: boolean;
 }
-
-type DropdownDirection = 'top' | 'bottom'
 
 interface ListBoxProps {
     items?: ListBoxItem[];

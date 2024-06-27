@@ -1,0 +1,76 @@
+.Dropdown {
+    position: relative;
+    overflow-x: hidden !important;
+
+}
+
+.btn {
+    background: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    z-index: 10000;
+    border-radius: .5rem;
+    border: .0625rem solid var(--primary-color);
+}
+
+.link {
+    min-width: 100%;
+    overflow: hidden !important;
+}
+
+.item {
+    min-width: 100%;
+    text-wrap: nowrap;
+    padding: 0.75rem 1.5rem;
+    color: var(--primary-color);
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    overflow: hidden !important;
+
+
+    &.disabled {
+        color: var(--red-dark);
+        opacity: 1;
+        cursor: not-allowed;
+
+        &:hover {
+            animation: horizontal-shaking .2s;
+        }
+    }
+}
+
+.focus {
+    background-color: var(--inverted-bg-color);
+    color: var(--inverted-primary-color);
+}
+
+
+@keyframes horizontal-shaking {
+    0% {
+        transform: translateX(0)
+    }
+    25% {
+        transform: translateX(2px)
+    }
+    50% {
+        transform: translateX(-2px)
+    }
+    75% {
+        transform: translateX(2px)
+    }
+    100% {
+        transform: translateX(0)
+    }
+}

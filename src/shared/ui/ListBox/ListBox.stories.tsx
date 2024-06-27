@@ -53,9 +53,34 @@ export const withLabel: Story = {
         label: 'label',
     },
 };
+
 export const topDirection: Story = {
     args: {
         direction: 'top',
+    },
+};
+
+export const topLeftDirection: Story = {
+    args: {
+        direction: 'top end',
+    },
+};
+
+export const topRightDirection: Story = {
+    args: {
+        direction: 'top start',
+    },
+};
+
+export const bottomLeftDirection: Story = {
+    args: {
+        direction: 'bottom end',
+    },
+};
+
+export const bottomRightDirection: Story = {
+    args: {
+        direction: 'bottom start',
     },
 };
 

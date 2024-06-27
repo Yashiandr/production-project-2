@@ -11,7 +11,8 @@ export enum AppLinkTheme {
 
 interface AppLinkProps extends LinkProps {
     className?: string;
-    theme?: AppLinkTheme
+    theme?: AppLinkTheme;
+    readonly?: boolean;
 }
 
 export const AppLink: FC<PropsWithChildren<AppLinkProps>> = memo((props: AppLinkProps) => {
@@ -20,12 +21,13 @@ export const AppLink: FC<PropsWithChildren<AppLinkProps>> = memo((props: AppLink
         className,
         children,
         theme = AppLinkTheme.PRIMARY,
+        readonly,
         ...otherProps
     } = props;
     return (
         <Link
             to={to}
-            className={classNames(cls.AppLink, {}, [className, cls[theme]])}
+            className={classNames(cls.AppLink, { [cls.readonly]: readonly }, [className, cls[theme]])}
             {...otherProps}
         >
             {children}
