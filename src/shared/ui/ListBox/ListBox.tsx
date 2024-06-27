@@ -8,6 +8,7 @@ import { Fragment, ReactNode } from 'react';
 import { classNames, Mods } from '../../lib/classNames/classNames';
 import { DropdownDirection } from '../../types/ui';
 import { Button } from '../Button/Button';
+import { HStack } from '../Stack';
 import * as cls from './ListBox.module.scss';
 
 export interface ListBoxItem {
@@ -40,7 +41,7 @@ export function ListBox(props: ListBoxProps) {
     } = props;
 
     return (
-        <>
+        <HStack gap="4">
             {label && <span className={classNames(cls.label, { [cls.readonly]: readonly })}>{`${label}>`}</span>}
             <HListBox
                 as="div"
@@ -85,6 +86,6 @@ export function ListBox(props: ListBoxProps) {
                     ))}
                 </HListBoxOptions>
             </HListBox>
-        </>
+        </HStack>
     );
 }
