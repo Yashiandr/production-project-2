@@ -135,6 +135,11 @@ const entities = articles.reduce((a, v) => ({ ...a, [v.id]: v }), {});
 const meta = {
     title: 'pages/Article/ArticleDetailsPage',
     component: ArticleDetailsPage,
+    parameters: {
+        loki: {
+            skip: true,
+        },
+    },
 
     tags: ['autodocs'],
 

@@ -5,3 +5,4 @@ extractedTranslations
 dist
 storybook-static
 *storybook.log
+/reports
