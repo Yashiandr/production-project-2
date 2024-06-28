@@ -1480,6 +1480,12 @@
       "userId": "1",
       "text": "Comment",
       "id": "DobTorK"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "123",
+      "id": "_kNJofV"
     }
   ],
   "users": [
@@ -1487,15 +1493,28 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "roles": [
+        "ADMIN"
+      ],
       "avatar": "https://masterpiecer-images.s3.yandex.net/5c949703654e11eea2a6963c1ee369ba:upscaled"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER",
+      "roles": [
+        "USER"
+      ],
       "avatar": "https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S.jpg"
+    },
+    {
+      "id": "3",
+      "username": "manager",
+      "password": "123",
+      "roles": [
+        "MANAGER"
+      ],
+      "avatar": "https://w7.pngwing.com/pngs/1022/474/png-transparent-computer-icons-management-product-manager-businessperson-business-service-people-logo.png"
     }
   ],
   "profile": [

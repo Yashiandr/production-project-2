@@ -7,7 +7,7 @@
   background-color: var(--inverted-bg-color);
   padding: 0 1.25rem;
   transition: var(--transition-theme-bg);
-  z-index: 100;
+  z-index: var(--navbar-z-index);
   overflow: hidden;
     position: sticky;
     top: 0;

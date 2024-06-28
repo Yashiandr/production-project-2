@@ -13,7 +13,7 @@
 
 .options {
     position: absolute;
-    z-index: 10000;
+    z-index: var(--listbox-z-index);
     border-radius: .75rem;
     min-width: var(--button-width);
     padding: .25rem .5rem;

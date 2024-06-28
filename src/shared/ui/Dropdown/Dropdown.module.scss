@@ -18,7 +18,7 @@
     flex-direction: column;
     align-items: center;
     position: absolute;
-    z-index: 10000;
+    z-index: var(--listbox-z-index);
     border-radius: .5rem;
     border: .0625rem solid var(--primary-color);
 }
