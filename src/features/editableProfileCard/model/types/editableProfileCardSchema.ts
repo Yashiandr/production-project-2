@@ -9,6 +9,7 @@ export enum ValidateProfileError {
 }
 
 export interface ProfileSchema {
+    id?: string;
     data?: Profile;
     form?: Profile;
     isLoading: boolean;

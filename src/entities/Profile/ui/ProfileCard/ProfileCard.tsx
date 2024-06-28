@@ -86,24 +86,28 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 onChange={onChangeFirstname}
                 readonly={readonly}
                 placeholder={t('Ваше имя')}
+                data-testid="ProfileCard.firstname"
             />
             <Input
                 value={data?.lastname}
                 onChange={onChangeLastname}
                 readonly={readonly}
                 placeholder={t('Ваша фамилия')}
+                data-testid="ProfileCard.lastname"
             />
             <Input
                 value={data?.age}
                 onChange={onChangeAge}
                 readonly={readonly}
                 placeholder={t('Ваш возраст')}
+                data-testid="ProfileCard.age"
             />
             <Input
                 value={data?.city}
                 onChange={onChangeCity}
                 readonly={readonly}
                 placeholder={t('Ваш город')}
+                data-testid="ProfileCard.city"
             />
             {isEditAvatar
                 ? (

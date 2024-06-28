@@ -23,7 +23,7 @@ import { EditableProfileCardHeader } from '../EditableProfileCardHeader/Editable
 
 interface EditableProfileCardProps {
     className?: string;
-    id: string
+    id?: string
 }
 
 const reducers: ReducerList = {
@@ -96,7 +96,12 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
             <div className={classNames('', {}, [className])}>
                 <EditableProfileCardHeader />
                 {validateErrors?.length && validateErrors.map((err) => (
-                    <Text theme={TextTheme.ERROR} text={validateErrorsTranslates[err]} key={err} />
+                    <Text
+                        theme={TextTheme.ERROR}
+                        text={validateErrorsTranslates[err]}
+                        key={err}
+                        data-testid="EditableProfileCard.Error"
+                    />
                 ))}
                 <ProfileCard
                     data={formData}

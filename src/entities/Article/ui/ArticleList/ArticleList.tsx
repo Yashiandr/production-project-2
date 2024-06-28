@@ -21,7 +21,7 @@ interface ArticleListProps {
     view?: ArticlesView;
     target?: HTMLAttributeAnchorTarget;
     onScrollEnd?: () => void;
-    recommendations?: boolean;
+    virtuoso?: boolean;
 }
 
 export const ArticleList = memo((props: ArticleListProps) => {
@@ -32,7 +32,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
         isLoading,
         target,
         onScrollEnd,
-        recommendations,
+        virtuoso = true,
     } = props;
 
     const { t } = useTranslation('articles');
@@ -50,7 +50,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
         );
     }
 
-    if (recommendations) {
+    if (!virtuoso) {
         return (
             <div className={classNames(cls.ArticleList, {}, [className, cls[view], cls.recommendations])}>
                 {articles.length > 0
