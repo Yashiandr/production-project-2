@@ -12,10 +12,11 @@ export { selectArticleDetailsData } from './model/selectors/selectArticleDetails
 
 export { articleDetailsActions, articleDetailsReducer } from './model/slice/articleDetailsSlice';
 
-export {
-    ArticleSortField, ArticlesView, Article, ArticleType,
-} from './model/types/article';
+export type { Article } from './model/types/article';
 
 export type {
     ArticleDetailsSchema,
 } from './model/types/articleDetailsSchema';
+export {
+    ArticlesView, ArticleType, ArticleSortField, ArticleBlockType,
+} from './model/consts/consts';

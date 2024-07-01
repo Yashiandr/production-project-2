@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Article, ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
+import { Article, ArticleBlockType, ArticleType } from 'entities/Article';
 import defaultImage from 'shared/assets/stockImage/default-image.jpg';
 import defaultManAvatar from 'shared/assets/stockImage/default-man-avatar.jpg';
 import defaultWomanAvatar from 'shared/assets/stockImage/default-woman-avatar.jpg';

@@ -4,7 +4,7 @@ import { Currency } from 'entities/Currency';
 import defaultAvatar from 'shared/assets/stockImage/default-woman-avatar.jpg';
 import { PageDecorator } from 'shared/config/storybook/PageDecorator/PageDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ValidateProfileError } from '../../model/types/editableProfileCardSchema';
+import { ValidateProfileError } from '../../model/consts/consts';
 import { EditableProfileCard } from './EditableProfileCard';
 
 const data = {

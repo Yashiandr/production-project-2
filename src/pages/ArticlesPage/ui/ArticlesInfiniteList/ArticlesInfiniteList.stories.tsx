@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Article, ArticlesView, ArticleType } from 'entities/Article';
-import { ArticleBlockType } from 'entities/Article/model/types/article';
+import { ArticleBlockType } from 'entities/Article/model/consts/consts';
 import defaultImage from 'shared/assets/stockImage/default-image.jpg';
 import defaultManAvatar from 'shared/assets/stockImage/default-man-avatar.jpg';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';

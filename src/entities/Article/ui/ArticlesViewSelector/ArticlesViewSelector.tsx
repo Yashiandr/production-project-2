@@ -5,7 +5,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Icon, IconFill } from 'shared/ui/Icon/Icon';
 import { HStack } from 'shared/ui/Stack';
-import { ArticlesView } from '../../model/types/article';
+import { ArticlesView } from '../../model/consts/consts';
 import * as cls from './ArticlesViewSelector.module.scss';
 
 interface ArticlesViewSelectorProps {

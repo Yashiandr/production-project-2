@@ -39,7 +39,8 @@
       "app/*": [
         "src/app/*"
       ]
-    }
+    },
+    "isolatedModules": true
   },
   "ts-node": {
     "compilerOptions": {

@@ -2,9 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react';
 import defaultImage from 'shared/assets/stockImage/default-image.jpg';
 import defaultManAvatar from 'shared/assets/stockImage/default-man-avatar.jpg';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import {
-    Article, ArticleBlockType, ArticlesView, ArticleType,
-} from '../../model/types/article';
+import { ArticleBlockType, ArticlesView, ArticleType } from '../../model/consts/consts';
+import { Article } from '../../model/types/article';
 import { ArticleList } from './ArticleList';
 
 const article = {

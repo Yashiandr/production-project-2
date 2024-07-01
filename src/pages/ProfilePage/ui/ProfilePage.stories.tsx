@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
+import { ValidateProfileError } from 'features/editableProfileCard/model/consts/consts';
 
-import { ValidateProfileError } from 'features/editableProfileCard/model/types/editableProfileCardSchema';
 import defaultAvatar from 'shared/assets/stockImage/default-woman-avatar.jpg';
 import { PageDecorator } from 'shared/config/storybook/PageDecorator/PageDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';

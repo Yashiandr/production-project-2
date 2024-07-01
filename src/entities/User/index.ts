@@ -14,6 +14,4 @@ export type {
     UserSchema,
 } from './model/types/user';
 
-export {
-    UserRole,
-} from './model/types/user';
+export { UserRole } from './model/consts/consts';
