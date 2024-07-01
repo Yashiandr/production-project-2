@@ -10,7 +10,7 @@ export { ArticlesViewSelector } from './ui/ArticlesViewSelector/ArticlesViewSele
 
 export { selectArticleDetailsData } from './model/selectors/selectArticleDetailsData/selectArticleDetailsData';
 
-export { articleDetailsActions, articleDetailsReducer } from './model/slice/articleDetailsSlice';
+export { articleDetailsActions } from './model/slice/articleDetailsSlice';
 
 export type { Article } from './model/types/article';
 
