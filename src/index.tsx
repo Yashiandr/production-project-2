@@ -8,7 +8,11 @@ import { ErrorBoundary } from './app/providers/ErrorBoundary';
 import 'app/styles/index.scss';
 
 const container = document.getElementById('root');
-const root = createRoot(container!);
+
+if (!container) {
+    throw new Error('Не удалось вмонтировать React компонент');
+}
+const root = createRoot(container);
 
 root.render(
     <BrowserRouter>

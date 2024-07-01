@@ -11,6 +11,8 @@ export default ({ config }: { config: webpack.Configuration }) => {
         html: '',
         entry: '',
         src: path.resolve(__dirname, '..', '..', 'src'),
+        locales: '',
+        buildLocales: '',
     };
     // eslint-disable-next-line no-param-reassign
     config!.resolve!.modules = [paths.src, 'node_modules'];
@@ -29,7 +31,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
     config!.module!.rules.push(buildSvgLoader());
     config!.plugins!.push(new webpack.DefinePlugin({
         __IS_DEV__: JSON.stringify(true),
-        __API__: JSON.stringify(''),
+        __API__: JSON.stringify('http://testapi.ru'),
         __PROJECT__: JSON.stringify('storybook'),
     }));
     return config;

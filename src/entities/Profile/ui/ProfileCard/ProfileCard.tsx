@@ -121,6 +121,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 )
                 : (
                     <Input
+                        className={cls.imgLink}
                         value={data?.avatar}
                         onChange={onChangeAvatar}
                         readonly={readonly}
