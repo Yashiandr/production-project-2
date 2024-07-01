@@ -23,3 +23,15 @@
         fill: transparent;
     }
 }
+
+
+.inverted {
+    &.fill {
+        fill: var(--inverted-primary-color);
+    }
+
+    &.stroke {
+        stroke: var(--inverted-primary-color);
+        fill: transparent;
+    }
+}

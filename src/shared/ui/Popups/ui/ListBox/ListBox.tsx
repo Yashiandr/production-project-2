@@ -5,10 +5,11 @@ import {
     ListboxOptions as HListBoxOptions,
 } from '@headlessui/react';
 import { Fragment, ReactNode } from 'react';
-import { classNames, Mods } from '../../lib/classNames/classNames';
-import { DropdownDirection } from '../../types/ui';
-import { Button } from '../Button/Button';
-import { HStack } from '../Stack';
+import { classNames, Mods } from '../../../../lib/classNames/classNames';
+import { DropdownDirection } from '../../../../types/ui';
+import { Button } from '../../../Button/Button';
+import { HStack } from '../../../Stack';
+import * as popupCls from '../../styles/popup.module.scss';
 import * as cls from './ListBox.module.scss';
 
 export interface ListBoxItem {
@@ -45,13 +46,13 @@ export function ListBox(props: ListBoxProps) {
             {label && <span className={classNames(cls.label, { [cls.readonly]: readonly })}>{`${label}>`}</span>}
             <HListBox
                 as="div"
-                className={classNames(cls.ListBox, {}, [className])}
+                className={classNames(popupCls.popup, {}, [className])}
                 value={value}
                 onChange={onChange}
                 disabled={readonly}
             >
                 <HListBoxButton
-                    className={cls.trigger}
+                    className={popupCls.btn}
                 >
                     <Button
                         disabled={readonly}
@@ -70,7 +71,7 @@ export function ListBox(props: ListBoxProps) {
                                 const itemMods: Mods = {
                                     [cls.focus]: focus,
                                     [cls.selected]: selected,
-                                    [cls.disabled]: item.disabled,
+                                    [popupCls.disabled]: item.disabled,
                                     [cls.first]: index === 0,
                                     [cls.last]: index === Number(items?.length) - 1,
                                 };

@@ -19,7 +19,8 @@ export const Skeleton = memo((props: SkeletonProps) => {
 
     const styles: CSSProperties = {
         width,
-        height,
+        minHeight: height,
+        maxHeight: height,
         borderRadius: border,
     };
 

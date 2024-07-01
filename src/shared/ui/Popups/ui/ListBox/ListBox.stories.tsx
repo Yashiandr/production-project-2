@@ -14,7 +14,7 @@ const items: ListBoxItem[] = [
 ];
 
 const meta = {
-    title: 'shared/ListBox',
+    title: 'shared/Popups/ListBox',
     component: ListBox,
     args: {
         items,

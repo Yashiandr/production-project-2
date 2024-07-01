@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Button } from '../Button/Button';
+import { Button } from '../../../Button/Button';
 import { Dropdown, DropdownItem } from './Dropdown';
 
 const items: DropdownItem[] = [
@@ -56,7 +56,7 @@ const itemsWithDisabled: DropdownItem[] = [
 ];
 
 const meta = {
-    title: 'shared/Dropdown',
+    title: 'shared/Popups/Dropdown',
     component: Dropdown,
     args: {
         trigger: <Button>Trigger</Button>,

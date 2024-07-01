@@ -5,6 +5,7 @@ import * as cls from './Icon.module.scss';
 export enum IconColor {
     PRIMARY = 'primary',
     SECONDARY = 'secondary',
+    INVERTED = 'inverted',
 }
 
 export enum IconFill {

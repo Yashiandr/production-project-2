@@ -1,20 +1,24 @@
 .Navbar {
-  width: 100%;
-  height: var(--navbar-height);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: var(--inverted-bg-color);
-  padding: 0 1.25rem;
-  transition: var(--transition-theme-bg);
-  z-index: var(--navbar-z-index);
-  overflow: hidden;
+    width: 100%;
+    height: var(--navbar-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--inverted-bg-color);
+    padding: 0 1.25rem;
+    transition: var(--transition-theme-bg);
+    z-index: var(--navbar-z-index);
+    overflow: hidden;
     position: sticky;
     top: 0;
 }
 
 
 .logo {
-  font-weight: 600;
-  text-wrap: nowrap;
+    font-weight: 600;
+    text-wrap: nowrap;
+}
+
+.actions {
+    margin: 0;
 }

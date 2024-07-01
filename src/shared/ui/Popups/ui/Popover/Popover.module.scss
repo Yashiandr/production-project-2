@@ -1,0 +1,7 @@
+.panel {
+    background-color: var(--card-bg);
+    position: absolute;
+    z-index: var(--listbox-z-index);
+    border-radius: .5rem;
+    padding: 1rem;
+}
