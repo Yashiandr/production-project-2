@@ -10,7 +10,7 @@ import * as cls from './Dropdown.module.scss';
 
 export interface DropdownItem {
     disabled?: boolean;
-    content?: ReactNode;
+    content: ReactNode;
     onClick?: () => void;
     href?: string;
 }
@@ -54,6 +54,7 @@ export function Dropdown(props: DropdownProps) {
                                 to={item.href}
                                 disabled={item.disabled}
                                 readonly={item.disabled}
+                                key={item.content as string}
                             >
                                 {content}
                             </MenuItem>

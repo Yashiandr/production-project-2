@@ -1,5 +1,6 @@
 import { ThemeSwitcher } from 'features/ThemeSwitcher';
 import { memo, useMemo, useState } from 'react';
+import { isMobile } from 'react-device-detect';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector/useAppSelector';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
@@ -14,7 +15,7 @@ interface SidebarProps {
 }
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
-    const [collapsed, setCollapsed] = useState(false);
+    const [collapsed, setCollapsed] = useState(isMobile);
     const sidebarItemsList = useAppSelector(selectSidebarItems);
 
     const onToggle = () => {

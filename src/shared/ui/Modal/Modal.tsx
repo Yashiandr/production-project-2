@@ -3,6 +3,7 @@ import React, {
 } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { Portal } from 'shared/Portal/Portal';
+import { Overlay } from '../Overlay/Overlay';
 import * as cls from './Modal.module.scss';
 
 interface ModalProps {
@@ -89,14 +90,13 @@ export const Modal = (props: ModalProps) => {
     return (
         <Portal>
             <div className={classNames(cls.Modal, mods, [className])}>
-                <div className={cls.overlay} onClick={closeHandler}>
-                    <div
-                        className={cls.content}
-                        style={transformStory || {}}
-                        onClick={onContentClick}
-                    >
-                        {children}
-                    </div>
+                <Overlay onClick={closeHandler} />
+                <div
+                    className={cls.content}
+                    style={transformStory || {}}
+                    onClick={onContentClick}
+                >
+                    {children}
                 </div>
             </div>
         </Portal>

@@ -27,7 +27,7 @@ export const Input = memo((props: InputProps) => {
         ...otherProps
     } = props;
 
-    const ref = useRef<HTMLInputElement>();
+    const ref = useRef<HTMLInputElement>(null);
 
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         onChange?.(e.target.value);
@@ -77,6 +77,7 @@ export const Input = memo((props: InputProps) => {
                 className={cls.caretWrapper}
             >
                 <input
+                    ref={ref}
                     className={cls.input}
                     value={value}
                     onChange={onChangeHandler}
