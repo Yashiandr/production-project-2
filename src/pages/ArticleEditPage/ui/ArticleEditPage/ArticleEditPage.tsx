@@ -15,7 +15,7 @@ const ArticleEditPage = (props: ArticleEditPage) => {
 
     return (
         <Page className={classNames('', {}, [className])}>
-            {isEdit ? t('ARTICLE EDIT PAGE') : t('ARTICLE CREATE PAGE')}
+            {isEdit ? `${t('ARTICLE EDIT PAGE')} c ID:${id}` : ('ARTICLE CREATE PAGE')}
         </Page>
     );
 };

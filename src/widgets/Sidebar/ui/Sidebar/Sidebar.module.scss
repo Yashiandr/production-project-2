@@ -2,18 +2,16 @@
     padding-top: 4rem;
     height: 100vh;
     margin-top: calc(var(--navbar-height) * -1);
-    width: var(--sidebar-width);
+    min-width: var(--sidebar-width);
+    max-width: var(--sidebar-width);
     background-color: var(--inverted-bg-color);
     position: sticky;
     top: 0;
-    transition: var(--transition-theme-bg), width .5s ease-out;
+    transition: var(--transition-theme-bg), min-width .5s ease-out, max-width .5s ease-out;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 
-    * {
-        overflow-x: hidden;
-    }
 }
 
 
@@ -33,11 +31,12 @@
 
 .switchers {
     position: absolute;
-    bottom: 0.2rem;
+    bottom: 2rem;
+    min-height: 1rem;
     display: flex;
     justify-content: center;
     width: 100%;
-    gap: 0 1.5rem;
+    gap: 1rem 1.5rem;
 }
 
 .items {
@@ -47,7 +46,8 @@
 
 
 .collapsed {
-    width: var(--sidebar-width-collapsed);
+    min-width: var(--sidebar-width-collapsed);
+    max-width: var(--sidebar-width-collapsed);
 
     .switchers {
         flex-direction: column;

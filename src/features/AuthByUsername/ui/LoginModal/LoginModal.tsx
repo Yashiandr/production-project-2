@@ -8,14 +8,12 @@ interface LoginModalProps {
     className?: string;
     isOpen: boolean;
     onClose?: () => void;
-    storybook?: boolean;
 }
 
 export const LoginModal = (props: LoginModalProps) => {
     const {
         className,
         isOpen,
-        storybook,
         onClose,
     } = props;
 
@@ -24,7 +22,6 @@ export const LoginModal = (props: LoginModalProps) => {
             className={classNames('', {}, [className])}
             isOpen={isOpen}
             onClose={onClose}
-            storybook={storybook}
         >
             <Suspense fallback={<Loader />}>
                 <LoginFormAsync onSuccess={onClose} />

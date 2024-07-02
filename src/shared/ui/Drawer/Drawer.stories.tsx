@@ -2,11 +2,11 @@ import { useArgs } from '@storybook/preview-api';
 import type { Meta, StoryObj } from '@storybook/react';
 import { useCallback } from 'react';
 import { PageDecorator } from 'shared/config/storybook/PageDecorator/PageDecorator';
-import { Modal } from './Modal';
+import { Drawer } from './Drawer';
 
 const meta = {
-    title: 'shared/Modal',
-    component: Modal,
+    title: 'shared/Drawer',
+    component: Drawer,
     args: {
         isOpen: true,
     },
@@ -38,11 +38,11 @@ const meta = {
                 >
                     open
                 </button>
-                <Modal onClose={onClose} {...args} />
+                <Drawer onClose={onClose} {...args} />
             </>
         );
     },
-} satisfies Meta<typeof Modal>;
+} satisfies Meta<typeof Drawer>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
