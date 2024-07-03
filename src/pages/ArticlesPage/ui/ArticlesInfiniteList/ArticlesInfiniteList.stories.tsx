@@ -1,5 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Article, ArticlesView, ArticleType } from '@/entities/Article';
+import type {
+    Meta,
+    StoryObj,
+} from '@storybook/react';
+import {
+    Article,
+    ArticlesView,
+    ArticleType,
+} from '@/entities/Article';
 import { ArticleBlockType } from '@/entities/Article/model/consts/consts';
 import defaultImage from '@/shared/assets/stockImage/default-image.jpg';
 import defaultManAvatar from '@/shared/assets/stockImage/default-man-avatar.jpg';
@@ -81,14 +88,14 @@ const article = {
     ],
 } as Article;
 
-const articles = new Array(1000).fill(0).map((item, index) => (
+const articles = new Array(50).fill(0).map((item, index) => (
     {
         ...article,
         id: String(index + 1),
     }
 )) as Article[];
 
-const ids = new Array(1000).fill(0).map((item, index) => (index + 1));
+const ids = new Array(50).fill(0).map((item, index) => (index + 1));
 const entities = articles.reduce((a, v) => ({ ...a, [v.id]: v }), {});
 
 const meta = {

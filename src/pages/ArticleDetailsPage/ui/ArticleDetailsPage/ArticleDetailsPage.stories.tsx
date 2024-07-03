@@ -1,5 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Article, ArticleBlockType, ArticleType } from '@/entities/Article';
+import type {
+    Meta,
+    StoryObj,
+} from '@storybook/react';
+import {
+    Article,
+    ArticleBlockType,
+    ArticleType,
+} from '@/entities/Article';
 import defaultImage from '@/shared/assets/stockImage/default-image.jpg';
 import defaultManAvatar from '@/shared/assets/stockImage/default-man-avatar.jpg';
 import defaultWomanAvatar from '@/shared/assets/stockImage/default-woman-avatar.jpg';
@@ -132,9 +139,31 @@ const articles = new Array(4).fill(0).map((item, index) => (
 const ids = new Array(4).fill(0).map((item, index) => (index + 1));
 const entities = articles.reduce((a, v) => ({ ...a, [v.id]: v }), {});
 
+const rating = [{
+    id: '1', rate: 5, feedback: 'Отличная статья', userId: '1', articleId: '1',
+}];
+
 const meta = {
     title: 'pages/Article/ArticleDetailsPage',
     component: ArticleDetailsPage,
+    decorators: [
+        StoreDecorator(
+            {
+                articleDetails: articleData,
+                articleDetailsComments: comments,
+                articleDetailsRecommendations: {
+                    ids,
+                    entities,
+                },
+                user: {
+                    authData: { id: '1' },
+                },
+                scroll: {
+                    scrollSave: {},
+                },
+            },
+        ),
+    ],
     parameters: {
         loki: {
             skip: true,
@@ -145,6 +174,12 @@ const meta = {
                 method: 'GET',
                 status: 200,
                 response: articles,
+            },
+            {
+                url: `${__API__}/article-ratings?userId=1&articleId=`,
+                method: 'GET',
+                status: 200,
+                response: rating,
             },
         ],
     },
@@ -158,19 +193,4 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
     args: {},
-    decorators: [
-        StoreDecorator(
-            {
-                articleDetails: articleData,
-                articleDetailsComments: comments,
-                articleDetailsRecommendations: {
-                    ids,
-                    entities,
-                },
-                scroll: {
-                    scrollSave: {},
-                },
-            },
-        ),
-    ],
 };
