@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from '@/app/providers/StoreProvider';
 import { selectCounter } from './selectCounter';
 
 describe('selectCounter', () => {

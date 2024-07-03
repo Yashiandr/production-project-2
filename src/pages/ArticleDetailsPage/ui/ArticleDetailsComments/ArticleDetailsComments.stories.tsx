@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import defaultManAvatar from 'shared/assets/stockImage/default-man-avatar.jpg';
-import defaultWomanAvatar from 'shared/assets/stockImage/default-woman-avatar.jpg';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import defaultManAvatar from '@/shared/assets/stockImage/default-man-avatar.jpg';
+import defaultWomanAvatar from '@/shared/assets/stockImage/default-woman-avatar.jpg';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ArticleDetailsComments } from './ArticleDetailsComments';
 
 const comments = {

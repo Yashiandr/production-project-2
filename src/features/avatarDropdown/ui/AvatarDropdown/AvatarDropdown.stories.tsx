@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { User, UserRole } from 'entities/User';
-import defaultAdminAvatar from 'shared/assets/stockImage/default-admin-avatar.jpg';
-import defaultManAvatar from 'shared/assets/stockImage/default-man-avatar.jpg';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { User, UserRole } from '@/entities/User';
+import defaultAdminAvatar from '@/shared/assets/stockImage/default-admin-avatar.jpg';
+import defaultManAvatar from '@/shared/assets/stockImage/default-man-avatar.jpg';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { AvatarDropdown } from './AvatarDropdown';
 
 const user: User = {

@@ -1,19 +1,19 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import DateIcon from 'shared/assets/icons/date-32-32.svg';
-import ViewersIcon from 'shared/assets/icons/viewers-32-32.svg';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useAppSelector } from 'shared/lib/hooks/useAppSelector/useAppSelector';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Icon, IconColor, IconFill } from 'shared/ui/Icon/Icon';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { HStack, VStack } from 'shared/ui/Stack';
+import DateIcon from '@/shared/assets/icons/date-32-32.svg';
+import ViewersIcon from '@/shared/assets/icons/viewers-32-32.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Icon, IconColor, IconFill } from '@/shared/ui/Icon/Icon';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { HStack, VStack } from '@/shared/ui/Stack';
 import {
     Text, TextAlign, TextSize, TextTheme,
-} from 'shared/ui/Text/Text';
+} from '@/shared/ui/Text/Text';
 import { ArticleBlockType } from '../../model/consts/consts';
 import { selectArticleDetailsData } from '../../model/selectors/selectArticleDetailsData/selectArticleDetailsData';
 import { selectArticleDetailsError } from '../../model/selectors/selectArticleDetailsError/selectArticleDetailsError';

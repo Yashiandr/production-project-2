@@ -1,4 +1,4 @@
-import 'app/styles/index.scss';
+import '@/app/styles/index.scss';
 import './storybook.scss';
 import { StoryFn } from '@storybook/react';
 

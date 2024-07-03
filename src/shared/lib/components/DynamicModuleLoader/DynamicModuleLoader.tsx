@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { EntityState, Reducer } from '@reduxjs/toolkit';
-import { StateSchema, StateSchemaKey } from 'app/providers/StoreProvider';
 import { FC, PropsWithChildren, useEffect } from 'react';
+import { StateSchema, StateSchemaKey } from '@/app/providers/StoreProvider';
 import { useAppDispatch } from '../../hooks/useAppDispatch/useAppDispatch';
 import { useAppStore } from '../../hooks/useAppStore/useAppStore';
 

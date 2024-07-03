@@ -1,11 +1,11 @@
-import { ArticleDetails } from 'entities/Article';
-import { ArticleRecommendationsList } from 'features/articleRecommendationsList';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { Page } from 'widgets/Page';
+import { ArticleDetails } from '@/entities/Article';
+import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { Page } from '@/widgets/Page';
 import { articleDetailsCommentsReducer } from '../../model/slice/articleDetailsCommentsSlice';
 import { articleDetailsPageRecommendationsReducer } from '../../model/slice/articleDetailsPageRecommendationsSlice';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';

@@ -1,10 +1,10 @@
 import { memo } from 'react';
-import ListIcon from 'shared/assets/icons/list-40-40.svg';
-import TileIcon from 'shared/assets/icons/tile-40-40.svg';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { Icon, IconFill } from 'shared/ui/Icon/Icon';
-import { HStack } from 'shared/ui/Stack';
+import ListIcon from '@/shared/assets/icons/list-40-40.svg';
+import TileIcon from '@/shared/assets/icons/tile-40-40.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Icon, IconFill } from '@/shared/ui/Icon/Icon';
+import { HStack } from '@/shared/ui/Stack';
 import { ArticlesView } from '../../model/consts/consts';
 import * as cls from './ArticlesViewSelector.module.scss';
 

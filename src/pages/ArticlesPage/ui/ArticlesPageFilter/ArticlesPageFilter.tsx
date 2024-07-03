@@ -1,22 +1,22 @@
+import { memo, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
     ArticleSortField,
     ArticlesSortSelector,
     ArticlesView,
     ArticlesViewSelector,
     ArticleType,
-} from 'entities/Article';
-import { ArticlesTypeTab } from 'entities/Article/ui/ArticlesTypeTab/ArticlesTypeTab';
-import { memo, useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useAppSelector } from 'shared/lib/hooks/useAppSelector/useAppSelector';
-import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
-import { SortOrder } from 'shared/types';
-import { Card } from 'shared/ui/Card/Card';
-import { Input } from 'shared/ui/Input/Input';
-import { HStack, VStack } from 'shared/ui/Stack';
-import { TabItem } from 'shared/ui/Tabs/Tabs';
+} from '@/entities/Article';
+import { ArticlesTypeTab } from '@/entities/Article/ui/ArticlesTypeTab/ArticlesTypeTab';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
+import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
+import { SortOrder } from '@/shared/types';
+import { Card } from '@/shared/ui/Card/Card';
+import { Input } from '@/shared/ui/Input/Input';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { TabItem } from '@/shared/ui/Tabs/Tabs';
 import { selectArticlesPageOrder } from '../../model/selectors/selectArticlesPageOrder/selectArticlesPageOrder';
 import { selectArticlesPageSearch } from '../../model/selectors/selectArticlesPageSearch/selectArticlesPageSearch';
 import { selectArticlesPageSort } from '../../model/selectors/selectArticlesPageSort/selectArticlesPageSort';

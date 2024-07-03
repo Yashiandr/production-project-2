@@ -1,7 +1,7 @@
 import { useArgs } from '@storybook/preview-api';
 import type { Meta, StoryObj } from '@storybook/react';
 import { useCallback } from 'react';
-import { PageDecorator } from 'shared/config/storybook/PageDecorator/PageDecorator';
+import { PageDecorator } from '@/shared/config/storybook/PageDecorator/PageDecorator';
 import { Modal } from './Modal';
 
 const meta = {

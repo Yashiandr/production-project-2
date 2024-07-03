@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { Components } from 'react-virtuoso';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticlesView } from '../../../model/consts/consts';
 import { Article } from '../../../model/types/article';
 import * as cls from '../ArticleList.module.scss';

@@ -1,15 +1,22 @@
-import { StateSchema } from 'app/providers/StoreProvider';
-import { scrollSaveActions, selectScrollSaveByPath } from 'features/ScrollSave';
 import {
-    LegacyRef, memo, MutableRefObject, ReactNode, useRef,
+    LegacyRef,
+    memo,
+    MutableRefObject,
+    ReactNode,
+    useRef,
 } from 'react';
 import { useLocation } from 'react-router-dom';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useAppSelector } from 'shared/lib/hooks/useAppSelector/useAppSelector';
-import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import {
+    scrollSaveActions,
+    selectScrollSaveByPath,
+} from '@/features/ScrollSave';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
+import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
 import * as cls from './Page.module.scss';
 
 interface PageProps {

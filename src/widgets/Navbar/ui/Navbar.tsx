@@ -1,16 +1,16 @@
-import { selectUserAuthData } from 'entities/User';
-import { LoginModal } from 'features/AuthByUsername';
-import { AvatarDropdown } from 'features/avatarDropdown';
-import { NotificationButton } from 'features/notificationButton';
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppSelector } from 'shared/lib/hooks/useAppSelector/useAppSelector';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { HStack } from 'shared/ui/Stack';
-import { Text, TextSize } from 'shared/ui/Text/Text';
+import { selectUserAuthData } from '@/entities/User';
+import { LoginModal } from '@/features/AuthByUsername';
+import { AvatarDropdown } from '@/features/avatarDropdown';
+import { NotificationButton } from '@/features/notificationButton';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
+import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { HStack } from '@/shared/ui/Stack';
+import { Text, TextSize } from '@/shared/ui/Text/Text';
 import * as cls from './Navbar.module.scss';
 
 interface NavbarProps {

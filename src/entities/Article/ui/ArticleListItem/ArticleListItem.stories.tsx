@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import defaultImage from 'shared/assets/stockImage/default-image.jpg';
-import defaultManAvatar from 'shared/assets/stockImage/default-man-avatar.jpg';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import defaultImage from '@/shared/assets/stockImage/default-image.jpg';
+import defaultManAvatar from '@/shared/assets/stockImage/default-man-avatar.jpg';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ArticleBlockType, ArticlesView, ArticleType } from '../../model/consts/consts';
 import { Article } from '../../model/types/article';
 import { ArticleListItem } from './ArticleListItem';

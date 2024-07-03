@@ -9,16 +9,16 @@ import {
     UnknownAction,
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
-import { ArticleDetailsSchema } from 'entities/Article';
-import { CounterSchema } from 'entities/Counter';
-import { UserSchema } from 'entities/User';
-import { AddCommentFormSchema } from 'features/AddNewComment';
-import { LoginSchema } from 'features/AuthByUsername';
-import { ProfileSchema } from 'features/editableProfileCard';
-import { ScrollSaveSchema } from 'features/ScrollSave';
-import { ArticleDetailsCommentSchema, ArticleDetailsPageRecommendationsSchema } from 'pages/ArticleDetailsPage';
-import { ArticlesPageSchema } from 'pages/ArticlesPage';
-import { rtkApi } from 'shared/api/rtkApi';
+import { ArticleDetailsSchema } from '@/entities/Article';
+import { CounterSchema } from '@/entities/Counter';
+import { UserSchema } from '@/entities/User';
+import { AddCommentFormSchema } from '@/features/AddNewComment';
+import { LoginSchema } from '@/features/AuthByUsername';
+import { ProfileSchema } from '@/features/editableProfileCard';
+import { ScrollSaveSchema } from '@/features/ScrollSave';
+import { ArticleDetailsCommentSchema, ArticleDetailsPageRecommendationsSchema } from '@/pages/ArticleDetailsPage';
+import { ArticlesPageSchema } from '@/pages/ArticlesPage';
+import { rtkApi } from '@/shared/api/rtkApi';
 
 import { AppDispatch } from './store';
 
