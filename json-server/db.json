@@ -1546,5 +1546,72 @@
       "username": "DefaultUser",
       "avatar": "https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S.jpg"
     }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "id": "1",
+      "rate": 5,
+      "feedback": "Отличная статья",
+      "userId": "1",
+      "articleId": "2"
+    },
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "2",
+      "articleId": "1"
+    },
+    {
+      "userId": "1",
+      "articleId": "3",
+      "rate": 3,
+      "feedback": "Ну так себе",
+      "id": "a9LYSks"
+    },
+    {
+      "userId": "1",
+      "articleId": "12",
+      "rate": 5,
+      "feedback": "Круто!",
+      "id": "_V0zrPn"
+    },
+    {
+      "userId": "1",
+      "articleId": "10",
+      "rate": 2,
+      "feedback": "фу",
+      "id": "MNhkzGk"
+    },
+    {
+      "userId": "1",
+      "articleId": "11",
+      "rate": 4,
+      "feedback": "оооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооо",
+      "id": "_kW9n3a"
+    }
+  ],
+  "profile-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Красавчик",
+      "userId": "2",
+      "profileId": "1"
+    },
+    {
+      "userId": "1",
+      "profileId": "2",
+      "rate": 2,
+      "feedback": "Дефолтный какой-то",
+      "id": "Nqx_Skd"
+    }
   ]
 }

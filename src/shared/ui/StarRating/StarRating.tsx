@@ -50,7 +50,7 @@ export const StarRating = memo((props: StarRatingProps) => {
     };
 
     return (
-        <div className={classNames(cls.StarRating, {}, [className])}>
+        <div className={classNames('', {}, [className])}>
             {stars.map(((starNumber) => {
                 const mods: Mods = {
                     [cls.hovered]: currentStarsCount >= starNumber,

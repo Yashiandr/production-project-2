@@ -1,4 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type {
+    Meta,
+    StoryObj,
+} from '@storybook/react';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { ValidateProfileError } from '@/features/editableProfileCard/model/consts/consts';
@@ -19,9 +22,23 @@ const data = {
     username: 'Test Username',
 };
 
+const rating = [{
+    id: '1', rate: 5, feedback: 'Дефолтный мэн', userId: '1', profileId: '1',
+}];
+
 const meta = {
     title: 'pages/ProfilePage',
     component: ProfilePage,
+    parameters: {
+        mockData: [
+            {
+                url: `${__API__}/profile-ratings?userId=1&profileId=`,
+                method: 'GET',
+                status: 200,
+                response: rating,
+            },
+        ],
+    },
 
     tags: ['autodocs'],
     decorators: [

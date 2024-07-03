@@ -17,6 +17,8 @@
   "Некорректный возраст": "Incorrect age",
   "Имя и фамилия обязательны": "First and last name are required",
   "Редактировать ссылку на аватар": "Edit link to avatar",
-  "Неправильный айди страницы": "Неправильный айди страницы",
-  "Профиль не найдет": "Профиль не найдет"
+  "Неправильный айди страницы": "Uncorrected id profile",
+  "Профиль не найдет": "Profile not found",
+  "Оцените профиль": "Rate profile",
+  "Оставьте свой отзыв о данном пользователе": "Please leave your feedback about this user"
 }
