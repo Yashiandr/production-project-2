@@ -15,6 +15,8 @@ if (!container) {
 }
 const root = createRoot(container);
 
+console.log(__API__);
+
 root.render(
     <BrowserRouter>
         <StoreProvider>

@@ -11,7 +11,8 @@
     "allowSyntheticDefaultImports": true,
     "types": [
       "@testing-library/jest-dom",
-      "@types/node"
+      "@types/node",
+      "vite-plugin-svgr/client"
     ],
     "lib": [
       "es2017",

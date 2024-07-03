@@ -8,7 +8,7 @@ import {
     MobileView,
 } from 'react-device-detect';
 import { NotificationList } from '@/entities/Notification';
-import NotificationIcon from '@/shared/assets/icons/notification-32-32.svg';
+import NotificationIcon from '@/shared/assets/icons/notification-32-32.svg?react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     Button,

@@ -1,6 +1,9 @@
-import { HTMLAttributeAnchorTarget, memo } from 'react';
+import {
+    HTMLAttributeAnchorTarget,
+    memo,
+} from 'react';
 import { useTranslation } from 'react-i18next';
-import ViewersIcon from '@/shared/assets/icons/viewers-32-32.svg';
+import ViewersIcon from '@/shared/assets/icons/viewers-32-32.svg?react';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
@@ -9,8 +12,14 @@ import { Button } from '@/shared/ui/Button/Button';
 import { Card } from '@/shared/ui/Card/Card';
 import { Icon } from '@/shared/ui/Icon/Icon';
 import { Text } from '@/shared/ui/Text/Text';
-import { ArticleBlockType, ArticlesView } from '../../model/consts/consts';
-import { Article, ArticleTextBlock } from '../../model/types/article';
+import {
+    ArticleBlockType,
+    ArticlesView,
+} from '../../model/consts/consts';
+import {
+    Article,
+    ArticleTextBlock,
+} from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import * as cls from './ArticleListItem.module.scss';
 

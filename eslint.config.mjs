@@ -77,6 +77,7 @@ export default [
                         'message': 'Use typed hooks `useAppDispatch` and `useAppSelector` instead.'
                     }
                 ],
+                'import/no-named-default': 0
             },
     },
     {
