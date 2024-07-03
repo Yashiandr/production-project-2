@@ -3,35 +3,17 @@
 }
 
 .primary {
-    &.fill {
-        fill: var(--primary-color);
-    }
-
-    &.stroke {
-        stroke: var(--primary-color);
-        fill: transparent;
-    }
+    fill: var(--primary-color);
+    stroke: var(--primary-color);
 }
 
 .secondary {
-    &.fill {
-        fill: var(--secondary-color);
-    }
-
-    &.stroke {
-        stroke: var(--secondary-color);
-        fill: transparent;
-    }
+    fill: var(--secondary-color);
+    stroke: var(--secondary-color);
 }
 
 
 .inverted {
-    &.fill {
-        fill: var(--inverted-primary-color);
-    }
-
-    &.stroke {
-        stroke: var(--inverted-primary-color);
-        fill: transparent;
-    }
+    fill: var(--inverted-primary-color);
+    stroke: var(--inverted-primary-color);
 }

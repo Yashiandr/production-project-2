@@ -1,7 +1,13 @@
 import {
-    Menu, MenuButton, MenuItem, MenuItems,
+    Menu,
+    MenuButton,
+    MenuItem,
+    MenuItems,
 } from '@headlessui/react';
-import { Fragment, ReactNode } from 'react';
+import {
+    Fragment,
+    ReactNode,
+} from 'react';
 import { classNames } from '../../../../lib/classNames/classNames';
 import { DropdownDirection } from '../../../../types/ui';
 import { AppLink } from '../../../AppLink/AppLink';
@@ -31,11 +37,11 @@ export function Dropdown(props: DropdownProps) {
     } = props;
     return (
         <Menu as="div" className={classNames(popupCls.popup, {}, [className])}>
-            <MenuButton className={popupCls.btn}>
+            <MenuButton as="div" className={popupCls.btn}>
                 {trigger}
             </MenuButton>
             <MenuItems className={cls.menu} anchor={direction}>
-                {items.map((item) => {
+                {items.map((item, index) => {
                     const content = ({ focus }: { focus: boolean }) => (
                         <button
                             type="button"
@@ -54,7 +60,7 @@ export function Dropdown(props: DropdownProps) {
                                 to={item.href}
                                 disabled={item.disabled}
                                 readonly={item.disabled}
-                                key={item.content as string}
+                                key={`dropdown-key-${index}`}
                             >
                                 {content}
                             </MenuItem>
@@ -62,7 +68,11 @@ export function Dropdown(props: DropdownProps) {
                     }
 
                     return (
-                        <MenuItem as={Fragment} disabled={item.disabled}>
+                        <MenuItem
+                            as={Fragment}
+                            disabled={item.disabled}
+                            key={`dropdown-key-${index}`}
+                        >
                             {content}
                         </MenuItem>
                     );

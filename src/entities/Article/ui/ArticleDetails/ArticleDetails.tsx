@@ -17,7 +17,6 @@ import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import {
     Icon,
     IconColor,
-    IconFill,
 } from '@/shared/ui/Icon/Icon';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import {
@@ -112,7 +111,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                     <Text text={String(article.views)} />
                 </HStack>
                 <HStack gap="8">
-                    <Icon Svg={DateIcon} color={IconColor.SECONDARY} fill={IconFill.STROKE} />
+                    <Icon Svg={DateIcon} className={cls.dateIcon} color={IconColor.SECONDARY} />
                     <Text text={article.createdAt} />
                 </HStack>
                 <VStack gap="16" max align="stretch">

@@ -18,7 +18,6 @@ import { Drawer } from '@/shared/ui/Drawer/Drawer';
 import {
     Icon,
     IconColor,
-    IconFill,
 } from '@/shared/ui/Icon/Icon';
 import { Popover } from '@/shared/ui/Popups';
 import * as cls from './NotificationButton.module.scss';
@@ -41,7 +40,7 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
 
     const trigger = (
         <Button onClick={onOpenDrawer} theme={ButtonTheme.CLEAR}>
-            <Icon Svg={NotificationIcon} color={IconColor.INVERTED} fill={IconFill.STROKE} />
+            <Icon Svg={NotificationIcon} className={cls.notificationBtn} color={IconColor.INVERTED} />
         </Button>
     );
 

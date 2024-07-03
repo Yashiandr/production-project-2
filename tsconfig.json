@@ -22,8 +22,26 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./src/*"
+      //      "@/*": [
+      //        "./src/*"
+      //      ],
+      "@/widgets/*": [
+        "./src/widgets/*"
+      ],
+      "@/entities/*": [
+        "./src/entities/*"
+      ],
+      "@/pages/*": [
+        "./src/pages/*"
+      ],
+      "@/shared/*": [
+        "./src/shared/*"
+      ],
+      "@/features/*": [
+        "./src/features/*"
+      ],
+      "@/app/*": [
+        "./src/app/*"
       ]
     },
     "isolatedModules": true

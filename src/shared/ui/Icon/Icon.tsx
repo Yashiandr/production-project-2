@@ -8,16 +8,10 @@ export enum IconColor {
     INVERTED = 'inverted',
 }
 
-export enum IconFill {
-    FILL = 'fill',
-    STROKE = 'stroke'
-}
-
-interface IconProps {
+interface IconProps extends React.SVGProps<SVGSVGElement> {
     className?: string;
     Svg: React.FC<React.SVGProps<SVGSVGElement>>;
     color?: IconColor;
-    fill?: IconFill;
 }
 
 export const Icon = memo((props: IconProps) => {
@@ -25,9 +19,12 @@ export const Icon = memo((props: IconProps) => {
         className,
         Svg,
         color = IconColor.PRIMARY,
-        fill = IconFill.FILL,
+        ...otherProps
     } = props;
     return (
-        <Svg className={classNames(cls.Icon, {}, [className, cls[color], cls[fill]])} />
+        <Svg
+            className={classNames(cls.Icon, {}, [className, cls[color]])}
+            {...otherProps}
+        />
     );
 });

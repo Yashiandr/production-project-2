@@ -6,10 +6,7 @@ import {
     Button,
     ButtonTheme,
 } from '@/shared/ui/Button/Button';
-import {
-    Icon,
-    IconFill,
-} from '@/shared/ui/Icon/Icon';
+import { Icon } from '@/shared/ui/Icon/Icon';
 import { HStack } from '@/shared/ui/Stack';
 import { ArticlesView } from '../../model/consts/consts';
 import * as cls from './ArticlesViewSelector.module.scss';
@@ -24,12 +21,10 @@ const viewType = [
     {
         view: ArticlesView.SMALL,
         icon: TileIcon,
-        iconFill: IconFill.FILL,
     },
     {
         view: ArticlesView.BIG,
         icon: ListIcon,
-        iconFill: IconFill.STROKE,
     },
 ];
 
@@ -54,7 +49,6 @@ export const ArticlesViewSelector = memo((props: ArticlesViewSelectorProps) => {
                 >
                     <Icon
                         Svg={viewType.icon}
-                        fill={viewType.iconFill}
                         className={classNames('', { [cls.selected]: viewType.view === view })}
                     />
                 </Button>

@@ -4,8 +4,14 @@ import {
     ListboxOption as HListBoxOption,
     ListboxOptions as HListBoxOptions,
 } from '@headlessui/react';
-import { Fragment, ReactNode } from 'react';
-import { classNames, Mods } from '../../../../lib/classNames/classNames';
+import {
+    Fragment,
+    ReactNode,
+} from 'react';
+import {
+    classNames,
+    Mods,
+} from '../../../../lib/classNames/classNames';
 import { DropdownDirection } from '../../../../types/ui';
 import { Button } from '../../../Button/Button';
 import { HStack } from '../../../Stack';
@@ -53,6 +59,7 @@ export function ListBox(props: ListBoxProps) {
             >
                 <HListBoxButton
                     className={popupCls.btn}
+                    as="div"
                 >
                     <Button
                         disabled={readonly}

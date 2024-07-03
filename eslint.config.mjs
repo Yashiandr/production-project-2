@@ -77,7 +77,8 @@ export default [
                         'message': 'Use typed hooks `useAppDispatch` and `useAppSelector` instead.'
                     }
                 ],
-                'import/no-named-default': 0
+                'import/no-named-default': 0,
+                'react/no-array-index-key': 1,
             },
     },
     {
