@@ -1,5 +1,3 @@
-// /* eslint-disable yashiandr-app-plugin/public-api-imports */
-// TODO
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import { StoryFn } from '@storybook/react';
 import {
