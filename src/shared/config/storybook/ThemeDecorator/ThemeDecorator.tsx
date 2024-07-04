@@ -1,5 +1,7 @@
 import { Decorator } from '@storybook/react';
-import { Theme, ThemeProvider } from '@/app/providers/ThemeProvider';
+// eslint-disable-next-line yashiandr-app-plugin/layer-imports
+import { ThemeProvider } from '@/app/providers/ThemeProvider';
+import { Theme } from '../../../const/theme';
 
 export const ThemeDecorator: Decorator = (StoryComponent, { globals }) => {
     const { theme } = globals;

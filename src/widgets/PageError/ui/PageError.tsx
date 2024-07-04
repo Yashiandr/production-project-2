@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
-import { useTheme } from '@/app/providers/ThemeProvider';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button } from '@/shared/ui/Button/Button';
 import { Page } from '../../Page';
 import * as cls from './PageError.module.scss';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 
 interface PageErrorProps {
     className?: string;

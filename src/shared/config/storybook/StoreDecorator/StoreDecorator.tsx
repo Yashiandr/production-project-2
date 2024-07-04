@@ -7,7 +7,7 @@ import {
 import { articleDetailsReducer } from '@/entities/Article/testing';
 import { loginReducer } from '@/features/AuthByUsername/testing';
 import { profileReducer } from '@/features/editableProfileCard/testing';
-import { scrollSaveReducer } from '@/features/ScrollSave';
+import { scrollSaveReducer } from '@/features/ScrollSave/testing';
 import {
     articleDetailsCommentsReducer,
     articleDetailsPageRecommendationsReducer,

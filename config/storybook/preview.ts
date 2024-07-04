@@ -1,10 +1,10 @@
 import type { Preview } from '@storybook/react';
-import { Theme } from '../../src/app/providers/ThemeProvider';
-import i18n from '../../src/shared/config/i18n/i18n';
-import { RouteDecorator } from '../../src/shared/config/storybook/RouteDecorator/RouteDecorator';
-import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator/StyleDecorator';
-import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { TranslationDecorator } from '../../src/shared/config/storybook/TranslationDecorator/TranslationDecorator';
+import i18n from '@/shared/config/i18n/i18n';
+import { RouteDecorator } from '@/shared/config/storybook/RouteDecorator/RouteDecorator';
+import { StyleDecorator } from '@/shared/config/storybook/StyleDecorator/StyleDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { TranslationDecorator } from '@/shared/config/storybook/TranslationDecorator/TranslationDecorator';
+import { Theme } from '@/shared/const/theme';
 
 const preview: Preview = {
     parameters: {

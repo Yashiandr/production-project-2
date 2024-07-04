@@ -80,12 +80,6 @@ export default [
                 ],
                 'import/no-named-default': 0,
                 'react/no-array-index-key': 1,
-                'yashiandr-app-plugin/path-checker': [2, { alias: '@' }],
-                'yashiandr-app-plugin/public-api-imports': [2,
-                    {
-                        alias: '@',
-                        testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx']
-                    }],
             },
     },
     {
@@ -109,4 +103,23 @@ export default [
             '@typescript-eslint/no-explicit-any': 0,
         }
     },
+    {
+        files: ['src/**/*'],
+        rules: {
+            'yashiandr-app-plugin/path-checker': [2, { alias: '@' }],
+            'yashiandr-app-plugin/public-api-imports': [2,
+                {
+                    alias: '@',
+                    testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx']
+                }],
+            'yashiandr-app-plugin/layer-imports': [
+                2,
+                {
+                    alias: '@',
+                    ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+                }
+            ]
+        }
+
+    }
 ];
