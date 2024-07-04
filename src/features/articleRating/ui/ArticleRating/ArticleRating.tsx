@@ -10,8 +10,8 @@ import {
 } from '../../api/articleRatingApi';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
 import { selectUserAuthData } from '@/entities/User';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
-import { Card } from '@/shared/ui/Card/Card';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { Card } from '@/shared/ui/Card';
 
 export interface ArticleRatingProps {
     className?: string;

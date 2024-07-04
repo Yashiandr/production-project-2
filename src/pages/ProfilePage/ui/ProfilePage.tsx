@@ -6,7 +6,7 @@ import {
     Text,
     TextAlign,
     TextTheme,
-} from '@/shared/ui/Text/Text';
+} from '@/shared/ui/Text';
 import { Page } from '@/widgets/Page';
 import { ProfileRating } from '@/features/profileRating';
 

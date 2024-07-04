@@ -6,7 +6,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     Button,
     ButtonTheme,
-} from '@/shared/ui/Button/Button';
+} from '@/shared/ui/Button';
 import { Theme } from '@/shared/const/theme';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 

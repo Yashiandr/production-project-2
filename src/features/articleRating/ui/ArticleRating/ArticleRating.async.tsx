@@ -3,8 +3,8 @@ import {
     Suspense,
 } from 'react';
 import { ArticleRatingProps } from './ArticleRating';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
-import { Card } from '@/shared/ui/Card/Card';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { Card } from '@/shared/ui/Card';
 
 export const ArticleRatingLazy = lazy(
     () => import('./ArticleRating'),

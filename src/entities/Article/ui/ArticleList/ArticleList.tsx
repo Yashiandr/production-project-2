@@ -8,11 +8,11 @@ import {
     VirtuosoGrid,
 } from 'react-virtuoso';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Loader } from '@/shared/ui/Loader/Loader';
+import { Loader } from '@/shared/ui/Loader';
 import {
     Text,
     TextSize,
-} from '@/shared/ui/Text/Text';
+} from '@/shared/ui/Text';
 import { ArticlesView } from '../../model/consts/consts';
 import { Article } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';

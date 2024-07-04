@@ -1,24 +1,34 @@
-import { memo, useCallback } from 'react';
+import {
+    memo,
+    useCallback,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { ProfileCard } from '@/entities/Profile';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducerList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import {
+    Text,
+    TextTheme,
+} from '@/shared/ui/Text';
 import { ValidateProfileError } from '../../model/consts/consts';
 import { selectProfileError } from '../../model/selectors/selectProfileError/selectProfileError';
 import { selectProfileForm } from '../../model/selectors/selectProfileForm/selectProfileForm';
 import { selectProfileIsLoading } from '../../model/selectors/selectProfileIsLoading/selectProfileIsLoading';
 import { selectProfileReadonly } from '../../model/selectors/selectProfileReadonly/selectProfileReadonly';
-import {
-    selectProfileValidateErrors,
-} from '../../model/selectors/selectProfileValidateErrors/selectProfileValidateErrors';
+import { selectProfileValidateErrors } from '../../model/selectors/selectProfileValidateErrors/selectProfileValidateErrors';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
-import { profileActions, profileReducer } from '../../model/slice/profileSlice';
+import {
+    profileActions,
+    profileReducer,
+} from '../../model/slice/profileSlice';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 
 interface EditableProfileCardProps {

@@ -1,10 +1,16 @@
-import { memo, useCallback } from 'react';
+import {
+    memo,
+    useCallback,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import {
+    Button,
+    ButtonTheme,
+} from '@/shared/ui/Button';
 import { HStack } from '@/shared/ui/Stack';
-import { Text } from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text';
 import { selectCanEditProfile } from '../../model/selectors/selectCanEditProfile/selectCanEditProfile';
 import { selectProfileReadonly } from '../../model/selectors/selectProfileReadonly/selectProfileReadonly';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';

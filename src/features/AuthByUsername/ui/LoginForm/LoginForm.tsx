@@ -1,19 +1,34 @@
-import { memo, useCallback } from 'react';
+import {
+    memo,
+    useCallback,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducerList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
-import { Input } from '@/shared/ui/Input/Input';
+import {
+    Button,
+    ButtonTheme,
+} from '@/shared/ui/Button';
+import { Input } from '@/shared/ui/Input';
 import { VStack } from '@/shared/ui/Stack';
-import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import {
+    Text,
+    TextTheme,
+} from '@/shared/ui/Text';
 import { selectLoginError } from '../../model/selectors/selectLoginError/selectLoginError';
 import { selectLoginIsLoading } from '../../model/selectors/selectLoginIsLoading/selectLoginIsLoading';
 import { selectLoginPassword } from '../../model/selectors/selectLoginPassword/selectLoginPassword';
 import { selectLoginUsername } from '../../model/selectors/selectLoginUsername/selectLoginUsername';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
-import { loginActions, loginReducer } from '../../model/slice/loginSlice';
+import {
+    loginActions,
+    loginReducer,
+} from '../../model/slice/loginSlice';
 import * as cls from './LoginForm.module.scss';
 
 interface LoginFormProps {

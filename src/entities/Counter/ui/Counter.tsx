@@ -1,6 +1,6 @@
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
-import { Button } from '@/shared/ui/Button/Button';
+import { Button } from '@/shared/ui/Button';
 import { selectCounterValue } from '../model/selectors/selectCounterValue/selectCounterValue';
 import { counterActions } from '../model/slice/counterSlice';
 

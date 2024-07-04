@@ -13,12 +13,12 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     Button,
     ButtonTheme,
-} from '@/shared/ui/Button/Button';
-import { Drawer } from '@/shared/ui/Drawer/Drawer';
+} from '@/shared/ui/Button';
+import { Drawer } from '@/shared/ui/Drawer';
 import {
     Icon,
     IconColor,
-} from '@/shared/ui/Icon/Icon';
+} from '@/shared/ui/Icon';
 import { Popover } from '@/shared/ui/Popups';
 import * as cls from './NotificationButton.module.scss';
 

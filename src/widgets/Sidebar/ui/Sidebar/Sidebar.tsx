@@ -12,7 +12,7 @@ import {
     Button,
     ButtonSize,
     ButtonTheme,
-} from '@/shared/ui/Button/Button';
+} from '@/shared/ui/Button';
 import { VStack } from '@/shared/ui/Stack';
 import { selectSidebarItems } from '../../model/selectors/selectSidebarItems/selectSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';

@@ -104,7 +104,7 @@ export default [
         }
     },
     {
-        files: ['src/**/*'],
+        files: ['**/src/**/*.{tsx?|jsx?}'],
         rules: {
             'yashiandr-app-plugin/path-checker': [2, { alias: '@' }],
             'yashiandr-app-plugin/public-api-imports': [2,

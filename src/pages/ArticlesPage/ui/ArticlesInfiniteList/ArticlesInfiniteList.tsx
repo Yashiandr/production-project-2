@@ -9,7 +9,7 @@ import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector
 import {
     Text,
     TextTheme,
-} from '@/shared/ui/Text/Text';
+} from '@/shared/ui/Text';
 import { selectArticlesPageError } from '../../model/selectors/selectArticlesPageError/selectArticlesPageError';
 import { selectArticlesPageIsLoading } from '../../model/selectors/selectArticlesPageIsLoading/selectArticlesPageIsLoading';
 import { selectArticlePageView } from '../../model/selectors/selectArticlesPageView/selectArticlePageView';
