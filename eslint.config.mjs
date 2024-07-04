@@ -80,6 +80,19 @@ export default [
                 ],
                 'import/no-named-default': 0,
                 'react/no-array-index-key': 1,
+                'yashiandr-app-plugin/path-checker': [2, { alias: '@' }],
+                'yashiandr-app-plugin/public-api-imports': [2,
+                    {
+                        alias: '@',
+                        testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx']
+                    }],
+                'yashiandr-app-plugin/layer-imports': [
+                    2,
+                    {
+                        alias: '@',
+                        ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+                    }
+                ]
             },
     },
     {
@@ -104,22 +117,11 @@ export default [
         }
     },
     {
-        files: ['**/src/**/*.{tsx?|jsx?}'],
+        files: ['config/storybook/**/*'],
         rules: {
-            'yashiandr-app-plugin/path-checker': [2, { alias: '@' }],
-            'yashiandr-app-plugin/public-api-imports': [2,
-                {
-                    alias: '@',
-                    testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx']
-                }],
-            'yashiandr-app-plugin/layer-imports': [
-                2,
-                {
-                    alias: '@',
-                    ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
-                }
-            ]
+            'yashiandr-app-plugin/path-checker': 0,
+            'yashiandr-app-plugin/public-api-imports': 0,
+            'yashiandr-app-plugin/layer-imports': 0,
         }
-
     }
 ];
