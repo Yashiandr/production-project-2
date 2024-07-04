@@ -34,6 +34,7 @@ export default [
         plugins: {
             i18next,
             reactHooks,
+            yashiandrAppPlugin
         },
         rules:
             {
@@ -79,6 +80,7 @@ export default [
                 ],
                 'import/no-named-default': 0,
                 'react/no-array-index-key': 1,
+                'yashiandr-app-plugin/path-checker': [2, { alias: '@' }]
             },
     },
     {
