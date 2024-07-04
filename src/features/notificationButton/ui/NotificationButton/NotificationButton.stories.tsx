@@ -1,5 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Notification } from '@/entities/Notification/model/types/notification';
+import type {
+    Meta,
+    StoryObj,
+} from '@storybook/react';
+import { Notification } from '@/entities/Notification';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { NotificationButton } from './NotificationButton';
 

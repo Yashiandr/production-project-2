@@ -1,13 +1,18 @@
-import { HTMLAttributeAnchorTarget, memo } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
 import {
-    selectArticlesPageLimit,
-} from '@/pages/ArticlesPage/model/selectors/selectArticlesPageLimit/selectArticlesPageLimit';
+    HTMLAttributeAnchorTarget,
+    memo,
+} from 'react';
+import { useTranslation } from 'react-i18next';
+import {
+    Virtuoso,
+    VirtuosoGrid,
+} from 'react-virtuoso';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
 import { Loader } from '@/shared/ui/Loader/Loader';
-import { Text, TextSize } from '@/shared/ui/Text/Text';
+import {
+    Text,
+    TextSize,
+} from '@/shared/ui/Text/Text';
 import { ArticlesView } from '../../model/consts/consts';
 import { Article } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
@@ -23,6 +28,7 @@ interface ArticleListProps {
     target?: HTMLAttributeAnchorTarget;
     onScrollEnd?: () => void;
     virtuoso?: boolean;
+    limit?: number;
 }
 
 export const ArticleList = memo((props: ArticleListProps) => {
@@ -33,11 +39,11 @@ export const ArticleList = memo((props: ArticleListProps) => {
         isLoading,
         target,
         onScrollEnd,
+        limit,
         virtuoso = true,
     } = props;
 
     const { t } = useTranslation('articles');
-    const limit = useAppSelector(selectArticlesPageLimit);
 
     const renderArticle = (
         article: Article,
