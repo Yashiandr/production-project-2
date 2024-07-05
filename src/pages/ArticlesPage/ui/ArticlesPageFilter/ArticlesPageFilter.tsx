@@ -5,11 +5,8 @@ import {
 import { useTranslation } from 'react-i18next';
 import {
     ArticleSortField,
-    ArticlesSortSelector,
     ArticlesView,
-    ArticlesViewSelector,
     ArticleType,
-    ArticlesTypeTab,
 } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -30,6 +27,9 @@ import { selectArticlesPageType } from '../../model/selectors/selectArticlesPage
 import { selectArticlePageView } from '../../model/selectors/selectArticlesPageView/selectArticlePageView';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { articlesPageActions } from '../../model/slice/articlesPageSlice';
+import { ArticlesTypeTabs } from '@/features/ArticlesTypeTabs';
+import { ArticlesSortSelector } from '@/features/ArticlesSortSelector';
+import { ArticlesViewSelector } from '@/features/ArticlesViewSelector';
 
 interface ArticlesPageFilterProps {
     className?: string;
@@ -97,7 +97,7 @@ export const ArticlesPageFilter = memo((props: ArticlesPageFilterProps) => {
             <Card>
                 <Input placeholder={t('Поиск')} onChange={onChangeSearch} value={search} />
             </Card>
-            <ArticlesTypeTab onChangeType={onChangeType} type={type} />
+            <ArticlesTypeTabs onChangeType={onChangeType} type={type} />
         </VStack>
     );
 });

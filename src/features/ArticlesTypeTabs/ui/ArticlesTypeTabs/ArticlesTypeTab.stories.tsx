@@ -1,15 +1,18 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type {
+    Meta,
+    StoryObj,
+} from '@storybook/react';
 import { fn } from '@storybook/test';
-import { ArticleType } from '../../model/consts/consts';
-import { ArticlesTypeTab } from './ArticlesTypeTab';
+import { ArticlesTypeTabs } from './ArticlesTypeTabs';
+import { ArticleType } from '@/entities/Article';
 
 const meta = {
     title: 'entities/Article/ArticlesTypeTab',
-    component: ArticlesTypeTab,
+    component: ArticlesTypeTabs,
 
     tags: ['autodocs'],
 
-} satisfies Meta<typeof ArticlesTypeTab>;
+} satisfies Meta<typeof ArticlesTypeTabs>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

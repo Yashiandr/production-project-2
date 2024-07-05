@@ -7,7 +7,7 @@ import {
     TabItem,
     Tabs,
 } from '@/shared/ui/Tabs';
-import { ArticleType } from '../../model/consts/consts';
+import { ArticleType } from '@/entities/Article';
 
 interface ArticlesTypeTabProps {
     className?: string;
@@ -15,7 +15,7 @@ interface ArticlesTypeTabProps {
     type: ArticleType
 }
 
-export const ArticlesTypeTab = memo((props: ArticlesTypeTabProps) => {
+export const ArticlesTypeTabs = memo((props: ArticlesTypeTabProps) => {
     const {
         className,
         onChangeType,

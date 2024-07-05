@@ -8,8 +8,8 @@ import {
 } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
 import { HStack } from '@/shared/ui/Stack';
-import { ArticlesView } from '../../model/consts/consts';
 import * as cls from './ArticlesViewSelector.module.scss';
+import { ArticlesView } from '@/entities/Article';
 
 interface ArticlesViewSelectorProps {
     className?: string;

@@ -10,7 +10,7 @@ import {
     SelectOption,
 } from '@/shared/ui/Select';
 import { HStack } from '@/shared/ui/Stack';
-import { ArticleSortField } from '../../model/consts/consts';
+import { ArticleSortField } from '@/entities/Article';
 
 interface ArticlesSortSelectorProps {
     className?: string;
