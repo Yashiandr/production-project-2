@@ -3,7 +3,10 @@ import { render } from '@testing-library/react';
 import { ReactNode } from 'react';
 import { I18nextProvider } from 'react-i18next';
 import { MemoryRouter } from 'react-router-dom';
-import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
+import {
+    StateSchema,
+    StoreProvider,
+} from '@/app/providers/StoreProvider';
 import i18nForTest from '../../i18n/i18nForTest';
 
 export interface componentRenderOptions {
@@ -11,6 +14,13 @@ export interface componentRenderOptions {
     initialState?: DeepPartial<StateSchema>;
     asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>
 }
+
+window.ResizeObserver = window.ResizeObserver
+    || jest.fn().mockImplementation(() => ({
+        disconnect: jest.fn(),
+        observe: jest.fn(),
+        unobserve: jest.fn(),
+    }));
 
 export function componentRender(component: ReactNode, options: componentRenderOptions = {}) {
     const {

@@ -9,13 +9,6 @@ import { componentRender } from '@/shared/config/tests/componentRender/component
 import { profileReducer } from '../../model/slice/profileSlice';
 import { EditableProfileCard } from './EditableProfileCard';
 
-window.ResizeObserver = window.ResizeObserver
-    || jest.fn().mockImplementation(() => ({
-        disconnect: jest.fn(),
-        observe: jest.fn(),
-        unobserve: jest.fn(),
-    }));
-
 const data: Profile = {
     id: '1',
     first: 'Test',
