@@ -58,7 +58,6 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     const { t } = useTranslation(['article', 'translation']);
     const dispatch = useAppDispatch();
     const isLoading = useAppSelector(selectArticleDetailsIsLoading);
-    // const isLoading = true;
     const article = useAppSelector(selectArticleDetailsData);
     const error = useAppSelector(selectArticleDetailsError);
 

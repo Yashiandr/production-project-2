@@ -9,11 +9,14 @@ import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector
 import { Button } from '@/shared/ui/Button';
 import { HStack } from '@/shared/ui/Stack';
 import { selectCanEditArticle } from '../../model/selectors/selectCanEditArticle/selectCanEditArticle';
-import { RoutePath } from '@/shared/const/router';
+import {
+    getRouteArticles,
+    getRouteArticleEdit,
+} from '@/shared/const/router';
 
 interface ArticleDetailsPageHeaderProps {
     className?: string;
-    id?: string;
+    id: string;
 }
 
 export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderProps) => {
@@ -26,11 +29,11 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
     const canEdit = useAppSelector(selectCanEditArticle);
 
     const onBackToList = useCallback(() => {
-        navigate(RoutePath.articles);
+        navigate(getRouteArticles());
     }, [navigate]);
 
     const onEdit = useCallback(() => {
-        navigate(`${RoutePath.articles}/${id}/edit`);
+        navigate(getRouteArticleEdit(id));
     }, [navigate, id]);
 
     return (

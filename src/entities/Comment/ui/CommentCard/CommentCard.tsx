@@ -13,7 +13,7 @@ import {
 import { Text } from '@/shared/ui/Text';
 import { Comment } from '../../model/types/comment';
 import * as cls from './CommentCard.module.scss';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteProfile } from '@/shared/const/router';
 
 interface CommentCardProps {
     className?: string;
@@ -48,7 +48,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
     return (
         <VStack align="stretch" gap="8" className={classNames(cls.CommentCard, {}, [className])}>
             <AppLink
-                to={`${RoutePath.profile}${comment.user.id}`}
+                to={getRouteProfile(comment.user.id)}
                 className={cls.header}
                 theme={AppLinkTheme.NON_INVERT}
             >

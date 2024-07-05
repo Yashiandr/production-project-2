@@ -1,5 +1,12 @@
-import { ChangeEvent, useCallback, useMemo } from 'react';
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import {
+    ChangeEvent,
+    useCallback,
+    useMemo,
+} from 'react';
+import {
+    classNames,
+    Mods,
+} from '@/shared/lib/classNames/classNames';
 import { HStack } from '../Stack';
 import * as cls from './Select.module.scss';
 
@@ -12,7 +19,7 @@ interface SelectProps<T extends string> {
     className?: string;
     label?: string;
     options: SelectOption<T>[];
-    value?: string;
+    value?: T;
     onChange?: (value: T) => void;
     readonly?: boolean;
 }

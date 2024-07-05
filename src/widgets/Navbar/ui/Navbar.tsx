@@ -21,7 +21,7 @@ import {
     TextSize,
 } from '@/shared/ui/Text';
 import * as cls from './Navbar.module.scss';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleCreate } from '@/shared/const/router';
 
 interface NavbarProps {
     className?: string;
@@ -45,7 +45,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
             <header className={classNames(cls.Navbar, {}, [className])}>
                 <Text className={cls.logo} title={t('Yashiandr App')} size={TextSize.L} />
                 <HStack gap="8">
-                    <AppLink to={RoutePath.article_create}>
+                    <AppLink to={getRouteArticleCreate()}>
                         {t('Создать статью')}
                     </AppLink>
                     <HStack gap="16" className={cls.actions}>
