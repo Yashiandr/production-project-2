@@ -43,7 +43,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     if (authData) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
-                <Text className={cls.logo} title={t('Yashiandr App')} size={TextSize.L} />
+                <Text className={cls.logo} title={t('App')} size={TextSize.L} />
                 <HStack gap="8">
                     <AppLink to={getRouteArticleCreate()}>
                         {t('Создать статью')}
