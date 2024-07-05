@@ -4,9 +4,10 @@ export {
     ArticleDetails,
 } from './ui/ArticleDetails/ArticleDetails';
 
-export { selectArticleDetailsData } from './model/selectors/selectArticleDetailsData/selectArticleDetailsData';
-
-export { articleDetailsActions } from './model/slice/articleDetailsSlice';
+export {
+    selectArticleDetailsData,
+    useSelectArticleDetailsData,
+} from './model/selectors/selectArticleDetailsData/selectArticleDetailsData';
 
 export type { Article } from './model/types/article';
 

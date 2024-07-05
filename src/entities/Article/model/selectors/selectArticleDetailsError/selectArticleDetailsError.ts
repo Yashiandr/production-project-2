@@ -1,3 +1,6 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
+import { buildSelector } from '@/shared/lib/store';
 
-export const selectArticleDetailsError = (state: StateSchema) => state.articleDetails?.error || undefined;
+export const [useSelectArticleDetailsError, selectArticleDetailsError] = buildSelector(
+    (state: StateSchema) => state.articleDetails?.error || undefined,
+);

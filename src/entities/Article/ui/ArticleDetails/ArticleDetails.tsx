@@ -11,7 +11,6 @@ import {
     ReducerList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Avatar } from '@/shared/ui/Avatar';
 import {
@@ -30,9 +29,9 @@ import {
     TextTheme,
 } from '@/shared/ui/Text';
 import { ArticleBlockType } from '../../model/consts/consts';
-import { selectArticleDetailsData } from '../../model/selectors/selectArticleDetailsData/selectArticleDetailsData';
-import { selectArticleDetailsError } from '../../model/selectors/selectArticleDetailsError/selectArticleDetailsError';
-import { selectArticleDetailsIsLoading } from '../../model/selectors/selectArticleDetailsIsLoading/selectArticleDetailsIsLoading';
+import { useSelectArticleDetailsData } from '../../model/selectors/selectArticleDetailsData/selectArticleDetailsData';
+import { useSelectArticleDetailsError } from '../../model/selectors/selectArticleDetailsError/selectArticleDetailsError';
+import { useSelectArticleDetailsIsLoading } from '../../model/selectors/selectArticleDetailsIsLoading/selectArticleDetailsIsLoading';
 import { fetchArticleById } from '../../model/services/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { ArticleBlock } from '../../model/types/article';
@@ -57,9 +56,9 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     } = props;
     const { t } = useTranslation(['article', 'translation']);
     const dispatch = useAppDispatch();
-    const isLoading = useAppSelector(selectArticleDetailsIsLoading);
-    const article = useAppSelector(selectArticleDetailsData);
-    const error = useAppSelector(selectArticleDetailsError);
+    const isLoading = useSelectArticleDetailsIsLoading();
+    const article = useSelectArticleDetailsData();
+    const error = useSelectArticleDetailsError();
 
     const renderBlock = useCallback((block: ArticleBlock) => {
         switch (block.type) {

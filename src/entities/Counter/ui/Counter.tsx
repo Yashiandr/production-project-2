@@ -1,18 +1,17 @@
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
 import { Button } from '@/shared/ui/Button';
 import { selectCounterValue } from '../model/selectors/selectCounterValue/selectCounterValue';
-import { counterActions } from '../model/slice/counterSlice';
+import { useCounterActions } from '../model/slice/counterSlice';
 
 export const Counter = () => {
-    const dispatch = useAppDispatch();
     const counterValue = useAppSelector(selectCounterValue);
-    const increment = () => {
-        dispatch(counterActions.increment());
+    const { increment, decrement } = useCounterActions();
+    const handleIncrement = () => {
+        increment();
     };
 
-    const decrement = () => {
-        dispatch(counterActions.decrement());
+    const handleDecrement = () => {
+        decrement();
     };
 
     return (
@@ -21,13 +20,13 @@ export const Counter = () => {
                 {counterValue}
             </h1>
             <Button
-                onClick={increment}
+                onClick={handleIncrement}
                 data-testid="increment-btn"
             >
                 +
             </Button>
             <Button
-                onClick={decrement}
+                onClick={handleDecrement}
                 data-testid="decrement-btn"
             >
                 -
