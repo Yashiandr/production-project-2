@@ -20,7 +20,7 @@ export const ArticleImageBlockComponent = memo((props: ArticleImageBlockComponen
     } = props;
     return (
         <VStack className={classNames(cls.ArticleImageBlockComponent, {}, [className])}>
-            <img src={block.src} alt={block.title} />
+            <img src={block.src} alt={block.title} style={{ maxWidth: '100%' }} />
             {block.title && <Text text={block.title} align={TextAlign.CENTER} />}
         </VStack>
     );
