@@ -14,6 +14,7 @@ export const virtuosoStyleSmall: GridComponents<Article> = {
                 ...style,
             }}
             {...props}
+            data-testid="ArticleList"
         >
             {children}
         </div>

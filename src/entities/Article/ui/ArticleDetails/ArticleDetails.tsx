@@ -108,7 +108,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                     <Icon Svg={ViewersIcon} color={IconColor.SECONDARY} />
                     <Text text={String(article.views)} />
                 </HStack>
-                <HStack gap="8">
+                <HStack data-testid="ArticleDetails.Info" gap="8">
                     <Icon Svg={DateIcon} className={cls.dateIcon} color={IconColor.SECONDARY} />
                     <Text text={article.createdAt} />
                 </HStack>
@@ -121,7 +121,12 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <VStack gap="16" align="start" className={classNames('', {}, [className])}>
+            <VStack
+                gap="16"
+                align="start"
+                className={classNames('', {}, [className])}
+                data-testid="ArticleDetails"
+            >
                 {content}
             </VStack>
         </DynamicModuleLoader>

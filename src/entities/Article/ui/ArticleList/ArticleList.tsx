@@ -59,7 +59,10 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
     if (!virtuoso) {
         return (
-            <div className={classNames(cls.ArticleList, {}, [className, cls[view], cls.recommendations])}>
+            <div
+                data-testid="ArticleList"
+                className={classNames(cls.ArticleList, {}, [className, cls[view], cls.recommendations])}
+            >
                 {articles.length > 0
                     ? articles.map(renderArticle)
                     : null}
