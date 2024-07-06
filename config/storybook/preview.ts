@@ -41,6 +41,7 @@ const preview: Preview = {
             ],
         },
     },
+
     globalTypes: {
         theme: {
             description: 'Global theme component',
@@ -64,6 +65,8 @@ const preview: Preview = {
         TranslationDecorator,
         ThemeDecorator,
     ],
+
+    tags: ['autodocs'],
 };
 
 i18n.on('languageChanged', (locale) => {
