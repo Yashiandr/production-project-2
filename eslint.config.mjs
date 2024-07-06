@@ -117,11 +117,17 @@ export default [
         }
     },
     {
-        files: ['config/storybook/**/*'],
+        files: ['config/storybook/**/*', 'cypress/**/*'],
         rules: {
             'yashiandr-app-plugin/path-checker': 0,
             'yashiandr-app-plugin/public-api-imports': 0,
             'yashiandr-app-plugin/layer-imports': 0,
+        }
+    },
+    {
+        files: ['cypress/**/*'],
+        rules: {
+            '@typescript-eslint/no-namespace': 0
         }
     }
 ];

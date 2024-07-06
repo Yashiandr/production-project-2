@@ -1521,6 +1521,15 @@
         "MANAGER"
       ],
       "avatar": "https://w7.pngwing.com/pngs/1022/474/png-transparent-computer-icons-management-product-manager-businessperson-business-service-people-logo.png"
+    },
+    {
+      "id": "4",
+      "username": "testuser",
+      "password": "123",
+      "roles": [
+        "ADMIN"
+      ],
+      "avatar": "https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S.jpg"
     }
   ],
   "profile": [
