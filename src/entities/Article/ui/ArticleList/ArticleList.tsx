@@ -1,6 +1,7 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
+import { BrowserView, MobileView } from 'react-device-detect';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Loader } from '@/shared/ui/Loader';
 import { Text, TextSize } from '@/shared/ui/Text';
@@ -10,6 +11,7 @@ import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import * as cls from './ArticleList.module.scss';
 import { virtuosoStyleBig } from './virtuosoStyleOptions/virtuosoStyleBig';
 import { virtuosoStyleSmall } from './virtuosoStyleOptions/virtuosoStyleSmall';
+import { ViewCard } from '@/shared/ui/ViewCard/ViewCard';
 
 interface ArticleListProps {
     className?: string;
@@ -59,19 +61,33 @@ export const ArticleList = memo((props: ArticleListProps) => {
     }
 
     if (!virtuoso) {
-        return (
-            <div
-                data-testid="ArticleList"
-                className={classNames(cls.ArticleList, {}, [
-                    className,
-                    cls[view],
-                    cls.recommendations,
-                ])}
-            >
-                {articles.length > 0 ? articles.map(renderArticle) : null}
-            </div>
-        );
-    }
+        return articles.length > 0 ? (
+                <>
+                    <BrowserView>
+                        <div
+                            data-testid="ArticleList"
+                            className={classNames(cls.ArticleList, {}, [
+                                className,
+                                cls[view],
+                                cls.recommendations,
+                            ])}
+                        >
+                            {articles.map(renderArticle)}
+                        </div>
+                    </BrowserView>
+                    <MobileView>
+                        <div
+                            data-testid="ArticleList"
+                            className={classNames(cls.recommendationsMobile, {}, [
+                                className,
+                            ])}
+                        >
+                            <ViewCard cards={articles.map(renderArticle)} />
+                        </div>
+                    </MobileView>
+                </>
+            ) : null;
+        }
 
     if (view === ArticlesView.SMALL) {
         return (

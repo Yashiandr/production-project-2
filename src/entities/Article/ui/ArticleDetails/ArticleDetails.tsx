@@ -55,7 +55,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                 );
             case ArticleBlockType.TEXT:
                 return (
-                    <ArticleTextBlockComponent block={block} key={block.id} />
+                    <ArticleTextBlockComponent block={block} key={block.id} className={cls.textWrap} />
                 );
             default:
                 return null;

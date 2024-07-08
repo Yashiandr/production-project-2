@@ -19,7 +19,7 @@ export const ArticleTextBlockComponent = memo(
                 gap="16"
                 className={classNames('', {}, [className])}
             >
-                {block.title && <Text title={block.title} size={TextSize.M} />}
+                {block.title && <Text title={block.title} size={TextSize.S} />}
                 {block.paragraphs.map((paragraph) => (
                     <Text key={paragraph} text={paragraph} />
                 ))}
