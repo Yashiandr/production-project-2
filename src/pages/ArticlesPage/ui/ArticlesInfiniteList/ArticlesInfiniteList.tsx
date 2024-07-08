@@ -1,15 +1,9 @@
-import {
-    memo,
-    useCallback,
-} from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArticleList } from '@/entities/Article';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
-import {
-    Text,
-    TextTheme,
-} from '@/shared/ui/Text';
+import { Text, TextTheme } from '@/shared/ui/Text';
 import { selectArticlesPageError } from '../../model/selectors/selectArticlesPageError/selectArticlesPageError';
 import { selectArticlesPageIsLoading } from '../../model/selectors/selectArticlesPageIsLoading/selectArticlesPageIsLoading';
 import { selectArticlePageView } from '../../model/selectors/selectArticlesPageView/selectArticlePageView';
@@ -31,7 +25,12 @@ export const ArticlesInfiniteList = memo(() => {
     }, [dispatch]);
 
     if (error) {
-        return <Text title={t('Не удалось загрузить статьи')} theme={TextTheme.ERROR} />;
+        return (
+            <Text
+                title={t('Не удалось загрузить статьи')}
+                theme={TextTheme.ERROR}
+            />
+        );
     }
     return (
         <ArticleList

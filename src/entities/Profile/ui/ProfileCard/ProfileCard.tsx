@@ -1,30 +1,14 @@
-import React, {
-    useCallback,
-    useState,
-} from 'react';
+import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import {
-    Currency,
-    CurrencySelect,
-} from '@/entities/Currency';
-import {
-    classNames,
-    Mods,
-} from '@/shared/lib/classNames/classNames';
+import { Currency, CurrencySelect } from '@/entities/Currency';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Button } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
 import { Loader } from '@/shared/ui/Loader';
 import { VStack } from '@/shared/ui/Stack';
-import {
-    Text,
-    TextAlign,
-    TextTheme,
-} from '@/shared/ui/Text';
-import {
-    Country,
-    CountrySelect,
-} from '../../../Country';
+import { Text, TextAlign, TextTheme } from '@/shared/ui/Text';
+import { Country, CountrySelect } from '../../../Country';
 import { Profile } from '../../model/types/profile';
 import * as cls from './ProfileCard.module.scss';
 
@@ -69,7 +53,13 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     if (isLoading) {
         return (
-            <VStack justify="center" className={classNames(cls.ProfileCard, {}, [className, cls.loading])}>
+            <VStack
+                justify="center"
+                className={classNames(cls.ProfileCard, {}, [
+                    className,
+                    cls.loading,
+                ])}
+            >
                 <Loader />
             </VStack>
         );
@@ -77,7 +67,14 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     if (error) {
         return (
-            <VStack justify="center" gap="8" className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
+            <VStack
+                justify="center"
+                gap="8"
+                className={classNames(cls.ProfileCard, {}, [
+                    className,
+                    cls.error,
+                ])}
+            >
                 <Text
                     theme={TextTheme.ERROR}
                     title={t('Произошла ошибка при загрузке профиля')}
@@ -93,9 +90,18 @@ export const ProfileCard = (props: ProfileCardProps) => {
     };
 
     return (
-        <VStack gap="16" align="start" className={classNames(cls.ProfileCard, mods, [className])}>
-            {data?.avatar
-                    && <Avatar src={data.avatar} alt={data.username || ''} className={cls.avatarWrapper} />}
+        <VStack
+            gap="16"
+            align="start"
+            className={classNames(cls.ProfileCard, mods, [className])}
+        >
+            {data?.avatar && (
+                <Avatar
+                    src={data.avatar}
+                    alt={data.username || ''}
+                    className={cls.avatarWrapper}
+                />
+            )}
 
             <Input
                 value={data?.first}
@@ -125,33 +131,39 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 placeholder={t('Ваш город')}
                 data-testid="ProfileCard.city"
             />
-            {isEditAvatar
-                ? (
-                    <Button
-                        onClick={toggleEditAvatar}
-                        className={cls.editAvatarBtn}
-                        disabled={readonly}
-                    >
-                        {t('Редактировать ссылку на аватар')}
-                    </Button>
-                )
-                : (
-                    <Input
-                        className={cls.imgLink}
-                        value={data?.avatar}
-                        onChange={onChangeAvatar}
-                        readonly={readonly}
-                        placeholder={t('Введите ссылку на аватар')}
-                    />
-                )}
+            {isEditAvatar ? (
+                <Button
+                    onClick={toggleEditAvatar}
+                    className={cls.editAvatarBtn}
+                    disabled={readonly}
+                >
+                    {t('Редактировать ссылку на аватар')}
+                </Button>
+            ) : (
+                <Input
+                    className={cls.imgLink}
+                    value={data?.avatar}
+                    onChange={onChangeAvatar}
+                    readonly={readonly}
+                    placeholder={t('Введите ссылку на аватар')}
+                />
+            )}
             <Input
                 value={data?.username}
                 onChange={onChangeUsername}
                 readonly={readonly}
                 placeholder={t('Ваш юзернейм')}
             />
-            <CurrencySelect value={data?.currency} onChange={onChangeCurrency} readonly={readonly} />
-            <CountrySelect value={data?.country} onChange={onChangeCountry} readonly={readonly} />
+            <CurrencySelect
+                value={data?.currency}
+                onChange={onChangeCurrency}
+                readonly={readonly}
+            />
+            <CountrySelect
+                value={data?.country}
+                onChange={onChangeCountry}
+                readonly={readonly}
+            />
         </VStack>
     );
 };

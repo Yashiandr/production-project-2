@@ -1,7 +1,4 @@
-import {
-    CSSProperties,
-    useMemo,
-} from 'react';
+import { CSSProperties, useMemo } from 'react';
 import defaultAvatar from '@/shared/assets/stockImage/default-man-avatar.jpg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import * as cls from './Avatar.module.scss';
@@ -23,10 +20,13 @@ export const Avatar = (props: AvatarProps) => {
         alt = 'avatar',
     } = props;
 
-    const styles = useMemo<CSSProperties>(() => ({
-        width: size,
-        height: size,
-    }), [size]);
+    const styles = useMemo<CSSProperties>(
+        () => ({
+            width: size,
+            height: size,
+        }),
+        [size],
+    );
 
     const fallback = <Skeleton width={size} height={size} border="50%" />;
 

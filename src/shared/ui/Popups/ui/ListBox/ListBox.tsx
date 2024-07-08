@@ -4,14 +4,8 @@ import {
     ListboxOption as HListBoxOption,
     ListboxOptions as HListBoxOptions,
 } from '@headlessui/react';
-import {
-    Fragment,
-    ReactNode,
-} from 'react';
-import {
-    classNames,
-    Mods,
-} from '../../../../lib/classNames/classNames';
+import { Fragment, ReactNode } from 'react';
+import { classNames, Mods } from '../../../../lib/classNames/classNames';
 import { DropdownDirection } from '../../../../types/ui';
 import { Button } from '../../../Button/Button';
 import { HStack } from '../../../Stack';
@@ -49,7 +43,15 @@ export function ListBox(props: ListBoxProps) {
 
     return (
         <HStack gap="4">
-            {label && <span className={classNames(cls.label, { [cls.readonly]: readonly })}>{`${label}>`}</span>}
+            {label && (
+                <span
+                    className={classNames(cls.label, {
+                        [cls.readonly]: readonly,
+                    })}
+                >
+                    {`${label}>`}
+                </span>
+            )}
             <HListBox
                 as="div"
                 className={classNames(popupCls.popup, {}, [className])}
@@ -57,15 +59,8 @@ export function ListBox(props: ListBoxProps) {
                 onChange={onChange}
                 disabled={readonly}
             >
-                <HListBoxButton
-                    className={popupCls.btn}
-                    as="div"
-                >
-                    <Button
-                        disabled={readonly}
-                    >
-                        {value ?? defaultValue}
-                    </Button>
+                <HListBoxButton className={popupCls.btn} as="div">
+                    <Button disabled={readonly}>{value ?? defaultValue}</Button>
                 </HListBoxButton>
                 <HListBoxOptions
                     className={cls.options}
@@ -73,18 +68,27 @@ export function ListBox(props: ListBoxProps) {
                     as="ul"
                 >
                     {items?.map((item, index) => (
-                        <HListBoxOption key={item.value} value={item.value} as={Fragment} disabled={item.disabled}>
+                        <HListBoxOption
+                            key={item.value}
+                            value={item.value}
+                            as={Fragment}
+                            disabled={item.disabled}
+                        >
                             {({ focus, selected }) => {
                                 const itemMods: Mods = {
                                     [cls.focus]: focus,
                                     [cls.selected]: selected,
                                     [popupCls.disabled]: item.disabled,
                                     [cls.first]: index === 0,
-                                    [cls.last]: index === Number(items?.length) - 1,
+                                    [cls.last]:
+                                        index === Number(items?.length) - 1,
                                 };
                                 return (
                                     <li
-                                        className={classNames(cls.item, itemMods)}
+                                        className={classNames(
+                                            cls.item,
+                                            itemMods,
+                                        )}
                                     >
                                         {item.content}
                                     </li>

@@ -1,10 +1,4 @@
-import {
-    LegacyRef,
-    memo,
-    MutableRefObject,
-    ReactNode,
-    useRef,
-} from 'react';
+import { LegacyRef, memo, MutableRefObject, ReactNode, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import {
@@ -27,16 +21,12 @@ interface PageProps extends TestProps {
 }
 
 export const Page = memo((props: PageProps) => {
-    const {
-        className,
-        children,
-        onScrollEnd,
-    } = props;
+    const { className, children, onScrollEnd } = props;
     const wrapperRef = useRef() as MutableRefObject<HTMLElement>;
     const triggerRef = useRef() as MutableRefObject<HTMLElement>;
     const { pathname } = useLocation();
-    const scrollPosition = useAppSelector(
-        (state: StateSchema) => selectScrollSaveByPath(state, pathname),
+    const scrollPosition = useAppSelector((state: StateSchema) =>
+        selectScrollSaveByPath(state, pathname),
     );
     const dispatch = useAppDispatch();
 
@@ -51,25 +41,31 @@ export const Page = memo((props: PageProps) => {
     });
 
     const onScroll = useThrottle((e) => {
-        dispatch(scrollSaveActions.setScrollPosition({
-            position: e.currentTarget.scrollTop,
-            path: pathname,
-        }));
+        dispatch(
+            scrollSaveActions.setScrollPosition({
+                position: e.currentTarget.scrollTop,
+                path: pathname,
+            }),
+        );
     }, 500);
 
     return (
         <main
             onScroll={onScroll}
             ref={wrapperRef}
-            className={classNames(cls.Page, { [cls.virtuoso]: false }, [className, cls[__PROJECT__]])}
+            className={classNames(cls.Page, { [cls.virtuoso]: false }, [
+                className,
+                cls[__PROJECT__],
+            ])}
             data-testid={props['data-testid'] ?? 'Page'}
         >
             {children}
-            {
-                onScrollEnd
-                    ? (<div className={cls.trigger} ref={triggerRef as LegacyRef<HTMLDivElement> | undefined} />)
-                    : null
-            }
+            {onScrollEnd ? (
+                <div
+                    className={cls.trigger}
+                    ref={triggerRef as LegacyRef<HTMLDivElement> | undefined}
+                />
+            ) : null}
         </main>
     );
 });

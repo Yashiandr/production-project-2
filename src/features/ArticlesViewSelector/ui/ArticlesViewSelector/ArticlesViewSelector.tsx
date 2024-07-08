@@ -2,10 +2,7 @@ import { memo } from 'react';
 import ListIcon from '@/shared/assets/icons/list-40-40.svg?react';
 import TileIcon from '@/shared/assets/icons/tile-40-40.svg?react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import {
-    Button,
-    ButtonTheme,
-} from '@/shared/ui/Button';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
 import { HStack } from '@/shared/ui/Stack';
 import * as cls from './ArticlesViewSelector.module.scss';
@@ -29,11 +26,7 @@ const viewType = [
 ];
 
 export const ArticlesViewSelector = memo((props: ArticlesViewSelectorProps) => {
-    const {
-        className,
-        view,
-        onViewClick,
-    } = props;
+    const { className, view, onViewClick } = props;
 
     const onClick = (newView: ArticlesView) => () => {
         onViewClick(newView);
@@ -49,7 +42,9 @@ export const ArticlesViewSelector = memo((props: ArticlesViewSelectorProps) => {
                 >
                     <Icon
                         Svg={viewType.icon}
-                        className={classNames('', { [cls.selected]: viewType.view === view })}
+                        className={classNames('', {
+                            [cls.selected]: viewType.view === view,
+                        })}
                     />
                 </Button>
             ))}

@@ -1,11 +1,5 @@
-import {
-    memo,
-    useState,
-} from 'react';
-import {
-    classNames,
-    Mods,
-} from '@/shared/lib/classNames/classNames';
+import { memo, useState } from 'react';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import StarIcon from '@/shared/assets/icons/star-32-32.svg?react';
 import * as cls from './StarRating.module.scss';
 import { Icon } from '../Icon/Icon';
@@ -20,12 +14,7 @@ interface StarRatingProps {
 const stars = [1, 2, 3, 4, 5];
 
 export const StarRating = memo((props: StarRatingProps) => {
-    const {
-        className,
-        onSelect,
-        size = 30,
-        selectedStars = 0,
-    } = props;
+    const { className, onSelect, size = 30, selectedStars = 0 } = props;
     const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
     const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
 
@@ -51,7 +40,7 @@ export const StarRating = memo((props: StarRatingProps) => {
 
     return (
         <div className={classNames('', {}, [className])}>
-            {stars.map(((starNumber) => {
+            {stars.map((starNumber) => {
                 const mods: Mods = {
                     [cls.hovered]: currentStarsCount >= starNumber,
                     [cls.normal]: currentStarsCount < starNumber,
@@ -59,11 +48,7 @@ export const StarRating = memo((props: StarRatingProps) => {
                 };
                 return (
                     <Icon
-                        className={classNames(
-                            cls.starIcon,
-                            mods,
-                            [],
-                        )}
+                        className={classNames(cls.starIcon, mods, [])}
                         width={size}
                         height={size}
                         Svg={StarIcon}
@@ -75,7 +60,7 @@ export const StarRating = memo((props: StarRatingProps) => {
                         data-selected={currentStarsCount >= starNumber}
                     />
                 );
-            }))}
+            })}
         </div>
     );
 });

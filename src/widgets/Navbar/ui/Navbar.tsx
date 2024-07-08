@@ -1,8 +1,4 @@
-import {
-    memo,
-    useCallback,
-    useState,
-} from 'react';
+import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { selectUserAuthData } from '@/entities/User';
 import { LoginModal } from '@/features/AuthByUsername';
@@ -11,15 +7,9 @@ import { NotificationButton } from '@/features/notificationButton';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
 import { AppLink } from '@/shared/ui/AppLink';
-import {
-    Button,
-    ButtonTheme,
-} from '@/shared/ui/Button';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { HStack } from '@/shared/ui/Stack';
-import {
-    Text,
-    TextSize,
-} from '@/shared/ui/Text';
+import { Text, TextSize } from '@/shared/ui/Text';
 import * as cls from './Navbar.module.scss';
 import { getRouteArticleCreate } from '@/shared/const/router';
 
@@ -59,7 +49,11 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
     return (
         <header className={classNames(cls.Navbar, {}, [className])}>
-            <Text className={cls.logo} title={t('Yashiandr App')} size={TextSize.L} />
+            <Text
+                className={cls.logo}
+                title={t('Yashiandr App')}
+                size={TextSize.L}
+            />
             <div>
                 <Button
                     theme={ButtonTheme.CLEAR_INVERTED}
@@ -69,10 +63,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 </Button>
             </div>
             {isAuthModal && (
-                <LoginModal
-                    isOpen={isAuthModal}
-                    onClose={onCloseModal}
-                />
+                <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
             )}
         </header>
     );

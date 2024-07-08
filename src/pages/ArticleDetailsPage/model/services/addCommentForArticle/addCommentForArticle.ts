@@ -10,37 +10,32 @@ export const addCommentForArticle = createAsyncThunk<
     Comment,
     string,
     ThunkConfig<string>
->(
-    'articlesDetailsPage/addCommentForArticle',
-    async (text, thunkAPI) => {
-        const {
-            rejectWithValue, dispatch, extra, getState,
-        } = thunkAPI;
+>('articlesDetailsPage/addCommentForArticle', async (text, thunkAPI) => {
+    const { rejectWithValue, dispatch, extra, getState } = thunkAPI;
 
-        const userData = selectUserAuthData(getState());
-        const article = selectArticleDetailsData(getState());
+    const userData = selectUserAuthData(getState());
+    const article = selectArticleDetailsData(getState());
 
-        if (!userData || !text || !article) {
-            return rejectWithValue('no data');
+    if (!userData || !text || !article) {
+        return rejectWithValue('no data');
+    }
+
+    try {
+        const response = await extra.api.post<Comment>('/comments', {
+            articleId: article.id,
+            userId: userData.id,
+            text,
+        });
+
+        if (!response.data) {
+            throw new Error();
         }
 
-        try {
-            const response = await extra.api.post<Comment>('/comments', {
-                articleId: article.id,
-                userId: userData.id,
-                text,
-            });
+        dispatch(fetchCommentsArticleById(article.id));
 
-            if (!response.data) {
-                throw new Error();
-            }
-
-            dispatch(fetchCommentsArticleById(article.id));
-
-            return response.data;
-        } catch (e) {
-            console.log(e);
-            return rejectWithValue(i18n.t('Вы ввели неверный логин или пароль'));
-        }
-    },
-);
+        return response.data;
+    } catch (e) {
+        console.log(e);
+        return rejectWithValue(i18n.t('Вы ввели неверный логин или пароль'));
+    }
+});

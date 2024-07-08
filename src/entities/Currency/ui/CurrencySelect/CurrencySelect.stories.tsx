@@ -6,7 +6,6 @@ const meta = {
     component: CurrencySelect,
 
     tags: ['autodocs'],
-
 } satisfies Meta<typeof CurrencySelect>;
 
 export default meta;

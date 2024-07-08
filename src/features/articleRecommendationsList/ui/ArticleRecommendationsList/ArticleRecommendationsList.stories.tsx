@@ -67,9 +67,7 @@ const article = {
             id: '7',
             type: ArticleBlockType.TEXT,
             title: '',
-            paragraphs: [
-                'Вот результат выполнения этой программы.',
-            ],
+            paragraphs: ['Вот результат выполнения этой программы.'],
         },
         {
             id: '8',
@@ -80,19 +78,15 @@ const article = {
     ],
 } as Article;
 
-const articles = new Array(3).fill(0).map((item, index) => (
-    {
-        ...article,
-        id: String(index + 1),
-    }
-)) as Article[];
+const articles = new Array(3).fill(0).map((item, index) => ({
+    ...article,
+    id: String(index + 1),
+})) as Article[];
 
 const meta = {
     title: 'features/Article/ArticleRecommendationsList',
     component: ArticleRecommendationsList,
-    decorators: [
-        StoreDecorator({}),
-    ],
+    decorators: [StoreDecorator({})],
     parameters: {
         mockData: [
             {
@@ -105,7 +99,6 @@ const meta = {
     },
 
     tags: ['autodocs'],
-
 } satisfies Meta<typeof ArticleRecommendationsList>;
 
 export default meta;

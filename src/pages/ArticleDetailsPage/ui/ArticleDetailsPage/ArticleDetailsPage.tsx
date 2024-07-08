@@ -26,15 +26,15 @@ const reducers: ReducerList = {
 };
 
 const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
     const { t } = useTranslation('articles');
     const { id = '#' } = useParams<{ id: string }>();
 
     if (!id) {
         return (
-            <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+            <div
+                className={classNames(cls.ArticleDetailsPage, {}, [className])}
+            >
                 {t('Статья не найдена')}
             </div>
         );
@@ -42,7 +42,9 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+            <Page
+                className={classNames(cls.ArticleDetailsPage, {}, [className])}
+            >
                 <ArticleDetailsPageHeader id={id} />
                 <ArticleDetails id={id} />
                 <ArticleRating articleId={id} />

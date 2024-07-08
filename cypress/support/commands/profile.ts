@@ -5,22 +5,23 @@ export const updateProfile = (firstname: string, lastname: string) => {
     cy.getByTestId('EditableProfileCardHeader.SaveButton').click();
 };
 
-export const resetProfile = (profileId: string) => cy.request({
-    method: 'PUT',
-    url: `http://localhost:8000/profile/${profileId}`,
-    headers: { Authorization: 'asodsod' },
-    body: {
-        id: '4',
-        first: 'test',
-        lastname: 'test',
-        age: 18,
-        currency: 'RUB',
-        country: 'Russia',
-        city: 'Unknown',
-        username: 'testuser',
-        avatar: 'https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S.jpg',
-    },
-});
+export const resetProfile = (profileId: string) =>
+    cy.request({
+        method: 'PUT',
+        url: `http://localhost:8000/profile/${profileId}`,
+        headers: { Authorization: 'asodsod' },
+        body: {
+            id: '4',
+            first: 'test',
+            lastname: 'test',
+            age: 18,
+            currency: 'RUB',
+            country: 'Russia',
+            city: 'Unknown',
+            username: 'testuser',
+            avatar: 'https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S.jpg',
+        },
+    });
 
 declare global {
     namespace Cypress {

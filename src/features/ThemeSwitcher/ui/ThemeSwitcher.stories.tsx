@@ -6,7 +6,6 @@ const meta = {
     component: ThemeSwitcher,
 
     tags: ['autodocs'],
-
 } satisfies Meta<typeof ThemeSwitcher>;
 
 export default meta;

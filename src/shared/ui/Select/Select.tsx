@@ -1,12 +1,5 @@
-import {
-    ChangeEvent,
-    useCallback,
-    useMemo,
-} from 'react';
-import {
-    classNames,
-    Mods,
-} from '@/shared/lib/classNames/classNames';
+import { ChangeEvent, useCallback, useMemo } from 'react';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { HStack } from '../Stack';
 import * as cls from './Select.module.scss';
 
@@ -25,28 +18,28 @@ interface SelectProps<T extends string> {
 }
 
 export const Select = <T extends string>(props: SelectProps<T>) => {
-    const {
-        className,
-        label,
-        options,
-        value,
-        onChange,
-        readonly,
-    } = props;
+    const { className, label, options, value, onChange, readonly } = props;
 
-    const optionsList = useMemo(() => options.map((opt) => (
-        <option
-            className={cls.option}
-            value={opt.value}
-            key={opt.value}
-        >
-            {opt.content}
-        </option>
-    )), [options]);
+    const optionsList = useMemo(
+        () =>
+            options.map((opt) => (
+                <option
+                    className={cls.option}
+                    value={opt.value}
+                    key={opt.value}
+                >
+                    {opt.content}
+                </option>
+            )),
+        [options],
+    );
 
-    const onChangeHandler = useCallback((e: ChangeEvent<HTMLSelectElement>) => {
-        onChange?.(e.target.value as T);
-    }, [onChange]);
+    const onChangeHandler = useCallback(
+        (e: ChangeEvent<HTMLSelectElement>) => {
+            onChange?.(e.target.value as T);
+        },
+        [onChange],
+    );
 
     const mods: Mods = {
         [cls.readonly]: readonly,

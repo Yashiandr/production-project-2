@@ -25,9 +25,7 @@ const meta = {
     args: {
         authData: user,
     },
-    decorators: [
-        StoreDecorator({}),
-    ],
+    decorators: [StoreDecorator({})],
     render: function Component(args) {
         return (
             <>
@@ -45,7 +43,6 @@ const meta = {
                     }}
                 >
                     <AvatarDropdown {...args} />
-
                 </div>
                 <div
                     style={{
@@ -58,7 +55,6 @@ const meta = {
     },
 
     tags: ['autodocs'],
-
 } satisfies Meta<typeof AvatarDropdown>;
 
 export default meta;

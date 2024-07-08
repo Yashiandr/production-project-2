@@ -14,7 +14,6 @@ const meta = {
             scroll: { scrollSave: {} },
         }),
     ],
-
 } satisfies Meta<typeof MainPage>;
 
 export default meta;

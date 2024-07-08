@@ -10,7 +10,6 @@ const items: ListBoxItem[] = [
     { value: 'Item 4', content: 'Item 4' },
     { value: 'disabled', content: 'disabled', disabled: true },
     { value: 'Item 6', content: 'Item 6' },
-
 ];
 
 const meta = {
@@ -30,7 +29,11 @@ const meta = {
         return (
             <div
                 style={{
-                    width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center',
+                    width: '100%',
+                    height: '100vh',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
                 }}
             >
                 <ListBox {...args} onChange={onChange} />
@@ -39,7 +42,6 @@ const meta = {
     },
 
     tags: ['autodocs'],
-
 } satisfies Meta<typeof ListBox>;
 
 export default meta;

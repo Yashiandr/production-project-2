@@ -5,12 +5,9 @@ import { EditableProfileCardHeader } from './EditableProfileCardHeader';
 const meta = {
     title: 'features/Profile/EditableProfileCardHeader',
     component: EditableProfileCardHeader,
-    decorators: [
-        StoreDecorator({}),
-    ],
+    decorators: [StoreDecorator({})],
 
     tags: ['autodocs'],
-
 } satisfies Meta<typeof EditableProfileCardHeader>;
 
 export default meta;

@@ -1,7 +1,4 @@
-import {
-    EntityId,
-    EntityState,
-} from '@reduxjs/toolkit';
+import { EntityId, EntityState } from '@reduxjs/toolkit';
 import {
     Article,
     ArticleSortField,

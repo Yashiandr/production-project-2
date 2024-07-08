@@ -1,7 +1,4 @@
-import type {
-    Meta,
-    StoryObj,
-} from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Notification } from '@/entities/Notification';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { NotificationButton } from './NotificationButton';
@@ -67,7 +64,6 @@ const meta = {
                     }}
                 >
                     <NotificationButton />
-
                 </div>
                 <div
                     style={{
@@ -79,7 +75,6 @@ const meta = {
         );
     },
     tags: ['autodocs'],
-
 } satisfies Meta<typeof NotificationButton>;
 
 export default meta;

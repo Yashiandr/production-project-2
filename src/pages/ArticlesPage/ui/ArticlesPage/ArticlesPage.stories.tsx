@@ -1,7 +1,4 @@
-import type {
-    Meta,
-    StoryObj,
-} from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import {
     Article,
     ArticleBlockType,
@@ -75,9 +72,7 @@ const article = {
             id: '7',
             type: ArticleBlockType.TEXT,
             title: '',
-            paragraphs: [
-                'Вот результат выполнения этой программы.',
-            ],
+            paragraphs: ['Вот результат выполнения этой программы.'],
         },
         {
             id: '8',
@@ -88,14 +83,12 @@ const article = {
     ],
 } as Article;
 
-const articles = new Array(100).fill(0).map((item, index) => (
-    {
-        ...article,
-        id: String(index + 1),
-    }
-)) as Article[];
+const articles = new Array(100).fill(0).map((item, index) => ({
+    ...article,
+    id: String(index + 1),
+})) as Article[];
 
-const ids = new Array(100).fill(0).map((item, index) => (index + 1));
+const ids = new Array(100).fill(0).map((item, index) => index + 1);
 const entities = articles.reduce((a, v) => ({ ...a, [v.id]: v }), {});
 
 const meta = {
@@ -117,7 +110,6 @@ const meta = {
             skip: true,
         },
     },
-
 } satisfies Meta<typeof ArticlesPage>;
 
 export default meta;

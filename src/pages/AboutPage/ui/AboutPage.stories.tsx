@@ -16,7 +16,6 @@ const meta = {
             },
         }),
     ],
-
 } satisfies Meta<typeof AboutPage>;
 
 export default meta;

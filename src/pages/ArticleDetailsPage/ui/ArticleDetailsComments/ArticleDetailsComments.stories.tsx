@@ -52,7 +52,6 @@ const meta = {
     ],
 
     tags: ['autodocs'],
-
 } satisfies Meta<typeof ArticleDetailsComments>;
 
 export default meta;

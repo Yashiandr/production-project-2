@@ -1,20 +1,21 @@
-import type {
-    Meta,
-    StoryObj,
-} from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import ArticleRating from './ArticleRating';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
-const rating = [{
-    id: '1', rate: 4, feedback: 'Хорошая статья', userId: '1', articleId: '1',
-}];
+const rating = [
+    {
+        id: '1',
+        rate: 4,
+        feedback: 'Хорошая статья',
+        userId: '1',
+        articleId: '1',
+    },
+];
 
 const meta = {
     title: 'features/Article/ArticleRating',
     component: ArticleRating,
-    decorators: [
-        StoreDecorator({ user: { authData: { id: '1' } } }),
-    ],
+    decorators: [StoreDecorator({ user: { authData: { id: '1' } } })],
     parameters: {
         loki: { skip: true },
         ockData: [
@@ -26,7 +27,6 @@ const meta = {
             },
         ],
     },
-
 } satisfies Meta<typeof ArticleRating>;
 
 export default meta;

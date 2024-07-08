@@ -35,9 +35,7 @@ const notifications: Notification[] = [
 const meta = {
     title: 'entities/Notification/NotificationList',
     component: NotificationList,
-    decorators: [
-        StoreDecorator({}),
-    ],
+    decorators: [StoreDecorator({})],
     parameters: {
         mockData: [
             {
@@ -50,7 +48,6 @@ const meta = {
     },
 
     tags: ['autodocs'],
-
 } satisfies Meta<typeof NotificationList>;
 
 export default meta;

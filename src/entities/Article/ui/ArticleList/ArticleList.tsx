@@ -1,18 +1,9 @@
-import {
-    HTMLAttributeAnchorTarget,
-    memo,
-} from 'react';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import {
-    Virtuoso,
-    VirtuosoGrid,
-} from 'react-virtuoso';
+import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Loader } from '@/shared/ui/Loader';
-import {
-    Text,
-    TextSize,
-} from '@/shared/ui/Text';
+import { Text, TextSize } from '@/shared/ui/Text';
 import { ArticlesView } from '../../model/consts/consts';
 import { Article } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
@@ -45,13 +36,23 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
     const { t } = useTranslation('articles');
 
-    const renderArticle = (
-        article: Article,
-    ) => <ArticleListItem article={article} view={view} key={article.id} target={target} />;
+    const renderArticle = (article: Article) => (
+        <ArticleListItem
+            article={article}
+            view={view}
+            key={article.id}
+            target={target}
+        />
+    );
 
     if (!isLoading && !articles.length) {
         return (
-            <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+            <div
+                className={classNames(cls.ArticleList, {}, [
+                    className,
+                    cls[view],
+                ])}
+            >
                 <Text title={t('Статьи не найдены')} size={TextSize.XL} />
             </div>
         );
@@ -61,11 +62,13 @@ export const ArticleList = memo((props: ArticleListProps) => {
         return (
             <div
                 data-testid="ArticleList"
-                className={classNames(cls.ArticleList, {}, [className, cls[view], cls.recommendations])}
+                className={classNames(cls.ArticleList, {}, [
+                    className,
+                    cls[view],
+                    cls.recommendations,
+                ])}
             >
-                {articles.length > 0
-                    ? articles.map(renderArticle)
-                    : null}
+                {articles.length > 0 ? articles.map(renderArticle) : null}
             </div>
         );
     }

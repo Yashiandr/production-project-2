@@ -9,10 +9,13 @@ const meta = {
         children: 'App Link',
     },
     render(args) {
-        return <div style={{ backgroundColor: 'var(--inverted-bg-color)' }}><AppLink {...args} /></div>;
+        return (
+            <div style={{ backgroundColor: 'var(--inverted-bg-color)' }}>
+                <AppLink {...args} />
+            </div>
+        );
     },
     tags: ['autodocs'],
-
 } satisfies Meta<typeof AppLink>;
 
 export default meta;

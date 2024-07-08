@@ -14,7 +14,6 @@ const meta = {
             scroll: { scrollSave: {} },
         }),
     ],
-
 } satisfies Meta<typeof ArticleEditPage>;
 
 export default meta;

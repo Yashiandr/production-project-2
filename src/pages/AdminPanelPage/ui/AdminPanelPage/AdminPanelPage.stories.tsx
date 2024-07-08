@@ -12,7 +12,6 @@ const meta = {
     ],
 
     tags: ['autodocs'],
-
 } satisfies Meta<typeof AdminPanelPage>;
 
 export default meta;

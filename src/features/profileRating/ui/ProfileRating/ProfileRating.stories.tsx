@@ -1,13 +1,13 @@
-import type {
-    Meta,
-    StoryObj,
-} from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import ProfileRating from './ProfileRating';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
-const rating = [{
-    id: '1', rate: 3,
-}];
+const rating = [
+    {
+        id: '1',
+        rate: 3,
+    },
+];
 
 const meta = {
     title: 'features/Profile/ProfileRating',
@@ -19,7 +19,6 @@ const meta = {
     args: {
         profileId: '1',
     },
-
 } satisfies Meta<typeof ProfileRating>;
 
 export default meta;

@@ -7,7 +7,6 @@ const meta = {
     component: PageError,
 
     tags: ['autodocs'],
-
 } satisfies Meta<typeof PageError>;
 
 export default meta;

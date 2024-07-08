@@ -1,13 +1,5 @@
-import {
-    Menu,
-    MenuButton,
-    MenuItem,
-    MenuItems,
-} from '@headlessui/react';
-import {
-    Fragment,
-    ReactNode,
-} from 'react';
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
+import { Fragment, ReactNode } from 'react';
 import { classNames } from '../../../../lib/classNames/classNames';
 import { DropdownDirection } from '../../../../types/ui';
 import { AppLink } from '../../../AppLink/AppLink';
@@ -29,12 +21,7 @@ interface DropdownProps {
 }
 
 export function Dropdown(props: DropdownProps) {
-    const {
-        className,
-        items,
-        trigger,
-        direction = 'bottom',
-    } = props;
+    const { className, items, trigger, direction = 'bottom' } = props;
     return (
         <Menu as="div" className={classNames(popupCls.popup, {}, [className])}>
             <MenuButton as="div" className={popupCls.btn}>
@@ -46,7 +33,10 @@ export function Dropdown(props: DropdownProps) {
                         <button
                             type="button"
                             onClick={item.onClick}
-                            className={classNames(cls.item, { [cls.focus]: focus, [popupCls.disabled]: item.disabled })}
+                            className={classNames(cls.item, {
+                                [cls.focus]: focus,
+                                [popupCls.disabled]: item.disabled,
+                            })}
                         >
                             {item.content}
                         </button>

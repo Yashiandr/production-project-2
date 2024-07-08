@@ -11,7 +11,6 @@ const meta = {
     },
 
     tags: ['autodocs'],
-
 } satisfies Meta<typeof AddCommentForm>;
 
 export default meta;
@@ -19,7 +18,5 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
     args: {},
-    decorators: [
-        StoreDecorator({}),
-    ],
+    decorators: [StoreDecorator({})],
 };

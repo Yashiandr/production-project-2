@@ -37,7 +37,6 @@ const meta = {
     ],
 
     tags: ['autodocs'],
-
 } satisfies Meta<typeof EditableProfileCard>;
 
 export default meta;

@@ -12,7 +12,6 @@ const meta = {
     ],
 
     tags: ['autodocs'],
-
 } satisfies Meta<typeof ForbiddenPage>;
 
 export default meta;

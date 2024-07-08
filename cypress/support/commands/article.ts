@@ -7,9 +7,7 @@ const defaultArticle = {
     views: 256,
     createdAt: '11.07.2024',
     userId: '1',
-    type: [
-        'IT',
-    ],
+    type: ['IT'],
     blocks: [
         {
             id: '1',
@@ -24,18 +22,22 @@ const defaultArticle = {
     ],
 };
 
-export const createArticle = (article?: Article) => cy.request({
-    method: 'POST',
-    url: 'http://localhost:8000/articles',
-    headers: { Authorization: 'asd' },
-    body: article ?? defaultArticle,
-}).then((resp) => resp.body);
+export const createArticle = (article?: Article) =>
+    cy
+        .request({
+            method: 'POST',
+            url: 'http://localhost:8000/articles',
+            headers: { Authorization: 'asd' },
+            body: article ?? defaultArticle,
+        })
+        .then((resp) => resp.body);
 
-export const removeArticle = (articleId: string) => cy.request({
-    method: 'DELETE',
-    url: `http://localhost:8000/articles/${articleId}`,
-    headers: { Authorization: 'asd' },
-});
+export const removeArticle = (articleId: string) =>
+    cy.request({
+        method: 'DELETE',
+        url: `http://localhost:8000/articles/${articleId}`,
+        headers: { Authorization: 'asd' },
+    });
 
 declare global {
     namespace Cypress {

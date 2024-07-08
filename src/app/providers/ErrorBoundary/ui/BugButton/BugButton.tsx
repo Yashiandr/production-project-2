@@ -1,9 +1,6 @@
 /* eslint-disable i18next/no-literal-string */
 
-import {
-    useEffect,
-    useState,
-} from 'react';
+import { useEffect, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button } from '@/shared/ui/Button';
 import * as cls from './BugButton.module.scss';

@@ -1,7 +1,4 @@
-import type {
-    Meta,
-    StoryObj,
-} from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { ValidateProfileError } from '@/features/editableProfileCard';
@@ -22,9 +19,15 @@ const data = {
     username: 'Test Username',
 };
 
-const rating = [{
-    id: '1', rate: 5, feedback: 'Дефолтный мэн', userId: '1', profileId: '1',
-}];
+const rating = [
+    {
+        id: '1',
+        rate: 5,
+        feedback: 'Дефолтный мэн',
+        userId: '1',
+        profileId: '1',
+    },
+];
 
 const meta = {
     title: 'pages/ProfilePage',
@@ -52,7 +55,6 @@ const meta = {
             },
         }),
     ],
-
 } satisfies Meta<typeof ProfilePage>;
 
 export default meta;

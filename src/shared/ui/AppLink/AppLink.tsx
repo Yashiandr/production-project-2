@@ -15,22 +15,28 @@ interface AppLinkProps extends LinkProps {
     readonly?: boolean;
 }
 
-export const AppLink: FC<PropsWithChildren<AppLinkProps>> = memo((props: AppLinkProps) => {
-    const {
-        to,
-        className,
-        children,
-        theme = AppLinkTheme.PRIMARY,
-        readonly,
-        ...otherProps
-    } = props;
-    return (
-        <Link
-            to={to}
-            className={classNames(cls.AppLink, { [cls.readonly]: readonly }, [className, cls[theme]])}
-            {...otherProps}
-        >
-            {children}
-        </Link>
-    );
-});
+export const AppLink: FC<PropsWithChildren<AppLinkProps>> = memo(
+    (props: AppLinkProps) => {
+        const {
+            to,
+            className,
+            children,
+            theme = AppLinkTheme.PRIMARY,
+            readonly,
+            ...otherProps
+        } = props;
+        return (
+            <Link
+                to={to}
+                className={classNames(
+                    cls.AppLink,
+                    { [cls.readonly]: readonly },
+                    [className, cls[theme]],
+                )}
+                {...otherProps}
+            >
+                {children}
+            </Link>
+        );
+    },
+);

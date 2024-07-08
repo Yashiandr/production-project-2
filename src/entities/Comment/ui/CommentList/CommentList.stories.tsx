@@ -42,7 +42,6 @@ const meta = {
     component: CommentList,
 
     tags: ['autodocs'],
-
 } satisfies Meta<typeof CommentList>;
 
 export default meta;

@@ -1,7 +1,4 @@
-import {
-    memo,
-    useCallback,
-} from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { CommentList } from '@/entities/Comment';
 import { AddCommentForm } from '@/features/AddNewComment';
@@ -21,32 +18,40 @@ interface ArticleDetailsCommentsProps {
     id: string;
 }
 
-export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) => {
-    const {
-        className,
-        id,
-    } = props;
-    const { t } = useTranslation('articles');
-    const dispatch = useAppDispatch();
-    const comments = useAppSelector(getArticleComments.selectAll);
-    const commentsIsLoading = useAppSelector(selectArticleDetailsCommentsIsLoading);
+export const ArticleDetailsComments = memo(
+    (props: ArticleDetailsCommentsProps) => {
+        const { className, id } = props;
+        const { t } = useTranslation('articles');
+        const dispatch = useAppDispatch();
+        const comments = useAppSelector(getArticleComments.selectAll);
+        const commentsIsLoading = useAppSelector(
+            selectArticleDetailsCommentsIsLoading,
+        );
 
-    useInitialEffect(() => {
-        dispatch(fetchCommentsArticleById(id));
-    });
+        useInitialEffect(() => {
+            dispatch(fetchCommentsArticleById(id));
+        });
 
-    const onSendComment = useCallback((text: string) => {
-        dispatch(addCommentForArticle(text));
-    }, [dispatch]);
+        const onSendComment = useCallback(
+            (text: string) => {
+                dispatch(addCommentForArticle(text));
+            },
+            [dispatch],
+        );
 
-    return (
-        <VStack gap="32" align="stretch" className={classNames('', {}, [className])}>
-            <Text title={t('Комментарии')} />
-            <AddCommentForm onSendComment={onSendComment} />
-            <CommentList
-                comments={comments}
-                isLoading={commentsIsLoading}
-            />
-        </VStack>
-    );
-});
+        return (
+            <VStack
+                gap="32"
+                align="stretch"
+                className={classNames('', {}, [className])}
+            >
+                <Text title={t('Комментарии')} />
+                <AddCommentForm onSendComment={onSendComment} />
+                <CommentList
+                    comments={comments}
+                    isLoading={commentsIsLoading}
+                />
+            </VStack>
+        );
+    },
+);

@@ -1,24 +1,13 @@
-import {
-    memo,
-    useCallback,
-} from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import {
-    isUserAdmin,
-    isUserManager,
-    User,
-    userActions,
-} from '@/entities/User';
+import { isUserAdmin, isUserManager, User, userActions } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Dropdown } from '@/shared/ui/Popups';
 import * as cls from './AvatarDropdown.module.scss';
-import {
-    getRouteAdminPanel,
-    getRouteProfile,
-} from '@/shared/const/router';
+import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
 
 interface AvatarDropdownProps {
     className?: string;
@@ -43,10 +32,14 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
         <Dropdown
             className={classNames(cls.AvatarDropdown, {}, [className])}
             items={[
-                ...(isAdminPanelAvailable ? [{
-                    content: t('Админка'),
-                    href: getRouteAdminPanel(),
-                }] : []),
+                ...(isAdminPanelAvailable
+                    ? [
+                          {
+                              content: t('Админка'),
+                              href: getRouteAdminPanel(),
+                          },
+                      ]
+                    : []),
                 {
                     content: t('Профиль'),
                     href: getRouteProfile(authData.id),
@@ -55,7 +48,6 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
                     content: t('Выйти'),
                     onClick: onLogout,
                 },
-
             ]}
             trigger={<Avatar size={30} src={authData.avatar} />}
             direction="bottom end"

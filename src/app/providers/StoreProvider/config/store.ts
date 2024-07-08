@@ -1,4 +1,8 @@
-import { configureStore, ReducersMapObject, StateFromReducersMapObject } from '@reduxjs/toolkit';
+import {
+    configureStore,
+    ReducersMapObject,
+    StateFromReducersMapObject,
+} from '@reduxjs/toolkit';
 import { counterReducer } from '@/entities/Counter';
 import { userReducer } from '@/entities/User';
 import { scrollSaveReducer } from '@/features/ScrollSave';
@@ -21,16 +25,18 @@ export function createReduxStore(
     const reducerManager = createReducerManager(rootReducer);
 
     const store = configureStore({
-        reducer: reducerManager.reduce as StateFromReducersMapObject<StateSchema>,
+        reducer:
+            reducerManager.reduce as StateFromReducersMapObject<StateSchema>,
         devTools: __IS_DEV__,
         preloadedState: initialState,
-        middleware: (getDefaultMiddleware) => getDefaultMiddleware({
-            thunk: {
-                extraArgument: {
-                    api: $api,
+        middleware: (getDefaultMiddleware) =>
+            getDefaultMiddleware({
+                thunk: {
+                    extraArgument: {
+                        api: $api,
+                    },
                 },
-            },
-        }).concat(rtkApi.middleware),
+            }).concat(rtkApi.middleware),
     });
 
     return Object.assign(store, { reducerManager });

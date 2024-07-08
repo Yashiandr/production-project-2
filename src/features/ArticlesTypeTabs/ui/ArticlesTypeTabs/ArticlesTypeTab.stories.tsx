@@ -1,7 +1,4 @@
-import type {
-    Meta,
-    StoryObj,
-} from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { ArticlesTypeTabs } from './ArticlesTypeTabs';
 import { ArticleType } from '@/entities/Article';
@@ -11,7 +8,6 @@ const meta = {
     component: ArticlesTypeTabs,
 
     tags: ['autodocs'],
-
 } satisfies Meta<typeof ArticlesTypeTabs>;
 
 export default meta;

@@ -22,18 +22,22 @@ export default ({ config }: { config: webpack.Configuration }) => {
     config!.module!.rules!.push(buildCssLoader(true));
     // eslint-disable-next-line no-param-reassign
     // @ts-ignore
-    config!.module!.rules = config!.module!.rules!.map((rule: webpack.RuleSetRule) => {
-        if (/svg/.test(rule.test as string)) {
-            return { ...rule, exclude: /\.svg$/i };
-        }
+    config!.module!.rules = config!.module!.rules!.map(
+        (rule: webpack.RuleSetRule) => {
+            if (/svg/.test(rule.test as string)) {
+                return { ...rule, exclude: /\.svg$/i };
+            }
 
-        return rule;
-    });
+            return rule;
+        },
+    );
     config!.module!.rules.push(buildSvgLoader());
-    config!.plugins!.push(new webpack.DefinePlugin({
-        __IS_DEV__: JSON.stringify(true),
-        __API__: JSON.stringify('http://testapi.ru'),
-        __PROJECT__: JSON.stringify('storybook'),
-    }));
+    config!.plugins!.push(
+        new webpack.DefinePlugin({
+            __IS_DEV__: JSON.stringify(true),
+            __API__: JSON.stringify('http://testapi.ru'),
+            __PROJECT__: JSON.stringify('storybook'),
+        }),
+    );
     return config;
 };

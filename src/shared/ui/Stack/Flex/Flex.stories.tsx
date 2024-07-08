@@ -17,7 +17,6 @@ const meta = {
     },
 
     tags: ['autodocs'],
-
 } satisfies Meta<typeof Flex>;
 
 export default meta;

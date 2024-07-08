@@ -24,9 +24,7 @@ const reducers: ReducerList = {
 };
 
 const ArticlesPage = (props: ArticlesPageProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
     const [searchParams] = useSearchParams();
     const dispatch = useAppDispatch();
 

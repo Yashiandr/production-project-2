@@ -1,12 +1,5 @@
-import type {
-    Meta,
-    StoryObj,
-} from '@storybook/react';
-import {
-    Article,
-    ArticleBlockType,
-    ArticleType,
-} from '@/entities/Article';
+import type { Meta, StoryObj } from '@storybook/react';
+import { Article, ArticleBlockType, ArticleType } from '@/entities/Article';
 import defaultImage from '@/shared/assets/stockImage/default-image.jpg';
 import defaultManAvatar from '@/shared/assets/stockImage/default-man-avatar.jpg';
 import defaultWomanAvatar from '@/shared/assets/stockImage/default-woman-avatar.jpg';
@@ -76,9 +69,7 @@ const article = {
             id: '7',
             type: ArticleBlockType.TEXT,
             title: '',
-            paragraphs: [
-                'Вот результат выполнения этой программы.',
-            ],
+            paragraphs: ['Вот результат выполнения этой программы.'],
         },
         {
             id: '8',
@@ -129,40 +120,42 @@ const comments = {
     },
 };
 
-const articles = new Array(4).fill(0).map((item, index) => (
-    {
-        ...article,
-        id: String(index + 1),
-    }
-)) as Article[];
+const articles = new Array(4).fill(0).map((item, index) => ({
+    ...article,
+    id: String(index + 1),
+})) as Article[];
 
-const ids = new Array(4).fill(0).map((item, index) => (index + 1));
+const ids = new Array(4).fill(0).map((item, index) => index + 1);
 const entities = articles.reduce((a, v) => ({ ...a, [v.id]: v }), {});
 
-const rating = [{
-    id: '1', rate: 5, feedback: 'Отличная статья', userId: '1', articleId: '1',
-}];
+const rating = [
+    {
+        id: '1',
+        rate: 5,
+        feedback: 'Отличная статья',
+        userId: '1',
+        articleId: '1',
+    },
+];
 
 const meta = {
     title: 'pages/Article/ArticleDetailsPage',
     component: ArticleDetailsPage,
     decorators: [
-        StoreDecorator(
-            {
-                articleDetails: articleData,
-                articleDetailsComments: comments,
-                articleDetailsRecommendations: {
-                    ids,
-                    entities,
-                },
-                user: {
-                    authData: { id: '1' },
-                },
-                scroll: {
-                    scrollSave: {},
-                },
+        StoreDecorator({
+            articleDetails: articleData,
+            articleDetailsComments: comments,
+            articleDetailsRecommendations: {
+                ids,
+                entities,
             },
-        ),
+            user: {
+                authData: { id: '1' },
+            },
+            scroll: {
+                scrollSave: {},
+            },
+        }),
     ],
     parameters: {
         loki: {
@@ -185,7 +178,6 @@ const meta = {
     },
 
     tags: ['autodocs'],
-
 } satisfies Meta<typeof ArticleDetailsPage>;
 
 export default meta;

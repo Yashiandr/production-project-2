@@ -66,7 +66,11 @@ const meta = {
         return (
             <div
                 style={{
-                    width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center',
+                    width: '100%',
+                    height: '100vh',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
                 }}
             >
                 <Dropdown {...args} />
@@ -74,7 +78,6 @@ const meta = {
         );
     },
     tags: ['autodocs'],
-
 } satisfies Meta<typeof Dropdown>;
 
 export default meta;

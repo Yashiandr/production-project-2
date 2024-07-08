@@ -68,9 +68,7 @@ const article = {
                 id: '7',
                 type: ArticleBlockType.TEXT,
                 title: '',
-                paragraphs: [
-                    'Вот результат выполнения этой программы.',
-                ],
+                paragraphs: ['Вот результат выполнения этой программы.'],
             },
             {
                 id: '8',
@@ -86,15 +84,12 @@ const meta = {
     title: 'entities/Article/ArticleDetails',
     component: ArticleDetails,
     decorators: [
-        StoreDecorator(
-            {
-                articleDetails: article,
-            },
-        ),
+        StoreDecorator({
+            articleDetails: article,
+        }),
     ],
 
     tags: ['autodocs'],
-
 } satisfies Meta<typeof ArticleDetails>;
 
 export default meta;

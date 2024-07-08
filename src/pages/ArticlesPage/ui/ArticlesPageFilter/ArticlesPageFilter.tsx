@@ -1,7 +1,4 @@
-import {
-    memo,
-    useCallback,
-} from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
     ArticleSortField,
@@ -15,10 +12,7 @@ import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import { SortOrder } from '@/shared/types/sort';
 import { Card } from '@/shared/ui/Card';
 import { Input } from '@/shared/ui/Input';
-import {
-    HStack,
-    VStack,
-} from '@/shared/ui/Stack';
+import { HStack, VStack } from '@/shared/ui/Stack';
 import { TabItem } from '@/shared/ui/Tabs';
 import { selectArticlesPageOrder } from '../../model/selectors/selectArticlesPageOrder/selectArticlesPageOrder';
 import { selectArticlesPageSearch } from '../../model/selectors/selectArticlesPageSearch/selectArticlesPageSearch';
@@ -36,9 +30,7 @@ interface ArticlesPageFilterProps {
 }
 
 export const ArticlesPageFilter = memo((props: ArticlesPageFilterProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
     const { t } = useTranslation('articles');
     const dispatch = useAppDispatch();
     const view = useAppSelector(selectArticlePageView);
@@ -53,38 +45,58 @@ export const ArticlesPageFilter = memo((props: ArticlesPageFilterProps) => {
 
     const debouncedFetchData = useDebounce(fetchData, 500);
 
-    const onChangeView = useCallback((newView: ArticlesView) => {
-        dispatch(articlesPageActions.setView(newView));
-        dispatch(articlesPageActions.setPage(1));
-        fetchData();
-    }, [dispatch, fetchData]);
+    const onChangeView = useCallback(
+        (newView: ArticlesView) => {
+            dispatch(articlesPageActions.setView(newView));
+            dispatch(articlesPageActions.setPage(1));
+            fetchData();
+        },
+        [dispatch, fetchData],
+    );
 
-    const onChangeOrder = useCallback((newOrder: SortOrder) => {
-        dispatch(articlesPageActions.setOrder(newOrder));
-        dispatch(articlesPageActions.setPage(1));
-        fetchData();
-    }, [dispatch, fetchData]);
+    const onChangeOrder = useCallback(
+        (newOrder: SortOrder) => {
+            dispatch(articlesPageActions.setOrder(newOrder));
+            dispatch(articlesPageActions.setPage(1));
+            fetchData();
+        },
+        [dispatch, fetchData],
+    );
 
-    const onChangeSort = useCallback((newSort: ArticleSortField) => {
-        dispatch(articlesPageActions.setSort(newSort));
-        dispatch(articlesPageActions.setPage(1));
-        fetchData();
-    }, [dispatch, fetchData]);
+    const onChangeSort = useCallback(
+        (newSort: ArticleSortField) => {
+            dispatch(articlesPageActions.setSort(newSort));
+            dispatch(articlesPageActions.setPage(1));
+            fetchData();
+        },
+        [dispatch, fetchData],
+    );
 
-    const onChangeSearch = useCallback((newSearch: string) => {
-        dispatch(articlesPageActions.setSearch(newSearch));
-        dispatch(articlesPageActions.setPage(1));
-        debouncedFetchData();
-    }, [dispatch, debouncedFetchData]);
+    const onChangeSearch = useCallback(
+        (newSearch: string) => {
+            dispatch(articlesPageActions.setSearch(newSearch));
+            dispatch(articlesPageActions.setPage(1));
+            debouncedFetchData();
+        },
+        [dispatch, debouncedFetchData],
+    );
 
-    const onChangeType = useCallback((tab: TabItem<ArticleType>) => {
-        dispatch(articlesPageActions.setType(tab.value));
-        dispatch(articlesPageActions.setPage(1));
-        fetchData();
-    }, [dispatch, fetchData]);
+    const onChangeType = useCallback(
+        (tab: TabItem<ArticleType>) => {
+            dispatch(articlesPageActions.setType(tab.value));
+            dispatch(articlesPageActions.setPage(1));
+            fetchData();
+        },
+        [dispatch, fetchData],
+    );
 
     return (
-        <VStack align="stretch" gap="16" max className={classNames('', {}, [className])}>
+        <VStack
+            align="stretch"
+            gap="16"
+            max
+            className={classNames('', {}, [className])}
+        >
             <HStack justify="between">
                 <ArticlesSortSelector
                     sort={sort}
@@ -95,7 +107,11 @@ export const ArticlesPageFilter = memo((props: ArticlesPageFilterProps) => {
                 <ArticlesViewSelector view={view} onViewClick={onChangeView} />
             </HStack>
             <Card>
-                <Input placeholder={t('Поиск')} onChange={onChangeSearch} value={search} />
+                <Input
+                    placeholder={t('Поиск')}
+                    onChange={onChangeSearch}
+                    value={search}
+                />
             </Card>
             <ArticlesTypeTabs onChangeType={onChangeType} type={type} />
         </VStack>

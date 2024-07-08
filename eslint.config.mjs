@@ -8,6 +8,7 @@ import { fileURLToPath } from 'url';
 import i18next from 'eslint-plugin-i18next';
 import jest from 'eslint-plugin-jest';
 import yashiandrAppPlugin from 'eslint-plugin-yashiandr-app-plugin';
+// import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 // mimic CommonJS variables -- not needed if using CommonJS
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -25,6 +26,7 @@ export default [
             },
         }
     },
+    // eslintPluginPrettierRecommended,
     ...yashiandrAppPlugin.config.recommended,
     pluginJs.configs.recommended,
     ...tseslint.configs.recommended,
@@ -38,12 +40,12 @@ export default [
         },
         rules:
             {
-                'react/jsx-indent': [2, 4],
-                'react/jsx-indent-props': [2, 4],
+                'indent': 0,
+                'react/jsx-indent-props': 0,
+                'react/jsx-indent': 0,
                 'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
                 'import/no-unresolved': 0,
                 'import/prefer-default-export': 0,
-                'indent': [2, 4],
                 'react/require-default-props': 0,
                 'react/react-in-jsx-scope': 0,
                 'react/jsx-props-no-spreading': 1,
@@ -69,6 +71,10 @@ export default [
                 'reactHooks/exhaustive-deps': 2, // Checks effect dependencies,
                 'no-param-reassign': 0,
                 'no-undef': 0,
+                'implicit-arrow-linebreak': 0,
+                'object-curly-newline': 0,
+                'operator-linebreak': 0,
+                'function-paren-newline': 0,
                 'no-restricted-imports': 'off',
                 '@typescript-eslint/no-restricted-imports': [
                     'warn',
@@ -80,6 +86,7 @@ export default [
                 ],
                 'import/no-named-default': 0,
                 'react/no-array-index-key': 1,
+                'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
                 'yashiandr-app-plugin/path-checker': [2, { alias: '@' }],
                 'yashiandr-app-plugin/public-api-imports': [2,
                     {

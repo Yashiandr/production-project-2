@@ -7,7 +7,6 @@ const meta = {
     component: CommentCard,
 
     tags: ['autodocs'],
-
 } satisfies Meta<typeof CommentCard>;
 
 export default meta;

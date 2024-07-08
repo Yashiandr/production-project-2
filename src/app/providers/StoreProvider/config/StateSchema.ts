@@ -16,7 +16,10 @@ import { AddCommentFormSchema } from '@/features/AddNewComment';
 import { LoginSchema } from '@/features/AuthByUsername';
 import { ProfileSchema } from '@/features/editableProfileCard';
 import { ScrollSaveSchema } from '@/features/ScrollSave';
-import { ArticleDetailsCommentSchema, ArticleDetailsPageRecommendationsSchema } from '@/pages/ArticleDetailsPage';
+import {
+    ArticleDetailsCommentSchema,
+    ArticleDetailsPageRecommendationsSchema,
+} from '@/pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from '@/pages/ArticlesPage';
 import { rtkApi } from '@/shared/api/rtkApi';
 
@@ -40,19 +43,36 @@ export type StateSchemaKey = keyof StateSchema;
 
 export interface ReducerManager {
     getReducerMap: () => ReducersMapObject<StateSchema>;
-    reduce: (state: StateSchema, action: UnknownAction) => StateFromReducersMapObject<ReducersMapObject<StateSchema>>;
+    reduce: (
+        state: StateSchema,
+        action: UnknownAction,
+    ) => StateFromReducersMapObject<ReducersMapObject<StateSchema>>;
     add: (key: StateSchemaKey, reducer: Reducer) => void;
     remove: (key: StateSchemaKey) => void;
 }
 
-export interface ReduxStoreWithManager extends EnhancedStore<StateSchema, UnknownAction, Tuple<[StoreEnhancer<{
-    dispatch: ThunkDispatch<StateSchema, unknown, UnknownAction>,
-}>, StoreEnhancer]>> {
+export interface ReduxStoreWithManager
+    extends EnhancedStore<
+        StateSchema,
+        UnknownAction,
+        Tuple<
+            [
+                StoreEnhancer<{
+                    dispatch: ThunkDispatch<
+                        StateSchema,
+                        unknown,
+                        UnknownAction
+                    >;
+                }>,
+                StoreEnhancer,
+            ]
+        >
+    > {
     reducerManager?: ReducerManager;
 }
 
 export interface ThunkExtraArg {
-    api: AxiosInstance,
+    api: AxiosInstance;
 }
 
 export interface ThunkConfig<T> {

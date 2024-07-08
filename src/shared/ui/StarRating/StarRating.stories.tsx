@@ -1,7 +1,4 @@
-import type {
-    Meta,
-    StoryObj,
-} from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { StarRating } from './StarRating';
 
 const meta = {
@@ -10,7 +7,6 @@ const meta = {
     args: {},
 
     tags: ['autodocs'],
-
 } satisfies Meta<typeof StarRating>;
 
 export default meta;

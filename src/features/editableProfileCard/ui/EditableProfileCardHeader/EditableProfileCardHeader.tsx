@@ -1,14 +1,8 @@
-import {
-    memo,
-    useCallback,
-} from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
-import {
-    Button,
-    ButtonTheme,
-} from '@/shared/ui/Button';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { HStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 import { selectCanEditProfile } from '../../model/selectors/selectCanEditProfile/selectCanEditProfile';
@@ -20,43 +14,40 @@ interface EditableProfileCardHeaderProps {
     className?: string;
 }
 
-export const EditableProfileCardHeader = memo((props: EditableProfileCardHeaderProps) => {
-    const {
-        className,
-    } = props;
-    const { t } = useTranslation(['profile', 'translation']);
-    const dispatch = useAppDispatch();
-    const readonly = useAppSelector(selectProfileReadonly);
-    const canEdit = useAppSelector(selectCanEditProfile);
+export const EditableProfileCardHeader = memo(
+    (props: EditableProfileCardHeaderProps) => {
+        const { className } = props;
+        const { t } = useTranslation(['profile', 'translation']);
+        const dispatch = useAppDispatch();
+        const readonly = useAppSelector(selectProfileReadonly);
+        const canEdit = useAppSelector(selectCanEditProfile);
 
-    const onEdit = useCallback(() => {
-        dispatch(profileActions.setReadonly(false));
-    }, [dispatch]);
+        const onEdit = useCallback(() => {
+            dispatch(profileActions.setReadonly(false));
+        }, [dispatch]);
 
-    const onSave = useCallback(() => {
-        dispatch(updateProfileData());
-    }, [dispatch]);
+        const onSave = useCallback(() => {
+            dispatch(updateProfileData());
+        }, [dispatch]);
 
-    const onCancelEdit = useCallback(() => {
-        dispatch(profileActions.cancelEdit());
-    }, [dispatch]);
+        const onCancelEdit = useCallback(() => {
+            dispatch(profileActions.cancelEdit());
+        }, [dispatch]);
 
-    return (
-        <HStack justify="between" className={className}>
-            <Text title={t('Профиль пользователя')} />
-            {canEdit && (
-                // eslint-disable-next-line react/jsx-no-useless-fragment
-                <>
-                    {readonly
-                        ? (
+        return (
+            <HStack justify="between" className={className}>
+                <Text title={t('Профиль пользователя')} />
+                {canEdit && (
+                    // eslint-disable-next-line react/jsx-no-useless-fragment
+                    <>
+                        {readonly ? (
                             <Button
                                 onClick={onEdit}
                                 data-testid="EditableProfileCardHeader.EditButton"
                             >
                                 {t('Редактировать')}
                             </Button>
-                        )
-                        : (
+                        ) : (
                             <HStack gap="4">
                                 <Button
                                     onClick={onSave}
@@ -74,8 +65,9 @@ export const EditableProfileCardHeader = memo((props: EditableProfileCardHeaderP
                                 </Button>
                             </HStack>
                         )}
-                </>
-            )}
-        </HStack>
-    );
-});
+                    </>
+                )}
+            </HStack>
+        );
+    },
+);

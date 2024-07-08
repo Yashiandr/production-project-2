@@ -6,7 +6,6 @@ const meta = {
     component: Skeleton,
 
     tags: ['autodocs'],
-
 } satisfies Meta<typeof Skeleton>;
 
 export default meta;

@@ -6,7 +6,6 @@ const meta = {
     component: Loader,
 
     tags: ['autodocs'],
-
 } satisfies Meta<typeof Loader>;
 
 export default meta;

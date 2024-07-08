@@ -2,7 +2,11 @@ import type { Meta, StoryObj } from '@storybook/react';
 import defaultImage from '@/shared/assets/stockImage/default-image.jpg';
 import defaultManAvatar from '@/shared/assets/stockImage/default-man-avatar.jpg';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ArticleBlockType, ArticlesView, ArticleType } from '../../model/consts/consts';
+import {
+    ArticleBlockType,
+    ArticlesView,
+    ArticleType,
+} from '../../model/consts/consts';
 import { Article } from '../../model/types/article';
 import { ArticleList } from './ArticleList';
 
@@ -68,9 +72,7 @@ const article = {
             id: '7',
             type: ArticleBlockType.TEXT,
             title: '',
-            paragraphs: [
-                'Вот результат выполнения этой программы.',
-            ],
+            paragraphs: ['Вот результат выполнения этой программы.'],
         },
         {
             id: '8',
@@ -81,25 +83,20 @@ const article = {
     ],
 } as Article;
 
-const articles = new Array(16).fill(0).map((item, index) => (
-    {
-        ...article,
-        id: String(index),
-    }
-)) as Article[];
+const articles = new Array(16).fill(0).map((item, index) => ({
+    ...article,
+    id: String(index),
+})) as Article[];
 
 const meta = {
     title: 'entities/Article/ArticleList',
     component: ArticleList,
-    decorators: [
-        StoreDecorator({}),
-    ],
+    decorators: [StoreDecorator({})],
     parameters: {
         loki: {
             skip: true,
         },
     },
-
 } satisfies Meta<typeof ArticleList>;
 
 export default meta;

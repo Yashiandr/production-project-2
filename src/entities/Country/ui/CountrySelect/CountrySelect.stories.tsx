@@ -6,7 +6,6 @@ const meta = {
     component: CountrySelect,
 
     tags: ['autodocs'],
-
 } satisfies Meta<typeof CountrySelect>;
 
 export default meta;

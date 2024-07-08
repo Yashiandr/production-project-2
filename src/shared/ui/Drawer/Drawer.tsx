@@ -1,9 +1,4 @@
-import {
-    memo,
-    ReactNode,
-    useCallback,
-    useEffect,
-} from 'react';
+import { memo, ReactNode, useCallback, useEffect } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     useAnimationLibs,
@@ -25,12 +20,7 @@ const height = window.innerHeight - 100;
 export const DrawerContent = memo((props: DrawerProps) => {
     const { Spring, Gesture } = useAnimationLibs();
     const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
-    const {
-        className,
-        children,
-        isOpen,
-        onClose,
-    } = props;
+    const { className, children, isOpen, onClose } = props;
 
     const openDrawer = useCallback(() => {
         api.start({ y: 0, immediate: false });
@@ -44,7 +34,10 @@ export const DrawerContent = memo((props: DrawerProps) => {
 
     const close = (velocity = 0) => {
         api.start({
-            y: height, immediate: false, config: { ...Spring.config.stiff, velocity }, onResolve: onClose,
+            y: height,
+            immediate: false,
+            config: { ...Spring.config.stiff, velocity },
+            onResolve: onClose,
         });
     };
 
@@ -69,7 +62,10 @@ export const DrawerContent = memo((props: DrawerProps) => {
             }
         },
         {
-            from: () => [0, y.get()], filterTaps: true, bounds: { top: 0 }, rubberband: true,
+            from: () => [0, y.get()],
+            filterTaps: true,
+            bounds: { top: 0 },
+            rubberband: true,
         },
     );
 
@@ -84,14 +80,17 @@ export const DrawerContent = memo((props: DrawerProps) => {
                 <Overlay onClick={close} />
                 <Spring.a.div
                     className={cls.sheet}
-                    style={{ display, bottom: `calc(-100vh + ${height - 100}px`, y }}
+                    style={{
+                        display,
+                        bottom: `calc(-100vh + ${height - 100}px`,
+                        y,
+                    }}
                     {...bind()}
                 >
                     {children}
                 </Spring.a.div>
             </div>
         </Portal>
-
     );
 });
 
