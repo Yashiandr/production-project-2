@@ -1533,7 +1533,8 @@
       "jsonSettings": {
         "theme": "app_dark_theme",
         "isFirstVisit": true,
-        "settingsPageHasBeenOpen": false
+        "settingsPageHasBeenOpen": false,
+        "isArticlesPageWasOpened": true
       },
       "avatar": "https://masterpiecer-images.s3.yandex.net/5c949703654e11eea2a6963c1ee369ba:upscaled"
     },
@@ -1551,7 +1552,8 @@
       "jsonSettings": {
         "theme": "app_dark_theme",
         "isFirstVisit": true,
-        "settingsPageHasBeenOpen": false
+        "settingsPageHasBeenOpen": false,
+        "isArticlesPageWasOpened": true
       },
       "avatar": "https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S.jpg"
     },
@@ -1569,7 +1571,8 @@
       "jsonSettings": {
         "theme": "app_dark_theme",
         "isFirstVisit": true,
-        "settingsPageHasBeenOpen": false
+        "settingsPageHasBeenOpen": false,
+        "isArticlesPageWasOpened": true
       },
       "avatar": "https://w7.pngwing.com/pngs/1022/474/png-transparent-computer-icons-management-product-manager-businessperson-business-service-people-logo.png"
     },

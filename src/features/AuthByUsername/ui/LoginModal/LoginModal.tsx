@@ -1,8 +1,9 @@
 import { Suspense } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { isMobile } from 'react-device-detect';
 import { Loader } from '@/shared/ui/Loader';
 import { Modal } from '@/shared/ui/Modal';
 import { LoginFormAsync } from '../LoginForm/LoginForm.async';
+import { Drawer } from '@/shared/ui/Drawer';
 
 interface LoginModalProps {
     className?: string;
@@ -13,14 +14,20 @@ interface LoginModalProps {
 export const LoginModal = (props: LoginModalProps) => {
     const { className, isOpen, onClose } = props;
 
+    const loginForm = <LoginFormAsync onSuccess={onClose} />;
+
+    if (isMobile) {
+        return <Drawer onClose={onClose} isOpen={isOpen} className={className}>{loginForm}</Drawer>;
+    }
+
     return (
         <Modal
-            className={classNames('', {}, [className])}
+            className={className}
             isOpen={isOpen}
             onClose={onClose}
         >
             <Suspense fallback={<Loader />}>
-                <LoginFormAsync onSuccess={onClose} />
+                {loginForm}
             </Suspense>
         </Modal>
     );
