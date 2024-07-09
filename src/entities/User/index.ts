@@ -1,3 +1,5 @@
+export { initAuthData } from './model/services/initAuthData';
+
 export { saveJsonSettings } from './model/services/setJsonSettings';
 
 export { userActions, userReducer } from './model/slice/userSlice';
