@@ -1,10 +1,7 @@
 import { LegacyRef, memo, MutableRefObject, ReactNode, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { StateSchema } from '@/app/providers/StoreProvider';
-import {
-    scrollSaveActions,
-    selectScrollSaveByPath,
-} from '@/features/ScrollSave';
+import { scrollSaveActions, selectScrollSaveByPath } from '@/features/ScrollSave';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
@@ -13,6 +10,7 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitial
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
 import * as cls from './Page.module.scss';
 import { TestProps } from '@/shared/types/tests';
+import { toggleFeatures } from '@/shared/lib/features';
 
 interface PageProps extends TestProps {
     className?: string;
@@ -53,7 +51,12 @@ export const Page = memo((props: PageProps) => {
         <main
             onScroll={onScroll}
             ref={wrapperRef}
-            className={classNames(cls.Page, { [cls.virtuoso]: false }, [
+            className={classNames(
+                toggleFeatures({
+                    name: 'isAppRedesign',
+                    on: () => cls.PageRedesign,
+                    off: () => cls.Page,
+                }), { [cls.virtuoso]: false }, [
                 className,
                 cls[__PROJECT__],
             ])}

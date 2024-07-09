@@ -8,6 +8,8 @@ import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 import { AppRouter } from './providers/router';
 import { PageLoader } from '@/widgets/PageLoader';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { MainLayout } from '@/shared/layouts/MainLayout';
 
 function App() {
     const dispatch = useAppDispatch();
@@ -22,15 +24,32 @@ function App() {
     }
 
     return (
-        <div className={classNames('app', {}, [])}>
-            <Suspense fallback="">
-                <Navbar />
-                <HStack max align="stretch" className="content-page">
-                    <Sidebar />
-                    {inited && <AppRouter />}
-                </HStack>
-            </Suspense>
-        </div>
+        <ToggleFeatures
+            feature="isAppRedesign"
+            on={(
+                <div className={classNames('app_redesigned', {}, [])}>
+                    <Suspense fallback="">
+                        <MainLayout
+                            header={<Navbar />}
+                            content={<AppRouter />}
+                            sidebar={<Sidebar />}
+                            toolbar={<div />}
+                        />
+                    </Suspense>
+                </div>
+            )}
+            off={(
+                <div className={classNames('app', {}, [])}>
+                    <Suspense fallback="">
+                        <Navbar />
+                        <HStack max align="stretch" className="content-page">
+                            <Sidebar />
+                            {inited && <AppRouter />}
+                        </HStack>
+                    </Suspense>
+                </div>
+            )}
+        />
     );
 }
 

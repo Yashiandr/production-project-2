@@ -14,7 +14,7 @@ export const ThemeProvider: FC<PropsWithChildren<ThemeProviderProps>> = (
     const { theme: defaultTheme } = useJsonSettings();
     const [isThemeInited, setThemeInited] = useState(false);
 
-    const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme || Theme.LIGHT);
+    const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme || Theme.ORANGE);
 
     useEffect(() => {
         if (!isThemeInited && defaultTheme) {
@@ -30,6 +30,7 @@ export const ThemeProvider: FC<PropsWithChildren<ThemeProviderProps>> = (
         }),
         [theme],
     );
+    document.body.className = theme;
 
     return (
         <ThemeContext.Provider value={defaultProps}>

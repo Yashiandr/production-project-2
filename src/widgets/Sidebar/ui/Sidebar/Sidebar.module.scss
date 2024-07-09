@@ -44,7 +44,6 @@
 }
 
 
-
 .collapsed {
     min-width: var(--sidebar-width-collapsed);
     max-width: var(--sidebar-width-collapsed);
@@ -61,5 +60,19 @@
             padding-left: 0;
         }
     }
+}
 
+
+//ulbi redesigned
+
+.SidebarRedesigned {
+    background-color: var(--light-bg-redesigned);
+    width: 13.75rem;
+    height: 100%;
+    border-radius: 2rem;
+}
+
+.appLogo {
+    padding-top: 1.25rem /* 20/16 */
+;
 }

@@ -9,12 +9,14 @@ import { VStack } from '@/shared/ui/Stack';
 import { selectSidebarItems } from '../../model/selectors/selectSidebarItems/selectSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import * as cls from './Sidebar.module.scss';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { AppLogo } from '@/shared/ui/AppLogo';
 
 interface SidebarProps {
     className?: string;
 }
 
-export const Sidebar = memo(({ className }: SidebarProps) => {
+const DeprecatedSidebar = memo(({ className }: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(isMobile);
     const sidebarItemsList = useAppSelector(selectSidebarItems);
 
@@ -67,3 +69,22 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
         </aside>
     );
 });
+
+export const Sidebar = memo(({ className }: SidebarProps) => (
+        <ToggleFeatures
+            feature="isAppRedesign"
+            on={
+                (
+                    <aside
+                        data-testid="sidebar"
+                        className={classNames(cls.SidebarRedesigned, {}, [
+                            className,
+                        ])}
+                    >
+                        <AppLogo className={cls.appLogo} />
+                    </aside>
+                )
+            }
+            off={<DeprecatedSidebar />}
+        />
+    ));

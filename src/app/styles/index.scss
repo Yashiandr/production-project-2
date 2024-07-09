@@ -11,12 +11,17 @@ html {
 body {
     font: var(--font-m);
     color: var(--primary-color);
-
 }
 
 .app {
     background-color: var(--bg-color);
     transition: var(--transition-theme-bg);
+}
+
+.app_redesigned {
+    background-color: var(--bg-redesigned);
+    font: var(--font-m-redesigned);
+    color: var(--text-redesigned)
 }
 
 *::-webkit-scrollbar {

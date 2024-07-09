@@ -12,12 +12,13 @@ import { HStack } from '@/shared/ui/Stack';
 import { Text, TextSize } from '@/shared/ui/Text';
 import * as cls from './Navbar.module.scss';
 import { getRouteArticleCreate } from '@/shared/const/router';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface NavbarProps {
     className?: string;
 }
 
-export const Navbar = memo(({ className }: NavbarProps) => {
+const DeprecatedNavbar = memo(({ className }: NavbarProps) => {
     const { t } = useTranslation();
     const [isAuthModal, setIsAuthModal] = useState(false);
     const authData = useAppSelector(selectUserAuthData);
@@ -66,5 +67,62 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
             )}
         </header>
+    );
+});
+
+export const Navbar = memo(({ className }: NavbarProps) => {
+    const { t } = useTranslation();
+    const [isAuthModal, setIsAuthModal] = useState(false);
+    const authData = useAppSelector(selectUserAuthData);
+
+    const onCloseModal = useCallback(() => {
+        setIsAuthModal(false);
+    }, []);
+
+    const onShowModal = useCallback(() => {
+        setIsAuthModal(true);
+    }, []);
+
+    if (authData) {
+        return (
+            <ToggleFeatures
+                feature="isAppRedesign" on={(
+                <header className={classNames(cls.NavbarRedesigned, {}, [className])}>
+                    <HStack gap="16" className={cls.actions}>
+                        <NotificationButton />
+                        <AvatarDropdown authData={authData} />
+                    </HStack>
+                </header>
+            )} off={<DeprecatedNavbar />}
+            />
+
+        );
+    }
+
+    return (
+        <ToggleFeatures
+            feature="isAppRedesign"
+            on={(
+                <header className={classNames(cls.NavbarRedesigned, {}, [className])}>
+                    <Text
+                        className={cls.logo}
+                        title={t('Yashiandr App')}
+                        size={TextSize.L}
+                    />
+                    <div>
+                        <Button
+                            theme={ButtonTheme.CLEAR_INVERTED}
+                            onClick={onShowModal}
+                        >
+                            {t('Войти')}
+                        </Button>
+                    </div>
+                    {isAuthModal && (
+                        <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+                    )}
+                </header>
+            )}
+            off={<DeprecatedNavbar />}
+        />
     );
 });
