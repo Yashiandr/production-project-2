@@ -12,7 +12,7 @@ import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetails
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import * as cls from './ArticleDetailsPage.module.scss';
 import { ArticleRating } from '@/features/articleRating';
-import { toggleFeatures } from '@/shared/lib/features';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { Card } from '@/shared/ui/Card';
 
 interface ArticleDetailsPageProps {
@@ -28,12 +28,6 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const { className } = props;
     const { t } = useTranslation('articles');
     const { id = '#' } = useParams<{ id: string }>();
-
-    const articleRatingCard = toggleFeatures({
-        name: 'isArticleRatingEnable',
-        on: () => <ArticleRating articleId={id} />,
-        off: () => <Card>{t('Оценка статей скоро появится')}</Card>,
-    });
 
     if (!id) {
         return (
@@ -52,7 +46,11 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
             >
                 <ArticleDetailsPageHeader id={id} />
                 <ArticleDetails id={id} />
-                {articleRatingCard}
+                <ToggleFeatures
+                    feature="isArticleRatingEnable"
+                    on={<ArticleRating articleId={id} />}
+                    off={<Card>{t('Скоро появится возможность оценки статей')}</Card>}
+                />
                 <ArticleRecommendationsList />
                 <ArticleDetailsComments id={id} />
             </Page>
