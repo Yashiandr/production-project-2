@@ -76,6 +76,7 @@ export default [
                 'operator-linebreak': 0,
                 'function-paren-newline': 0,
                 'no-self-compare': 0,
+                'react/no-unstable-nested-components': 1,
                 'no-restricted-imports': 'off',
                 '@typescript-eslint/no-restricted-imports': [
                     'warn',
