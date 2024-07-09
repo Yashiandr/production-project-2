@@ -15,6 +15,8 @@ import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetails
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import * as cls from './ArticleDetailsPage.module.scss';
 import { ArticleRating } from '@/features/articleRating';
+import { getFeatureFlags } from '@/shared/lib/features';
+import { Counter } from '@/entities/Counter';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -29,6 +31,8 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const { className } = props;
     const { t } = useTranslation('articles');
     const { id = '#' } = useParams<{ id: string }>();
+    const isArticleRatingEnable = getFeatureFlags('isArticleRatingEnable');
+    const isCounterEnable = getFeatureFlags('isCounterEnable');
 
     if (!id) {
         return (
@@ -47,7 +51,8 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
             >
                 <ArticleDetailsPageHeader id={id} />
                 <ArticleDetails id={id} />
-                <ArticleRating articleId={id} />
+                {isCounterEnable && <Counter />}
+                {isArticleRatingEnable && <ArticleRating articleId={id} />}
                 <ArticleRecommendationsList />
                 <ArticleDetailsComments id={id} />
             </Page>
