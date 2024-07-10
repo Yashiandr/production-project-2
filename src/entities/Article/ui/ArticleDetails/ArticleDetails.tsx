@@ -1,5 +1,6 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import DateIcon from '@/shared/assets/icons/date-32-32.svg?react';
 import ViewersIcon from '@/shared/assets/icons/viewers-32-32.svg?react';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -12,7 +13,6 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitial
 import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import { Icon, IconColor } from '@/shared/ui/deprecated/Icon';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
-import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
 import { Text, TextAlign, TextSize, TextTheme } from '@/shared/ui/deprecated/Text';
 import { ArticleBlockType } from '../../model/consts/consts';
 import { useSelectArticleDetailsData } from '../../model/selectors/selectArticleDetailsData/selectArticleDetailsData';

@@ -1,5 +1,6 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import {
     ArticleSortField,
     ArticlesView,
@@ -12,7 +13,6 @@ import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import { SortOrder } from '@/shared/types/sort';
 import { Card } from '@/shared/ui/deprecated/Card';
 import { Input } from '@/shared/ui/deprecated/Input';
-import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
 import { TabItem } from '@/shared/ui/deprecated/Tabs';
 import { selectArticlesPageOrder } from '../../model/selectors/selectArticlesPageOrder/selectArticlesPageOrder';
 import { selectArticlesPageSearch } from '../../model/selectors/selectArticlesPageSearch/selectArticlesPageSearch';

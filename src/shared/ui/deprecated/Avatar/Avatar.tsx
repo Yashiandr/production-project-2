@@ -2,7 +2,7 @@ import { CSSProperties, useMemo } from 'react';
 import defaultAvatar from '@/shared/assets/stockImage/default-man-avatar.jpg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import * as cls from './Avatar.module.scss';
-import { AppImage } from '../AppImage';
+import { AppImage } from '../../redesigned/AppImage';
 import { Skeleton } from '../Skeleton';
 
 interface AvatarProps {

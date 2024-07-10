@@ -1,5 +1,6 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     DynamicModuleLoader,
@@ -9,7 +10,6 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
 import { Button } from '@/shared/ui/deprecated/Button';
 import { Input } from '@/shared/ui/deprecated/Input';
-import { HStack } from '@/shared/ui/deprecated/Stack';
 import { selectAddCommentFormText } from '../../model/selectors/selectAddCommentFormText/selectAddCommentFormText';
 import {
     addCommentFormActions,

@@ -7,7 +7,7 @@ import React, {
 } from 'react';
 import { isBrowser } from 'react-device-detect';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { HStack } from '../Stack';
+import { HStack } from '../../redesigned/Stack';
 import * as cls from './Input.module.scss';
 
 type HTMLInputProps = Omit<

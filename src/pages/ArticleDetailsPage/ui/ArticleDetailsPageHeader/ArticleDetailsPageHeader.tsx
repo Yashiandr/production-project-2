@@ -1,10 +1,10 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
 import { Button } from '@/shared/ui/deprecated/Button';
-import { HStack } from '@/shared/ui/deprecated/Stack';
 import { selectCanEditArticle } from '../../model/selectors/selectCanEditArticle/selectCanEditArticle';
 import { getRouteArticles, getRouteArticleEdit } from '@/shared/const/router';
 

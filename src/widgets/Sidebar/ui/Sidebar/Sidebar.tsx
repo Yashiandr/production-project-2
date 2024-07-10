@@ -1,12 +1,12 @@
 import { memo, useMemo, useState } from 'react';
 import { isMobile } from 'react-device-detect';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { AppLogo } from '@/shared/ui/redesigned/AppLogo';
 import { LangSwitcher } from '@/features/LangSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
 import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/deprecated/Button';
-import { VStack } from '@/shared/ui/deprecated/Stack';
 import { selectSidebarItems } from '../../model/selectors/selectSidebarItems/selectSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import * as cls from './Sidebar.module.scss';
@@ -121,7 +121,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                         />
                         <div className={cls.switchers}>
                             <ThemeSwitcher />
-                            <LangSwitcher short={collapsed} className={cls.langSwitcher} />
+                            <LangSwitcher short={collapsed} />
                         </div>
                     </aside>
                 )

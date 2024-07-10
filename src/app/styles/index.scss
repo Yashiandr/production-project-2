@@ -25,17 +25,3 @@ body {
     transition: var(--transition-theme-bg);
 }
 
-*::-webkit-scrollbar {
-    width: .75rem;
-    height: .5rem;
-}
-
-*::-webkit-scrollbar-track {
-    background: var(--card-bg);
-}
-
-*::-webkit-scrollbar-thumb {
-    background-color: var(--inverted-primary-color);
-    border-radius: 1.25rem;
-    border: .125rem solid var(--primary-color);
-}

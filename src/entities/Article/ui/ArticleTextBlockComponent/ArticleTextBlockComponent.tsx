@@ -1,6 +1,6 @@
 import { memo } from 'react';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { VStack } from '@/shared/ui/deprecated/Stack';
 import { Text, TextSize } from '@/shared/ui/deprecated/Text';
 import { ArticleTextBlock } from '../../model/types/article';
 

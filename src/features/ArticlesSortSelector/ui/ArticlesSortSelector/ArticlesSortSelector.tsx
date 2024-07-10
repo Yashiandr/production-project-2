@@ -1,9 +1,9 @@
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { SortOrder } from '@/shared/types/sort';
 import { Select, SelectOption } from '@/shared/ui/deprecated/Select';
-import { HStack } from '@/shared/ui/deprecated/Stack';
 import { ArticleSortField } from '@/entities/Article';
 
 interface ArticlesSortSelectorProps {

@@ -1,10 +1,10 @@
 import { memo } from 'react';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import ListIcon from '@/shared/assets/icons/list-40-40.svg?react';
 import TileIcon from '@/shared/assets/icons/tile-40-40.svg?react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { Icon } from '@/shared/ui/deprecated/Icon';
-import { HStack } from '@/shared/ui/deprecated/Stack';
 import * as cls from './ArticlesViewSelector.module.scss';
 import { ArticlesView } from '@/entities/Article';
 

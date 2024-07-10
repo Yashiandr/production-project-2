@@ -1,7 +1,7 @@
 import { memo } from 'react';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
-import { VStack } from '@/shared/ui/deprecated/Stack';
 import { useNotification } from '../../api/notificationApi';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
 import * as cls from './NotificationList.module.scss';

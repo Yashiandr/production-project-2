@@ -8,7 +8,7 @@ export function buildSvgLoader() {
                 svgoConfig: {
                     plugins: [
                         {
-                            name: 'convertColor',
+                            name: 'convertColors',
                             params: {
                                 currentColor: true,
                             },

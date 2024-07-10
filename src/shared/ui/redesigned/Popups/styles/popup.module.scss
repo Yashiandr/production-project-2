@@ -1,0 +1,24 @@
+.popup {
+    position: relative;
+}
+
+.menu {
+    border-radius: 1.1875rem;
+    border: .0625rem solid var(--accent-redesigned);
+}
+
+.btn {
+    background: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    line-height: 0;
+}
+
+.disabled {
+    color: var(--red-dark);
+    text-decoration: line-through;
+    filter: grayscale(50%);
+}

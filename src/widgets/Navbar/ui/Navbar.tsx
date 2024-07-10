@@ -1,5 +1,6 @@
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import { selectUserAuthData } from '@/entities/User';
 import { LoginModal } from '@/features/AuthByUsername';
 import { AvatarDropdown } from '@/features/avatarDropdown';
@@ -8,7 +9,6 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
 import { AppLink } from '@/shared/ui/deprecated/AppLink';
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
-import { HStack } from '@/shared/ui/deprecated/Stack';
 import { Text, TextSize } from '@/shared/ui/deprecated/Text';
 import * as cls from './Navbar.module.scss';
 import { getRouteArticleCreate } from '@/shared/const/router';
@@ -52,7 +52,7 @@ const DeprecatedNavbar = memo(({ className }: NavbarProps) => {
         <header className={classNames(cls.Navbar, {}, [className])}>
             <Text
                 className={cls.logo}
-                title={t('Yashiandr App')}
+                title={t('App')}
                 size={TextSize.L}
             />
             <div>

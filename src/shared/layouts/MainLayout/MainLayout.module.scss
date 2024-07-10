@@ -4,12 +4,13 @@
     display: grid;
     grid-template-areas:
                 'sidebar content rightbar';
-    grid-template-columns: 17.75rem  1fr 6.25rem;
+    grid-template-columns: min-content  1fr 6.25rem;
 }
 
 .sidebar {
     grid-area: sidebar;
-    padding: 2rem;
+    padding: 2rem 0 2rem 2rem;
+    max-width: 17.75rem;
 }
 
 .sidebar,
@@ -24,7 +25,7 @@
     max-width: 75rem;
     width: 100%;
     justify-self: center;
-    padding: 2rem;
+    padding: 2rem 2rem 2rem 0;
 }
 
 .rightbar {
@@ -37,4 +38,8 @@
 
 .toolbar {
     height: 100%;
+}
+
+.header {
+    margin: 0;
 }

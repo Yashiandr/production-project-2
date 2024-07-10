@@ -25,10 +25,13 @@
 }
 
 .backgroundIcon {
-    background: var(--accent-redesigned);
+    position: relative;
+    background: var(--text-redesigned);
     box-shadow: 0 0 1rem var(--bg-redesigned);
     opacity: .35;
-    filter: blur(3.125rem  /* 50/16 */);
+    filter: blur(1.125rem);
+    transition: width .75s ease, height .75s ease;
+
 }
 
 .gradientBig,

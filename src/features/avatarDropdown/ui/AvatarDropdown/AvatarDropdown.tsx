@@ -4,10 +4,13 @@ import { isUserAdmin, isUserManager, User, userActions } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
-import { Avatar } from '@/shared/ui/deprecated/Avatar';
-import { Dropdown } from '@/shared/ui/deprecated/Popups';
+import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
+import { Dropdown as DropdownDeprecated } from '@/shared/ui/deprecated/Popups';
 import * as cls from './AvatarDropdown.module.scss';
 import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Dropdown } from '@/shared/ui/redesigned/Popups';
+import { Avatar } from '@/shared/ui/redesigned/Avatar';
 
 interface AvatarDropdownProps {
     className?: string;
@@ -28,29 +31,45 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
 
     const isAdminPanelAvailable = isAdmin || isManager;
 
+    const items = [
+        ...(isAdminPanelAvailable
+            ? [
+                {
+                    content: t('Админка'),
+                    href: getRouteAdminPanel(),
+                },
+            ]
+            : []),
+        {
+            content: t('Профиль'),
+            href: getRouteProfile(authData.id),
+        },
+        {
+            content: t('Выйти'),
+            onClick: onLogout,
+        },
+    ];
+
     return (
-        <Dropdown
+<ToggleFeatures
+        feature="isAppRedesign"
+        on={(
+<Dropdown
             className={classNames(cls.AvatarDropdown, {}, [className])}
-            items={[
-                ...(isAdminPanelAvailable
-                    ? [
-                          {
-                              content: t('Админка'),
-                              href: getRouteAdminPanel(),
-                          },
-                      ]
-                    : []),
-                {
-                    content: t('Профиль'),
-                    href: getRouteProfile(authData.id),
-                },
-                {
-                    content: t('Выйти'),
-                    onClick: onLogout,
-                },
-            ]}
-            trigger={<Avatar size={30} src={authData.avatar} />}
+            items={items}
+            trigger={<Avatar size={48} src={authData.avatar} />}
             direction="bottom end"
-        />
+/>
+)}
+        off={(
+<DropdownDeprecated
+            className={classNames(cls.AvatarDropdown, {}, [className])}
+            items={items}
+            trigger={<AvatarDeprecated size={30} src={authData.avatar} />}
+            direction="bottom end"
+/>
+)}
+/>
+
     );
 });

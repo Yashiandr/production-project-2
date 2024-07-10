@@ -8,7 +8,7 @@ import { Fragment, ReactNode } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
 import { Button } from '../../../Button';
-import { HStack } from '../../../Stack';
+import { HStack } from '../../../../redesigned/Stack';
 import * as popupCls from '../../styles/popup.module.scss';
 import * as cls from './ListBox.module.scss';
 
@@ -66,7 +66,7 @@ export function ListBox(props: ListBoxProps) {
                     <Button disabled={readonly}>{value ?? defaultValue}</Button>
                 </HListBoxButton>
                 <HListBoxOptions
-                    className={cls.options}
+                    className={classNames(cls.options, {}, [popupCls.menu])}
                     anchor={{ to: direction }}
                     as="ul"
                 >
