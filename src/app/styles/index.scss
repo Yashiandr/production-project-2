@@ -21,7 +21,8 @@ body {
 .app_redesigned {
     background-color: var(--bg-redesigned);
     font: var(--font-m-redesigned);
-    color: var(--text-redesigned)
+    color: var(--text-redesigned);
+    transition: var(--transition-theme-bg);
 }
 
 *::-webkit-scrollbar {

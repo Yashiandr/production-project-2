@@ -2,18 +2,17 @@ import { memo } from 'react';
 import { classNames } from '../../../lib/classNames/classNames';
 import AppSvg from '../../../assets/icons/fox-icon.svg?react';
 import * as cls from './AppLogo.module.scss';
-import { HStack } from '../Stack';
+import { HStack } from '../../deprecated/Stack';
 
 interface AppLogoProps {
     className?: string;
+    size?: number;
 }
 
-/**
- * @deprecated
- */
 export const AppLogo = memo((props: AppLogoProps) => {
     const {
         className,
+        size = 50,
     } = props;
     return (
         <HStack
@@ -21,7 +20,7 @@ export const AppLogo = memo((props: AppLogoProps) => {
             justify="center"
             className={classNames(cls.appLogoWrapper, {}, [className])}
         >
-            <AppSvg className={cls.appLogo} />
+            <AppSvg width={size} height={size} className={cls.appLogo} />
             <div className={cls.backgroundIcon} />
             <div className={cls.gradientBig} />
             <div className={cls.gradientSmall} />

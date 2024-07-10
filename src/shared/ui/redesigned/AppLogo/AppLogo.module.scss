@@ -1,5 +1,6 @@
 .appLogoWrapper {
     position: relative;
+    scale: 100%;
 
     &:hover {
         animation: pulsation 10s infinite;
@@ -12,24 +13,22 @@
 
 .gradientBig {
     background: radial-gradient(57.05% 57.05% at 49.84% 42.95%, rgba(94, 211, 243, .2) 0%, rgba(94, 211, 243, .132281) 7.81%, rgba(94, 211, 243, .0830304) 29.69%, rgba(94, 211, 243, .0386116) 56.77%, rgba(94, 211, 243, .021875) 77.6%, rgba(94, 211, 243, 0) 100%);
-    width: 18.75rem  /* 300/16 */;
-    height: 18.75rem  /* 300/16 */;
+    width: 18.75rem;
+    height: 18.75rem;
 
 }
 
 .gradientSmall {
     background: radial-gradient(30.29% 30.29% at 50% 50%, rgba(94, 211, 243, .18) 0%, rgba(94, 211, 243, .106) 25.55%, rgba(94, 211, 243, .07) 47.27%, rgba(94, 211, 243, .038) 69.66%, rgba(94, 211, 243, 0) 100%);
-    width: 12.5rem  /* 200/16 */;
-    height: 12.5rem  /* 200/16 */;
+    width: 12.5rem ;
+    height: 12.5rem;
 }
 
 .backgroundIcon {
-    width: 6rem;
-    height: 6rem;
-    background: orange;
-    box-shadow: 0 0 1rem aqua;
+    background: var(--accent-redesigned);
+    box-shadow: 0 0 1rem var(--bg-redesigned);
     opacity: .35;
-    filter: blur(50px);
+    filter: blur(3.125rem  /* 50/16 */);
 }
 
 .gradientBig,
@@ -42,16 +41,16 @@
 .gradientBig,
 .gradientSmall{
     opacity: .6;
+    pointer-events: none;
 }
 
 .appLogo {
     margin: 0;
-    width: 4rem;
-    height: 4rem;
-    fill: orange;
+    fill: var(--accent-redesigned);
     fill-opacity: .6;
-    stroke: aqua;
+    stroke: var(--bg-redesigned);
     stroke-opacity: .8;
+    height: 4.375rem;
 }
 
 @keyframes pulsation {

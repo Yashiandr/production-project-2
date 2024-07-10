@@ -1,9 +1,13 @@
 import { createSelector } from '@reduxjs/toolkit';
 import { selectUserAuthData } from '@/entities/User';
-import AboutIcon from '@/shared/assets/icons/about-us-32-32.svg?react';
-import ArticlesIcon from '@/shared/assets/icons/articles-32-32.svg?react';
-import MainIcon from '@/shared/assets/icons/home-32-32.svg?react';
-import ProfileIcon from '@/shared/assets/icons/profile-32-32.svg?react';
+import MainIcon from '@/shared/assets/redesignIcons/Home.svg?react';
+import AboutIcon from '@/shared/assets/redesignIcons/Info.svg?react';
+import ProfileIcon from '@/shared/assets/redesignIcons/Avatar.svg?react';
+import ArticlesIcon from '@/shared/assets/redesignIcons/Articles.svg?react';
+import AboutIconDeprecated from '@/shared/assets/icons/about-us-32-32.svg?react';
+import ArticlesIconDeprecated from '@/shared/assets/icons/articles-32-32.svg?react';
+import MainIconDeprecated from '@/shared/assets/icons/home-32-32.svg?react';
+import ProfileIconDeprecated from '@/shared/assets/icons/profile-32-32.svg?react';
 import { SidebarItemType } from '../../types/item';
 import {
     getRouteMain,
@@ -11,6 +15,7 @@ import {
     getRouteProfile,
     getRouteArticles,
 } from '@/shared/const/router';
+import { toggleFeatures } from '@/shared/lib/features';
 
 export const selectSidebarItems = createSelector(
     selectUserAuthData,
@@ -19,12 +24,20 @@ export const selectSidebarItems = createSelector(
             {
                 path: getRouteMain(),
                 text: 'Главная',
-                Icon: MainIcon,
+                Icon: toggleFeatures({
+                    name: 'isAppRedesign',
+                    on: () => MainIcon,
+                    off: () => MainIconDeprecated,
+                }),
             },
             {
                 path: getRouteAbout(),
                 text: 'О сайте',
-                Icon: AboutIcon,
+                Icon: toggleFeatures({
+                    name: 'isAppRedesign',
+                    on: () => AboutIcon,
+                    off: () => AboutIconDeprecated,
+                }),
             },
         ];
 
@@ -33,13 +46,21 @@ export const selectSidebarItems = createSelector(
                 {
                     path: getRouteProfile(userData.id),
                     text: 'Профиль',
-                    Icon: ProfileIcon,
+                    Icon: toggleFeatures({
+                        name: 'isAppRedesign',
+                        on: () => ProfileIcon,
+                        off: () => ProfileIconDeprecated,
+                    }),
                     authOnly: true,
                 },
                 {
                     path: getRouteArticles(),
                     text: 'Статьи',
-                    Icon: ArticlesIcon,
+                    Icon: toggleFeatures({
+                        name: 'isAppRedesign',
+                        on: () => ArticlesIcon,
+                        off: () => ArticlesIconDeprecated,
+                    }),
                     authOnly: true,
                 },
             );

@@ -4,12 +4,11 @@
     display: grid;
     grid-template-areas:
                 'sidebar content rightbar';
-    grid-template-columns: 17.75rem  1fr 11rem;
+    grid-template-columns: 17.75rem  1fr 6.25rem;
 }
 
 .sidebar {
     grid-area: sidebar;
-    justify-self: center;
     padding: 2rem;
 }
 

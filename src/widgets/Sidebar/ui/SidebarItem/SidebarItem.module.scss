@@ -1,4 +1,4 @@
-.SidebarItem {
+.SidebarItemDeprecated {
     fill: var(--bg-color);
     stroke: var(--inverted-bg-color);
     display: flex;
@@ -15,13 +15,54 @@
     }
 }
 
-.linkText {
+.linkTextDeprecated {
     opacity: 1;
     transition: opacity .2s ease;
 }
 
+.collapsedDeprecated {
+    .linkTextDeprecated {
+        opacity: 0;
+    }
+}
+
+// ulbi redesigned
+
+.item {
+    display: flex;
+    align-items: center;
+    text-wrap: nowrap;
+    width: 100%;
+    padding: 0 1rem;
+    transition: padding .5s linear;
+    position: relative;
+
+    .linkText {
+        opacity: 1;
+        max-width: 5rem;
+        overflow-x: hidden;
+        transition: max-width .5s linear, opacity .3s ease
+    }
+}
+
+.active {
+    background: linear-gradient(89.97deg, rgba(29, 89, 255, .3) 1.15%, rgba(94, 211, 243, 0) 99.97%);
+
+    &::after {
+        position: absolute;
+        left: 0;
+        height: 100%;
+        content: '';
+        background: var(--accent-redesigned);
+        width: .125rem;
+    }
+}
+
 .collapsed {
+    padding: 0 .5rem;
+
     .linkText {
         opacity: 0;
+        max-width: 0;
     }
 }
