@@ -3,15 +3,15 @@ import { useTranslation } from 'react-i18next';
 import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Loader } from '@/shared/ui/Loader';
-import { Text, TextSize } from '@/shared/ui/Text';
+import { Loader } from '@/shared/ui/deprecated/Loader';
+import { Text, TextSize } from '@/shared/ui/deprecated/Text';
 import { ArticlesView } from '../../model/consts/consts';
 import { Article } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import * as cls from './ArticleList.module.scss';
 import { virtuosoStyleBig } from './virtuosoStyleOptions/virtuosoStyleBig';
 import { virtuosoStyleSmall } from './virtuosoStyleOptions/virtuosoStyleSmall';
-import { ViewCard } from '@/shared/ui/ViewCard/ViewCard';
+import { ViewCardGesture } from '@/shared/ui/deprecated/ViewCardGesture';
 
 interface ArticleListProps {
     className?: string;
@@ -82,7 +82,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
                                 className,
                             ])}
                         >
-                            <ViewCard cards={articles.map(renderArticle)} />
+                            <ViewCardGesture cards={articles.map(renderArticle)} />
                         </div>
                     </MobileView>
                 </>

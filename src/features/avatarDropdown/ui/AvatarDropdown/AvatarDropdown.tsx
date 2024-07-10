@@ -4,8 +4,8 @@ import { isUserAdmin, isUserManager, User, userActions } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
-import { Avatar } from '@/shared/ui/Avatar';
-import { Dropdown } from '@/shared/ui/Popups';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
+import { Dropdown } from '@/shared/ui/deprecated/Popups';
 import * as cls from './AvatarDropdown.module.scss';
 import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
 

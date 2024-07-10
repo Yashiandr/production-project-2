@@ -1,16 +1,16 @@
 import { memo, useMemo, useState } from 'react';
 import { isMobile } from 'react-device-detect';
+import { AppLogo } from '@/shared/ui/deprecated/AppLogo';
 import { LangSwitcher } from '@/features/LangSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
-import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button';
-import { VStack } from '@/shared/ui/Stack';
+import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { VStack } from '@/shared/ui/deprecated/Stack';
 import { selectSidebarItems } from '../../model/selectors/selectSidebarItems/selectSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import * as cls from './Sidebar.module.scss';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { AppLogo } from '@/shared/ui/AppLogo';
 
 interface SidebarProps {
     className?: string;

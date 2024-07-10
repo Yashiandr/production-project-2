@@ -1,0 +1,1 @@
+export { ViewCardGesture } from './ViewCardGesture';

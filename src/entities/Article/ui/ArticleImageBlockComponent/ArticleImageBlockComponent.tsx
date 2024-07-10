@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { VStack } from '@/shared/ui/Stack';
-import { Text, TextAlign } from '@/shared/ui/Text';
+import { VStack } from '@/shared/ui/deprecated/Stack';
+import { Text, TextAlign } from '@/shared/ui/deprecated/Text';
 import { ArticleImageBlock } from '../../model/types/article';
 import * as cls from './ArticleImageBlockComponent.module.scss';
 

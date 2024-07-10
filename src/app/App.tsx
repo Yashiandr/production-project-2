@@ -3,7 +3,7 @@ import { selectUserInited, initAuthData } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
-import { HStack } from '@/shared/ui/Stack';
+import { HStack } from '@/shared/ui/deprecated/Stack';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 import { AppRouter } from './providers/router';

@@ -11,7 +11,7 @@ import {
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Text, TextTheme } from '@/shared/ui/Text';
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
 import { ValidateProfileError } from '../../model/consts/consts';
 import { selectProfileError } from '../../model/selectors/selectProfileError/selectProfileError';
 import { selectProfileForm } from '../../model/selectors/selectProfileForm/selectProfileForm';

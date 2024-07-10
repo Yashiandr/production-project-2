@@ -1,5 +1,5 @@
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
-import { Button } from '@/shared/ui/Button';
+import { Button } from '@/shared/ui/deprecated/Button';
 import { selectCounterValue } from '../model/selectors/selectCounterValue/selectCounterValue';
 import { useCounterActions } from '../model/slice/counterSlice';
 

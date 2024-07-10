@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button } from '@/shared/ui/Button';
+import { Button } from '@/shared/ui/deprecated/Button';
 import * as cls from './BugButton.module.scss';
 
 interface BugButtonProps {

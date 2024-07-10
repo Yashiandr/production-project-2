@@ -7,10 +7,10 @@ import {
 } from '../../api/profileRatingApi';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
 import { selectUserAuthData } from '@/entities/User';
-import { Skeleton } from '@/shared/ui/Skeleton';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import * as cls from './ProfileRating.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Card } from '@/shared/ui/Card';
+import { Card } from '@/shared/ui/deprecated/Card';
 
 export interface ProfileRatingProps {
     className?: string;

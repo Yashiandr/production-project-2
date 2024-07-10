@@ -1,9 +1,9 @@
 import { Suspense } from 'react';
 import { isMobile } from 'react-device-detect';
-import { Loader } from '@/shared/ui/Loader';
-import { Modal } from '@/shared/ui/Modal';
+import { Loader } from '@/shared/ui/deprecated/Loader';
+import { Modal } from '@/shared/ui/deprecated/Modal';
 import { LoginFormAsync } from '../LoginForm/LoginForm.async';
-import { Drawer } from '@/shared/ui/Drawer';
+import { Drawer } from '@/shared/ui/deprecated/Drawer';
 
 interface LoginModalProps {
     className?: string;

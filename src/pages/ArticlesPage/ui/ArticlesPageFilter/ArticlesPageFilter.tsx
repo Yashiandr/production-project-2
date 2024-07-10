@@ -10,10 +10,10 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import { SortOrder } from '@/shared/types/sort';
-import { Card } from '@/shared/ui/Card';
-import { Input } from '@/shared/ui/Input';
-import { HStack, VStack } from '@/shared/ui/Stack';
-import { TabItem } from '@/shared/ui/Tabs';
+import { Card } from '@/shared/ui/deprecated/Card';
+import { Input } from '@/shared/ui/deprecated/Input';
+import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
+import { TabItem } from '@/shared/ui/deprecated/Tabs';
 import { selectArticlesPageOrder } from '../../model/selectors/selectArticlesPageOrder/selectArticlesPageOrder';
 import { selectArticlesPageSearch } from '../../model/selectors/selectArticlesPageSearch/selectArticlesPageSearch';
 import { selectArticlesPageSort } from '../../model/selectors/selectArticlesPageSort/selectArticlesPageSort';
