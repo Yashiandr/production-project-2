@@ -10,8 +10,6 @@ interface UseThemeResult {
 export function useTheme(): UseThemeResult {
     const { theme = Theme.LIGHT, setTheme } = useContext(ThemeContext);
 
-    document.body.className = theme;
-
     const toggleTheme = (saveAction: (theme: Theme) => void) => {
         let newTheme: Theme;
         switch (theme) {
@@ -28,7 +26,13 @@ export function useTheme(): UseThemeResult {
                 newTheme = Theme.ORANGE;
         }
         setTheme?.(newTheme);
-        document.body.className = newTheme;
+        const themeKeys = Object.keys(Theme).filter((k) => Number.isNaN(Number(k))) as Array<keyof typeof Theme>;
+
+        themeKeys.forEach((item) => {
+            document.body.classList.remove(Theme[item]);
+        });
+
+        document.body.classList.add(newTheme);
 
         saveAction?.(newTheme);
     };

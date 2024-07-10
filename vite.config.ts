@@ -3,7 +3,26 @@ import react from '@vitejs/plugin-react';
 import svgr from 'vite-plugin-svgr';
 
 export default defineConfig({
-    plugins: [react(), svgr()],
+    plugins: [react(), svgr({
+        svgrOptions: {
+            icon: true,
+            svgoConfig: {
+                plugins: [
+                    {
+                        name: 'preset-default',
+                        params: {
+                            overrides: {
+                                convertColors: {
+                                    currentColor: true,
+                                },
+                            },
+                        },
+                    },
+                ],
+            },
+        },
+    }),
+    ],
     resolve: {
         alias: [{ find: '@', replacement: '/src' }],
     },

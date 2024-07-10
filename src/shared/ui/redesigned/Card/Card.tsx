@@ -3,13 +3,15 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import * as cls from './Card.module.scss';
 
 export type CardVariant = 'normal' | 'outlined' | 'light';
-export type CardPadding = '0' | '8' | '16' | '24'
+export type CardPadding = '0' | '8' | '16' | '24';
+export type CardBorder = 'round' | 'regular';
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
     className?: string;
     children: ReactNode;
     variant?: CardVariant;
     padding?: CardPadding;
+    border?: CardBorder;
 }
 
 const mapPaddingToClass: Record<CardPadding, string> = {
@@ -25,14 +27,17 @@ export const Card = memo((props: CardProps) => {
         children,
         variant = 'normal',
         padding = '8',
+        border = 'regular',
         ...otherProps
     } = props;
 
     const paddings = mapPaddingToClass[padding];
 
+    const additionalClasses = [className, cls[variant], cls[paddings], cls[border]];
+
     return (
         <div
-            className={classNames(cls.Card, {}, [className, cls[variant], cls[paddings]])}
+            className={classNames('', {}, additionalClasses)}
             {...otherProps}
         >
             {children}

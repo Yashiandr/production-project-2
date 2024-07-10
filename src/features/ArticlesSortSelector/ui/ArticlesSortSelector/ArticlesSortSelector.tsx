@@ -1,10 +1,13 @@
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { HStack } from '@/shared/ui/redesigned/Stack';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { SortOrder } from '@/shared/types/sort';
 import { Select, SelectOption } from '@/shared/ui/deprecated/Select';
 import { ArticleSortField } from '@/entities/Article';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { ListBox } from '@/shared/ui/redesigned/Popups';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 interface ArticlesSortSelectorProps {
     className?: string;
@@ -51,19 +54,40 @@ export const ArticlesSortSelector = memo((props: ArticlesSortSelectorProps) => {
     );
 
     return (
-        <HStack gap="8" className={classNames('', {}, [className])}>
-            <Select
-                label={t('Сортировать по')}
-                options={sortFieldOptions}
-                onChange={onChangeSort}
-                value={sort}
-            />
-            <Select
-                label={t('по')}
-                options={orderOptions}
-                onChange={onChangeOrder}
-                value={order}
-            />
-        </HStack>
+        <ToggleFeatures
+            feature="isAppRedesign"
+            on={(
+                <VStack align="start" gap="8" className={classNames('', {}, [className])}>
+                    <Text text={t('Сортировать по:')} />
+                    <ListBox
+                        items={sortFieldOptions}
+                        onChange={onChangeSort}
+                        value={sort}
+                    />
+                    <ListBox
+                        items={orderOptions}
+                        onChange={onChangeOrder}
+                        value={order}
+                    />
+                </VStack>
+            )}
+            off={(
+                <HStack gap="8" className={classNames('', {}, [className])}>
+                    <Select
+                        label={t('Сортировать по')}
+                        options={sortFieldOptions}
+                        onChange={onChangeSort}
+                        value={sort}
+                    />
+                    <Select
+                        label={t('по')}
+                        options={orderOptions}
+                        onChange={onChangeOrder}
+                        value={order}
+                    />
+                </HStack>
+            )}
+        />
+
     );
 });

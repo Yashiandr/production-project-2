@@ -11,6 +11,7 @@ export const virtuosoStyleSmall: GridComponents<Article> = {
                 display: 'grid',
                 gridTemplateColumns: 'repeat(auto-fill, minmax(15rem, 1fr))',
                 gap: '2rem .5rem',
+                justifyItems: 'center',
                 ...style,
             }}
             {...props}

@@ -4,32 +4,32 @@ import {
     ListboxOption as HListBoxOption,
     ListboxOptions as HListBoxOptions,
 } from '@headlessui/react';
-import { Fragment, ReactNode } from 'react';
+import { Fragment, ReactNode, useMemo } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
 import { Button } from '../../../Button';
-import { HStack } from '../../../../redesigned/Stack';
+import { HStack } from '../../../Stack';
 import * as popupCls from '../../styles/popup.module.scss';
 import * as cls from './ListBox.module.scss';
 
-export interface ListBoxItem {
-    value: string;
+export interface ListBoxItem<T extends string> {
+    value: T;
     content: ReactNode;
     disabled?: boolean;
 }
 
-interface ListBoxProps {
-    items?: ListBoxItem[];
+interface ListBoxProps<T extends string> {
+    items?: ListBoxItem<T>[];
     className?: string;
-    value?: string;
+    value?: T;
     defaultValue?: string;
-    onChange: (value: string) => void;
+    onChange: (value: T) => void;
     readonly?: boolean;
     direction?: DropdownDirection;
     label?: string;
 }
 
-export function ListBox(props: ListBoxProps) {
+export function ListBox<T extends string>(props: ListBoxProps<T>) {
     const {
         className,
         items,
@@ -40,6 +40,8 @@ export function ListBox(props: ListBoxProps) {
         direction,
         label,
     } = props;
+
+    const selectedItem = useMemo(() => items?.find((item) => item.value === value), [value, items]);
 
     return (
         <HStack gap="4">
@@ -60,7 +62,7 @@ export function ListBox(props: ListBoxProps) {
                 disabled={readonly}
             >
                 <HListBoxButton className={popupCls.btn} as="div">
-                    <Button disabled={readonly}>{value ?? defaultValue}</Button>
+                    <Button variant="filled" disabled={readonly}>{selectedItem?.content ?? defaultValue}</Button>
                 </HListBoxButton>
                 <HListBoxOptions
                     className={classNames(cls.options, {}, [popupCls.menu])}

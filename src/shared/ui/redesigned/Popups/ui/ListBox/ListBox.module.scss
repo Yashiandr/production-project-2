@@ -3,36 +3,21 @@
     z-index: var(--listbox-z-index);
     border-radius: .75rem;
     min-width: var(--button-width);
-    padding: .25rem .5rem;
 }
 
 .label {
-    color: var(--primary-color);
-    margin-right: .25rem;
+    color: var(--text-redesigned);
 }
 
 .item {
-    min-width: calc(var(--button-width) - 1rem);
+    min-width: var(--button-width);
     background-color: var(--dark-bg-redesigned);
     position: relative;
-    padding: .5rem 1rem;
     cursor: pointer;
-    margin: 0 .5rem;
-    box-shadow: .25rem .25rem .5rem var(--listbox-bg);
-
-
-    &::after {
-        position: absolute;
-        top: auto;
-        content: ">";
-        left: .0625rem;
-        transition: left 0.3s linear .2s;
-        opacity: 0;
-    }
+    padding: .5rem 1rem;
 
     &.first {
         border-radius: .75rem .75rem 0 0;
-        margin-top: -.25rem;
     }
 
     &.last {
@@ -43,37 +28,16 @@
 }
 
 .focus {
-    box-shadow: .0625rem .0625rem .5rem var(--inverted-primary-color);
-    background-color: var(--inverted-primary-color);
-
-    &::after {
-        left: .25rem;
-        opacity: 1;
-    }
-
-    &.selected {
-        color: var(--inverted-secondary-color);
-
-        &::after {
-            left: .25rem;
-            opacity: 1;
-            font-weight: 700;
-        }
-    }
+    background-color: var(--light-bg-redesigned);
 }
 
 .selected {
-    color: var(--secondary-color);
-    text-shadow: 0 0 .25rem var(--secondary-color);
-    text-align: right;
+    background-color: var(--light-bg-redesigned);
 
     &::after {
+        content: "<";
         position: absolute;
-        top: auto;
-        content: ">";
-        left: .0625rem;
-        transition: left 0.3s linear;
-        opacity: 0;
+        right: .5rem;
     }
 }
 

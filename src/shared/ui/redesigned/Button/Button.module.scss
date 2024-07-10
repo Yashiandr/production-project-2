@@ -22,6 +22,14 @@
     color: var(--primary-color);
 }
 
+.filled {
+    background: var(--light-bg-redesigned);
+    border: none;
+    outline: none;
+    padding: .5rem 1rem;
+    border-radius: 2.125rem;
+}
+
 .square {
     padding: 0;
 }

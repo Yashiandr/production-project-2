@@ -66,7 +66,7 @@ export function ListBox(props: ListBoxProps) {
                     <Button disabled={readonly}>{value ?? defaultValue}</Button>
                 </HListBoxButton>
                 <HListBoxOptions
-                    className={classNames(cls.options, {}, [popupCls.menu])}
+                    className={classNames(cls.options, {}, [])}
                     anchor={{ to: direction }}
                     as="ul"
                 >

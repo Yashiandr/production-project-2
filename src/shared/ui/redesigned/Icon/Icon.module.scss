@@ -1,5 +1,7 @@
 .Icon {
     color: var(--icon-redesigned);
+    filter: none;
+    transition: filter .2s ease;
 }
 
 .button {
@@ -14,4 +16,5 @@
 
 .button:hover .Icon {
     color: var(--accent-redesigned);
+    filter: drop-shadow(0 0.1875rem 0.625rem var(--accent-hover-redesign));
 }

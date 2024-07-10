@@ -41,6 +41,9 @@ export const userSlice = createSlice({
                 (state, { payload }) => {
                     state.authData = payload;
                     setFeatureFlag(payload.features);
+                    if (payload.features?.isAppRedesign) {
+                        document.body.classList.add('app_redesigned');
+                    }
                     state._inited = true;
                 },
             )

@@ -30,7 +30,13 @@ export const ThemeProvider: FC<PropsWithChildren<ThemeProviderProps>> = (
         }),
         [theme],
     );
-    document.body.className = theme;
+    const themeKeys = Object.keys(Theme).filter((k) => Number.isNaN(Number(k))) as Array<keyof typeof Theme>;
+
+    themeKeys.forEach((item) => {
+        document.body.classList.remove(Theme[item]);
+    });
+
+    document.body.classList.add(theme);
 
     return (
         <ThemeContext.Provider value={defaultProps}>
