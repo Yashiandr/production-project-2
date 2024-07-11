@@ -10,12 +10,14 @@ html {
 
 body {
     font: var(--font-m);
+    color: var(--primary-color);
 }
 
 .app {
     background-color: var(--bg-color);
     transition: var(--transition-theme-bg);
     color: var(--primary-color);
+    font: var(--font-m);
 }
 
 .app_redesigned {

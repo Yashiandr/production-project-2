@@ -30,7 +30,6 @@ export const UiDesignSwitcher = memo((props: UiDesignSwitcherProps) => {
     const Text = toggleFeatures({
         name: 'isAppRedesign',
         on: () => TextRedesigned,
-        // @ts-ignore
         off: () => TextDeprecated,
     });
     const Skeleton = toggleFeatures({
@@ -67,19 +66,19 @@ export const UiDesignSwitcher = memo((props: UiDesignSwitcherProps) => {
     };
 
     return (
-<HStack>
+        <HStack>
             <Text title={t('Вариант интерфейса')} />
             {isLoading ?
                 <Skeleton width={100} height={38} />
                 : (
-<ListBox
-                onChange={onChange}
-                items={items}
-                value={isAppRedesigned ? 'new' : 'old'}
-                className={classNames('', {}, [className])}
-/>
-)}
-</HStack>
+                    <ListBox
+                        onChange={onChange}
+                        items={items}
+                        value={isAppRedesigned ? 'new' : 'old'}
+                        className={classNames('', {}, [className])}
+                    />
+                )}
+        </HStack>
 
     );
 });

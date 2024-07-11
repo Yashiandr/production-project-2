@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 import { User, UserSchema } from '../types/user';
-import { setFeatureFlag } from '@/shared/lib/features';
+import { setFeatureFlag, toggleFeatures } from '@/shared/lib/features';
 import { saveJsonSettings } from '../services/setJsonSettings';
 import { initAuthData } from '../services/initAuthData';
 
@@ -41,9 +41,15 @@ export const userSlice = createSlice({
                 (state, { payload }) => {
                     state.authData = payload;
                     setFeatureFlag(payload.features);
-                    if (payload.features?.isAppRedesign) {
-                        document.body.classList.add('app_redesigned');
-                    }
+                    toggleFeatures({
+                        name: 'isAppRedesign',
+                        on: () => {
+                            document.body.classList.add('app_redesigned');
+                        },
+                        off: () => {
+                            document.body.classList.add('app');
+                        },
+                    });
                     state._inited = true;
                 },
             )

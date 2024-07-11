@@ -26,7 +26,18 @@
     height: calc(100vh + 6.25rem);
     width: 96vw;
     border-radius: .75rem .75rem 0;
-    background-color: var(--bg-color);
     touch-action: none;
     padding: 1rem;
+}
+
+.drawerNew {
+    .sheet {
+        background-color: var(--dark-bg-redesigned);
+    }
+}
+
+.drawerOld {
+    .sheet {
+        background-color: var(--bg-color);
+    }
 }

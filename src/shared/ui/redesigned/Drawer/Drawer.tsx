@@ -1,12 +1,10 @@
 import { memo, ReactNode, useCallback, useEffect } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import {
-    useAnimationLibs,
-    AnimationProvider,
-} from '../../../lib/components/AnimationProvider';
-import { Overlay } from '../../redesigned/Overlay';
+import { classNames } from '../../../lib/classNames/classNames';
+import { useAnimationLibs, AnimationProvider } from '../../../lib/components/AnimationProvider';
+import { Overlay } from '../Overlay';
 import * as cls from './Drawer.module.scss';
-import { Portal } from '../../redesigned/Portal/Portal';
+import { Portal } from '../Portal';
+import { toggleFeatures } from '../../../lib/features';
 
 interface DrawerProps {
     className?: string;
@@ -45,12 +43,12 @@ export const DrawerContent = memo((props: DrawerProps) => {
 
     const bind = Gesture.useDrag(
         ({
-            last,
-            velocity: [, vy],
-            direction: [, dy],
-            movement: [, my],
-            cancel,
-        }) => {
+             last,
+             velocity: [, vy],
+             direction: [, dy],
+             movement: [, my],
+             cancel,
+         }) => {
             if (my < -70) cancel();
 
             if (last) {
@@ -77,8 +75,13 @@ export const DrawerContent = memo((props: DrawerProps) => {
 
     const display = y.to((py) => (py < height ? 'block' : 'none'));
     return (
-        <Portal>
-            <div className={classNames(cls.Drawer, {}, [className])}>
+        <Portal element={document.getElementById('app') ?? document.body}>
+            <div className={classNames(cls.Drawer, {}, [className, toggleFeatures({
+                name: 'isAppRedesign',
+                on: () => cls.drawerNew,
+                off: () => cls.drawerOld,
+            })])}
+            >
                 <Overlay onClick={close} />
                 <Spring.a.div
                     className={cls.sheet}

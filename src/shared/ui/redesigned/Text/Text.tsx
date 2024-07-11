@@ -2,11 +2,11 @@ import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import * as cls from './Text.module.scss';
 
-export type TextVariant = 'primary' | 'error' | 'accent';
+type TextVariant = 'primary' | 'error' | 'accent';
 
-export type TextAlign = 'right' | 'left' | 'center';
+type TextAlign = 'left' | 'right' | 'center';
 
-export type TextSize = 'm' | 's' | 'l';
+type TextSize = 'm' | 's' | 'l';
 
 interface TextProps {
     className?: string;
