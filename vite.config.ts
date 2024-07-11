@@ -12,10 +12,14 @@ export default defineConfig({
                         name: 'preset-default',
                         params: {
                             overrides: {
-                                convertColors: {
-                                    currentColor: true,
-                                },
+                                removeTitle: false,
                             },
+                        },
+                    },
+                    {
+                        name: 'convertColors',
+                        params: {
+                            currentColor: true,
                         },
                     },
                 ],

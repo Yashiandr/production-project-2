@@ -5,7 +5,22 @@
 
     &:hover {
         color: var(--accent-redesigned);
+
+        .addonLeft svg,
+        .addonRight svg {
+            color: var(--accent-redesigned);
+        }
+
     }
+}
+
+.withAddon {
+    padding: 0.1875rem 1rem;
+}
+
+.addonLeft svg,
+.addonRight svg {
+    color: var(--hint-redesigned);
 }
 
 .clear {
@@ -26,7 +41,6 @@
     background: var(--light-bg-redesigned);
     border: none;
     outline: none;
-    padding: .5rem 1rem;
     border-radius: 2.125rem;
 }
 

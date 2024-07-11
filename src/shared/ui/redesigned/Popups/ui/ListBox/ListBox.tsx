@@ -11,6 +11,8 @@ import { Button } from '../../../Button';
 import { HStack } from '../../../Stack';
 import * as popupCls from '../../styles/popup.module.scss';
 import * as cls from './ListBox.module.scss';
+import { Icon } from '../../../Icon';
+import ArrowIcon from '@/shared/assets/redesignIcons/Arrow.svg?react';
 
 export interface ListBoxItem<T extends string> {
     value: T;
@@ -62,7 +64,13 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
                 disabled={readonly}
             >
                 <HListBoxButton className={popupCls.btn} as="div">
-                    <Button variant="filled" disabled={readonly}>{selectedItem?.content ?? defaultValue}</Button>
+                    <Button
+                        variant="filled"
+                        disabled={readonly}
+                        addonRight={<Icon Svg={ArrowIcon} />}
+                    >
+                        {selectedItem?.content ?? defaultValue}
+                    </Button>
                 </HListBoxButton>
                 <HListBoxOptions
                     className={classNames(cls.options, {}, [popupCls.menu])}
@@ -83,7 +91,7 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
                                     [popupCls.disabled]: item.disabled,
                                     [cls.first]: index === 0,
                                     [cls.last]:
-                                        index === Number(items?.length) - 1,
+                                    index === Number(items?.length) - 1,
                                 };
                                 return (
                                     <li

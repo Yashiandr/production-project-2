@@ -1,13 +1,6 @@
-import React, {
-    InputHTMLAttributes,
-    memo,
-    useEffect,
-    useRef,
-    useState,
-} from 'react';
-import { isBrowser } from 'react-device-detect';
+import React, { InputHTMLAttributes, memo, useEffect, useRef, useState, ReactNode } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { HStack } from '../../redesigned/Stack';
+import { getHStack } from '../Stack';
 import * as cls from './Input.module.scss';
 
 type HTMLInputProps = Omit<
@@ -21,6 +14,8 @@ interface InputProps extends HTMLInputProps {
     onChange?: (value: string) => void;
     autofocus?: boolean;
     readonly?: boolean;
+    addonLeft?: ReactNode;
+    addonRight?: ReactNode;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -32,6 +27,8 @@ export const Input = memo((props: InputProps) => {
         type = 'text',
         autofocus,
         readonly,
+        addonLeft,
+        addonRight,
         ...otherProps
     } = props;
 
@@ -42,9 +39,6 @@ export const Input = memo((props: InputProps) => {
     };
 
     const [isFocused, setIsFocused] = useState(false);
-    const [caretPosition, setCaretPosition] = useState(0);
-
-    const isCaretVisible = isFocused && !readonly;
 
     const onBlur = () => {
         setIsFocused(false);
@@ -52,10 +46,6 @@ export const Input = memo((props: InputProps) => {
 
     const onFocus = () => {
         setIsFocused(true);
-    };
-
-    const onSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setCaretPosition(e?.target?.selectionStart || 0);
     };
 
     useEffect(() => {
@@ -67,36 +57,37 @@ export const Input = memo((props: InputProps) => {
 
     const mods: Mods = {
         [cls.readonly]: readonly,
+        [cls.focused]: isFocused,
+        [cls.withAddonLeft]: Boolean(addonLeft),
+        [cls.withAddonRight]: Boolean(addonRight),
     };
 
     return (
-        <HStack
-            gap="4"
-            className={classNames(cls.InputWrapper, mods, [className])}
+        <div
+            className={classNames(cls.InputWrapper, mods, [className, getHStack()])}
         >
-            {placeholder && (
-                <div className={cls.placeholder}>{`${placeholder}>`}</div>
+            {addonLeft && (
+                <div className={classNames(cls.addonLeft, {}, [getHStack()])}>
+                    {addonLeft}
+                </div>
             )}
-            <div className={cls.caretWrapper}>
-                <input
-                    ref={ref}
-                    className={cls.input}
-                    value={value}
-                    onChange={onChangeHandler}
-                    type={type}
-                    onFocus={onFocus}
-                    onBlur={onBlur}
-                    onSelect={onSelect}
-                    readOnly={readonly}
-                    {...otherProps}
-                />
-                {isCaretVisible && isBrowser && (
-                    <span
-                        className={cls.caret}
-                        style={{ left: `${caretPosition * 0.6}rem` }}
-                    />
-                )}
-            </div>
-        </HStack>
+            <input
+                ref={ref}
+                className={cls.input}
+                value={value}
+                onChange={onChangeHandler}
+                type={type}
+                onFocus={onFocus}
+                onBlur={onBlur}
+                readOnly={readonly}
+                placeholder={placeholder}
+                {...otherProps}
+            />
+            {addonRight && (
+                <div className={classNames(cls.addonRight, {}, [getHStack()])}>
+                    {addonRight}
+                </div>
+            )}
+        </div>
     );
 });
