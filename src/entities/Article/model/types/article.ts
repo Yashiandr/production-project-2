@@ -30,13 +30,14 @@ export type ArticleBlock =
 
 export interface Article {
     id: string;
-    title: string;
-    subtitle: string;
-    img: string;
-    views: number;
-    createdAt: string;
-    user: User;
-    userId: string;
-    type: ArticleType[];
-    blocks: ArticleBlock[];
+    title?: string;
+    subtitle?: string;
+    img?: string;
+    views?: number;
+    createdAt?: string;
+    user?: User;
+    userId?: string;
+    type?: ArticleType[];
+    blocks?: ArticleBlock[];
+    Loading?: boolean;
 }

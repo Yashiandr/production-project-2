@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Loader } from '@/shared/ui/deprecated/Loader';
 import { Text, TextSize } from '@/shared/ui/deprecated/Text';
 import { ArticlesView } from '../../model/consts/consts';
 import { Article } from '../../model/types/article';
@@ -12,6 +11,7 @@ import * as cls from './ArticleList.module.scss';
 import { virtuosoStyleBig } from './virtuosoStyleOptions/virtuosoStyleBig';
 import { virtuosoStyleSmall } from './virtuosoStyleOptions/virtuosoStyleSmall';
 import { ViewCardGesture } from '@/shared/ui/deprecated/ViewCardGesture';
+import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 
 interface ArticleListProps {
     className?: string;
@@ -38,14 +38,19 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
     const { t } = useTranslation('articles');
 
-    const renderArticle = (article: Article) => (
-        <ArticleListItem
-            article={article}
-            view={view}
-            key={article.id}
-            target={target}
-        />
-    );
+    const renderArticle = (article: Article) => {
+        if (article.Loading) {
+            return <ArticleListItemSkeleton view={view} key={article.id} />;
+        }
+        return (
+            <ArticleListItem
+                article={article}
+                view={view}
+                key={article.id}
+                target={target}
+            />
+        );
+    };
 
     if (!isLoading && !articles.length) {
         return (
@@ -62,59 +67,53 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
     if (!virtuoso) {
         return articles.length > 0 ? (
-                <>
-                    <BrowserView>
-                        <div
-                            data-testid="ArticleList"
-                            className={classNames(cls.ArticleList, {}, [
-                                className,
-                                cls[view],
-                                cls.recommendations,
-                            ])}
-                        >
-                            {articles.map(renderArticle)}
-                        </div>
-                    </BrowserView>
-                    <MobileView>
-                        <div
-                            data-testid="ArticleList"
-                            className={classNames(cls.recommendationsMobile, {}, [
-                                className,
-                            ])}
-                        >
-                            <ViewCardGesture cards={articles.map(renderArticle)} />
-                        </div>
-                    </MobileView>
-                </>
-            ) : null;
-        }
+            <>
+                <BrowserView>
+                    <div
+                        data-testid="ArticleList"
+                        className={classNames(cls.ArticleList, {}, [
+                            className,
+                            cls[view],
+                            cls.recommendations,
+                        ])}
+                    >
+                        {articles.map(renderArticle)}
+                    </div>
+                </BrowserView>
+                <MobileView>
+                    <div
+                        data-testid="ArticleList"
+                        className={classNames(cls.recommendationsMobile, {}, [
+                            className,
+                        ])}
+                    >
+                        <ViewCardGesture cards={articles.map(renderArticle)} />
+                    </div>
+                </MobileView>
+            </>
+        ) : null;
+    }
 
     if (view === ArticlesView.SMALL) {
         return (
-            <>
-                <VirtuosoGrid
-                    data={articles}
-                    useWindowScroll
-                    endReached={onScrollEnd}
-                    itemContent={(_, article) => renderArticle(article)}
-                    components={virtuosoStyleSmall}
-                />
-                {isLoading && <Loader className={cls.loader} />}
-            </>
+            <VirtuosoGrid
+                data={articles}
+                useWindowScroll
+                endReached={onScrollEnd}
+                itemContent={(_, article) => renderArticle(article)}
+                components={virtuosoStyleSmall}
+            />
         );
     }
 
     return (
-        <>
-            <Virtuoso
-                data={articles}
-                useWindowScroll
-                endReached={onScrollEnd}
-                increaseViewportBy={limit}
-                itemContent={(_, article) => renderArticle(article)}
-                components={virtuosoStyleBig}
-            />
-            {isLoading && <Loader className={cls.loader} />}
-        </>
+        <Virtuoso
+            data={articles}
+            useWindowScroll
+            endReached={onScrollEnd}
+            increaseViewportBy={limit}
+            itemContent={(_, article) => renderArticle(article)}
+            components={virtuosoStyleBig}
+        />
     );
 });

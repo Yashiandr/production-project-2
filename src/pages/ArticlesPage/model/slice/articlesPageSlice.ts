@@ -1,19 +1,19 @@
-import {
-    createEntityAdapter,
-    createSlice,
-    PayloadAction,
-} from '@reduxjs/toolkit';
+import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '@/app/providers/StoreProvider';
-import {
-    Article,
-    ArticleSortField,
-    ArticlesView,
-    ArticleType,
-} from '@/entities/Article';
+import { Article, ArticleSortField, ArticlesView, ArticleType } from '@/entities/Article';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 import { SortOrder } from '@/shared/types/sort';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { ArticlesPageSchema } from '../types/ArticlesPageSchema';
+
+const loadingArticlesMock = [
+    { id: 'Лоадер1', Loading: true },
+    { id: 'Лоадер2', Loading: true },
+    { id: 'Лоадер3', Loading: true },
+    { id: 'Лоадер4', Loading: true },
+    { id: 'Лоадер5', Loading: true },
+    { id: 'Лоадер6', Loading: true },
+];
 
 const articlesAdapter = createEntityAdapter({
     selectId: (article: Article) => article.id,
@@ -75,10 +75,10 @@ export const articlesPageSlice = createSlice({
             .addCase(fetchArticlesList.pending, (state, action) => {
                 state.error = undefined;
                 state.isLoading = true;
-
                 if (action.meta.arg.replace) {
                     articlesAdapter.removeAll(state);
                 }
+                articlesAdapter.addMany(state, loadingArticlesMock);
             })
             .addCase(fetchArticlesList.fulfilled, (state, action) => {
                 state.isLoading = false;
@@ -87,12 +87,14 @@ export const articlesPageSlice = createSlice({
                 if (action.meta.arg.replace) {
                     articlesAdapter.setAll(state, action.payload);
                 } else {
+                    articlesAdapter.removeMany(state, loadingArticlesMock.map((item) => item.id));
                     articlesAdapter.addMany(state, action.payload);
                 }
             })
             .addCase(fetchArticlesList.rejected, (state, action) => {
                 state.isLoading = false;
                 state.error = action.payload;
+                articlesAdapter.removeMany(state, loadingArticlesMock.map((item) => item.id));
             });
     },
 });

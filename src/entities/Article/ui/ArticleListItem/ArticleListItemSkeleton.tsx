@@ -1,9 +1,12 @@
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Card } from '@/shared/ui/deprecated/Card';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { Card as CardRedesigned } from '@/shared/ui/redesigned/Card';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
 import { ArticlesView } from '../../model/consts/consts';
 import * as cls from './ArticleListItem.module.scss';
+import { toggleFeatures } from '@/shared/lib/features';
 
 interface ArticleListItemSkeletonProps {
     view: ArticlesView;
@@ -11,6 +14,18 @@ interface ArticleListItemSkeletonProps {
 
 export const ArticleListItemSkeleton = memo(
     ({ view }: ArticleListItemSkeletonProps) => {
+        const Skeleton = toggleFeatures({
+            name: 'isAppRedesign',
+            on: () => SkeletonRedesigned,
+            off: () => SkeletonDeprecated,
+        });
+
+        const Card = toggleFeatures({
+            name: 'isAppRedesign',
+            on: () => CardRedesigned,
+            off: () => CardDeprecated,
+        });
+
         const views = (
             <div className={cls.viewersWrapper}>
                 <Skeleton width={32} height={32} border="10%" />

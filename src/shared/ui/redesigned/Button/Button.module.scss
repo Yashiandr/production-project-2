@@ -33,8 +33,13 @@
 
 .outline {
     background: none;
-    border: .125rem solid var(--primary-color);
-    color: var(--primary-color);
+    border: .0625rem solid var(--icon-redesigned);
+    border-radius: 2.125rem;
+    padding: .5rem 1rem;
+
+    &:hover {
+        border: .0625rem solid var(--accent-redesigned);
+    }
 }
 
 .filled {
