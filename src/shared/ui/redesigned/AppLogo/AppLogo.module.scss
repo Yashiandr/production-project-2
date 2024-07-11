@@ -54,6 +54,7 @@
     stroke: var(--bg-redesigned);
     stroke-opacity: .8;
     height: 4.375rem;
+    z-index: 5;
 }
 
 @keyframes pulsation {
