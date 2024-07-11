@@ -1,0 +1,14 @@
+.Code {
+    padding: 1.25rem;
+    position: relative;
+    background: var(--light-bg-redesigned);
+    overflow: auto;
+    border: 0.0625rem solid var(--accent-redesigned);
+    border-radius: 1rem;
+}
+
+.copyBtn {
+    position: absolute;
+    right: .5rem;
+    top: .5rem;
+}
