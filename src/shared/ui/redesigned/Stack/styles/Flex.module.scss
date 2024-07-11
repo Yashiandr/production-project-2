@@ -63,6 +63,15 @@
     gap: 2rem;
 }
 
+.wrap {
+    flex-wrap: wrap;
+}
+
+.nowrap {
+    flex-wrap: nowrap;
+}
+
 .max {
     width: 100%;
 }
+

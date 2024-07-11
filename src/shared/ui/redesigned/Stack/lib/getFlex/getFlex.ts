@@ -1,4 +1,4 @@
-import { FlexJustify, FlexAlign, FlexDirection, FlexGap, FlexArgs } from '../../types/flex';
+import { FlexJustify, FlexAlign, FlexDirection, FlexGap, FlexArgs, FlexWrap } from '../../types/flex';
 import * as cls from '../../styles/Flex.module.scss';
 import { Mods, classNames } from '../../../../../lib/classNames/classNames';
 
@@ -8,6 +8,7 @@ export function getFlex(args: FlexArgs) {
         align = 'center',
         direction = 'row',
         gap,
+        wrap = 'nowrap',
         max,
     } = args;
     const justifyClasses: Record<FlexJustify, string> = {
@@ -37,6 +38,11 @@ export function getFlex(args: FlexArgs) {
         32: cls.gap32,
     };
 
+    const wrapClasses: Record<FlexWrap, string> = {
+        wrap: cls.wrap,
+        nowrap: cls.nowrap,
+    };
+
     const mods: Mods = {
         [cls.max]: max,
     };
@@ -45,6 +51,7 @@ export function getFlex(args: FlexArgs) {
         justifyClasses[justify],
         alignClasses[align],
         directionClasses[direction],
+        wrapClasses[wrap],
         gap && gapClasses[gap],
     ];
 
