@@ -7,5 +7,13 @@
   "country": "Russia",
   "city": "Yanino-1",
   "username": "Yashiandr",
-  "avatar": "https://masterpiecer-images.s3.yandex.net/5c949703654e11eea2a6963c1ee369ba:upscaled"
+  "avatar": "https://masterpiecer-images.s3.yandex.net/5c949703654e11eea2a6963c1ee369ba:upscaled",
+  "Имя": "Имя",
+  "Фамилия": "Фамилия",
+  "Возраст": "Возраст",
+  "Город": "Город",
+  "Ссылка на аватар": "Ссылка на аватар",
+  "Юзернейм": "Юзернейм",
+  "Валюта": "Валюта",
+  "Страна": "Страна"
 }

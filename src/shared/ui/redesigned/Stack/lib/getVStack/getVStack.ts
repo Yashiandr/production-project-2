@@ -1,6 +1,6 @@
-import { getStackArgs } from '../../types/flex';
+import { StackArgs } from '../../types/flex';
 import { getFlex } from '../getFlex/getFlex';
 
-export function getVStack(args?: getStackArgs) {
+export function getVStack(args?: StackArgs) {
     return getFlex({ ...args, direction: 'column' });
 }

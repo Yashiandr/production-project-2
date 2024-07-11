@@ -2,12 +2,9 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
-import { ProfileCard } from '@/entities/Profile';
+import { ProfileCardDeprecated, ProfileCard } from '@/entities/Profile';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import {
-    DynamicModuleLoader,
-    ReducerList,
-} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
@@ -17,10 +14,13 @@ import { selectProfileError } from '../../model/selectors/selectProfileError/sel
 import { selectProfileForm } from '../../model/selectors/selectProfileForm/selectProfileForm';
 import { selectProfileIsLoading } from '../../model/selectors/selectProfileIsLoading/selectProfileIsLoading';
 import { selectProfileReadonly } from '../../model/selectors/selectProfileReadonly/selectProfileReadonly';
-import { selectProfileValidateErrors } from '../../model/selectors/selectProfileValidateErrors/selectProfileValidateErrors';
+import {
+    selectProfileValidateErrors,
+} from '../../model/selectors/selectProfileValidateErrors/selectProfileValidateErrors';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface EditableProfileCardProps {
     className?: string;
@@ -140,20 +140,42 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
                             data-testid="EditableProfileCard.Error"
                         />
                     ))}
-                <ProfileCard
-                    data={formData}
-                    isLoading={isLoading}
-                    error={error}
-                    readonly={readonly}
-                    onChangeFirstname={onChangeFirstname}
-                    onChangeLastname={onChangeLastname}
-                    onChangeAge={onChangeAge}
-                    onChangeCity={onChangeCity}
-                    onChangeAvatar={onChangeAvatar}
-                    onChangeUsername={onChangeUsername}
-                    onChangeCurrency={onChangeCurrency}
-                    onChangeCountry={onChangeCountry}
+                <ToggleFeatures
+                    feature="isAppRedesign"
+                    on={(
+                        <ProfileCard
+                            data={formData}
+                            isLoading={isLoading}
+                            error={error}
+                            readonly={readonly}
+                            onChangeFirstname={onChangeFirstname}
+                            onChangeLastname={onChangeLastname}
+                            onChangeAge={onChangeAge}
+                            onChangeCity={onChangeCity}
+                            onChangeAvatar={onChangeAvatar}
+                            onChangeUsername={onChangeUsername}
+                            onChangeCurrency={onChangeCurrency}
+                            onChangeCountry={onChangeCountry}
+                        />
+                    )}
+                    off={(
+                        <ProfileCardDeprecated
+                            data={formData}
+                            isLoading={isLoading}
+                            error={error}
+                            readonly={readonly}
+                            onChangeFirstname={onChangeFirstname}
+                            onChangeLastname={onChangeLastname}
+                            onChangeAge={onChangeAge}
+                            onChangeCity={onChangeCity}
+                            onChangeAvatar={onChangeAvatar}
+                            onChangeUsername={onChangeUsername}
+                            onChangeCurrency={onChangeCurrency}
+                            onChangeCountry={onChangeCountry}
+                        />
+                    )}
                 />
+
             </div>
         </DynamicModuleLoader>
     );

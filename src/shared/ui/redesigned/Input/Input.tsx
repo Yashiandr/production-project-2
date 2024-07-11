@@ -1,7 +1,8 @@
 import React, { InputHTMLAttributes, memo, useEffect, useRef, useState, ReactNode } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { getHStack } from '../Stack';
+import { getHStack, HStack } from '../Stack';
 import * as cls from './Input.module.scss';
+import { Text } from '../Text';
 
 type HTMLInputProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,
@@ -12,6 +13,7 @@ interface InputProps extends HTMLInputProps {
     className?: string;
     value?: string | number;
     onChange?: (value: string) => void;
+    label?: string;
     autofocus?: boolean;
     readonly?: boolean;
     addonLeft?: ReactNode;
@@ -25,6 +27,7 @@ export const Input = memo((props: InputProps) => {
         onChange,
         placeholder,
         type = 'text',
+        label,
         autofocus,
         readonly,
         addonLeft,
@@ -62,7 +65,7 @@ export const Input = memo((props: InputProps) => {
         [cls.withAddonRight]: Boolean(addonRight),
     };
 
-    return (
+    const inputContent = (
         <div
             className={classNames(cls.InputWrapper, mods, [className, getHStack()])}
         >
@@ -90,4 +93,11 @@ export const Input = memo((props: InputProps) => {
             )}
         </div>
     );
+
+    return label ? (
+        <HStack max gap="8">
+            <Text text={label} className={cls.label} />
+            {inputContent}
+        </HStack>
+    ) : inputContent;
 });

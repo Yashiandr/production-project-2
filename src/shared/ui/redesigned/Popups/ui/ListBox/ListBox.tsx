@@ -49,11 +49,9 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
         <HStack gap="4">
             {label && (
                 <span
-                    className={classNames(cls.label, {
-                        [cls.readonly]: readonly,
-                    })}
+                    className={cls.label}
                 >
-                    {`${label}>`}
+                    {`${label}:`}
                 </span>
             )}
             <HListBox

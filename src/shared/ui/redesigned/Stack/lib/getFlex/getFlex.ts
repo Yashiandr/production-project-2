@@ -1,16 +1,8 @@
-import { FlexJustify, FlexAlign, FlexDirection, FlexGap } from '../../types/flex';
+import { FlexJustify, FlexAlign, FlexDirection, FlexGap, FlexArgs } from '../../types/flex';
 import * as cls from '../../styles/Flex.module.scss';
 import { Mods, classNames } from '../../../../../lib/classNames/classNames';
 
-export interface getFlexArgs {
-    justify?: FlexJustify;
-    align?: FlexAlign;
-    direction?: FlexDirection;
-    gap?: FlexGap;
-    max?: boolean;
-}
-
-export function getFlex(args: getFlexArgs) {
+export function getFlex(args: FlexArgs) {
     const {
         justify = 'start',
         align = 'center',
@@ -41,6 +33,7 @@ export function getFlex(args: getFlexArgs) {
         4: cls.gap4,
         8: cls.gap8,
         16: cls.gap16,
+        24: cls.gap24,
         32: cls.gap32,
     };
 
