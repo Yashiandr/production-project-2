@@ -1,6 +1,10 @@
-.AddCommentForm {
+.AddCommentFormDeprecated {
     border: .0625rem solid var(--primary-color);
     padding: 1.75rem;
+}
+
+.AddCommentForm {
+    margin: 0;
 }
 
 .input {

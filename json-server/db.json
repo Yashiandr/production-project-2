@@ -1516,6 +1516,24 @@
       "userId": "1",
       "text": "text",
       "id": "n2-onZ6"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores aut, autem dolore ducimus error exercitationem fugiat impedit ipsa laboriosam laudantium minima nobis odio officia placeat quibusdam suscipit voluptate voluptatum? Consequuntur eum odio unde. Ad delectus eveniet illum, nam praesentium soluta vel vero! Consectetur harum impedit magni, possimus quaerat sequi sunt tempore. Accusamus adipisci animi consequuntur cupiditate debitis, dolor doloremque doloribus eaque earum eius, enim esse est et expedita incidunt ipsa laborum, magni maiores minima necessitatibus non obcaecati placeat porro possimus quae quas quisquam quos rem repellat reprehenderit saepe sint sit tempora temporibus tenetur vel veritatis! Commodi illum quibusdam tenetur.",
+      "id": "RELgqKg"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "asdasdasdd",
+      "id": "p0hjnsa"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "afsadsadfsddff",
+      "id": "B9VsnwI"
     }
   ],
   "users": [
@@ -1532,7 +1550,7 @@
         "isAppRedesign": true
       },
       "jsonSettings": {
-        "theme": "app_dark_theme",
+        "theme": "app_light_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpen": false,
         "isArticlesPageWasOpened": true
@@ -1548,12 +1566,14 @@
       ],
       "features": {
         "isArticleRatingEnable": false,
-        "isCounterEnable": true
+        "isCounterEnable": true,
+        "isAppRedesign": true
       },
       "jsonSettings": {
         "theme": "app_dark_theme",
         "isFirstVisit": true,
-        "settingsPageHasBeenOpen": false
+        "settingsPageHasBeenOpen": false,
+        "isArticlesPageWasOpened": true
       },
       "avatar": "https://www.strasys.uk/wp-content/uploads/2022/02/Depositphotos_484354208_S.jpg"
     },
@@ -1690,6 +1710,18 @@
       "rate": 4,
       "feedback": "оооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооооо",
       "id": "_kW9n3a"
+    },
+    {
+      "userId": "1",
+      "articleId": "9",
+      "rate": 5,
+      "id": "GONzCGK"
+    },
+    {
+      "userId": "1",
+      "articleId": "13",
+      "rate": 3,
+      "id": "oFm45eS"
     }
   ],
   "profile-ratings": [

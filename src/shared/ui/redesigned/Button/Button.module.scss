@@ -33,13 +33,37 @@
 
 .outline {
     background: none;
-    border: .0625rem solid var(--icon-redesigned);
     border-radius: 2.125rem;
-    padding: .5rem 1rem;
+    padding: .3125rem 1rem;
 
-    &:hover {
-        border: .0625rem solid var(--accent-redesigned);
+    &.normal {
+        border: .125rem solid var(--icon-redesigned);
+        &:hover {
+            border: .125rem solid var(--accent-redesigned);
+        }
     }
+
+    &.error {
+        border: .125rem solid var(--cancel-redesigned);
+        &:hover {
+            border: .125rem solid var(--accent-redesigned);
+        }
+    }
+
+    &.success {
+        border: .125rem solid var(--save-redesigned);
+        &:hover {
+            border: .125rem solid var(--accent-redesigned);
+        }
+    }
+}
+
+.error {
+    color: var(--cancel-redesigned);
+}
+
+.success {
+    color: var(--save-redesigned);
 }
 
 .filled {

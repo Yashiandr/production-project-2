@@ -7,11 +7,14 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Text } from '@/shared/ui/deprecated/Text';
-import { selectArticleDetailsCommentsIsLoading } from '../../model/selectors/comments/selectArticleDetailsCommentsIsLoading/articleDetailsCommentsIsLoading';
+import {
+    selectArticleDetailsCommentsIsLoading,
+} from '../../model/selectors/comments/selectArticleDetailsCommentsIsLoading/articleDetailsCommentsIsLoading';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentsArticleById } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 interface ArticleDetailsCommentsProps {
     className?: string;
@@ -45,7 +48,11 @@ export const ArticleDetailsComments = memo(
                 align="stretch"
                 className={classNames('', {}, [className])}
             >
-                <Text title={t('Комментарии')} />
+                <ToggleFeatures
+                    feature="isAppRedesign"
+                    on={<Text title={t('Комментарии')} size="l" />}
+                    off={<Text title={t('Комментарии')} />}
+                />
                 <AddCommentForm onSendComment={onSendComment} />
                 <CommentList
                     comments={comments}

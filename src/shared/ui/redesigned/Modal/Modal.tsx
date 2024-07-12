@@ -14,9 +14,6 @@ interface ModalProps {
     lazy?: boolean;
 }
 
-/**
- * @deprecated
- */
 export const Modal = (props: ModalProps) => {
     const { className, children, isOpen, onClose, lazy = true } = props;
 
