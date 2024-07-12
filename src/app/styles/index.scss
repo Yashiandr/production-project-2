@@ -28,3 +28,13 @@ body {
     transition: var(--transition-theme-bg);
 }
 
+*::-webkit-scrollbar-track {
+    background: var(--light-bg-redesigned);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--icon-redesigned);
+    border-radius: 20px;
+    border: 1px solid var(--accent-redesigned);
+}
+
