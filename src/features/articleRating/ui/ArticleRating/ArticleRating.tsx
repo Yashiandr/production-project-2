@@ -1,14 +1,14 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { RatingCard } from '@/entities/Rating';
-import {
-    useGetArticleRating,
-    useRateArticle,
-} from '../../api/articleRatingApi';
+import { useGetArticleRating, useRateArticle } from '../../api/articleRatingApi';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
 import { selectUserAuthData } from '@/entities/User';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
-import { Card } from '@/shared/ui/deprecated/Card';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Card } from '@/shared/ui/redesigned/Card';
+import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 
 export interface ArticleRatingProps {
     className?: string;
@@ -59,9 +59,19 @@ const ArticleRating = memo((props: ArticleRatingProps) => {
 
     if (isLoading) {
         return (
-            <Card>
-                <Skeleton width="100%" height={118} />
-            </Card>
+            <ToggleFeatures
+                feature="isAppRedesign"
+                on={(
+                    <Card>
+                        <Skeleton width="100%" height={118} />
+                    </Card>
+                )}
+                off={(
+                    <CardDeprecated>
+                        <SkeletonDeprecated width="100%" height={118} />
+                    </CardDeprecated>
+                )}
+            />
         );
     }
 

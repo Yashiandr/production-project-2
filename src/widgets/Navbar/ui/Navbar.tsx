@@ -8,11 +8,13 @@ import { NotificationButton } from '@/features/notificationButton';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
 import { AppLink } from '@/shared/ui/deprecated/AppLink';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
-import { Text, TextSize } from '@/shared/ui/deprecated/Text';
+import { Button as ButtonDeprecated, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { Text as TextDeprecated, TextSize } from '@/shared/ui/deprecated/Text';
 import * as cls from './Navbar.module.scss';
 import { getRouteArticleCreate } from '@/shared/const/router';
 import { ToggleFeatures } from '@/shared/lib/features';
+import { Button } from '@/shared/ui/redesigned/Button';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 interface NavbarProps {
     className?: string;
@@ -34,7 +36,7 @@ const DeprecatedNavbar = memo(({ className }: NavbarProps) => {
     if (authData) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
-                <Text className={cls.logo} title={t('App')} size={TextSize.L} />
+                <TextDeprecated className={cls.logo} title={t('App')} size={TextSize.L} />
                 <HStack gap="8">
                     <AppLink to={getRouteArticleCreate()}>
                         {t('Создать статью')}
@@ -50,18 +52,18 @@ const DeprecatedNavbar = memo(({ className }: NavbarProps) => {
 
     return (
         <header className={classNames(cls.Navbar, {}, [className])}>
-            <Text
+            <TextDeprecated
                 className={cls.logo}
                 title={t('App')}
                 size={TextSize.L}
             />
             <div>
-                <Button
+                <ButtonDeprecated
                     theme={ButtonTheme.CLEAR_INVERTED}
                     onClick={onShowModal}
                 >
                     {t('Войти')}
-                </Button>
+                </ButtonDeprecated>
             </div>
             {isAuthModal && (
                 <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
@@ -93,7 +95,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                         <AvatarDropdown authData={authData} />
                     </HStack>
                 </header>
-            )} off={<DeprecatedNavbar />}
+            )} off={<DeprecatedNavbar className={className} />}
             />
 
         );
@@ -106,12 +108,11 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 <header className={classNames(cls.NavbarRedesigned, {}, [className])}>
                     <Text
                         className={cls.logo}
-                        title={t('Yashiandr App')}
-                        size={TextSize.L}
+                        size="l"
                     />
                     <div>
                         <Button
-                            theme={ButtonTheme.CLEAR_INVERTED}
+                            variant="clear"
                             onClick={onShowModal}
                         >
                             {t('Войти')}
@@ -122,7 +123,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     )}
                 </header>
             )}
-            off={<DeprecatedNavbar />}
+            off={<DeprecatedNavbar className={className} />}
         />
     );
 });

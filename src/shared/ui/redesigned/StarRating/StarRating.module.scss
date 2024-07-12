@@ -1,0 +1,30 @@
+.StarRatingDeprecated {
+
+
+    .hovered {
+        fill: var(--primary-color);
+    }
+
+    cursor: pointer;
+}
+
+.normal.normal {
+    fill: none
+}
+
+.StarIcon {
+    .normal {
+        fill: none
+    }
+
+    .hovered {
+        color: var(--accent-redesigned);
+        fill: var(--accent-redesigned);
+    }
+
+}
+
+
+.isSelected {
+    cursor: auto;
+}

@@ -3,7 +3,7 @@ import { ArticleDetailsSchema } from '../types/articleDetailsSchema';
 import { buildSlice } from '@/shared/lib/store';
 
 const initialState: ArticleDetailsSchema = {
-    isLoading: false,
+    isLoading: true,
     error: undefined,
     data: undefined,
 };

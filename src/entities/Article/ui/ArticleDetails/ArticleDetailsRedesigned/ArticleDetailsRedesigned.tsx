@@ -38,14 +38,14 @@ export const ArticleDetailsRedesigned = memo((props: ArticleDetailsProps) => {
     if (isLoading) {
         content = (
             <>
+
+                <Skeleton className={cls.title} width="50%" height={40} />
+                <Skeleton className={cls.skeleton} width="25%" height={32} />
                 <Skeleton
                     className={cls.avatar}
-                    width={200}
-                    height={200}
-                    border="50%"
+                    width="100%"
+                    height={420}
                 />
-                <Skeleton className={cls.title} width={300} height={32} />
-                <Skeleton className={cls.skeleton} width={600} height={24} />
                 <Skeleton className={cls.skeleton} width="100%" height={150} />
                 <Skeleton className={cls.skeleton} width="100%" height={150} />
             </>

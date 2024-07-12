@@ -87,6 +87,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
     return (
         <Card
             padding="24"
+            border="partial"
             className={classNames('', {}, [className, getVStack(stackOptions)])}
         >
             {data?.avatar && (

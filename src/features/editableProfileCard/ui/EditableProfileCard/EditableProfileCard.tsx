@@ -21,6 +21,7 @@ import { fetchProfileData } from '../../model/services/fetchProfileData/fetchPro
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { ToggleFeatures } from '@/shared/lib/features';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 interface EditableProfileCardProps {
     className?: string;
@@ -129,7 +130,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames('', {}, [className])}>
+            <VStack gap="16" className={classNames('', {}, [className])}>
                 <EditableProfileCardHeader />
                 {validateErrors?.length &&
                     validateErrors.map((err) => (
@@ -176,7 +177,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
                     )}
                 />
 
-            </div>
+            </VStack>
         </DynamicModuleLoader>
     );
 });

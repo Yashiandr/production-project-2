@@ -3,8 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { ArticleList, ArticlesView } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text, TextSize, TextTheme } from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated, TextSize, TextTheme } from '@/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
 import { useArticleRecommendationsList } from '../../api/articleRecommendationsApi';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface ArticleRecommendationsListProps {
     className?: string;
@@ -22,10 +24,20 @@ export const ArticleRecommendationsList = memo(
 
         if (error) {
             return (
-                <Text
-                    theme={TextTheme.ERROR}
-                    title={t('Невозможно загрузить рекомендации')}
+                <ToggleFeatures
+                    feature="isAppRedesign" on={(
+                    <Text
+                        variant="error"
+                        title={t('Невозможно загрузить рекомендации')}
+                    />
+                )} off={(
+                    <TextDeprecated
+                        theme={TextTheme.ERROR}
+                        title={t('Невозможно загрузить рекомендации')}
+                    />
+                )}
                 />
+
             );
         }
 
@@ -36,7 +48,15 @@ export const ArticleRecommendationsList = memo(
                 gap="8"
                 className={classNames('', {}, [className])}
             >
-                <Text title={t('Рекомендуем')} size={TextSize.L} />
+                <ToggleFeatures
+                    feature="isAppRedesign"
+                    on={
+                        <Text title={t('Рекомендуем')} size="l" />
+                    }
+                    off={
+                        <TextDeprecated title={t('Рекомендуем')} size={TextSize.L} />
+                    }
+                />
                 <ArticleList
                     view={ArticlesView.SMALL}
                     virtuoso={false}

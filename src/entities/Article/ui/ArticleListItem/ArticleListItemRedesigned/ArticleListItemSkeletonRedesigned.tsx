@@ -42,7 +42,7 @@ export const ArticleListItemSkeletonRedesigned = memo(
         return (
 
                 <Card
-                    border="round" className={classNames(
+                    border="partial" className={classNames(
                     cls.cardSkeleton,
                     {},
                     [cls[view]],

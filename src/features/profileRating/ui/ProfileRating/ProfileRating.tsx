@@ -1,16 +1,16 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { RatingCard } from '@/entities/Rating';
-import {
-    useGetProfileRating,
-    useRateProfile,
-} from '../../api/profileRatingApi';
+import { useGetProfileRating, useRateProfile } from '../../api/profileRatingApi';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
 import { selectUserAuthData } from '@/entities/User';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
 import * as cls from './ProfileRating.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Card } from '@/shared/ui/deprecated/Card';
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Card } from '@/shared/ui/redesigned/Card';
+import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 
 export interface ProfileRatingProps {
     className?: string;
@@ -63,12 +63,24 @@ const ProfileRating = memo((props: ProfileRatingProps) => {
         return null;
     }
 
+    const Loading = (
+        <ToggleFeatures
+            feature="isAppRedesign"
+            on={(
+                <Card className={cls.ProfileRating}>
+                    <Skeleton width="100%" height={118} />
+                </Card>
+            )}
+            off={(
+                <CardDeprecated className={cls.ProfileRating}>
+                    <SkeletonDeprecated width="100%" height={118} />
+                </CardDeprecated>
+            )}
+        />
+    );
+
     if (isLoading) {
-        return (
-            <Card className={cls.ProfileRating}>
-                <Skeleton width="100%" height={118} />
-            </Card>
-        );
+        return Loading;
     }
 
     const rating = data?.[0];

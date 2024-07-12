@@ -100,7 +100,7 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
             ])}
         >
             <Card
-                border="round" className={classNames(
+                border="partial" className={classNames(
                 cls.card,
                 {},
                 [getVStack({ gap: '8' })],
