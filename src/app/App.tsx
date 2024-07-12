@@ -7,9 +7,10 @@ import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 import { AppRouter } from './providers/router';
-import { PageLoader } from '@/widgets/PageLoader';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { MainLayout } from '@/shared/layouts/MainLayout';
+import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayuot';
+import { PageLoader } from '@/widgets/PageLoader';
 
 function App() {
     const dispatch = useAppDispatch();
@@ -20,7 +21,21 @@ function App() {
     }, [dispatch]);
 
     if (!inited) {
-        return <PageLoader />;
+        return (
+            <ToggleFeatures
+                feature="isAppRedesign"
+                on={(
+                    <div id="app" className={classNames('app_redesigned', {}, [])}>
+                        <AppLoaderLayout />
+                    </div>
+                )}
+                off={(
+                    <div id="app" className={classNames('app', {}, [])}>
+                        <PageLoader />
+                    </div>
+                )}
+            />
+        );
     }
 
     return (
