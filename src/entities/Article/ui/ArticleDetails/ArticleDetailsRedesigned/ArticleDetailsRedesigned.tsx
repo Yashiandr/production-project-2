@@ -39,15 +39,14 @@ export const ArticleDetailsRedesigned = memo((props: ArticleDetailsProps) => {
         content = (
             <>
 
-                <Skeleton className={cls.title} width="50%" height={40} />
-                <Skeleton className={cls.skeleton} width="25%" height={32} />
+                <Skeleton width="50%" height={40} />
+                <Skeleton width="25%" height={32} />
                 <Skeleton
-                    className={cls.avatar}
                     width="100%"
                     height={420}
                 />
-                <Skeleton className={cls.skeleton} width="100%" height={150} />
-                <Skeleton className={cls.skeleton} width="100%" height={150} />
+                <Skeleton width="100%" height={150} />
+                <Skeleton width="100%" height={150} />
             </>
         );
     } else if (error) {

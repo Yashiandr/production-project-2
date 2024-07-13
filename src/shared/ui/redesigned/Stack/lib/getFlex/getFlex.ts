@@ -10,6 +10,7 @@ export function getFlex(args: FlexArgs) {
         gap,
         wrap = 'nowrap',
         max,
+        fullHeight,
     } = args;
     const justifyClasses: Record<FlexJustify, string> = {
         start: cls.justifyStart,
@@ -45,6 +46,7 @@ export function getFlex(args: FlexArgs) {
 
     const mods: Mods = {
         [cls.max]: max,
+        [cls.fullHeight]: fullHeight,
     };
 
     const classes = [

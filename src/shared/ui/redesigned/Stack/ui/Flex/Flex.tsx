@@ -11,10 +11,11 @@ export const Flex = (props: FlexProps) => {
         direction = 'row',
         gap,
         max,
+        fullHeight,
         ...otherProps
     } = props;
 
-    const classes = getFlex({ justify, align, direction, gap, max });
+    const classes = getFlex({ justify, align, direction, gap, max, fullHeight });
 
     return (
         <div className={classNames('', {}, [classes, className])} {...otherProps}>

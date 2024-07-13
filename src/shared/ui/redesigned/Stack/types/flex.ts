@@ -18,6 +18,7 @@ export interface FlexArgs {
     gap?: FlexGap;
     wrap?: FlexWrap;
     max?: boolean;
+    fullHeight?: boolean;
 }
 
 export interface FlexProps extends DivProps, FlexArgs{
