@@ -42,7 +42,7 @@ export const Modal = (props: ModalProps) => {
                 toggleFeatures({
                     name: 'isAppRedesign',
                     on: () => cls.modalNew,
-                    off: () => cls.modelOld,
+                    off: () => cls.modalOld,
                 })])}
             >
                 <Overlay onClick={close} />

@@ -5,6 +5,9 @@ import { StyleDecorator } from '@/shared/config/storybook/StyleDecorator/StyleDe
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { TranslationDecorator } from '@/shared/config/storybook/TranslationDecorator/TranslationDecorator';
 import { Theme } from '@/shared/const/theme';
+import {
+    FeaturesFlagsDecorator,
+} from '../../src/shared/config/storybook/FeaturesFlagsDecorator/FeaturesFlagsDecorator';
 
 const preview: Preview = {
     parameters: {
@@ -30,14 +33,18 @@ const preview: Preview = {
                     name: 'Orange',
                     value: '#FFFFFF',
                 },
-            ],
-        },
-        themes: {
-            default: 'Light',
-            list: [
-                { name: 'Light', class: Theme.LIGHT, color: '#fff' },
-                { name: 'Dark', class: Theme.DARK, color: '#000' },
-                { name: 'Orange', class: Theme.ORANGE, color: '#ff9900' },
+                {
+                    name: 'LightRedesigned',
+                    value: '#EFF5F6',
+                },
+                {
+                    name: 'DarkRedesigned',
+                    value: '#0C1214',
+                },
+                {
+                    name: 'OrangeRedesigned',
+                    value: '#F0C048',
+                },
             ],
         },
     },
@@ -64,6 +71,7 @@ const preview: Preview = {
         RouteDecorator,
         TranslationDecorator,
         ThemeDecorator,
+        FeaturesFlagsDecorator({}),
     ],
 
     tags: ['autodocs'],

@@ -41,7 +41,7 @@ const DeprecatedSidebar = memo(({ className }: SidebarProps) => {
     return (
         <aside
             data-testid="sidebar"
-            className={classNames(cls.Sidebar, { [cls.collapsedDeprecated]: collapsed }, [
+            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
                 className,
             ])}
         >
@@ -52,7 +52,7 @@ const DeprecatedSidebar = memo(({ className }: SidebarProps) => {
                 theme={ButtonTheme.BACKGROUND_INVERTED}
                 square
                 size={ButtonSize.L}
-                className={cls.collapsBtnDeprecated}
+                className={cls.collapsBtn}
             >
                 {collapsed ? '>' : '<'}
             </Button>
@@ -98,7 +98,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                     <aside
                         data-testid="sidebar"
                         className={classNames(cls.SidebarRedesigned, {
-                            [cls.collapsed]: collapsed,
+                            [cls.collapsedRedesigned]: collapsed,
                         }, [
                             className,
                         ])}

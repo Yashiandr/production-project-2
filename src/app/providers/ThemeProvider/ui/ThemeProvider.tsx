@@ -1,7 +1,6 @@
 import { FC, PropsWithChildren, useMemo, useState, useEffect } from 'react';
 import { ThemeContext } from '@/shared/lib/context/ThemeContext';
 import { Theme } from '@/shared/const/theme';
-import { useJsonSettings } from '@/entities/User';
 import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localstorage';
 
 interface ThemeProviderProps {
@@ -16,17 +15,16 @@ export const ThemeProvider: FC<PropsWithChildren<ThemeProviderProps>> = (
     props,
 ) => {
     const { initialTheme, children } = props;
-    const { theme: defaultTheme } = useJsonSettings();
     const [isThemeInited, setThemeInited] = useState(false);
 
     const [theme, setTheme] = useState<Theme>(initialTheme || fallbackTheme || Theme.ORANGE);
 
     useEffect(() => {
-        if (!isThemeInited && defaultTheme) {
-            setTheme(defaultTheme);
+        if (!isThemeInited && initialTheme) {
+            setTheme(initialTheme);
             setThemeInited(true);
         }
-    }, [defaultTheme, isThemeInited]);
+    }, [initialTheme, isThemeInited]);
 
     const defaultProps = useMemo(
         () => ({

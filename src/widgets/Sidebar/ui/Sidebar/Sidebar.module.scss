@@ -25,7 +25,7 @@
 }
 
 
-.collapsBtnDeprecated {
+.collapsBtn {
     position: absolute;
     left: var(--sidebar-width);
     bottom: 2rem;
@@ -46,7 +46,7 @@
 }
 
 
-.collapsedDeprecated {
+.collapsed {
     min-width: var(--sidebar-width-collapsed);
     max-width: var(--sidebar-width-collapsed);
 
@@ -110,7 +110,7 @@
     }
 }
 
-.collapsed {
+.collapsedRedesigned {
     width: 3.125rem;
 
     .collapsBtn {

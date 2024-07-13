@@ -53,7 +53,7 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
         return (
             <Card
                 padding="24"
-                className={classNames(cls.ArticleListItem, {}, [
+                className={classNames('', {}, [
                     className,
                     cls[view],
                     getVStack({

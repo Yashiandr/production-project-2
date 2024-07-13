@@ -1,4 +1,4 @@
-import { Suspense, useEffect } from 'react';
+import { Suspense, useEffect, memo } from 'react';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import { selectUserInited, initAuthData } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -12,8 +12,9 @@ import { MainLayout } from '@/shared/layouts/MainLayout';
 import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayuot';
 import { PageLoader } from '@/widgets/PageLoader';
 import { useAppToolbar } from './lib/useAppToolbar';
+import { withTheme } from './providers/ThemeProvider/ui/withTheme';
 
-function App() {
+const App = memo(() => {
     const dispatch = useAppDispatch();
     const inited = useAppSelector(selectUserInited);
     const toolbar = useAppToolbar();
@@ -68,6 +69,6 @@ function App() {
             )}
         />
     );
-}
+});
 
-export default App;
+export default withTheme(App);

@@ -2,6 +2,7 @@ import { Decorator } from '@storybook/react';
 // eslint-disable-next-line yashiandr-app-plugin/layer-imports
 import { ThemeProvider } from '@/app/providers/ThemeProvider';
 import { Theme } from '../../../const/theme';
+import { toggleFeatures } from '../../../lib/features';
 
 export const ThemeDecorator: Decorator = (StoryComponent, { globals }) => {
     const { theme } = globals;
@@ -15,7 +16,12 @@ export const ThemeDecorator: Decorator = (StoryComponent, { globals }) => {
 
     return (
         <ThemeProvider>
-            <div className="app">
+            <div className={toggleFeatures({
+                name: 'isAppRedesign',
+                on: () => 'app',
+                off: () => 'app_redesigned',
+            })}
+            >
                 <StoryComponent />
             </div>
         </ThemeProvider>
