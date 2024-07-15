@@ -33,7 +33,7 @@ export const AdditionalInfoContainer = memo((props: AdditionalInfoContainerProps
     if (isLoading) {
         return (
             <Card className={classNames(cls.card, {}, [className, cls[view]])} border="round">
-                <Skeleton width="100%" height="182px" />
+                <Skeleton width="100%" height={isBrowser ? '182px' : '0'} />
             </Card>
         );
     }

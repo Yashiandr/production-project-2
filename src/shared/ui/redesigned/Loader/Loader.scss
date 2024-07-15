@@ -6,6 +6,24 @@
     align-items: center;
     justify-content: center;
     animation: roll 15s linear infinite;
+
+    &.new {
+        .react-ball {
+            background-color: var(--accent-redesigned);
+
+        }
+        .react-ellipse {
+            border: .25rem solid var(--accent-redesigned);
+        }
+    }
+    &.old {
+        .react-ball {
+            background-color: var(--primary-color);
+        }
+        .react-ellipse {
+            border: .25rem solid var(--primary-color);
+        }
+    }
 }
 
 .react-ball {
@@ -13,7 +31,6 @@
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
-    background-color: var(--primary-color);
 }
 
 .react-ellipse {
@@ -21,7 +38,6 @@
     width: 4rem;
     height: 12rem;
     border-radius: 50%;
-    border: 0.6vw solid var(--primary-color);
 }
 
 .ellipse1 {

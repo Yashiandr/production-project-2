@@ -38,7 +38,6 @@ export const ArticleDetailsRedesigned = memo((props: ArticleDetailsProps) => {
     if (isLoading) {
         content = (
             <>
-
                 <Skeleton width="50%" height={40} />
                 <Skeleton width="25%" height={32} />
                 <Skeleton

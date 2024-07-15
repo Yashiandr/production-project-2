@@ -45,15 +45,15 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     }
 
     const content = (
-<Page
-        className={classNames(cls.ArticleDetailsPage, {}, [className])}
->
-        <DetailsContainer />
-        <ArticleRating articleId={id} />
-        <ArticleRecommendationsList />
-        <ArticleDetailsComments id={id} />
-</Page>
-);
+        <Page
+            className={classNames(cls.ArticleDetailsPage, {}, [className])}
+        >
+            <DetailsContainer />
+            <ArticleRating articleId={id} />
+            <ArticleRecommendationsList />
+            <ArticleDetailsComments id={id} />
+        </Page>
+    );
 
     return (
         <DynamicModuleLoader reducers={reducers}>
@@ -61,12 +61,12 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                 feature="isAppRedesign"
                 on={(
                     <>
-                    <BrowserView>
-                        <StickyContentLayout
-                            content={content}
-                            right={<AdditionalInfoContainer />}
-                        />
-                    </BrowserView>
+                        <BrowserView>
+                            <StickyContentLayout
+                                content={content}
+                                right={<AdditionalInfoContainer />}
+                            />
+                        </BrowserView>
                         <MobileView>
                             <MobileContentLayout
                                 content={content}

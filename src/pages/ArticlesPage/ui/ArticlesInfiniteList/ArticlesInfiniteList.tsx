@@ -3,13 +3,17 @@ import { useTranslation } from 'react-i18next';
 import { ArticleList } from '@/entities/Article';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
-import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated, TextTheme } from '@/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
 import { selectArticlesPageError } from '../../model/selectors/selectArticlesPageError/selectArticlesPageError';
-import { selectArticlesPageIsLoading } from '../../model/selectors/selectArticlesPageIsLoading/selectArticlesPageIsLoading';
+import {
+    selectArticlesPageIsLoading,
+} from '../../model/selectors/selectArticlesPageIsLoading/selectArticlesPageIsLoading';
 import { selectArticlePageView } from '../../model/selectors/selectArticlesPageView/selectArticlePageView';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { getArticles } from '../../model/slice/articlesPageSlice';
 import { selectArticlesPageLimit } from '../../model/selectors/selectArticlesPageLimit/selectArticlesPageLimit';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 export const ArticlesInfiniteList = memo(() => {
     const { t } = useTranslation('articles');
@@ -26,10 +30,22 @@ export const ArticlesInfiniteList = memo(() => {
 
     if (error) {
         return (
-            <Text
-                title={t('Не удалось загрузить статьи')}
-                theme={TextTheme.ERROR}
+            <ToggleFeatures
+                feature="isAppRedesign"
+                on={(
+                    <Text
+                        title={t('Не удалось загрузить статьи')}
+                        variant="error"
+                    />
+                )}
+                off={(
+                    <TextDeprecated
+                        title={t('Не удалось загрузить статьи')}
+                        theme={TextTheme.ERROR}
+                    />
+                )}
             />
+
         );
     }
     return (
