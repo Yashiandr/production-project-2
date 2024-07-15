@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
+import { BrowserView, MobileView } from 'react-device-detect';
 import { ArticleDetails } from '@/entities/Article';
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -17,6 +18,7 @@ import { Card } from '@/shared/ui/deprecated/Card';
 import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { DetailsContainer } from '../DetailsContainer/DetailsContainer';
 import { AdditionalInfoContainer } from '../AdditionalInfoContainer/AdditionalInfoContainer';
+import { MobileContentLayout } from '@/shared/layouts/MobileContentLayout';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -42,24 +44,37 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
         );
     }
 
+    const content = (
+<Page
+        className={classNames(cls.ArticleDetailsPage, {}, [className])}
+>
+        <DetailsContainer />
+        <ArticleRating articleId={id} />
+        <ArticleRecommendationsList />
+        <ArticleDetailsComments id={id} />
+</Page>
+);
+
     return (
         <DynamicModuleLoader reducers={reducers}>
             <ToggleFeatures
                 feature="isAppRedesign"
                 on={(
-                    <StickyContentLayout
-                        content={(
-                            <Page
-                                className={classNames(cls.ArticleDetailsPage, {}, [className])}
-                            >
-                                <DetailsContainer />
-                                <ArticleRating articleId={id} />
-                                <ArticleRecommendationsList />
-                                <ArticleDetailsComments id={id} />
-                            </Page>
-                        )}
-                        right={<AdditionalInfoContainer />}
-                    />
+                    <>
+                    <BrowserView>
+                        <StickyContentLayout
+                            content={content}
+                            right={<AdditionalInfoContainer />}
+                        />
+                    </BrowserView>
+                        <MobileView>
+                            <MobileContentLayout
+                                content={content}
+                                header={<AdditionalInfoContainer />}
+                            />
+                        </MobileView>
+                    </>
+
                 )}
                 off={(
                     <Page

@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
+import { BrowserView, MobileView } from 'react-device-detect';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { User } from '@/entities/User';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
@@ -24,19 +25,37 @@ export const ArticleAdditionalInfo = memo((props: ArticleAdditionalInfoProps) =>
         onEdit,
     } = props;
     const { t } = useTranslation();
-    return (
-        <VStack
-            gap="32"
-            align="start"
-            className={classNames('', {}, [className])}
-        >
+
+    const content = (
+        <>
             <HStack gap="8">
                 <Avatar src={author?.avatar} size={32} />
                 <Text text={author?.username} bold />
                 <Text text={createdAt} />
             </HStack>
-            <Button onClick={onEdit}>{t('Редактировать')}</Button>
             <Text text={t('просмотров', { count: views })} />
-        </VStack>
+            <Button onClick={onEdit}>{t('Редактировать')}</Button>
+        </>
+    );
+    return (
+        <>
+            <BrowserView>
+                <VStack
+                    gap="32"
+                    align="start"
+                    className={classNames('', {}, [className])}
+                >
+                    {content}
+                </VStack>
+            </BrowserView>
+            <MobileView>
+                <HStack
+                    justify="between"
+                    gap="8"
+                >
+                    {content}
+                </HStack>
+            </MobileView>
+        </>
     );
 });

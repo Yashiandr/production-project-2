@@ -45,6 +45,7 @@ export function useModal({ onClose, isOpen, animationDelay }: UseModalProps) {
         if (isOpen) {
             setIsMounted(true);
             setIsClosing(true);
+
             timerRef.current = setTimeout(() => {
                 setIsClosing(false);
             }, animationDelay / 3);

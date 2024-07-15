@@ -1,30 +1,17 @@
-.InputWrapper {
+.TextareaInput {
     transition: border .2s ease-in-out;
-    border-radius: 3rem;
-    padding: .375rem 1rem;
+    border-radius: 2rem;
+    padding: .5rem 1rem;
     border: .125rem solid var(--icon-redesigned);
-    width: 100%;
-}
-
-.withAddonLeft {
-    padding-left: .5rem;
-}
-
-.withAddonRight {
-    padding-right: .5rem;
-}
-
-.input {
+    line-height: 18px;
     width: 100%;
     color: var(--text-redesigned);
+    height: 2.375rem;
+    overflow: hidden;
 
     &::placeholder {
         color: var(--hint-redesigned);
     }
-}
-
-.readonly {
-    opacity: .7;
 }
 
 .focused {
@@ -34,8 +21,4 @@
     .addonRight svg {
         color: var(--accent-redesigned);
     }
-}
-
-.label {
-    text-wrap: nowrap;
 }
