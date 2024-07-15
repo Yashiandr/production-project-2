@@ -1,3 +1,7 @@
+export {
+    useSelectArticleDetailsIsLoading,
+} from './model/selectors/selectArticleDetailsIsLoading/selectArticleDetailsIsLoading';
+
 export { ArticleList } from './ui/ArticleList/ArticleList';
 
 export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';

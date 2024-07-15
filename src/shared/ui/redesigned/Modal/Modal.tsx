@@ -6,16 +6,26 @@ import { Overlay } from '../Overlay';
 import * as cls from './Modal.module.scss';
 import { toggleFeatures } from '../../../lib/features';
 
+type PopUpDirection = 'center' | 'left' | 'right';
+
 interface ModalProps {
     className?: string;
     children?: ReactNode;
     isOpen?: boolean;
     onClose?: () => void;
     lazy?: boolean;
+    direction?: PopUpDirection;
 }
 
 export const Modal = (props: ModalProps) => {
-    const { className, children, isOpen, onClose, lazy = true } = props;
+    const {
+        className,
+        children,
+        isOpen,
+        onClose,
+        lazy = true,
+        direction = 'center',
+    } = props;
 
     const { close, isMounted, isClosing } = useModal({
         animationDelay: 300,
@@ -38,7 +48,7 @@ export const Modal = (props: ModalProps) => {
 
     return (
         <Portal element={document.getElementById('app') ?? document.body}>
-            <div className={classNames(cls.Modal, mods, [className,
+            <div className={classNames(cls.Modal, mods, [className, cls[direction],
                 toggleFeatures({
                     name: 'isAppRedesign',
                     on: () => cls.modalNew,
@@ -46,7 +56,7 @@ export const Modal = (props: ModalProps) => {
                 })])}
             >
                 <Overlay onClick={close} />
-                <div className={cls.content} onClick={onContentClick}>
+                <div className={classNames(cls.content, {}, [cls[direction]])} onClick={onContentClick}>
                     {children}
                 </div>
             </div>

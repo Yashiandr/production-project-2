@@ -11,9 +11,9 @@ import { selectAddCommentFormText } from '../../model/selectors/selectAddComment
 import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
 import * as cls from './AddCommentForm.module.scss';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { Input } from '@/shared/ui/redesigned/Input';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { Card } from '@/shared/ui/redesigned/Card';
+import { TextareaInput } from '@/shared/ui/redesigned/TextareaInput';
 
 export interface AddCommentFormProps {
     className?: string;
@@ -56,11 +56,12 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
                             className,
                             getHStack({
                                 justify: 'between',
+                                align: 'start',
                                 gap: '16',
                             }),
                         ])}
                     >
-                        <Input
+                        <TextareaInput
                             data-testid="AddCommentForm.Input"
                             className={cls.input}
                             placeholder={t('Введите текст комментария')}

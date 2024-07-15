@@ -73,7 +73,7 @@ const DeprecatedSidebar = memo(({ className }: SidebarProps) => {
 });
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
-    const [collapsed, setCollapsed] = useState(isMobile);
+    const [collapsed, setCollapsed] = useState(false);
     const sidebarItemsList = useAppSelector(selectSidebarItems);
 
     const onToggle = () => {

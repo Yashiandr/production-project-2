@@ -6,7 +6,31 @@
     left: 0;
     z-index: 10;
     display: flex;
-    align-items: flex-end;
+
+    &.down {
+        .sheet {
+            left: 2vw;
+            height: calc(100vh + 6.25rem);
+            width: 96vw;
+            border-radius: .75rem .75rem 0;
+        }
+
+    }
+
+    &.left {
+        .sheet {
+            left: 0;
+            max-width: 80%;
+            border-radius: 0 .75rem .75rem 0;
+
+        }
+
+    }
+
+    .transparent.transparent {
+        background: none;
+        padding: 0;
+    }
 }
 
 .opened {
@@ -22,17 +46,13 @@
 .sheet {
     z-index: var(--modal-z-index);
     position: fixed;
-    left: 2vw;
-    height: calc(100vh + 6.25rem);
-    width: 96vw;
-    border-radius: .75rem .75rem 0;
     touch-action: none;
-    padding: 1rem;
 }
 
 .drawerNew {
     .sheet {
         background-color: var(--dark-bg-redesigned);
+        padding: 1rem;
     }
 }
 

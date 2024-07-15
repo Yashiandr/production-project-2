@@ -1,3 +1,8 @@
 .card {
-    width: 16.5rem;
+    &.browser {
+        width: 16.5rem;
+    }
+    &.mobile {
+        text-wrap: nowrap;
+    }
 }

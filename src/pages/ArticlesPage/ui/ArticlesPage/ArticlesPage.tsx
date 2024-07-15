@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { BrowserView, MobileView } from 'react-device-detect';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -16,6 +17,9 @@ import { ToggleFeatures } from '@/shared/lib/features';
 import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { ViewSelectorContainer } from '../ViewSelectorContainer/ViewSelectorContainer';
 import { FilterContainer } from '../FilterContainer/FilterContainer';
+import { MobileContentLayout } from '@/shared/layouts/MobileContentLayout';
+import { ArticlesSearch } from '@/features/ArticlesSearch';
+import { useArticlesFilter } from '../../lib/hooks/useArticlesFilter';
 
 interface ArticlesPageProps {
     className?: string;
@@ -34,23 +38,50 @@ const ArticlesPage = (props: ArticlesPageProps) => {
         dispatch(initArticlesPage(searchParams));
     });
 
+    const { search, onChangeSearch } = useArticlesFilter();
+
     const content = (
         <ToggleFeatures
             feature="isAppRedesign"
             on={(
-                <StickyContentLayout
-                    content={(
-                    <Page
-                        data-testid="ArticlesPage"
-                        className={classNames('', {}, [className])}
-                    >
-                        <ArticlesInfiniteList />
-                        <ArticlePageGreeting />
-                    </Page>
-                )}
-                    left={<ViewSelectorContainer />}
-                    right={<FilterContainer />}
-                />
+                <>
+                    <BrowserView>
+                        <StickyContentLayout
+                            content={(
+                                <Page
+                                    data-testid="ArticlesPage"
+                                    className={classNames('', {}, [className])}
+                                >
+                                    <ArticlesInfiniteList />
+                                    <ArticlePageGreeting />
+                                </Page>
+                            )}
+                            left={<ViewSelectorContainer />}
+                            right={<FilterContainer />}
+                        />
+                    </BrowserView>
+                    <MobileView>
+                        <MobileContentLayout
+                            content={(
+                                <Page
+                                    data-testid="ArticlesPage"
+                                    className={classNames('', {}, [className])}
+                                >
+                                    <ArticlesInfiniteList />
+                                    <ArticlePageGreeting />
+                                </Page>
+                            )}
+                            header={(
+                                <>
+                                    <ArticlesSearch onChangeSearch={onChangeSearch} search={search} />
+                                    <ViewSelectorContainer />
+                                </>
+                            )}
+                            headerSticky
+                            popoverContent={<FilterContainer />}
+                        />
+                    </MobileView>
+                </>
 
             )}
             off={(

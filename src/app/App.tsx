@@ -1,4 +1,6 @@
 import { Suspense, useEffect, memo } from 'react';
+import { BrowserView, MobileView } from 'react-device-detect';
+import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import { selectUserInited, initAuthData } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -9,10 +11,10 @@ import { Sidebar } from '@/widgets/Sidebar';
 import { AppRouter } from './providers/router';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { MainLayout } from '@/shared/layouts/MainLayout';
-import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayuot';
 import { PageLoader } from '@/widgets/PageLoader';
 import { useAppToolbar } from './lib/useAppToolbar';
 import { withTheme } from './providers/ThemeProvider/ui/withTheme';
+import { MobileLayout } from '@/shared/layouts/MobileLayout/MobileLayout';
 
 const App = memo(() => {
     const dispatch = useAppDispatch();
@@ -47,12 +49,17 @@ const App = memo(() => {
             on={(
                 <div id="app" className={classNames('app_redesigned', {}, [])}>
                     <Suspense fallback="">
-                        <MainLayout
-                            header={<Navbar />}
-                            content={<AppRouter />}
-                            sidebar={<Sidebar />}
-                            toolbar={toolbar}
-                        />
+                        <BrowserView>
+                            <MainLayout
+                                header={<Navbar />}
+                                content={<AppRouter />}
+                                sidebar={<Sidebar />}
+                                toolbar={toolbar}
+                            />
+                        </BrowserView>
+                        <MobileView>
+                            <MobileLayout header={<Navbar />} content={<AppRouter />} sidebar={<Sidebar />} toolbar={toolbar} />
+                        </MobileView>
                     </Suspense>
                 </div>
             )}

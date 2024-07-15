@@ -1,17 +1,15 @@
-import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
+import { isBrowser } from 'react-device-detect';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import * as cls from './ArticlesFilter.module.scss';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { ArticlesSortSelector } from '@/features/ArticlesSortSelector';
-import { Input } from '@/shared/ui/redesigned/Input';
 import { ArticlesTypeTabs } from '@/features/ArticlesTypeTabs';
 import { getVStack } from '@/shared/ui/redesigned/Stack';
 import { ArticleSortField, ArticleType } from '@/entities/Article';
 import { SortOrder } from '@/shared/types/sort';
 import { TabItem } from '@/shared/ui/deprecated/Tabs';
-import SearchIcon from '@/shared/assets/redesignIcons/Search.svg?react';
-import { Icon } from '@/shared/ui/redesigned/Icon';
+import { ArticlesSearch } from '@/features/ArticlesSearch';
 
 interface ArticlesFilterProps {
     className?: string;
@@ -37,19 +35,13 @@ export const ArticlesFilter = memo((props: ArticlesFilterProps) => {
         search,
         onChangeSearch,
     } = props;
-    const { t } = useTranslation('articles');
 
     return (
         <Card
             padding="24"
             className={classNames(cls.ArticlesFilter, {}, [className, getVStack({ gap: '32', align: 'start' })])}
         >
-            <Input
-                placeholder={t('Поиск')}
-                onChange={onChangeSearch}
-                value={search}
-                addonLeft={<Icon Svg={SearchIcon} />}
-            />
+            {isBrowser && <ArticlesSearch onChangeSearch={onChangeSearch} search={search} />}
             <ArticlesTypeTabs onChangeType={onChangeType} type={type} />
             <ArticlesSortSelector
                 sort={sort}
