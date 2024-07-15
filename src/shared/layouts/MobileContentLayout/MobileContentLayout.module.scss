@@ -8,13 +8,13 @@
 .header {
     display: flex;
     width: 100%;
-    z-index: var(--navbar-z-index);
     overflow: auto;
     * {background-color: var(--bg-redesigned)};
 
     &.sticky {
         position: sticky;
         top: var(--navbar-redesighed-height);
+        z-index: var(--navbar-z-index);
     }
 }
 

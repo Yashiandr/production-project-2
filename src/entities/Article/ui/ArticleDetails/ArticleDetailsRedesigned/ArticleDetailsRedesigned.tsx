@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -23,7 +22,6 @@ import { AppImage } from '@/shared/ui/redesigned/AppImage';
 
 export const ArticleDetailsRedesigned = memo((props: ArticleDetailsProps) => {
     const { className, id } = props;
-    const { t } = useTranslation(['article', 'translation']);
     const dispatch = useAppDispatch();
     const isLoading = useSelectArticleDetailsIsLoading();
     const article = useSelectArticleDetailsData();
@@ -59,13 +57,7 @@ export const ArticleDetailsRedesigned = memo((props: ArticleDetailsProps) => {
             </VStack>
         );
     } else if (!article) {
-        content = (
-            <Text
-                title={t('Ошибка', { ns: 'translation' })}
-                align="center"
-                variant="error"
-            />
-        );
+        content = null;
     } else {
         content = (
             <>
