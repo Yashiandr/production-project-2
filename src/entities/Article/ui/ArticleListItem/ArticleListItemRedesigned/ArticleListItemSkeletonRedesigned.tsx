@@ -13,7 +13,7 @@ export const ArticleListItemSkeletonRedesigned = memo(
             return (
                 <Card
                     padding="24"
-                    className={classNames(cls.ArticleListItem, {}, [
+                    className={classNames('', {}, [
                         cls[view],
                         getVStack({
                             max: true,

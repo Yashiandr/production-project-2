@@ -28,11 +28,22 @@ export const ArticleTextBlockComponent = memo(
                         off={<TextDeprecated title={block.title} size={TextSize.S} />}
                     />
                 )}
-                {block.paragraphs.map((paragraph) => (
+                {block.paragraphs.map((paragraph, index) => (
                     <ToggleFeatures
+                        key={index}
                         feature="isAppRedesign"
-                        on={<TextRedesigned text={paragraph} key={paragraph} />}
-                        off={<TextDeprecated text={paragraph} key={paragraph} />}
+                        on={(
+                            <TextRedesigned
+                                text={paragraph}
+                                key={index}
+                            />
+                        )}
+                        off={(
+                            <TextDeprecated
+                                text={paragraph}
+                                key={index}
+                            />
+                        )}
                     />
                 ))}
             </VStack>

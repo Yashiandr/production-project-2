@@ -52,6 +52,7 @@ export const ArticlesViewSelector = memo((props: ArticlesViewSelectorProps) => {
                 <HStack className={classNames(cls.ArticlesViewSelector, {}, [className])}>
                     {viewType.map((viewType) => (
                         <div
+                            key={viewType.view}
                             onClick={onClick(viewType.view)}
                             className={classNames(cls.viewSelector, {
                             [cls.selected]: viewType.view === view,

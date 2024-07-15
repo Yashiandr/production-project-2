@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, memo, PropsWithChildren, ReactNode } from 'react';
+import React, { ButtonHTMLAttributes, PropsWithChildren, ReactNode, forwardRef, ForwardedRef } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import * as cls from './Button.module.scss';
 import { getHStack } from '../Stack';
@@ -20,7 +20,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     addonRight?: ReactNode;
 }
 
-export const Button = memo((props: PropsWithChildren<ButtonProps>) => {
+export const Button = forwardRef((props: PropsWithChildren<ButtonProps>, ref: ForwardedRef<HTMLButtonElement>) => {
     const {
         className,
         children,
@@ -45,6 +45,7 @@ export const Button = memo((props: PropsWithChildren<ButtonProps>) => {
     return (
 
         <button
+            ref={ref}
             type="button"
             className={classNames(cls.Button, mods, additionalClasses)}
             disabled={disabled}

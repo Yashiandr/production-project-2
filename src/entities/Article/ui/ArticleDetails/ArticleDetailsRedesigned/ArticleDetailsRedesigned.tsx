@@ -86,7 +86,7 @@ export const ArticleDetailsRedesigned = memo((props: ArticleDetailsProps) => {
                     className={cls.img}
                 />
                 <VStack gap="16" max align="stretch">
-                    {article.blocks?.map(renderBlock)}
+                     {article.blocks?.map(renderBlock)}
                 </VStack>
             </>
         );
