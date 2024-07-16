@@ -2,20 +2,40 @@
     transition: border .2s ease-in-out;
     border-radius: 2rem;
     padding: .5rem 1rem;
-    border: .125rem solid var(--icon-redesigned);
     line-height: 18px;
     width: 100%;
     color: var(--text-redesigned);
     height: 2.375rem;
     overflow: hidden;
 
+    &.normal {
+        border: .125rem solid var(--icon-redesigned);
+    }
+    &.transparent {
+        border: none;
+        padding: .375rem 0;
+    }
+    &.code {
+        padding: 1.25rem;
+        background: var(--light-bg-redesigned);
+        border: 0.0625rem solid var(--icon-redesigned);
+        border-radius: 1rem;
+    }
     &::placeholder {
         color: var(--hint-redesigned);
     }
 }
 
 .focused {
-    border: 0.125rem solid var(--accent-redesigned);
+    &.normal {
+        border: 0.125rem solid var(--accent-redesigned);
+    }
+    &.transparent {
+        border: none;
+    }
+    &.code {
+        border: 0.0625rem solid var(--accent-redesigned);
+    }
 
     .addonLeft svg,
     .addonRight svg {

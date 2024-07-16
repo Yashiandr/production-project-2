@@ -6,8 +6,10 @@ import { Text } from '../Text';
 
 type HTMLInputProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,
-    'value' | 'onChange' | 'readOnly'
+    'value' | 'onChange' | 'readOnly' | 'size'| 'onBlue' | 'onFocus'
 >;
+
+type InputSize = 's' | 'm' | 'l' | 'xl'
 
 interface InputProps extends HTMLInputProps {
     className?: string;
@@ -18,6 +20,11 @@ interface InputProps extends HTMLInputProps {
     readonly?: boolean;
     addonLeft?: ReactNode;
     addonRight?: ReactNode;
+    transparent?: boolean;
+    size?: InputSize;
+    bold?: boolean;
+    onBlur?: () => void;
+    onFocus?: () => void
 }
 
 export const Input = memo((props: InputProps) => {
@@ -32,6 +39,11 @@ export const Input = memo((props: InputProps) => {
         readonly,
         addonLeft,
         addonRight,
+        transparent,
+        size = 'm',
+        bold,
+        onBlur,
+        onFocus,
         ...otherProps
     } = props;
 
@@ -43,11 +55,13 @@ export const Input = memo((props: InputProps) => {
 
     const [isFocused, setIsFocused] = useState(false);
 
-    const onBlur = () => {
+    const onBlurHandler = () => {
+        onBlur?.();
         setIsFocused(false);
     };
 
-    const onFocus = () => {
+    const onFocusHandler = () => {
+        onFocus?.();
         setIsFocused(true);
     };
 
@@ -61,8 +75,11 @@ export const Input = memo((props: InputProps) => {
     const mods: Mods = {
         [cls.readonly]: readonly,
         [cls.focused]: isFocused,
+        [cls.transparent]: transparent,
         [cls.withAddonLeft]: Boolean(addonLeft),
         [cls.withAddonRight]: Boolean(addonRight),
+        [cls.withLabel]: Boolean(label),
+        [cls.bold]: bold,
     };
 
     const inputContent = (
@@ -76,12 +93,12 @@ export const Input = memo((props: InputProps) => {
             )}
             <input
                 ref={ref}
-                className={cls.input}
+                className={classNames(cls.input, {}, [cls[size]])}
                 value={value}
                 onChange={onChangeHandler}
                 type={type}
-                onFocus={onFocus}
-                onBlur={onBlur}
+                onFocus={onFocusHandler}
+                onBlur={onBlurHandler}
                 readOnly={readonly}
                 placeholder={placeholder}
                 {...otherProps}
@@ -96,7 +113,10 @@ export const Input = memo((props: InputProps) => {
 
     return label ? (
         <HStack max gap="8">
-            <Text text={label} className={cls.label} />
+            <Text
+                text={`${label}:`}
+                className={cls.label}
+            />
             {inputContent}
         </HStack>
     ) : inputContent;

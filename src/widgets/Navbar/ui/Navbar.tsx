@@ -15,6 +15,7 @@ import { getRouteArticleCreate } from '@/shared/const/router';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { Text } from '@/shared/ui/redesigned/Text';
+import { CreateArticleButton } from '@/features/CreateArticleButton';
 
 interface NavbarProps {
     className?: string;
@@ -91,6 +92,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 feature="isAppRedesign" on={(
                 <header className={classNames(cls.NavbarRedesigned, {}, [className])}>
                     <HStack gap="16" className={cls.actions}>
+                        <CreateArticleButton />
                         <NotificationButton />
                         <AvatarDropdown authData={authData} />
                     </HStack>

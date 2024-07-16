@@ -4,10 +4,30 @@
     padding: .375rem 1rem;
     border: .125rem solid var(--icon-redesigned);
     width: 100%;
+
+    &.bold {
+        .input {
+            font-weight: 700;
+        }
+    }
+
+    &.transparent {
+        border: none;
+        padding: .375rem 0;
+
+        &.focused {
+            border: none;
+            color: var(--accent-redesigned);
+        }
+    }
 }
 
 .withAddonLeft {
     padding-left: .5rem;
+}
+
+.withLabel {
+    padding-left: 0;
 }
 
 .withAddonRight {
@@ -20,6 +40,20 @@
 
     &::placeholder {
         color: var(--hint-redesigned);
+    }
+
+    &.s {
+        font: var(--font-s-redesigned);
+    }
+    &.m {
+        font: var(--font-m-redesigned);
+    }
+    &.l {
+        font: var(--font-l-redesigned);
+    }
+    &.xl {
+        font: var(--font-xl-redesigned);
+        font-weight: 700;
     }
 }
 

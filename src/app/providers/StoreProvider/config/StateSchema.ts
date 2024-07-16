@@ -24,6 +24,7 @@ import { ArticlesPageSchema } from '@/pages/ArticlesPage';
 import { rtkApi } from '@/shared/api/rtkApi';
 
 import { AppDispatch } from './store';
+import { ArticleEditPageSchema } from '@/pages/ArticleEditPage';
 
 export interface StateSchema {
     counter: CounterSchema;
@@ -37,6 +38,7 @@ export interface StateSchema {
     articleDetailsRecommendations?: ArticleDetailsPageRecommendationsSchema;
     addCommentForm?: AddCommentFormSchema;
     articlesPage?: ArticlesPageSchema;
+    articleEditPage?: ArticleEditPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

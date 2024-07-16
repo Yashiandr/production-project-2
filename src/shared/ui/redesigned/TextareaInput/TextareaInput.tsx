@@ -1,16 +1,21 @@
-import React, { memo, TextareaHTMLAttributes, ChangeEvent, useState, useRef, useLayoutEffect } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import React, { memo, TextareaHTMLAttributes, ChangeEvent, useState, useRef, useLayoutEffect, useEffect } from 'react';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import * as cls from './TextareaInput.module.scss';
 
 type HTMLTextareaProps = Omit<
     TextareaHTMLAttributes<HTMLTextAreaElement>,
-    'value' | 'onChange'
+    'value' | 'onChange' | 'readOnly'
 >
+
+type TextareaInputVariant = 'normal' | 'transparent' | 'code'
 
 interface TextareaInputProps extends HTMLTextareaProps{
     className?: string;
     value: string;
     onChange?: (value: string) => void;
+    variant?: TextareaInputVariant;
+    readonly?: boolean;
+    autofocus?: boolean;
 }
 
 const MIN_TEXTAREA_HEIGHT = 38;
@@ -20,6 +25,9 @@ export const TextareaInput = memo((props: TextareaInputProps) => {
         className,
         value,
         onChange,
+        variant = 'normal',
+        readonly,
+        autofocus,
         ...otherProps
     } = props;
 
@@ -47,19 +55,31 @@ export const TextareaInput = memo((props: TextareaInputProps) => {
         }
     }, [value]);
 
+    useEffect(() => {
+        if (autofocus) {
+            setIsFocused(true);
+            ref.current?.focus();
+        }
+    }, [autofocus]);
+
     const onFocus = () => {
         setIsFocused(true);
+    };
+
+    const mods: Mods = {
+        [cls.focused]: isFocused,
     };
 
     return (
         <textarea
             ref={ref}
-            className={classNames(cls.TextareaInput, { [cls.focused]: isFocused }, [className])}
+            className={classNames(cls.TextareaInput, mods, [className, cls[variant]])}
             value={value}
             onChange={onChangeHandler}
             onFocus={onFocus}
             onBlur={onBlur}
             rows={1}
+            readOnly={readonly}
             style={{
                 minHeight: MIN_TEXTAREA_HEIGHT,
                 resize: 'none',

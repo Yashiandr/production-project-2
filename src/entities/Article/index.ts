@@ -11,9 +11,15 @@ export {
     useSelectArticleDetailsData,
 } from './model/selectors/selectArticleDetailsData/selectArticleDetailsData';
 
-export type { Article } from './model/types/article';
-
+export type {
+    Article,
+    ArticleBlock,
+    ArticleImageBlock,
+    ArticleCodeBlock,
+    ArticleTextBlock,
+} from './model/types/article';
 export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
+
 export {
     ArticlesView,
     ArticleType,

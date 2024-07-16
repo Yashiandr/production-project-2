@@ -14,6 +14,7 @@ interface ArticleAdditionalInfoProps {
     createdAt?: string;
     views?: number;
     onEdit?: () => void;
+    canEdit?: boolean;
 }
 
 export const ArticleAdditionalInfo = memo((props: ArticleAdditionalInfoProps) => {
@@ -23,6 +24,7 @@ export const ArticleAdditionalInfo = memo((props: ArticleAdditionalInfoProps) =>
         createdAt,
         views,
         onEdit,
+        canEdit,
     } = props;
     const { t } = useTranslation();
 
@@ -34,7 +36,7 @@ export const ArticleAdditionalInfo = memo((props: ArticleAdditionalInfoProps) =>
                 <Text text={createdAt} />
             </HStack>
             <Text text={t('просмотров', { count: views })} />
-            <Button onClick={onEdit}>{t('Редактировать')}</Button>
+            {canEdit ?? <Button onClick={onEdit}>{t('Редактировать')}</Button>}
         </>
     );
     return (

@@ -8,6 +8,8 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import * as cls from './ArticleAdditionalContainer.module.scss';
 import { getRouteArticleEdit } from '@/shared/const/router';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
+import { selectCanEditArticle } from '../../model/selectors/selectCanEditArticle/selectCanEditArticle';
 
 interface AdditionalInfoContainerProps {
     className?: string;
@@ -19,6 +21,7 @@ export const AdditionalInfoContainer = memo((props: AdditionalInfoContainerProps
     } = props;
     const article = useSelectArticleDetailsData();
     const isLoading = useSelectArticleDetailsIsLoading();
+    const canEdit = useAppSelector(selectCanEditArticle);
 
     const navigate = useNavigate();
 
@@ -44,7 +47,7 @@ export const AdditionalInfoContainer = memo((props: AdditionalInfoContainerProps
     return (
         <Card padding="24" className={classNames(cls.card, {}, [className, cls[view]])} border="round">
             <ArticleAdditionalInfo
-                onEdit={onEdit} author={article.user} createdAt={article.createdAt}
+                onEdit={onEdit} canEdit={canEdit} author={article.user} createdAt={article.createdAt}
                 views={article.views}
             />
         </Card>

@@ -6,6 +6,7 @@ import { Text } from '@/shared/ui/redesigned/Text';
 import { ArticleImageBlock } from '../../model/types/article';
 import * as cls from './ArticleImageBlockComponent.module.scss';
 import { ToggleFeatures } from '@/shared/lib/features';
+import defaultImage from '@/shared/assets/stockImage/default-image.jpg';
 
 interface ArticleImageBlockComponentProps {
     className?: string;
@@ -15,6 +16,7 @@ interface ArticleImageBlockComponentProps {
 export const ArticleImageBlockComponent = memo(
     (props: ArticleImageBlockComponentProps) => {
         const { className, block } = props;
+
         return (
             <VStack
                 className={classNames(cls.ArticleImageBlockComponent, {}, [
@@ -22,7 +24,7 @@ export const ArticleImageBlockComponent = memo(
                 ])}
             >
                 <img
-                    src={block.src}
+                    src={block.src ? block.src : defaultImage}
                     alt={block.title}
                     style={{ maxWidth: '100%' }}
                 />

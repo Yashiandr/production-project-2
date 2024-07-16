@@ -17,7 +17,7 @@ import {
 import { fetchArticleById } from '../../../model/services/fetchArticleById';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { Text } from '@/shared/ui/redesigned/Text';
-import { renderBlock } from './renderBlock';
+import { renderBlock } from '../../helpers/renderBlock';
 import { AppImage } from '@/shared/ui/redesigned/AppImage';
 
 export const ArticleDetailsRedesigned = memo((props: ArticleDetailsProps) => {
