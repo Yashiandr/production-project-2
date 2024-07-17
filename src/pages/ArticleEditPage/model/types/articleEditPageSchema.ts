@@ -11,4 +11,5 @@ export interface ArticleEditPageSchema {
     isLoading?: boolean;
     error?: string;
     data: ArticleCreating;
+    editData: Article | undefined;
 }

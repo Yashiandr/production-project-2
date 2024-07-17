@@ -19,7 +19,6 @@ export const ArticleEditCodeBlock = memo(
 
         return (
             <TextareaInput
-                autofocus
                 wrap="hard"
                 className={className}
                 value={block.code}

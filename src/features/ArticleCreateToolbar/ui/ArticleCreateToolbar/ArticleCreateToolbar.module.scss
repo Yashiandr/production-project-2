@@ -1,0 +1,14 @@
+.addTypes {
+    text-align: center;
+}
+
+.addedAllTypes {
+    border: .125rem solid var(--cancel-redesigned);
+    border-radius: 2.125rem;
+    padding: .3125rem 1rem;
+    text-align: center;
+
+    p {
+        color: var(--cancel-redesigned);
+    }
+}

@@ -48,7 +48,7 @@ export const Modal = (props: ModalProps) => {
 
     return (
         <Portal element={document.getElementById('app') ?? document.body}>
-            <div className={classNames(cls.Modal, mods, [className, cls[direction],
+            <div className={classNames(cls.Modal, mods, [cls[direction],
                 toggleFeatures({
                     name: 'isAppRedesign',
                     on: () => cls.modalNew,
@@ -56,7 +56,7 @@ export const Modal = (props: ModalProps) => {
                 })])}
             >
                 <Overlay onClick={close} />
-                <div className={classNames(cls.content, {}, [cls[direction]])} onClick={onContentClick}>
+                <div className={classNames(cls.content, {}, [className, cls[direction]])} onClick={onContentClick}>
                     {children}
                 </div>
             </div>

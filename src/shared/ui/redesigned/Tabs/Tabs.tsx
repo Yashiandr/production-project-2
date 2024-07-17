@@ -13,7 +13,7 @@ export interface TabItem<T extends string> {
 interface TabsProps<T extends string> {
     className?: string;
     tabs: TabItem<T>[];
-    value: string;
+    value?: string;
     onTabClick: (tab: TabItem<T>) => void;
     direction?: FlexDirection;
 }

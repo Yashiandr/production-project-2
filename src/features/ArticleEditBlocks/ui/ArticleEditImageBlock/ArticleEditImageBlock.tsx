@@ -65,7 +65,6 @@ export const ArticleEditImageBlock = memo((props: ArticleEditImageBlockProps) =>
                 onChange={onChangeTitle}
                 readonly={readonly}
                 placeholder={t('Название картинки')}
-                autofocus
                 onBlur={onBlurTitle}
                 onFocus={onFocusTitle}
             />

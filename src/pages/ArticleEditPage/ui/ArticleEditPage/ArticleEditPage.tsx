@@ -22,7 +22,7 @@ const ArticleEditPage = (props: ArticleEditPage) => {
     const isEdit = Boolean(id);
 
     return (
-        <DynamicModuleLoader reducers={reducers}>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <ToggleFeatures
                 feature="isAppRedesign"
                 on={(

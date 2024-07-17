@@ -1,25 +1,32 @@
 import { useTranslation } from 'react-i18next';
-import { memo, useState } from 'react';
+import { memo } from 'react';
 import { isBrowser } from 'react-device-detect';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import * as cls from './ArticleCreateBlock.module.scss';
-import { HStack } from '@/shared/ui/redesigned/Stack';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { ArticleBlock, ArticleBlockType } from '@/entities/Article';
 import { Dropdown } from '@/shared/ui/redesigned/Popups';
-import { Text } from '@/shared/ui/redesigned/Text';
+import { Button } from '@/shared/ui/redesigned/Button';
 
 interface ArticleCreateBlockProps {
     className?: string;
     addBlock: (block: ArticleBlock) => void;
+    id: string;
+    last?: boolean;
+    text?: string;
+    withBorder?: boolean;
 }
 
 export const ArticleCreateBlock = memo((props: ArticleCreateBlockProps) => {
     const {
         className,
         addBlock,
+        id,
+        last,
+        text = '+',
+        withBorder,
     } = props;
     const { t } = useTranslation('articles-edit');
-    const [id, setId] = useState(2);
 
     const onCreateCodeBlock = () => {
         addBlock({
@@ -27,7 +34,6 @@ export const ArticleCreateBlock = memo((props: ArticleCreateBlockProps) => {
             code: '',
             id: String(id),
         });
-        setId((prevState) => prevState + 1);
     };
 
     const onCreateImageBlock = () => {
@@ -37,7 +43,6 @@ export const ArticleCreateBlock = memo((props: ArticleCreateBlockProps) => {
             id: String(id),
             title: '',
         });
-        setId((prevState) => prevState + 1);
     };
 
     const onCreateTextBlock = () => {
@@ -47,7 +52,6 @@ export const ArticleCreateBlock = memo((props: ArticleCreateBlockProps) => {
             title: '',
             id: String(id),
         });
-        setId((prevState) => prevState + 1);
     };
 
     const items = [
@@ -65,15 +69,22 @@ export const ArticleCreateBlock = memo((props: ArticleCreateBlockProps) => {
         },
     ];
 
+    const trigger = last
+        ? <VStack className={cls.addLastBtn} justify="center"> +</VStack>
+        : <Button variant={withBorder ? 'outline' : 'clear'}>{text}</Button>;
+
     return (
         <HStack
             max
             className={classNames(cls.ArticleCreateBlock, {}, [className])}
         >
             <Dropdown
-                trigger={<Text text="+" align="center" />}
-                direction={isBrowser ? 'bottom start' : 'top start'}
+                trigger={trigger}
+                direction={isBrowser ? 'top' : 'top start'}
+                gap={isBrowser ? -146 : 0}
                 items={items}
+                fullWidth={last}
+                className={last ? cls.lastBtnWrapper : undefined}
             />
         </HStack>
     );

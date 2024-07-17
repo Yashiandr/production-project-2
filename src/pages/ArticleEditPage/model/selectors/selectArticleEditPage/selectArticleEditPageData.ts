@@ -9,3 +9,9 @@ export const [
 export const [
     useSelectArticleEditPageSubtitle, selectArticleEditPageSubtitle,
 ] = buildSelector((state) => state.articleEditPage?.data?.subtitle);
+export const [
+    useSelectArticleEditPageImg, selectArticleEditPageImg,
+] = buildSelector((state) => state.articleEditPage?.data?.img);
+export const [
+    useSelectArticleEditTypes, selectArticleEditTypes,
+] = buildSelector((state) => state.articleEditPage?.data?.type);

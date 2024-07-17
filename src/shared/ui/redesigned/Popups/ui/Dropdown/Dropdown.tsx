@@ -5,6 +5,7 @@ import * as popupCls from '../../styles/popup.module.scss';
 import * as cls from './Dropdown.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
+import { Button, ButtonVariant } from '../../../Button';
 
 export interface DropdownItem {
     disabled?: boolean;
@@ -18,16 +19,19 @@ interface DropdownProps {
     items: DropdownItem[];
     trigger: ReactNode;
     direction?: DropdownDirection;
+    gap?: number | string;
+    fullWidth?: boolean;
+    variant?: ButtonVariant;
 }
 
 export function Dropdown(props: DropdownProps) {
-    const { className, items, trigger, direction = 'bottom' } = props;
+    const { className, items, trigger, direction = 'bottom', gap = 0, fullWidth, variant = 'clear' } = props;
     return (
         <Menu as="div" className={classNames(popupCls.popup, {}, [className])}>
-            <MenuButton as="div" className={popupCls.btn}>
+            <MenuButton as={Button} className={classNames(popupCls.btn, {}, [className])} variant={variant}>
                 {trigger}
             </MenuButton>
-            <MenuItems className={classNames(cls.menu, {}, [popupCls.menu])} anchor={direction}>
+            <MenuItems className={classNames(cls.menu, { [popupCls.fullWidth]: fullWidth }, [popupCls.menu])} anchor={{ to: direction, gap }}>
                 {items.map((item, index) => {
                     const content = ({ focus }: { focus: boolean }) => (
                         <button

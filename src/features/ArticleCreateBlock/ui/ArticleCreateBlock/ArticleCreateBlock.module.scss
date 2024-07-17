@@ -2,3 +2,25 @@
     margin: 0;
 }
 
+.lastBtnWrapper {
+    width: 100%;
+    height: 4rem;
+    margin-bottom: 5.125rem;
+
+    transition: height .2s ease-in-out, margin-bottom .2s ease-in-out;
+    &:hover {
+        height: 9.125rem;
+        margin-bottom: 0;
+    }
+}
+
+.addLastBtn {
+    width: 100%;
+    height: 100%;
+    border: .5rem dashed var(--hint-redesigned);
+    transition: border .2s ease;
+
+    &:hover {
+        border: .5rem dashed var(--accent-redesigned)
+    }
+}

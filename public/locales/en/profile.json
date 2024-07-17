@@ -21,12 +21,12 @@
   "Профиль не найдет": "Profile not found",
   "Оцените профиль": "Rate profile",
   "Оставьте свой отзыв о данном пользователе": "Please leave your feedback about this user",
-  "Имя": "Firstname:",
-  "Фамилия": "Lastname:",
-  "Возраст": "Age:",
-  "Город": "City:",
-  "Ссылка на аватар": "Link to avatar:",
-  "Юзернейм": "Username:",
+  "Имя": "Firstname",
+  "Фамилия": "Lastname",
+  "Возраст": "Age",
+  "Город": "City",
+  "Ссылка на аватар": "Link to avatar",
+  "Юзернейм": "Username",
   "Валюта": "Валюта",
   "Страна": "Страна"
 }
